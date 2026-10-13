@@ -30,7 +30,7 @@ bash install.sh && source ~/venv/bin/activate
 dsd-tuner serve
 ```
 
-On an H100, with a mixture-of-experts or tensor-parallel target, or to tune your own table: [docs/RUN.md](docs/RUN.md).
+On an H100 the catalog has tables for Qwen3-4B, Qwen3-30B-A3B (mixture of experts) and Qwen3-32B at tensor parallel 2, served the same way once vLLM's V2-runner nightly is installed: [docs/RUN.md](docs/RUN.md#h100-or-a-mixture-of-experts-target). To tune your own table: [docs/TUNING.md](docs/TUNING.md).
 
 ## Paper
 
@@ -41,7 +41,7 @@ Everything else is in the paper, [**docs/paper/paper.pdf**](docs/paper/paper.pdf
 | | |
 |---|---|
 | [`dsd_tuning/`](dsd_tuning/README.md) | The package: the [tuner](dsd_tuning/tuner/README.md) and the [controller](dsd_tuning/controller/README.md) (how it plugs into vLLM, its settings, why both) |
-| [`tables/`](tables/) | The table catalog `dsd-tuner serve` reads; to add one for another GPU, model or drafter: [CONTRIBUTING.md](CONTRIBUTING.md) |
+| [`tables/`](tables/) | The table catalog `dsd-tuner serve` reads (`dsd-tuner tables` lists it): Tesla T4, A10G and H100; to add one: [CONTRIBUTING.md](CONTRIBUTING.md) |
 | [`docs/`](docs/) | [Run it on a GPU](docs/RUN.md) · [tune another GPU or model](docs/TUNING.md) · [reproduce the paper](docs/REPRODUCE.md) · example prompts |
 | [`experiments/`](experiments/README.md) | How every number was measured: data, scripts, harness |
 | [`experiments/h100/`](experiments/h100/README.md) | The H100 studies in the paper: drivers, llm-d deployments, committed inputs, analysis and figure scripts |

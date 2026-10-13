@@ -276,8 +276,14 @@ def main(argv: list[str] | None = None) -> None:
     p.add_argument("--default", action="store_true", help="serve this table by default on a matching GPU")
     p.add_argument("--max-model-len", type=_ranged(int, 1), default=4096,
                    help="vllm serve --max-model-len for this table (default 4096)")
+    p.add_argument("--model-runner", choices=tables.RUNNERS, default="v1",
+                   help="the vLLM model runner it was tuned and measured on (default v1; v2 keeps full CUDA graphs per K)")
+    p.add_argument("--tensor-parallel-size", type=_ranged(int, 1), default=1,
+                   help="vllm serve --tensor-parallel-size (tune with DSD_TP set to the same value)")
+    p.add_argument("--vllm", help="the vLLM version or commit it was measured with, e.g. nightly-43b4aaea")
+    p.add_argument("--source", help="optional: where the table came from (a study folder or a link)")
     p.set_defaults(func=lambda a: print(
-        f"[dsd-tuner] added {tables.add(a.src, a.name, a.gpu, a.match, a.dtype, a.measured, a.contributor, a.default, a.max_model_len)}; "
+        f"[dsd-tuner] added {tables.add(a.src, a.name, a.gpu, a.match, a.dtype, a.measured, a.contributor, a.default, a.max_model_len, a.model_runner, a.tensor_parallel_size, a.vllm, a.source)}; "
         "next: git add it and open a pull request"))
 
     a = ap.parse_args(argv)

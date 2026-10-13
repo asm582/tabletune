@@ -38,7 +38,7 @@ curl -s localhost:8000/v1/completions -H "Content-Type: application/json" -d '{"
 
 ## H100, or a mixture-of-experts target
 
-`dsd-tuner serve` has catalog tables for the T4 and the A10G only, so on an H100 tune your own table (or start from the committed H100 profiles) and serve it with `vllm serve`. Use vLLM's V2 model runner: with the default V1 runner, any table falls back to piecewise CUDA graphs and loses 30–43% on the H100.
+The catalog has six H100 tables (`dsd-tuner tables`), all measured with vLLM's V2 model runner, which keeps full CUDA graphs for every draft length; with the default V1 runner any table falls back to piecewise CUDA graphs and loses 30–43% on the H100. `dsd-tuner serve` sets the runner from the table, but it needs a vLLM that has it: the nightly below.
 
 **Install** a separate environment with the vLLM nightly the H100 results used (`43b4aaea`, V2 runner); this needs [uv](https://docs.astral.sh/uv/), which `install.sh` also installs:
 
@@ -47,8 +47,20 @@ git clone https://github.com/asm582/tabletune.git && cd tabletune
 uv venv --python 3.12 ~/venv-v2 && source ~/venv-v2/bin/activate
 uv pip install --prerelease=allow --torch-backend=auto vllm --extra-index-url https://wheels.vllm.ai/43b4aaea3e40e20ef53ce2bfecfa1b72060bf2b5
 uv pip install -e .
-export VLLM_USE_V2_MODEL_RUNNER=1        # the tuner profiles, and vLLM serves, with the V2 runner
+export VLLM_USE_V2_MODEL_RUNNER=1        # the tuner profiles with the V2 runner (dsd-tuner serve sets it itself)
 ```
+
+**Serve** a catalog table with the controller:
+
+```bash
+dsd-tuner serve                               # Qwen3-4B + EAGLE-3 (h100-eagle3, picked on an H100)
+dsd-tuner serve h100-moe-eagle3               # Qwen3-30B-A3B, mixture of experts
+dsd-tuner serve h100-qwen3-32b-tp2-eagle3     # Qwen3-32B on two H100s (tensor parallel 2), 256 requests
+```
+
+The others: `h100-ngram`, `h100-dflash` and `h100-awq-eagle3` (4-bit target). Each table's `table.json` says what it was measured on and how well it did.
+
+To tune your own table instead (your prompts, another model, another GPU):
 
 **Tune** the mixture-of-experts target Qwen3-30B-A3B with its EAGLE-3 drafter (BF16 on one 80 GB H100; about 20 minutes of profiling plus model downloads). Use your own prompts, prompt length (`--isl`) and temperature if they differ:
 
@@ -58,11 +70,7 @@ dsd-tuner run --target Qwen/Qwen3-30B-A3B --drafter AngelSlim/Qwen3-a3B_eagle3 \
   --max-num-seqs 128 --dtype bfloat16 --out moe-tune
 ```
 
-On an H100 80 GB SXM you can skip profiling and rebuild the table from the paper's profile instead:
-`dsd-tuner schedule --costs 'experiments/results/tuner-moe-h100v2/costs_k*.json' --acceptance experiments/results/tuner-moe-h100v2/acceptance.json --max-num-seqs 128 --out moe-tune`
-(Qwen3-4B: `experiments/results/tuner-eagle-h100v2`).
-
-**Serve** the table with the controller (leave out the first line to serve the table alone; if you rebuilt the table from the committed profile, point `VLLM_DSD_COSTS` and `VLLM_DSD_PRIOR` at `experiments/results/tuner-moe-h100v2/` instead):
+**Serve** your table with the controller (leave out the first line to serve the table alone), or add it to the catalog with `dsd-tuner add-table --model-runner v2` ([CONTRIBUTING.md](../CONTRIBUTING.md)):
 
 ```bash
 export VLLM_DSD_CONTROLLER=1 VLLM_DSD_COSTS="moe-tune/costs_k*.json" VLLM_DSD_PRIOR=moe-tune/acceptance.json

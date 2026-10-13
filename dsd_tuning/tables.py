@@ -26,6 +26,9 @@ logger = logging.getLogger(__name__)
 REPO = Path(__file__).resolve().parent.parent
 REQUIRED = ("gpu", "gpu_match", "target", "method", "drafter", "num_speculative_tokens",
             "dtype", "max_num_seqs", "max_model_len", "measured", "contributor")
+# Optional fields: "model_runner" ("v1", the default, or "v2": vLLM's V2 model runner, which keeps full CUDA graphs
+# for every draft length), "tensor_parallel_size" (default 1), "vllm" (the vLLM it was measured with), "source".
+RUNNERS = ("v1", "v2")
 
 
 def tables_dir() -> Path:
@@ -81,6 +84,15 @@ def check(name: str, t: dict) -> list[str]:
         problems.append(f"schedule must cover batch sizes 1..{t['max_num_seqs']} once, in order")
     if missing := sorted(ks - set(costs)):
         problems.append(f"no costs_k*.json for K={missing} (the controller needs them)")
+    runner, tp = t.get("model_runner", "v1"), t.get("tensor_parallel_size", 1)
+    if runner not in RUNNERS:
+        problems.append(f"model_runner must be one of {RUNNERS}, not {runner!r}")
+    if not isinstance(tp, int) or isinstance(tp, bool) or tp < 1:
+        problems.append(f"tensor_parallel_size must be a positive integer, not {tp!r}")
+    order = [k for _, _, k in sorted(schedule)]
+    if runner == "v2" and any(a == 2 and b == 1 for a, b in zip(order, order[1:])):
+        problems.append("schedule steps from K=2 to K=1, which can stall vLLM's V2 model runner (nightly 43b4aaea); "
+                        "build it from the K=0, 1 and 3 profiles (dsd-tuner schedule --costs '.../costs_k[013].json')")
     if not problems:
         env = {"VLLM_DSD_CONTROLLER": "1", "VLLM_DSD_COSTS": str(p / "costs_k*.json"),
                "VLLM_DSD_PRIOR": str(p / "acceptance.json")}
@@ -134,7 +146,8 @@ def serve_command(name: str, controller: bool = True, port: int = 8000) -> tuple
     t = get(name)
     schedule = json.loads((t["path"] / "schedule.json").read_text())
     spec = speculative_config(schedule, t["drafter"], t["method"], k_max=t["num_speculative_tokens"])
-    env = {"VLLM_USE_V2_MODEL_RUNNER": "0"}        # Dynamic SD needs the V1 model runner
+    # V1 model runner unless the table was measured on the V2 runner (full CUDA graphs for every draft length)
+    env = {"VLLM_USE_V2_MODEL_RUNNER": "1" if t.get("model_runner", "v1") == "v2" else "0"}
     if controller:
         env |= {"VLLM_DSD_CONTROLLER": "1",
                 "VLLM_DSD_COSTS": str(t["path"] / "costs_k*.json"),
@@ -142,6 +155,8 @@ def serve_command(name: str, controller: bool = True, port: int = 8000) -> tuple
     argv = ["vllm", "serve", t["target"], "--dtype", t["dtype"],
             "--max-model-len", str(t["max_model_len"]), "--max-num-seqs", str(t["max_num_seqs"]),
             "--port", str(port), "--speculative-config", json.dumps(spec)]
+    if (tp := t.get("tensor_parallel_size", 1)) > 1:
+        argv += ["--tensor-parallel-size", str(tp)]
     return env, argv
 
 
@@ -150,6 +165,8 @@ def serve(name: str | None, controller: bool, port: int, dry_run: bool) -> None:
         name = detect()
         logger.info("table %s for this GPU", name)
     env, argv = serve_command(name, controller, port)
+    if vllm := get(name).get("vllm"):
+        logger.info("table %s was measured with vLLM %s (see docs/RUN.md)", name, vllm)
     shown = " ".join(f"{k}={shlex.quote(v)}" for k, v in env.items()) + " " + shlex.join(argv)
     if dry_run:
         print(shown)
@@ -169,7 +186,8 @@ def print_tables() -> None:
 
 
 def add(src: str, name: str, gpu: str, match: list[str], dtype: str, measured: str,
-        contributor: str, default: bool, max_model_len: int = 4096) -> Path:
+        contributor: str, default: bool, max_model_len: int = 4096, model_runner: str = "v1",
+        tensor_parallel_size: int = 1, vllm: str | None = None, source: str | None = None) -> Path:
     """Create tables/<name>/ from a `dsd-tuner run` output folder, if `tables --check` would pass."""
     src_path, dest = Path(src), tables_dir() / name
     if dest.exists():
@@ -186,6 +204,14 @@ def add(src: str, name: str, gpu: str, match: list[str], dtype: str, measured: s
              "dtype": dtype, "max_num_seqs": cost0["max_num_seqs"], "max_model_len": max_model_len,
              "measured": measured,
              "contributor": contributor}
+    if model_runner != "v1":
+        table["model_runner"] = model_runner
+    if tensor_parallel_size != 1:
+        table["tensor_parallel_size"] = tensor_parallel_size
+    if vllm:
+        table["vllm"] = vllm
+    if source:
+        table["source"] = source
     _check_before_adding(name, dict(table, path=src_path))
     dest.mkdir(parents=True)
     for f in [src_path / "schedule.json", src_path / "acceptance.json", *cost_files]:

@@ -1,0 +1,20 @@
+{
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "gpu_match": [
+    "H100"
+  ],
+  "default": false,
+  "target": "Qwen/Qwen3-32B",
+  "method": "eagle3",
+  "drafter": "AngelSlim/Qwen3-32B_eagle3",
+  "num_speculative_tokens": 3,
+  "dtype": "bfloat16",
+  "max_num_seqs": 256,
+  "max_model_len": 4096,
+  "measured": "llm-d, 2 replicas at TP=2, code, 256-1024 requests: +20-32% over fixed K=3, +7-25% over vLLM's documented table (3 runs)",
+  "contributor": "asm582",
+  "model_runner": "v2",
+  "tensor_parallel_size": 2,
+  "vllm": "nightly-43b4aaea",
+  "source": "experiments/results/tune-h100-32b-tp2-llmd-nightly-k013"
+}

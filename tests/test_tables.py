@@ -16,7 +16,10 @@ def test_table_serves_its_committed_schedule_and_the_controller_accepts_it(name)
     spec = json.loads(argv[argv.index("--speculative-config") + 1])
     p = tables.get(name)
     assert spec["num_speculative_tokens_per_batch_size"] == json.loads((p["path"] / "schedule.json").read_text())
-    assert argv[:3] == ["vllm", "serve", p["target"]] and env["VLLM_USE_V2_MODEL_RUNNER"] == "0"
+    assert argv[:3] == ["vllm", "serve", p["target"]]
+    assert env["VLLM_USE_V2_MODEL_RUNNER"] == ("1" if p.get("model_runner") == "v2" else "0")
+    tp = p.get("tensor_parallel_size", 1)
+    assert (argv[argv.index("--tensor-parallel-size") + 1] == str(tp)) if tp > 1 else "--tensor-parallel-size" not in argv
     lookup = expand(spec["num_speculative_tokens_per_batch_size"], p["max_num_seqs"])
     assert controller_from_env(lookup, spec["num_speculative_tokens"], env=env,
                                method=p["method"]) is not None
@@ -33,7 +36,8 @@ def test_unknown_table_is_a_one_line_error():
         cli.main(["serve", "nope", "--dry-run"])
 
 
-@pytest.mark.parametrize("gpu, want", [("Tesla T4", "t4-eagle3"), ("NVIDIA A10G", "a10g-eagle3")])
+@pytest.mark.parametrize("gpu, want", [("Tesla T4", "t4-eagle3"), ("NVIDIA A10G", "a10g-eagle3"),
+                                       ("NVIDIA H100 80GB HBM3", "h100-eagle3")])
 def test_serve_picks_the_preset_for_this_gpu(monkeypatch, gpu, want):
     monkeypatch.setattr(tables.subprocess, "run",
                         lambda *a, **k: type("R", (), {"stdout": gpu + "\n"})())
@@ -42,7 +46,7 @@ def test_serve_picks_the_preset_for_this_gpu(monkeypatch, gpu, want):
 
 def test_unknown_gpu_points_to_tuning(monkeypatch):
     monkeypatch.setattr(tables.subprocess, "run",
-                        lambda *a, **k: type("R", (), {"stdout": "NVIDIA H100\n"})())
+                        lambda *a, **k: type("R", (), {"stdout": "NVIDIA L4\n"})())
     with pytest.raises(ValueError, match="docs/TUNING.md"):
         tables.detect()
 
@@ -170,3 +174,30 @@ def test_serve_uses_the_tables_max_model_len(tmp_path, monkeypatch):
 def test_serve_runs_the_controller_by_default(capsys, flags, controller):
     cli.main(["serve", "t4-eagle3", "--dry-run", *flags])
     assert ("VLLM_DSD_CONTROLLER=1" in capsys.readouterr().out) == controller
+
+
+def test_h100_tables_serve_with_the_v2_runner_and_their_tensor_parallel_size():
+    env, argv = tables.serve_command("h100-qwen3-32b-tp2-eagle3", controller=False)
+    assert env == {"VLLM_USE_V2_MODEL_RUNNER": "1"}
+    assert argv[argv.index("--tensor-parallel-size") + 1] == "2" and argv[argv.index("--max-num-seqs") + 1] == "256"
+
+
+def test_check_refuses_a_v2_table_that_steps_from_2_to_1(tmp_path):
+    t = tables.get("h100-eagle3")
+    for f in t["path"].glob("*.json"):
+        (tmp_path / f.name).write_text(f.read_text())
+    (tmp_path / "schedule.json").write_text("[[1, 50, 3], [51, 90, 2], [91, 128, 1]]")
+    assert any("K=2 to K=1" in p for p in tables.check("h100-eagle3", dict(t, path=tmp_path)))
+    assert not any("K=2 to K=1" in p for p in tables.check("h100-eagle3", dict(t, path=tmp_path, model_runner="v1")))
+    bad = tables.check("h100-eagle3", dict(t, model_runner="v3", tensor_parallel_size=0))
+    assert any("model_runner" in p for p in bad) and any("tensor_parallel_size" in p for p in bad)
+
+
+def test_add_table_records_the_runner_and_tensor_parallel_size(tmp_path, monkeypatch):
+    monkeypatch.setenv("DSD_TABLES", str(tmp_path))
+    src = tables.REPO / "experiments/results/tune-h100-32b-tp2-llmd-nightly-k013"
+    cli.main(["add-table", "--from", str(src), "--name", "h100-tp2", "--gpu", "NVIDIA H100 80GB HBM3",
+              "--match", "H100", "--dtype", "bfloat16", "--measured", "m", "--contributor", "c",
+              "--model-runner", "v2", "--tensor-parallel-size", "2", "--vllm", "nightly-43b4aaea"])
+    t = json.loads((tmp_path / "h100-tp2/table.json").read_text())
+    assert (t["model_runner"], t["tensor_parallel_size"], t["vllm"], t["max_num_seqs"]) == ("v2", 2, "nightly-43b4aaea", 256)

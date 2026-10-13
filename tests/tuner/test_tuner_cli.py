@@ -99,8 +99,9 @@ def test_cli_and_script_build_the_committed_table(table, tmp_path):
     """Issue #21: `dsd-tuner schedule` and make_schedule.py must agree, on every catalog table."""
     from dsd_tuning.tuner.make_schedule import main as make_schedule
     t = REPO / "tables" / table
+    max_b = json.loads((t / "table.json").read_text())["max_num_seqs"]
     args = ["--costs", str(t / "costs_k*.json"), "--acceptance", str(t / "acceptance.json"),
-            "--max-num-seqs", "128"]
+            "--max-num-seqs", str(max_b)]
     cli.main(["schedule", *args, "--out", str(tmp_path / "cli")])
     make_schedule([*args, "--out", str(tmp_path / "script")])
     committed = json.loads((t / "schedule.json").read_text())

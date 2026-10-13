@@ -1,6 +1,6 @@
 # Tune for another GPU or model
 
-The [table catalog](../tables/) covers Qwen3-4B on a Tesla T4 and an A10G. For anything else, measure your own table. On an H100, or for a mixture-of-experts or tensor-parallel target, use vLLM's V2 runner: [Run it on an H100](RUN.md#h100-or-a-mixture-of-experts-target) has the install, tune and serve commands. Start from an install done with [`install.sh`](../install.sh), in the repository folder, with `source ~/venv/bin/activate`.
+The [table catalog](../tables/) covers Qwen3-4B on a Tesla T4 and an A10G, and Qwen3-4B, Qwen3-30B-A3B (mixture of experts) and Qwen3-32B on an H100. For anything else, measure your own table. On an H100, or for a mixture-of-experts or tensor-parallel target, use vLLM's V2 runner: [Run it on an H100](RUN.md#h100-or-a-mixture-of-experts-target) has the install, tune and serve commands. Start from an install done with [`install.sh`](../install.sh), in the repository folder, with `source ~/venv/bin/activate`.
 
 **1. Tune (~45 min on a T4).** Measures step time for each batch size and draft length on this GPU, and how often the drafter's guesses are accepted on your prompts (JSONL, one `{"prompt": ...}` per line; [examples](examples/README.md)).
 
