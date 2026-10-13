@@ -1,0 +1,19 @@
+{
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "gpu_match": [
+    "H100"
+  ],
+  "default": true,
+  "target": "Qwen/Qwen3-4B",
+  "method": "eagle3",
+  "drafter": "AngelSlim/Qwen3-4B_eagle3",
+  "num_speculative_tokens": 3,
+  "dtype": "bfloat16",
+  "max_num_seqs": 128,
+  "max_model_len": 4096,
+  "measured": "code, 1-128 requests: within 4.0% of the best fixed K (3 runs)",
+  "contributor": "asm582",
+  "model_runner": "v2",
+  "vllm": "nightly-43b4aaea",
+  "source": "experiments/results/tuner-eagle-h100v2"
+}

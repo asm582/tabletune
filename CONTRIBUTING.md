@@ -14,15 +14,15 @@ To add yours:
 **2. Add it to the catalog.** This copies the files into `tables/<name>/`, writes `table.json`, and runs the same checks as CI.
 
 ```bash
-dsd-tuner add-table --from my-tune --name h100-qwen3-4b-eagle3 --gpu "NVIDIA H100 80GB HBM3" --match H100 --dtype bfloat16 --measured "code, 1-128 requests: +9% over the best fixed K at 128" --contributor your-github-handle
+dsd-tuner add-table --from my-tune --name l4-qwen3-8b-eagle3 --gpu "NVIDIA L4" --match L4 --dtype bfloat16 --measured "code, 1-128 requests: within 3% of the best fixed K" --contributor your-github-handle
 ```
 
-Add `--default` to serve it automatically on a matching GPU (one default per GPU), and `--max-model-len` if 4096 doesn't fit your use.
+Add `--default` to serve it automatically on a matching GPU (one default per GPU), and `--max-model-len` if 4096 doesn't fit your use. If you tuned and measured it on vLLM's V2 model runner (as the H100 tables are), add `--model-runner v2` and `--vllm <version>`; for a target served across several GPUs, `--tensor-parallel-size N` (tune with `DSD_TP=N`).
 
 **3. Try it.**
 
 ```bash
-dsd-tuner serve h100-qwen3-4b-eagle3
+dsd-tuner serve l4-qwen3-8b-eagle3
 ```
 
 **4. Open a pull request** with the new `tables/<name>/` folder. Put the benchmark behind your `--measured` line in the description (for example the summary from step 4 of [docs/TUNING.md](docs/TUNING.md)).
@@ -33,6 +33,7 @@ dsd-tuner serve h100-qwen3-4b-eagle3
 - `schedule.json` covers batch sizes 1 to `max_num_seqs` exactly once, and never uses a K above `num_speculative_tokens`.
 - There is a `costs_k<K>.json` for every K the schedule uses, and the in-engine controller accepts the costs and acceptance.
 - At most one default table per GPU.
+- A table with `"model_runner": "v2"` never steps from K=2 to K=1, which can stall vLLM's V2 runner at nightly `43b4aaea` (build it from the K=0, 1 and 3 profiles instead).
 
 ## `table.json`
 
@@ -48,6 +49,9 @@ dsd-tuner serve h100-qwen3-4b-eagle3
 | `measured` | one line | Workload and result |
 | `contributor` | GitHub handle | Who measured it |
 | `source` | `experiments/results/tuner-v3-code` | Optional: where the table came from (a study folder or a link) |
+| `model_runner` | `v2` | Optional, default `v1`: the vLLM model runner it was tuned and measured on; `dsd-tuner serve` sets `VLLM_USE_V2_MODEL_RUNNER` from it |
+| `tensor_parallel_size` | `2` | Optional, default 1: `vllm serve --tensor-parallel-size` |
+| `vllm` | `nightly-43b4aaea` | Optional: the vLLM it was measured with (logged when serving) |
 
 ## Releasing (maintainers)
 
