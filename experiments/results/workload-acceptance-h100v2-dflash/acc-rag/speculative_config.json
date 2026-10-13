@@ -1,0 +1,27 @@
+{
+  "method": "dflash",
+  "model": "z-lab/Qwen3-4B-DFlash-b16",
+  "num_speculative_tokens": 8,
+  "num_speculative_tokens_per_batch_size": [
+    [
+      1,
+      20,
+      8
+    ],
+    [
+      21,
+      29,
+      6
+    ],
+    [
+      30,
+      77,
+      4
+    ],
+    [
+      78,
+      128,
+      2
+    ]
+  ]
+}

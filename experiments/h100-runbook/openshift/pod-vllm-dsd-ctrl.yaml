@@ -1,0 +1,43 @@
+# pokprod cluster variant of pod.yaml: the internal image registry is disabled there, so instead of
+# the dsd-bench build this runs the Dockerfile's base image as root (anyuid SCC) and installs the
+# same apt packages at start. Ready once /tmp/apt-done exists.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dsd-ctrl
+  labels: {app: dsd-h100}
+spec:
+  restartPolicy: Never
+  nodeSelector:
+    nvidia.com/gpu.product: NVIDIA-H100-80GB-HBM3
+    # kubernetes.io/hostname: <node>     # optional: pin a node (the paper used one idle node per study)
+  tolerations:
+    - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
+  containers:
+    - name: bench
+      image: nvcr.io/nvidia/cuda:12.8.1-devel-ubuntu24.04
+      securityContext: {runAsUser: 0}
+      command: ["bash", "-c"]
+      args:
+        - |
+          apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+            git curl ca-certificates build-essential procps util-linux tmux less jq \
+          && touch /tmp/apt-done; sleep infinity
+      readinessProbe:
+        exec: {command: ["test", "-f", "/tmp/apt-done"]}
+        periodSeconds: 10
+      env:
+        - {name: HOME, value: /work}
+        - name: NODE_NAME
+          valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
+      resources:
+        requests: {cpu: "16", memory: 128Gi, nvidia.com/gpu: 1}
+        limits:   {cpu: "16", memory: 128Gi, nvidia.com/gpu: 1}
+      volumeMounts:
+        - {name: work, mountPath: /work}
+        - {name: shm, mountPath: /dev/shm}
+  volumes:
+    - name: work
+      persistentVolumeClaim: {claimName: dsd-work}
+    - name: shm
+      emptyDir: {medium: Memory, sizeLimit: 32Gi}

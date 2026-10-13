@@ -1,0 +1,41 @@
+{
+  "target": "Qwen/Qwen3-4B",
+  "method": "eagle3",
+  "drafter": "AngelSlim/Qwen3-4B_eagle3",
+  "k_max": 3,
+  "max_tokens": 256,
+  "isl_avg": 140.2,
+  "osl_avg": 251.8,
+  "decode_steps": 17529,
+  "proposal_rate": 1.0088,
+  "accept_by_pos_per_step": [
+    0.6679,
+    0.4113,
+    0.2096
+  ],
+  "tokens_per_step_by_k_per_step": {
+    "0": 1,
+    "1": 1.668,
+    "2": 2.079,
+    "3": 2.289
+  },
+  "temperature": 0.0,
+  "calibration_prompts": 160,
+  "drafts": 17683,
+  "accepted_per_pos": [
+    11707,
+    7210,
+    3674
+  ],
+  "accept_by_pos": [
+    0.662,
+    0.4077,
+    0.2078
+  ],
+  "tokens_per_step_by_k": {
+    "0": 1,
+    "1": 1.662,
+    "2": 2.07,
+    "3": 2.277
+  }
+}

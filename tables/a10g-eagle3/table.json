@@ -1,0 +1,18 @@
+{
+  "gpu": "A10G",
+  "gpu_match": [
+    "A10G"
+  ],
+  "default": true,
+  "target": "Qwen/Qwen3-4B",
+  "method": "eagle3",
+  "drafter": "AngelSlim/Qwen3-4B_eagle3",
+  "num_speculative_tokens": 3,
+  "dtype": "bfloat16",
+  "max_num_seqs": 128,
+  "max_model_len": 4096,
+  "workload": "code",
+  "measured": "code: up to +14.5% over the best fixed K at 128 requests (3 runs)",
+  "contributor": "vllm-perf",
+  "source": "experiments/results/tuner-eagle-a10g"
+}

@@ -1,0 +1,62 @@
+# Builds the paper on every pull request and push to main: regenerates the figures from the committed data (to check
+# that the analysis scripts run), compiles docs/paper/paper.tex with the committed figures, checks that the committed
+# docs/paper/paper.pdf is in sync with its sources, and uploads the fresh PDF.
+name: Paper
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: paper-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  paper:
+    name: Figures and PDF
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Figures and analyses rebuild from the committed data
+        run: |
+          python -m pip install --quiet matplotlib==3.10.8   # the version the paper's figures were drawn with
+          mkdir -p /tmp/figs
+          for f in figs_paper figs_baselines figs_llmd; do FIG_OUT=/tmp/figs python experiments/h100/analysis/$f.py; done
+          for a in baselines.py moe.py credib.py compare_gpus.py "llmd.py qwen3-32b" "shift.py res-h100v2m013"; do
+            python experiments/h100/analysis/$a > /dev/null
+          done
+      - name: Install Tectonic 0.17.0 (the version docs/paper/paper.pdf is built with)
+        run: |
+          curl -fsSL "https://github.com/tectonic-typesetting/tectonic/releases/download/tectonic%400.17.0/tectonic-0.17.0-x86_64-unknown-linux-gnu.tar.gz" | tar xz
+          sudo mv tectonic /usr/local/bin/ && tectonic --version
+      - name: Compile the paper
+        run: mkdir -p /tmp/fresh && bash docs/paper/build.sh --outdir /tmp/fresh
+      - name: The committed docs/paper/paper.pdf matches its sources
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils > /dev/null
+          fix="rebuild with 'bash docs/paper/build.sh' and commit docs/paper/paper.pdf"
+          if ! cmp -s <(pdftotext -layout docs/paper/paper.pdf - ) <(pdftotext -layout /tmp/fresh/paper.pdf - ); then
+            diff <(pdftotext docs/paper/paper.pdf - ) <(pdftotext /tmp/fresh/paper.pdf - ) | head -40
+            echo "::error file=docs/paper/paper.pdf::docs/paper/paper.pdf is out of date with docs/paper/paper.tex; $fix"; exit 1
+          fi
+          if [ "${{ github.event_name }}" = pull_request ]; then   # figures change the PDF without changing its text
+            base=${{ github.event.pull_request.base.sha }}
+            src=$(git diff --name-only "$base" HEAD -- docs/paper/paper.tex docs/paper/paper.bib docs/paper/build docs/paper/*.sty docs/paper/*.bst)
+            if [ -n "$src" ] && git diff --quiet "$base" HEAD -- docs/paper/paper.pdf; then
+              echo "$src"; echo "::error file=docs/paper/paper.pdf::the paper's sources changed but docs/paper/paper.pdf did not; $fix"; exit 1
+            fi
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: paper
+          path: /tmp/fresh/paper.pdf

@@ -1,0 +1,4 @@
+Dynamic SD controller enabled: hysteresis=4, refit=every 500 steps, allowed K=[1, 2, 3]
+Dynamic SD controller: new table [[1, 3, 3], [4, 5, 2], [6, 18, 3], [19, 43, 2], [44, 128, 1]] (acceptance by position [0.605, 0.327, 0.15])
+Dynamic SD controller: new table [[1, 18, 3], [19, 43, 2], [44, 128, 1]] (acceptance by position [0.625, 0.349, 0.16])
+Dynamic SD controller: {'steps': 2000, 'switches': 9, 'held': 71, 'refits': 4, 'table_changes': 2}

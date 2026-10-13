@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nightjar-style"
+version = "0.1.0"
+description = "Nightjar-style bandit draft-length control for vLLM Dynamic SD (baseline reimplementation)"
+requires-python = ">=3.10"
+dependencies = []
+
+# vLLM loads this in every process; a no-op unless VLLM_NJ_CONTROLLER=1.
+[project.entry-points."vllm.general_plugins"]
+nightjar_style = "nightjar_style.vllm_plugin:register"
+
+[tool.setuptools]
+packages = ["nightjar_style"]

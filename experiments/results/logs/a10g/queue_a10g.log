@@ -1,0 +1,53 @@
+=== EAGLE-3 on the A10G (16:41:35) ===
+=== costs K=2 (16:52:26) ===
+=== costs K=3 (16:59:17) ===
+=== schedule (17:04:54) ===
+[tuner] tokens/step by K: {0: 1, 1: 1.612, 2: 1.955, 3: 2.114}
+[tuner] raw argmax schedule: [[1, 3, 3], [4, 4, 2], [5, 14, 3], [15, 59, 2], [60, 73, 1], [74, 80, 2], [81, 90, 1], [91, 128, 0]]
+[tuner] schedule: [[1, 16, 3], [17, 60, 2], [61, 91, 1], [92, 128, 0]]
+[tuner] wrote results/tuner-eagle-a10g/schedule.json and results/tuner-eagle-a10g/goodput.csv
+[tuner] predicted loss of each fixed K vs. the best K at each batch size:
+=== sweep (17:04:54) ===
+=== nospec (17:04:54) ===
+=== k1 (17:19:47) ===
+=== k2 (17:33:57) ===
+=== k3 (17:47:58) ===
+=== eagle-tuned (18:00:34) ===
+=== dsd-tuned-v3 (18:14:09) ===
+=== all done (18:28:12) ===
+=== controller on: untuned docs tables, this GPU's costs, spec-bench prior (18:31:08) ===
+=== dsd-docs (18:31:08) ===
+=== dsd-rescaled (18:40:52) ===
+=== all done (18:48:52) ===
+=== controller off: untuned docs tables (18:51:06) ===
+=== dsd-docs (18:51:06) ===
+=== dsd-rescaled (18:59:04) ===
+=== all done (19:06:58) ===
+=== EAGLE-3 pipeline on a10g done (19:09:06) ===
+=== DFlash on the A10G (19:09:06) ===
+=== costs K=1 (19:18:25) ===
+=== costs K=2 (19:23:08) ===
+=== costs K=3 (19:30:30) ===
+=== costs K=4 (19:36:36) ===
+=== costs K=6 (19:45:19) ===
+=== costs K=8 (19:55:26) ===
+=== schedule (20:06:50) ===
+[tuner] tokens/step by K: {0: 1, 1: 1.7, 2: 2.167, 3: 2.49, 4: 2.718, 5: 2.881, 6: 3.001, 7: 3.086, 8: 3.148}
+[tuner] raw argmax schedule: [[1, 7, 8], [8, 9, 6], [10, 12, 4], [13, 13, 6], [14, 16, 3], [17, 27, 4], [28, 46, 3], [47, 48, 4], [49, 52, 3], [53, 57, 2], [58, 65, 3], [66, 81, 2], [82, 93, 1], [94, 128, 0]]
+[tuner] schedule: [[1, 7, 8], [8, 9, 6], [10, 12, 4], [13, 17, 3], [18, 28, 4], [29, 65, 3], [66, 94, 1], [95, 128, 0]]
+[tuner] wrote results/dflash-tuner-a10g/schedule.json and results/dflash-tuner-a10g/goodput.csv
+[tuner] predicted loss of each fixed K vs. the best K at each batch size:
+=== sweep (20:06:50) ===
+=== dflash-k1 (20:06:50) ===
+=== dflash-k3 (20:21:11) ===
+=== dflash-k8 (20:33:36) ===
+=== dflash-tuned (20:49:18) ===
+=== all done (21:03:05) ===
+=== controller (a): EAGLE's v3 table, DFlash costs and prior (21:05:49) ===
+=== dflash-v3table (21:05:49) ===
+=== all done (21:15:35) ===
+=== controller (b): EAGLE's v3 table, controller off (21:17:54) ===
+=== dflash-v3table (21:17:54) ===
+=== all done (21:25:57) ===
+=== DFlash pipeline done (21:28:21) ===
+=== A10G QUEUE DONE (21:28:21) ===

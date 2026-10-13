@@ -1,0 +1,352 @@
+{
+  "target": "Qwen/Qwen3-4B",
+  "method": "ngram",
+  "drafter": "ngram 2-4",
+  "k_max": 5,
+  "isl": 151,
+  "max_num_seqs": 128,
+  "n_decode": 64,
+  "rows": [
+    {
+      "batch_size": 1,
+      "k": 0,
+      "step_ms": 5.572,
+      "samples_ms": [
+        5.6,
+        5.572,
+        5.557
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 2,
+      "k": 0,
+      "step_ms": 5.637,
+      "samples_ms": [
+        5.609,
+        5.741,
+        5.637
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 3,
+      "k": 0,
+      "step_ms": 5.696,
+      "samples_ms": [
+        5.709,
+        5.683,
+        5.696
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 4,
+      "k": 0,
+      "step_ms": 5.688,
+      "samples_ms": [
+        5.633,
+        5.737,
+        5.688
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 5,
+      "k": 0,
+      "step_ms": 5.773,
+      "samples_ms": [
+        5.773,
+        5.78,
+        5.768
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 6,
+      "k": 0,
+      "step_ms": 5.776,
+      "samples_ms": [
+        5.655,
+        5.776,
+        5.795
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 7,
+      "k": 0,
+      "step_ms": 5.821,
+      "samples_ms": [
+        5.786,
+        5.84,
+        5.821
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 8,
+      "k": 0,
+      "step_ms": 5.804,
+      "samples_ms": [
+        5.705,
+        5.811,
+        5.804
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 9,
+      "k": 0,
+      "step_ms": 5.868,
+      "samples_ms": [
+        5.836,
+        5.868,
+        5.882
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 10,
+      "k": 0,
+      "step_ms": 5.889,
+      "samples_ms": [
+        5.864,
+        5.903,
+        5.889
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 11,
+      "k": 0,
+      "step_ms": 5.958,
+      "samples_ms": [
+        5.872,
+        6.013,
+        5.958
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 12,
+      "k": 0,
+      "step_ms": 5.939,
+      "samples_ms": [
+        5.938,
+        5.939,
+        5.972
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 13,
+      "k": 0,
+      "step_ms": 5.956,
+      "samples_ms": [
+        5.938,
+        5.977,
+        5.956
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 14,
+      "k": 0,
+      "step_ms": 6.043,
+      "samples_ms": [
+        6.043,
+        6.145,
+        5.975
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 15,
+      "k": 0,
+      "step_ms": 6.041,
+      "samples_ms": [
+        6.041,
+        6.059,
+        5.986
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 16,
+      "k": 0,
+      "step_ms": 6.004,
+      "samples_ms": [
+        6.004,
+        6.001,
+        6.031
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 20,
+      "k": 0,
+      "step_ms": 6.37,
+      "samples_ms": [
+        6.361,
+        6.37,
+        6.431
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 24,
+      "k": 0,
+      "step_ms": 6.472,
+      "samples_ms": [
+        6.466,
+        6.472,
+        6.481
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 32,
+      "k": 0,
+      "step_ms": 6.665,
+      "samples_ms": [
+        6.665,
+        6.657,
+        6.67
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 40,
+      "k": 0,
+      "step_ms": 6.978,
+      "samples_ms": [
+        6.978,
+        6.975,
+        7.005
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 48,
+      "k": 0,
+      "step_ms": 7.14,
+      "samples_ms": [
+        7.151,
+        7.14,
+        7.12
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 56,
+      "k": 0,
+      "step_ms": 7.183,
+      "samples_ms": [
+        7.25,
+        7.153,
+        7.183
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 64,
+      "k": 0,
+      "step_ms": 7.314,
+      "samples_ms": [
+        7.276,
+        7.446,
+        7.314
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 72,
+      "k": 0,
+      "step_ms": 7.883,
+      "samples_ms": [
+        7.883,
+        7.875,
+        7.884
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 80,
+      "k": 0,
+      "step_ms": 7.91,
+      "samples_ms": [
+        7.519,
+        7.97,
+        7.91
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 88,
+      "k": 0,
+      "step_ms": 8.154,
+      "samples_ms": [
+        8.154,
+        8.148,
+        8.208
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 96,
+      "k": 0,
+      "step_ms": 8.392,
+      "samples_ms": [
+        8.416,
+        8.392,
+        8.34
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 104,
+      "k": 0,
+      "step_ms": 8.429,
+      "samples_ms": [
+        8.429,
+        8.33,
+        8.502
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 112,
+      "k": 0,
+      "step_ms": 8.843,
+      "samples_ms": [
+        8.843,
+        8.858,
+        8.823
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 120,
+      "k": 0,
+      "step_ms": 9.088,
+      "samples_ms": [
+        9.088,
+        9.024,
+        9.323
+      ],
+      "drafted_per_step": 0.0
+    },
+    {
+      "batch_size": 128,
+      "k": 0,
+      "step_ms": 9.252,
+      "samples_ms": [
+        9.124,
+        9.31,
+        9.252
+      ],
+      "drafted_per_step": 0.0
+    }
+  ]
+}

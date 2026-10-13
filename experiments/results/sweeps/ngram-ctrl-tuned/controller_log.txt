@@ -1,0 +1,4 @@
+Dynamic SD controller enabled: hysteresis=4, refit=every 200 steps, allowed K=[3, 4, 5], tracking proposal rate
+Dynamic SD controller: {'steps': 1000, 'switches': 0, 'held': 72, 'refits': 5, 'table_changes': 0}
+Dynamic SD controller: {'steps': 2000, 'switches': 6, 'held': 192, 'refits': 10, 'table_changes': 0}
+Dynamic SD controller: {'steps': 3000, 'switches': 11, 'held': 221, 'refits': 15, 'table_changes': 0}

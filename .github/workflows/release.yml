@@ -1,0 +1,58 @@
+# Builds the release files when a version tag (v*) is pushed: the wheel, the
+# source archive and their SHA-256 checksums, attached to the GitHub release.
+# The tag must match the version in pyproject.toml.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing tag to build, e.g. v0.0.1"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build and attach release files
+    runs-on: ubuntu-latest
+    env:
+      TAG: ${{ github.event.inputs.tag || github.ref_name }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Tag matches the package version
+        run: |
+          version=$(python -c "import tomllib; print(tomllib.load(open('pyproject.toml','rb'))['project']['version'])")
+          if [ "v$version" != "$TAG" ]; then
+            echo "::error::tag $TAG does not match pyproject.toml version $version"; exit 1
+          fi
+      - name: Tests
+        run: |
+          python -m pip install --quiet -e ".[dev]"
+          python -m pytest -q
+          dsd-tuner tables --check
+      - name: Build the wheel and source archive
+        run: |
+          rm -rf dist
+          python -m build
+          (cd dist && sha256sum * > SHA256SUMS)
+          ls -l dist && cat dist/SHA256SUMS
+      - name: Check the built wheel installs, reports its version and imports the plugin
+        run: |
+          python -m venv /tmp/wheel-check
+          /tmp/wheel-check/bin/pip install --quiet dist/*.whl
+          /tmp/wheel-check/bin/dsd-tuner --version
+          /tmp/wheel-check/bin/python -c "import dsd_tuning.controller.vllm_plugin"
+      - name: Attach to the GitHub release (created with generated notes if missing)
+        run: |
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --verify-tag --title "$TAG" --generate-notes
+          gh release upload "$TAG" dist/* --clobber

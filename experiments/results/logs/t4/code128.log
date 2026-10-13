@@ -1,0 +1,22 @@
+=== nospec (03:07:14) ===
+[launch] nospec: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0
+[launch] nospec ready
+[sweep] c=64 requests=256 -> results/sweeps/code128-t4/nospec/c64
+[sweep] c=96 requests=384 -> results/sweeps/code128-t4/nospec/c96
+[sweep] c=128 requests=512 -> results/sweeps/code128-t4/nospec/c128
+[sweep] done: results/sweeps/code128-t4/nospec
+=== k1 (03:18:59) ===
+[launch] k1: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 1}
+[launch] k1 ready
+[sweep] c=64 requests=256 -> results/sweeps/code128-t4/k1/c64
+[sweep] c=96 requests=384 -> results/sweeps/code128-t4/k1/c96
+[sweep] c=128 requests=512 -> results/sweeps/code128-t4/k1/c128
+[sweep] done: results/sweeps/code128-t4/k1
+=== k2 (03:30:01) ===
+[launch] k2: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 2}
+[launch] k2 ready
+[sweep] c=64 requests=256 -> results/sweeps/code128-t4/k2/c64
+[sweep] c=96 requests=384 -> results/sweeps/code128-t4/k2/c96
+[sweep] c=128 requests=512 -> results/sweeps/code128-t4/k2/c128
+[sweep] done: results/sweeps/code128-t4/k2
+=== all done (03:41:45) ===

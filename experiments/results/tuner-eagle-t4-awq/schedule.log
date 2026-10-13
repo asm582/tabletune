@@ -1,0 +1,10 @@
+[tuner] tokens/step by K: {0: 1, 1: 1.59, 2: 1.915, 3: 2.065}
+[tuner] raw argmax schedule: [[1, 4, 3], [5, 5, 2], [6, 8, 1], [9, 10, 2], [11, 46, 1], [47, 49, 0], [50, 128, 1]]
+[tuner] schedule: [[1, 4, 3], [5, 128, 1]]
+[tuner] wrote results/tuner-eagle-t4-awq/schedule.json and results/tuner-eagle-t4-awq/goodput.csv
+
+[tuner] predicted loss of each fixed K vs. the best K at each batch size:
+  K=0: worst 47.7% at B=  2, average 12.2%
+  K=1: worst 14.9% at B=  3, average  0.6%
+  K=2: worst 20.0% at B= 24, average 11.1%
+  K=3: worst 27.3% at B=128, average 20.2%

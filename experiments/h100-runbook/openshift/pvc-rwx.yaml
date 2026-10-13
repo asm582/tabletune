@@ -1,0 +1,13 @@
+# Shared volume for parallel runs: every pod mounts the same /work (setup and model downloads
+# happen once). Needs a ReadWriteMany storage class, e.g. CephFS on OpenShift Data Foundation:
+#   oc get storageclass      (look for one whose provisioner supports RWX, such as *cephfs*)
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dsd-work
+spec:
+  accessModes: ["ReadWriteMany"]
+  resources:
+    requests:
+      storage: 200Gi
+  storageClassName: ocs-storagecluster-cephfs     # change to your RWX class

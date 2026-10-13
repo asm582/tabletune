@@ -1,0 +1,33 @@
+=== A: debug counters, n-gram tuned v2 + calibrated prior (02:12:40) ===
+=== ngram-tuned-v2 (02:12:40) ===
+[launch] ngram-tuned-v2: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "ngram", "prompt_lookup_min": 2, "prompt_lookup_max": 4, "num_speculative_tokens": 5, "num_speculative_tokens_per_batch_size": [[1, 2, 5], [3, 3, 4], [4, 20, 5], [21, 128, 3]]}
+[launch] ngram-tuned-v2 ready
+[sweep] c=4 requests=16 -> results/sweeps/ngram-ctrl-debug/ngram-tuned-v2/c4
+[sweep] c=16 requests=64 -> results/sweeps/ngram-ctrl-debug/ngram-tuned-v2/c16
+[sweep] done: results/sweeps/ngram-ctrl-debug/ngram-tuned-v2
+=== all done (02:15:15) ===
+[track] ngram-ctrl-debug: logged 2, skipped 0 (already in MLflow)
+[track] done: 2 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 285 points
+=== B1: EAGLE-3 + any K, greedy vs. no spec (02:16:14) ===
+=== B1: n-gram + any K, greedy vs. no spec (02:17:19) ===
+dsd        greedy match vs nospec: batched 8/8, single 3/3 | 55.4 tok/s (nospec 39.9)
+dsd_anyk   greedy match vs nospec: batched 8/8, single 3/3 | 87.0 tok/s (nospec 39.9)
+ngram-dsd  greedy match vs nospec: batched 8/8, single 3/3 | 41.1 tok/s (nospec 39.9)
+ngram-dsd_anyk greedy match vs nospec: batched 8/8, single 3/3 | 49.9 tok/s (nospec 39.9)
+Dynamic SD controller enabled: hysteresis=2, refit=every 20 steps, allowed K=[0, 1, 2, 3]
+Dynamic SD controller: new table [[1, 18, 3], [19, 43, 2], [44, 64, 1]] (acceptance by position [0.603, 0.339, 0.158])
+Dynamic SD controller enabled: hysteresis=2, refit=every 20 steps, allowed K=[0, 1, 2, 3], tracking proposal rate
+Dynamic SD controller: new table [[1, 64, 3]] (acceptance by position [0.786, 0.709, 0.658], proposal rate 0.465)
+=== B2: EAGLE-3 docs table + controller + any K (02:18:27) ===
+=== dsd-docs (02:18:27) ===
+[launch] dsd-docs: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 64, 3], [65, 128, 1], [129, 512, 0]]}
+[launch] dsd-docs ready
+[sweep] c=16 requests=64 -> results/sweeps/ctrlval-anyk/dsd-docs/c16
+[sweep] c=32 requests=128 -> results/sweeps/ctrlval-anyk/dsd-docs/c32
+[sweep] c=40 requests=160 -> results/sweeps/ctrlval-anyk/dsd-docs/c40
+[sweep] c=64 requests=256 -> results/sweeps/ctrlval-anyk/dsd-docs/c64
+[sweep] done: results/sweeps/ctrlval-anyk/dsd-docs
+=== all done (02:26:13) ===
+[track] ctrlval-anyk: logged 4, skipped 0 (already in MLflow)
+[track] done: 4 points logged to experiment 'vllm-perf-dsd'

@@ -1,0 +1,40 @@
+{
+  "target": "Qwen/Qwen3-4B",
+  "drafter": "AngelSlim/Qwen3-4B_eagle3",
+  "k_max": 1,
+  "isl": 32,
+  "max_num_seqs": 16,
+  "n_decode": 64,
+  "rows": [
+    {
+      "batch_size": 1,
+      "k": 0,
+      "step_ms": 35.664,
+      "samples_ms": [
+        55.914,
+        35.656,
+        35.664
+      ]
+    },
+    {
+      "batch_size": 8,
+      "k": 0,
+      "step_ms": 40.611,
+      "samples_ms": [
+        40.659,
+        40.6,
+        40.611
+      ]
+    },
+    {
+      "batch_size": 16,
+      "k": 0,
+      "step_ms": 44.386,
+      "samples_ms": [
+        72.114,
+        44.251,
+        44.386
+      ]
+    }
+  ]
+}

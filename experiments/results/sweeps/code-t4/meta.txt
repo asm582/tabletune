@@ -1,0 +1,3 @@
+vllm 353e491efd3a23057004a3ab68fcfbda4abbee13
+Tesla T4, 595.91.07
+dataset instruct-coder | concurrencies 1 2 4 8 16 32 64

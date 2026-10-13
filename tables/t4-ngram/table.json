@@ -1,0 +1,18 @@
+{
+  "gpu": "Tesla T4",
+  "gpu_match": [
+    "T4"
+  ],
+  "default": false,
+  "target": "Qwen/Qwen3-4B",
+  "method": "ngram",
+  "drafter": "ngram 2-4",
+  "num_speculative_tokens": 5,
+  "dtype": "float16",
+  "max_num_seqs": 128,
+  "max_model_len": 4096,
+  "workload": "code edits that copy the prompt",
+  "measured": "code edits that copy the prompt: within 3% of the best fixed K (3 runs)",
+  "contributor": "vllm-perf",
+  "source": "experiments/results/ngram-tuner"
+}

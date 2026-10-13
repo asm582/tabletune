@@ -1,0 +1,112 @@
+# CPU checks for every pull request, every push to main or a release branch, and every release tag. GPU benchmarks can't
+# run here; these guard the parts that decide K: the tuner, the controller, the
+# vLLM plugin that attaches it, and the scripts that drive the GPU runs.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main, "release/**"]
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: Tuner and controller tests (Python ${{ matrix.python }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install the package with test extras (as a user would)
+        run: python -m pip install --quiet -e ".[dev]"
+      - name: Unit and regression tests (tables, formula, controller, CLI)
+        run: python -m pytest -q
+      - name: dsd-tuner command rebuilds the committed v3 table
+        run: |
+          dsd-tuner schedule --costs 'experiments/results/tuner-v3-code/costs_k*.json' \
+            --acceptance experiments/results/tuner-v3-code/acceptance.json --max-num-seqs 128 --out /tmp/v3
+          cmp <(python -c "import json; print(json.load(open('/tmp/v3/schedule.json')))") \
+              <(python -c "import json; print(json.load(open('experiments/results/tuner-v3-code/schedule.json')))")
+      - name: dsd-tuner command rebuilds the H100 tables in the paper (V2 EAGLE-3, its 0/1/3 table, MoE, n-gram)
+        run: |
+          for t in tuner-eagle-h100v2 tuner-moe-h100v2 ngram-tuner-h100v2; do
+            d=experiments/results/$t
+            dsd-tuner schedule --costs "$d/costs_k*.json" --acceptance $d/acceptance.json --max-num-seqs 128 --out /tmp/$t
+            cmp <(python -c "import json; print(json.load(open('/tmp/$t/schedule.json')))") \
+                <(python -c "import json; print(json.load(open('$d/schedule.json')))")
+          done
+          d=experiments/results/tuner-eagle-h100v2
+          dsd-tuner schedule --costs "$d/costs_k[013].json" --acceptance $d/acceptance.json --max-num-seqs 128 --out /tmp/k013
+          cmp <(python -c "import json; print(json.load(open('/tmp/k013/schedule.json')))") \
+              <(python -c "import json; print(json.load(open('experiments/h100/tables/eagle_tt013.json')))")
+      - name: dsd-tuner command rebuilds the llm-d Qwen3-32B (TP=2) tables, batch cap 256
+        run: |
+          for d in experiments/results/tune-h100-32b-tp2-llmd-nightly{,-k013}; do
+            dsd-tuner schedule --costs "$d/costs_k*.json" --acceptance $d/acceptance.json --max-num-seqs 256 --out /tmp/$(basename $d)
+            cmp <(python -c "import json; print(json.load(open('/tmp/$(basename $d)/schedule.json')))") \
+                <(python -c "import json; print(json.load(open('$d/schedule.json')))")
+          done
+      - name: The 2% merge-tolerance tables rebuild from the committed profiles
+        run: |
+          python experiments/h100/tables/build_mergetol.py /tmp/mergetol.json
+          python -c "import json, sys; sys.exit(json.load(open('/tmp/mergetol.json')) != json.load(open('experiments/h100/tables/mergetol_tables.json')))"
+      - name: Every table in the catalog is valid (tables/)
+        run: dsd-tuner tables --check
+      - name: Every Python file compiles
+        run: python -m compileall -q dsd_tuning tests experiments baselines .github/ci
+
+  baselines:
+    name: TurboSpec-style and Nightjar-style baseline tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install both baseline packages
+        run: python -m pip install --quiet pytest -e baselines/turbospec_style -e baselines/nightjar_style
+      - name: TurboSpec-style tests
+        run: python -m pytest -q baselines/turbospec_style/tests
+      - name: Nightjar-style tests
+        run: python -m pytest -q baselines/nightjar_style/tests
+
+  scripts:
+    name: Shell scripts and docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Syntax check (bash -n)
+        run: git ls-files '*.sh' | xargs -n1 bash -n
+      - name: ShellCheck (errors only)
+        run: git ls-files '*.sh' | xargs shellcheck -S error
+      - name: Relative links in Markdown resolve
+        run: python3 .github/ci/check_links.py
+
+  vllm-plugin:
+    name: vLLM plugin hook points exist at the pinned commit
+    runs-on: ubuntu-latest
+    env:
+      VLLM_PIN: 353e491efd3a23057004a3ab68fcfbda4abbee13
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch the three vLLM files the plugin depends on
+        run: |
+          for f in vllm/v1/core/sched/scheduler.py vllm/v1/core/sched/async_scheduler.py vllm/v1/engine/core.py; do
+            mkdir -p "vllm/$(dirname "$f")"
+            curl -sSfL "https://raw.githubusercontent.com/vllm-project/vllm/$VLLM_PIN/$f" -o "vllm/$f"
+          done
+      - name: Hook points used by dsd_tuning/controller/vllm_plugin.py
+        run: python3 .github/ci/check_vllm_hooks.py vllm

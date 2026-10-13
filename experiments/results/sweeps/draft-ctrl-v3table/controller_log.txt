@@ -1,0 +1,13 @@
+Dynamic SD controller enabled: hysteresis=8, refit=every 200 steps, allowed K=[1, 2, 3]
+Dynamic SD controller: new table [[1, 2, 2], [3, 18, 3], [19, 40, 2], [41, 128, 1]] (acceptance by position [0.707, 0.535, 0.422, 0.331, 0.268])
+Dynamic SD controller: new table [[1, 2, 2], [3, 17, 3], [18, 40, 2], [41, 128, 1]] (acceptance by position [0.711, 0.537, 0.416, 0.331, 0.268])
+Dynamic SD controller: new table [[1, 2, 2], [3, 18, 3], [19, 40, 2], [41, 128, 1]] (acceptance by position [0.726, 0.549, 0.428, 0.331, 0.268])
+Dynamic SD controller: new table [[1, 2, 2], [3, 18, 3], [19, 41, 2], [42, 128, 1]] (acceptance by position [0.733, 0.558, 0.442, 0.331, 0.268])
+Dynamic SD controller: {'steps': 1000, 'switches': 1, 'held': 84, 'refits': 5, 'table_changes': 4}
+Dynamic SD controller: new table [[1, 2, 2], [3, 17, 3], [18, 41, 2], [42, 128, 1]] (acceptance by position [0.729, 0.562, 0.426, 0.331, 0.268])
+Dynamic SD controller: {'steps': 2000, 'switches': 1, 'held': 161, 'refits': 10, 'table_changes': 5}
+Dynamic SD controller: new table [[1, 2, 2], [3, 17, 3], [18, 40, 2], [41, 128, 1]] (acceptance by position [0.747, 0.553, 0.418, 0.331, 0.268])
+Dynamic SD controller: {'steps': 3000, 'switches': 5, 'held': 227, 'refits': 15, 'table_changes': 6}
+Dynamic SD controller: new table [[1, 2, 2], [3, 17, 3], [18, 41, 2], [42, 128, 1]] (acceptance by position [0.75, 0.563, 0.418, 0.331, 0.268])
+Dynamic SD controller: new table [[1, 2, 2], [3, 17, 3], [18, 40, 2], [41, 128, 1]] (acceptance by position [0.753, 0.555, 0.418, 0.331, 0.268])
+Dynamic SD controller: {'steps': 4000, 'switches': 8, 'held': 361, 'refits': 20, 'table_changes': 8}

@@ -1,0 +1,28 @@
+=== nospec (16:11:25) ===
+[smoke] nospec: 710 tokens in 6.8s (104.0 tok/s), load 367s -> /home/ubuntu/vllm-perf/results/smoke/nospec.json
+[smoke] spec counters: {}
+GPU KV cache size: 81,424 tokens
+Model loading took 7.56 GiB
+Using FLASH_ATTN attention backend
+=== eagle3 (16:17:57) ===
+[smoke] eagle3: 710 tokens in 5.4s (132.0 tok/s), load 172s -> /home/ubuntu/vllm-perf/results/smoke/eagle3.json
+[smoke] spec counters: {'vllm:spec_decode_num_drafts': 344, 'vllm:spec_decode_num_draft_tokens': 1032, 'vllm:spec_decode_num_accepted_tokens': 368, 'vllm:spec_decode_num_accepted_tokens_per_pos': [213, 114, 41]}
+GPU KV cache size: 71,376 tokens
+Model loading took 7.97 GiB
+Using FLASH_ATTN attention backend
+=== dflash (16:21:22) ===
+[smoke] dflash: 710 tokens in 5.5s (129.7 tok/s), load 188s -> /home/ubuntu/vllm-perf/results/smoke/dflash.json
+[smoke] spec counters: {'vllm:spec_decode_num_drafts': 270, 'vllm:spec_decode_num_draft_tokens': 810, 'vllm:spec_decode_num_accepted_tokens': 442, 'vllm:spec_decode_num_accepted_tokens_per_pos': [194, 139, 109]}
+GPU KV cache size: 55,136 tokens
+Model loading took 8.61 GiB
+Using FLASH_ATTN attention backend
+=== dflash-dsd (16:24:49) ===
+[smoke] dflash-dsd: 710 tokens in 5.6s (126.6 tok/s), load 169s -> /home/ubuntu/vllm-perf/results/smoke/dflash-dsd.json
+[smoke] spec counters: {'vllm:spec_decode_num_drafts': 313, 'vllm:spec_decode_num_draft_tokens': 627, 'vllm:spec_decode_num_accepted_tokens': 396, 'vllm:spec_decode_num_accepted_tokens_per_pos': [221, 96, 79]}
+GPU KV cache size: 55,616 tokens
+Model loading took 8.61 GiB
+Using FLASH_ATTN attention backend
+dflash-dsd greedy match vs nospec: batched 6/8, single 2/3 | 126.6 tok/s (nospec 104.0)
+dflash     greedy match vs nospec: batched 8/8, single 2/3 | 129.7 tok/s (nospec 104.0)
+eagle3     greedy match vs nospec: batched 6/8, single 1/3 | 132.0 tok/s (nospec 104.0)
+=== SMOKE DONE ===

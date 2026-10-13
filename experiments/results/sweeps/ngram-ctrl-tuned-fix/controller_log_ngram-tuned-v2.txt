@@ -1,0 +1,15 @@
+Dynamic SD controller enabled: hysteresis=4, refit=every 200 steps, allowed K=[3, 4, 5], tracking proposal rate, explore every 20 steps (max +25%), prior decay 0.5
+Dynamic SD controller: {'steps': 1000, 'switches': 0, 'held': 72, 'refits': 5, 'table_changes': 0, 'explored': 0}
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 13, 5], [14, 128, 3]] (acceptance by position [0.78, 0.68, 0.622, 0.48, 0.44], proposal rate 0.496)
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 12, 5], [13, 128, 3]] (acceptance by position [0.8, 0.714, 0.663, 0.418, 0.375], proposal rate 0.525)
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 4, 3], [5, 10, 5], [11, 128, 3]] (acceptance by position [0.799, 0.704, 0.649, 0.342, 0.285], proposal rate 0.523)
+Dynamic SD controller: {'steps': 2000, 'switches': 6, 'held': 201, 'refits': 10, 'table_changes': 3, 'explored': 5}
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 12, 5], [13, 128, 3]] (acceptance by position [0.829, 0.747, 0.694, 0.372, 0.327], proposal rate 0.557)
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 4, 3], [5, 10, 5], [11, 128, 3]] (acceptance by position [0.806, 0.712, 0.652, 0.337, 0.291], proposal rate 0.535)
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 4, 3], [5, 9, 5], [10, 128, 3]] (acceptance by position [0.842, 0.765, 0.717, 0.302, 0.248], proposal rate 0.586)
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 4, 3], [5, 10, 5], [11, 128, 3]] (acceptance by position [0.819, 0.734, 0.681, 0.336, 0.285], proposal rate 0.544)
+Dynamic SD controller: {'steps': 3000, 'switches': 9, 'held': 283, 'refits': 15, 'table_changes': 7, 'explored': 13}
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 12, 5], [13, 128, 3]] (acceptance by position [0.828, 0.746, 0.694, 0.441, 0.364], proposal rate 0.554)
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 4, 3], [5, 8, 5], [9, 128, 3]] (acceptance by position [0.808, 0.715, 0.658, 0.294, 0.24], proposal rate 0.535)
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 4, 3], [5, 7, 5], [8, 128, 3]] (acceptance by position [0.839, 0.764, 0.715, 0.274, 0.214], proposal rate 0.572)
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 4, 3], [5, 10, 5], [11, 128, 3]] (acceptance by position [0.824, 0.738, 0.686, 0.343, 0.29], proposal rate 0.556)

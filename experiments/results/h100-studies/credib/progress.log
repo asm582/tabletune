@@ -1,0 +1,125 @@
+### [dflash-acc] START host=cx-1 2026-10-11T22:51:28Z
+### [dflash-acc] !!! costs K=1 2026-10-11T22:54:15Z
+### [dflash-acc] START host=cx-1 2026-10-11T22:55:07Z
+### [dflash-acc] costs K=1: 1:5.19 16:6.01 64:7.84 128:11.39  2026-10-11T22:58:25Z
+### [long1024] START isl=1024 loads=[1 2 4 8 16 32 64 96 128] host=cx-2 2026-10-11T22:58:58Z
+### [long3072] START isl=3072 loads=[1 2 4 8 16 32 48 64] host=cx-3 2026-10-11T22:58:58Z
+### [dflash-acc] costs K=2: 1:5.22 16:6.42 64:8.55 128:13.11  2026-10-11T23:01:56Z
+### [long1024] acceptance [0.5755, 0.2816, 0.1239] 2026-10-11T23:02:15Z
+### [long3072] acceptance [0.5723, 0.2649, 0.1075] 2026-10-11T23:02:32Z
+### [dflash-acc] costs K=3: 1:5.22 16:6.21 64:9.27 128:14.85  2026-10-11T23:04:55Z
+### [dflash-acc] costs K=4: 1:5.23 16:6.54 64:11.81 128:17.16  2026-10-11T23:08:16Z
+### [dflash-acc] costs K=6: 1:5.25 16:6.85 64:12.89 128:20.72  2026-10-11T23:11:34Z
+### [dflash-acc] costs K=8: 1:5.17 16:6.92 64:14.22 128:24.60  2026-10-11T23:14:54Z
+### [dflash-acc] table with measured acceptance: [[1, 21, 8], [22, 30, 6], [31, 86, 4], [87, 128, 2]] (forced rejection: [[1, 21, 8], [22, 33, 6], [34, 87, 4], [88, 128, 2]]) 2026-10-11T23:14:54Z
+### [dflash-acc] r1 df-k3 start 2026-10-11T23:14:54Z
+### [dflash-acc] START host=cx-1 2026-10-11T23:17:27Z
+### [dflash-acc] table with measured acceptance: [[1, 21, 8], [22, 30, 6], [31, 86, 4], [87, 128, 2]] (forced rejection: [[1, 21, 8], [22, 33, 6], [34, 87, 4], [88, 128, 2]]) 2026-10-11T23:17:27Z
+### [dflash-acc] raw argmax table: [[1, 21, 8], [22, 30, 6], [31, 46, 4], [47, 50, 3], [51, 57, 4], [58, 71, 3], [72, 78, 4], [79, 86, 2], [87, 99, 3], [100, 124, 2], [125, 128, 3]] 2026-10-11T23:17:27Z
+### [dflash-acc] r1 df-k3 start 2026-10-11T23:17:27Z
+### [long3072] tables: long [[1, 38, 3], [39, 64, 2]] | short (32-token) [[1, 50, 3], [51, 128, 2]] 2026-10-11T23:18:43Z
+### [long3072] r1 k1 start 2026-10-11T23:18:43Z
+### [long1024] tables: long [[1, 36, 3], [37, 128, 2]] | short (32-token) [[1, 50, 3], [51, 128, 2]] 2026-10-11T23:19:10Z
+### [long1024] r1 k1 start 2026-10-11T23:19:10Z
+### [long3072] r1 k1 done 2026-10-11T23:22:54Z
+### [long3072] r1 k2 start 2026-10-11T23:22:59Z
+### [long1024] r1 k1 done 2026-10-11T23:23:25Z
+### [long1024] r1 k2 start 2026-10-11T23:23:30Z
+### [dflash-acc] r1 df-k3 done 2026-10-11T23:23:44Z
+### [dflash-acc] r1 df-k4 start 2026-10-11T23:23:49Z
+### [long3072] r1 k2 done 2026-10-11T23:27:02Z
+### [long3072] r1 k3 start 2026-10-11T23:27:07Z
+### [long1024] r1 k2 done 2026-10-11T23:27:33Z
+### [long1024] r1 k3 start 2026-10-11T23:27:38Z
+### [dflash-acc] r1 df-k4 done 2026-10-11T23:30:30Z
+### [dflash-acc] r1 df-tt start 2026-10-11T23:30:35Z
+### [long3072] r1 k3 done 2026-10-11T23:31:10Z
+### [long3072] r1 docs start 2026-10-11T23:31:15Z
+### [long1024] r1 k3 done 2026-10-11T23:31:18Z
+### [long1024] r1 docs start 2026-10-11T23:31:24Z
+### [long3072] r1 docs done 2026-10-11T23:35:02Z
+### [long3072] r1 tt-short start 2026-10-11T23:35:07Z
+### [long1024] r1 docs done 2026-10-11T23:35:09Z
+### [long1024] r1 tt-short start 2026-10-11T23:35:14Z
+### [dflash-acc] r1 df-tt done 2026-10-11T23:37:14Z
+### [dflash-acc] r1 df-tt-acc start 2026-10-11T23:37:19Z
+### [long1024] r1 tt-short done 2026-10-11T23:38:58Z
+### [long1024] r1 tt-long start 2026-10-11T23:39:04Z
+### [long3072] r1 tt-short done 2026-10-11T23:39:14Z
+### [long3072] r1 tt-long start 2026-10-11T23:39:19Z
+### [long1024] r1 tt-long done 2026-10-11T23:42:48Z
+### [long1024] r2 k1 start 2026-10-11T23:42:53Z
+### [long3072] r1 tt-long done 2026-10-11T23:43:11Z
+### [long3072] r2 k1 start 2026-10-11T23:43:16Z
+### [dflash-acc] r1 df-tt-acc done 2026-10-11T23:43:55Z
+### [dflash-acc] r1 df-tt-raw start 2026-10-11T23:44:00Z
+### [long1024] r2 k1 done 2026-10-11T23:46:37Z
+### [long1024] r2 k2 start 2026-10-11T23:46:42Z
+### [long3072] r2 k1 done 2026-10-11T23:47:08Z
+### [long3072] r2 k2 start 2026-10-11T23:47:13Z
+### [long1024] r2 k2 done 2026-10-11T23:50:27Z
+### [long1024] r2 k3 start 2026-10-11T23:50:32Z
+### [dflash-acc] r1 df-tt-raw done 2026-10-11T23:50:47Z
+### [dflash-acc] r2 df-k3 start 2026-10-11T23:50:52Z
+### [long3072] r2 k2 done 2026-10-11T23:51:01Z
+### [long3072] r2 k3 start 2026-10-11T23:51:06Z
+### [long1024] r2 k3 done 2026-10-11T23:54:13Z
+### [long1024] r2 docs start 2026-10-11T23:54:18Z
+### [long3072] r2 k3 done 2026-10-11T23:54:53Z
+### [long3072] r2 docs start 2026-10-11T23:54:58Z
+### [dflash-acc] r2 df-k3 done 2026-10-11T23:57:06Z
+### [dflash-acc] r2 df-k4 start 2026-10-11T23:57:11Z
+### [long1024] r2 docs done 2026-10-11T23:58:03Z
+### [long1024] r2 tt-short start 2026-10-11T23:58:08Z
+### [long3072] r2 docs done 2026-10-11T23:58:46Z
+### [long3072] r2 tt-short start 2026-10-11T23:58:51Z
+### [long1024] r2 tt-short done 2026-10-12T00:01:53Z
+### [long1024] r2 tt-long start 2026-10-12T00:01:58Z
+### [long3072] r2 tt-short done 2026-10-12T00:02:43Z
+### [long3072] r2 tt-long start 2026-10-12T00:02:48Z
+### [dflash-acc] r2 df-k4 done 2026-10-12T00:03:20Z
+### [dflash-acc] r2 df-tt start 2026-10-12T00:03:25Z
+### [long1024] r2 tt-long done 2026-10-12T00:05:43Z
+### [long1024] r3 k1 start 2026-10-12T00:05:48Z
+### [long3072] r2 tt-long done 2026-10-12T00:06:39Z
+### [long3072] r3 k1 start 2026-10-12T00:06:44Z
+### [long1024] r3 k1 done 2026-10-12T00:09:32Z
+### [long1024] r3 k2 start 2026-10-12T00:09:37Z
+### [dflash-acc] r2 df-tt done 2026-10-12T00:09:48Z
+### [dflash-acc] r2 df-tt-acc start 2026-10-12T00:09:54Z
+### [long3072] r3 k1 done 2026-10-12T00:10:36Z
+### [long3072] r3 k2 start 2026-10-12T00:10:42Z
+### [long1024] r3 k2 done 2026-10-12T00:13:17Z
+### [long1024] r3 k3 start 2026-10-12T00:13:22Z
+### [long3072] r3 k2 done 2026-10-12T00:14:34Z
+### [long3072] r3 k3 start 2026-10-12T00:14:39Z
+### [dflash-acc] r2 df-tt-acc done 2026-10-12T00:16:21Z
+### [dflash-acc] r2 df-tt-raw start 2026-10-12T00:16:26Z
+### [long1024] r3 k3 done 2026-10-12T00:17:07Z
+### [long1024] r3 docs start 2026-10-12T00:17:13Z
+### [long3072] r3 k3 done 2026-10-12T00:18:32Z
+### [long3072] r3 docs start 2026-10-12T00:18:37Z
+### [long1024] r3 docs done 2026-10-12T00:20:58Z
+### [long1024] r3 tt-short start 2026-10-12T00:21:04Z
+### [long3072] r3 docs done 2026-10-12T00:22:24Z
+### [long3072] r3 tt-short start 2026-10-12T00:22:29Z
+### [dflash-acc] r2 df-tt-raw done 2026-10-12T00:22:46Z
+### [dflash-acc] r3 df-k3 start 2026-10-12T00:22:52Z
+### [long1024] r3 tt-short done 2026-10-12T00:24:48Z
+### [long1024] r3 tt-long start 2026-10-12T00:24:54Z
+### [long3072] r3 tt-short done 2026-10-12T00:26:22Z
+### [long3072] r3 tt-long start 2026-10-12T00:26:27Z
+### [long1024] r3 tt-long done 2026-10-12T00:28:39Z
+### [long1024] ALL DONE 2026-10-12T00:28:45Z
+### [dflash-acc] r3 df-k3 done 2026-10-12T00:29:08Z
+### [dflash-acc] r3 df-k4 start 2026-10-12T00:29:13Z
+### [long3072] r3 tt-long done 2026-10-12T00:30:19Z
+### [long3072] ALL DONE 2026-10-12T00:30:24Z
+### [dflash-acc] r3 df-k4 done 2026-10-12T00:35:22Z
+### [dflash-acc] r3 df-tt start 2026-10-12T00:35:28Z
+### [dflash-acc] r3 df-tt done 2026-10-12T00:41:53Z
+### [dflash-acc] r3 df-tt-acc start 2026-10-12T00:41:59Z
+### [dflash-acc] r3 df-tt-acc done 2026-10-12T00:48:23Z
+### [dflash-acc] r3 df-tt-raw start 2026-10-12T00:48:28Z
+### [dflash-acc] r3 df-tt-raw done 2026-10-12T00:54:59Z
+### [dflash-acc] ALL DONE 2026-10-12T00:55:04Z

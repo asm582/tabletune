@@ -1,0 +1,8 @@
+=== cpu: AWQ k3 at c=1 (04:17:45) ===
+[launch] k3: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3}
+[launch] k3 ready
+!!! k3: c=1 load failed, see results/dsd-overhead/cpu-k3/sweep.log (CPU numbers are not valid)
+[cpu] k3 EngineCore CPU% over 25 s: median 1.0 max 2.0
+=== cpu: AWQ dsd-const3 at c=1 (04:19:31) ===
+[launch] dsd-const3: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 128, 3]]}
+[launch] dsd-const3 server died, see results/dsd-overhead/cpu-dsd-const3/server.log

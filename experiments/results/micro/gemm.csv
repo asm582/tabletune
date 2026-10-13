@@ -1,0 +1,641 @@
+m,shape,time_us,kernel
+1,qkv_proj,153.7,"gemv2T_kernel_val<int, int, __half, __half, __half, float, 128, 16, 4,"
+1,o_proj,112.3,std::enable_if<!
+1,gate_up_proj,437.0,"gemv2T_kernel_val<int, int, __half, __half, __half, float, 128, 16, 4,"
+1,down_proj,223.8,std::enable_if<!
+1,ALL x36 layers,33362.5,
+2,qkv_proj,169.5,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+2,o_proj,125.1,Memset 
+2,gate_up_proj,452.3,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+2,down_proj,245.8,Memset 
+2,ALL x36 layers,35736.2,
+3,qkv_proj,168.2,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+3,o_proj,124.8,Memset 
+3,gate_up_proj,453.7,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+3,down_proj,253.6,Memset 
+3,ALL x36 layers,36009.2,
+4,qkv_proj,168.5,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+4,o_proj,126.6,Memset 
+4,gate_up_proj,453.9,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+4,down_proj,255.6,Memset 
+4,ALL x36 layers,36168.8,
+5,qkv_proj,169.4,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+5,o_proj,126.7,Memset 
+5,gate_up_proj,456.2,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+5,down_proj,255.1,Memset 
+5,ALL x36 layers,36269.6,
+6,qkv_proj,169.9,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+6,o_proj,126.8,Memset 
+6,gate_up_proj,457.3,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+6,down_proj,256.1,Memset 
+6,ALL x36 layers,36363.5,
+7,qkv_proj,170.0,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+7,o_proj,127.8,Memset 
+7,gate_up_proj,458.3,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+7,down_proj,257.5,Memset 
+7,ALL x36 layers,36485.6,
+8,qkv_proj,170.8,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+8,o_proj,127.4,Memset 
+8,gate_up_proj,459.3,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+8,down_proj,257.1,Memset 
+8,ALL x36 layers,36528.2,
+9,qkv_proj,171.0,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+9,o_proj,127.7,Memset 
+9,gate_up_proj,460.0,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+9,down_proj,258.2,Memset 
+9,ALL x36 layers,36606.5,
+10,qkv_proj,171.4,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+10,o_proj,126.6,Memset 
+10,gate_up_proj,460.9,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+10,down_proj,258.9,Memset 
+10,ALL x36 layers,36638.2,
+11,qkv_proj,172.1,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+11,o_proj,129.1,Memset 
+11,gate_up_proj,461.5,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+11,down_proj,260.9,Memset 
+11,ALL x36 layers,36851.3,
+12,qkv_proj,172.6,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+12,o_proj,129.1,Memset 
+12,gate_up_proj,462.4,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+12,down_proj,259.4,Memset 
+12,ALL x36 layers,36848.4,
+13,qkv_proj,172.8,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+13,o_proj,128.4,Memset 
+13,gate_up_proj,463.9,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+13,down_proj,259.3,Memset 
+13,ALL x36 layers,36878.4,
+14,qkv_proj,172.8,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+14,o_proj,129.1,Memset 
+14,gate_up_proj,465.3,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+14,down_proj,260.0,Memset 
+14,ALL x36 layers,36982.1,
+15,qkv_proj,174.0,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+15,o_proj,129.6,Memset 
+15,gate_up_proj,465.7,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+15,down_proj,262.0,Memset 
+15,ALL x36 layers,37124.4,
+16,qkv_proj,175.2,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+16,o_proj,129.9,Memset 
+16,gate_up_proj,466.7,cutlass::Kernel2<cutlass_75_wmma_tensorop_f16_s161616gemm_f16_16x16_12
+16,down_proj,262.8,Memset 
+16,ALL x36 layers,37243.6,
+17,qkv_proj,205.4,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+17,o_proj,138.3,turing_fp16_s1688gemm_fp16_64x64_sliced1x4_ldg8_f2f_tn
+17,gate_up_proj,544.8,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+17,down_proj,297.8,Memset 
+17,ALL x36 layers,42709.8,
+18,qkv_proj,208.7,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+18,o_proj,137.6,turing_fp16_s1688gemm_fp16_64x64_sliced1x4_ldg8_f2f_tn
+18,gate_up_proj,545.0,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+18,down_proj,297.2,Memset 
+18,ALL x36 layers,42788.2,
+19,qkv_proj,205.9,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+19,o_proj,138.5,turing_fp16_s1688gemm_fp16_64x64_sliced1x4_ldg8_f2f_tn
+19,gate_up_proj,544.8,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+19,down_proj,298.7,Memset 
+19,ALL x36 layers,42765.7,
+20,qkv_proj,209.4,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+20,o_proj,138.1,turing_fp16_s1688gemm_fp16_64x64_sliced1x4_ldg8_f2f_tn
+20,gate_up_proj,547.1,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+20,down_proj,297.7,Memset 
+20,ALL x36 layers,42921.2,
+21,qkv_proj,207.3,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+21,o_proj,138.4,turing_fp16_s1688gemm_fp16_64x64_sliced1x4_ldg8_f2f_tn
+21,gate_up_proj,545.7,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+21,down_proj,298.8,Memset 
+21,ALL x36 layers,42848.1,
+22,qkv_proj,206.4,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+22,o_proj,139.5,turing_fp16_s1688gemm_fp16_64x64_sliced1x4_ldg8_f2f_tn
+22,gate_up_proj,545.6,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+22,down_proj,299.5,Memset 
+22,ALL x36 layers,42878.0,
+23,qkv_proj,209.3,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+23,o_proj,139.6,turing_fp16_s1688gemm_fp16_64x64_sliced1x4_ldg8_f2f_tn
+23,gate_up_proj,546.0,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+23,down_proj,298.9,Memset 
+23,ALL x36 layers,42977.7,
+24,qkv_proj,212.0,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+24,o_proj,137.4,turing_fp16_s1688gemm_fp16_64x64_sliced1x4_ldg8_f2f_tn
+24,gate_up_proj,546.5,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+24,down_proj,299.6,Memset 
+24,ALL x36 layers,43035.8,
+25,qkv_proj,208.1,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+25,o_proj,137.7,turing_fp16_s1688gemm_fp16_64x64_sliced1x4_ldg8_f2f_tn
+25,gate_up_proj,546.8,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+25,down_proj,297.7,Memset 
+25,ALL x36 layers,42849.2,
+26,qkv_proj,208.1,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+26,o_proj,137.5,turing_fp16_s1688gemm_fp16_64x64_sliced1x4_ldg8_f2f_tn
+26,gate_up_proj,548.3,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+26,down_proj,299.2,Memset 
+26,ALL x36 layers,42954.6,
+27,qkv_proj,208.2,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+27,o_proj,137.9,turing_fp16_s1688gemm_fp16_64x64_sliced1x4_ldg8_f2f_tn
+27,gate_up_proj,548.7,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+27,down_proj,300.0,Memset 
+27,ALL x36 layers,43010.5,
+28,qkv_proj,212.5,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+28,o_proj,137.8,turing_fp16_s1688gemm_fp16_64x64_sliced1x4_ldg8_f2f_tn
+28,gate_up_proj,549.0,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+28,down_proj,300.2,Memset 
+28,ALL x36 layers,43181.6,
+29,qkv_proj,209.9,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+29,o_proj,138.1,turing_fp16_s1688gemm_fp16_64x64_sliced1x4_ldg8_f2f_tn
+29,gate_up_proj,548.1,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+29,down_proj,300.1,Memset 
+29,ALL x36 layers,43063.5,
+30,qkv_proj,211.1,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+30,o_proj,152.3,Memset 
+30,gate_up_proj,549.5,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+30,down_proj,298.1,Memset 
+30,ALL x36 layers,43594.6,
+31,qkv_proj,211.1,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+31,o_proj,151.9,Memset 
+31,gate_up_proj,548.5,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+31,down_proj,298.0,Memset 
+31,ALL x36 layers,43542.7,
+32,qkv_proj,214.4,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+32,o_proj,152.6,Memset 
+32,gate_up_proj,550.1,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+32,down_proj,298.8,Memset 
+32,ALL x36 layers,43773.1,
+33,qkv_proj,210.6,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+33,o_proj,152.5,Memset 
+33,gate_up_proj,547.4,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+33,down_proj,300.1,Memset 
+33,ALL x36 layers,43584.8,
+34,qkv_proj,209.8,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+34,o_proj,152.4,Memset 
+34,gate_up_proj,548.7,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+34,down_proj,301.9,Memset 
+34,ALL x36 layers,43662.5,
+35,qkv_proj,212.8,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+35,o_proj,154.3,Memset 
+35,gate_up_proj,549.2,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+35,down_proj,302.2,Memset 
+35,ALL x36 layers,43868.7,
+36,qkv_proj,214.5,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+36,o_proj,153.0,Memset 
+36,gate_up_proj,550.7,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+36,down_proj,302.0,Memset 
+36,ALL x36 layers,43924.6,
+37,qkv_proj,213.5,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+37,o_proj,153.0,Memset 
+37,gate_up_proj,548.9,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+37,down_proj,299.3,Memset 
+37,ALL x36 layers,43728.2,
+38,qkv_proj,211.0,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+38,o_proj,151.9,Memset 
+38,gate_up_proj,550.3,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+38,down_proj,304.1,Memset 
+38,ALL x36 layers,43820.4,
+39,qkv_proj,215.2,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+39,o_proj,154.1,Memset 
+39,gate_up_proj,549.5,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+39,down_proj,301.2,Memset 
+39,ALL x36 layers,43919.4,
+40,qkv_proj,214.0,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+40,o_proj,153.1,Memset 
+40,gate_up_proj,552.1,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+40,down_proj,302.5,Memset 
+40,ALL x36 layers,43981.1,
+41,qkv_proj,214.5,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+41,o_proj,153.0,Memset 
+41,gate_up_proj,551.9,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+41,down_proj,301.8,Memset 
+41,ALL x36 layers,43964.4,
+42,qkv_proj,216.5,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+42,o_proj,155.0,Memset 
+42,gate_up_proj,551.2,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+42,down_proj,301.2,Memset 
+42,ALL x36 layers,44059.4,
+43,qkv_proj,214.9,turing_fp16_s1688gemm_fp16_128x64_sliced1x2_ldg8_f2f_tn
+43,o_proj,153.5,Memset 
+43,gate_up_proj,551.6,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+43,down_proj,302.2,Memset 
+43,ALL x36 layers,44000.1,
+44,qkv_proj,206.0,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+44,o_proj,153.0,Memset 
+44,gate_up_proj,552.5,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+44,down_proj,302.9,Memset 
+44,ALL x36 layers,43717.2,
+45,qkv_proj,205.5,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+45,o_proj,153.5,Memset 
+45,gate_up_proj,552.3,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+45,down_proj,301.6,Memset 
+45,ALL x36 layers,43662.0,
+46,qkv_proj,203.8,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+46,o_proj,153.0,Memset 
+46,gate_up_proj,552.3,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+46,down_proj,303.2,Memset 
+46,ALL x36 layers,43642.9,
+47,qkv_proj,204.3,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+47,o_proj,154.8,Memset 
+47,gate_up_proj,552.8,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+47,down_proj,303.1,Memset 
+47,ALL x36 layers,43736.8,
+48,qkv_proj,205.5,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+48,o_proj,154.2,Memset 
+48,gate_up_proj,552.7,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+48,down_proj,300.7,Memset 
+48,ALL x36 layers,43673.5,
+49,qkv_proj,205.5,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+49,o_proj,154.0,Memset 
+49,gate_up_proj,552.6,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+49,down_proj,301.0,Memset 
+49,ALL x36 layers,43668.9,
+50,qkv_proj,205.3,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+50,o_proj,155.1,Memset 
+50,gate_up_proj,553.8,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+50,down_proj,303.0,Memset 
+50,ALL x36 layers,43819.2,
+51,qkv_proj,206.7,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+51,o_proj,154.6,Memset 
+51,gate_up_proj,554.0,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+51,down_proj,302.5,Memset 
+51,ALL x36 layers,43841.1,
+52,qkv_proj,208.0,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+52,o_proj,154.8,Memset 
+52,gate_up_proj,553.2,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+52,down_proj,302.6,Memset 
+52,ALL x36 layers,43869.9,
+53,qkv_proj,205.1,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+53,o_proj,155.4,Memset 
+53,gate_up_proj,554.6,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+53,down_proj,304.4,Memset 
+53,ALL x36 layers,43898.7,
+54,qkv_proj,207.0,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+54,o_proj,154.8,Memset 
+54,gate_up_proj,555.4,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+54,down_proj,302.5,Memset 
+54,ALL x36 layers,43911.4,
+55,qkv_proj,206.0,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+55,o_proj,155.2,Memset 
+55,gate_up_proj,555.4,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+55,down_proj,302.1,Memset 
+55,ALL x36 layers,43874.5,
+56,qkv_proj,205.2,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+56,o_proj,155.1,Memset 
+56,gate_up_proj,556.1,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+56,down_proj,303.4,Memset 
+56,ALL x36 layers,43913.7,
+57,qkv_proj,206.5,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+57,o_proj,154.9,Memset 
+57,gate_up_proj,558.8,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+57,down_proj,302.8,Memset 
+57,ALL x36 layers,44026.6,
+58,qkv_proj,205.7,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+58,o_proj,155.3,Memset 
+58,gate_up_proj,557.5,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+58,down_proj,302.9,Memset 
+58,ALL x36 layers,43972.4,
+59,qkv_proj,206.1,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+59,o_proj,155.4,Memset 
+59,gate_up_proj,556.9,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+59,down_proj,303.6,Memset 
+59,ALL x36 layers,43989.7,
+60,qkv_proj,210.4,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+60,o_proj,156.6,Memset 
+60,gate_up_proj,557.5,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+60,down_proj,303.1,Memset 
+60,ALL x36 layers,44191.9,
+61,qkv_proj,210.3,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+61,o_proj,156.4,Memset 
+61,gate_up_proj,557.2,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+61,down_proj,304.0,Memset 
+61,ALL x36 layers,44202.2,
+62,qkv_proj,209.3,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+62,o_proj,156.0,Memset 
+62,gate_up_proj,558.2,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+62,down_proj,302.2,Memset 
+62,ALL x36 layers,44124.5,
+63,qkv_proj,209.0,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+63,o_proj,155.8,Memset 
+63,gate_up_proj,558.3,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+63,down_proj,302.8,Memset 
+63,ALL x36 layers,44132.0,
+64,qkv_proj,210.6,turing_fp16_s1688gemm_fp16_256x64_ldg8_f2f_stages_32x1_tn
+64,o_proj,157.9,Memset 
+64,gate_up_proj,563.8,turing_fp16_s1688gemm_fp16_256x64_sliced1x2_ldg8_f2f_tn
+64,down_proj,303.5,Memset 
+64,ALL x36 layers,44491.4,
+65,qkv_proj,230.8,Memset 
+65,o_proj,160.2,Memset 
+65,gate_up_proj,566.6,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+65,down_proj,305.7,Memset 
+65,ALL x36 layers,45478.7,
+66,qkv_proj,231.4,Memset 
+66,o_proj,152.2,Memset 
+66,gate_up_proj,568.7,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+66,down_proj,326.3,Memset 
+66,ALL x36 layers,46029.9,
+67,qkv_proj,270.5,Memset 
+67,o_proj,188.7,Memset 
+67,gate_up_proj,603.2,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+67,down_proj,346.0,Memset 
+67,ALL x36 layers,50697.8,
+68,qkv_proj,268.1,Memset 
+68,o_proj,188.3,Memset 
+68,gate_up_proj,603.2,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+68,down_proj,317.8,Memset 
+68,ALL x36 layers,49585.5,
+69,qkv_proj,231.5,Memset 
+69,o_proj,153.7,Memset 
+69,gate_up_proj,570.8,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+69,down_proj,310.2,Memset 
+69,ALL x36 layers,45585.2,
+70,qkv_proj,236.4,Memset 
+70,o_proj,152.2,Memset 
+70,gate_up_proj,571.1,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+70,down_proj,311.3,Memset 
+70,ALL x36 layers,45752.8,
+71,qkv_proj,235.4,Memset 
+71,o_proj,153.1,Memset 
+71,gate_up_proj,572.0,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+71,down_proj,347.0,Memset 
+71,ALL x36 layers,47069.0,
+72,qkv_proj,257.7,Memset 
+72,o_proj,154.7,Memset 
+72,gate_up_proj,569.8,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+72,down_proj,307.9,Memset 
+72,ALL x36 layers,46446.3,
+73,qkv_proj,234.3,Memset 
+73,o_proj,152.5,Memset 
+73,gate_up_proj,570.4,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+73,down_proj,310.6,Memset 
+73,ALL x36 layers,45644.5,
+74,qkv_proj,272.3,Memset 
+74,o_proj,185.8,Memset 
+74,gate_up_proj,568.5,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+74,down_proj,308.1,Memset 
+74,ALL x36 layers,48049.9,
+75,qkv_proj,237.7,Memset 
+75,o_proj,153.0,Memset 
+75,gate_up_proj,568.0,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+75,down_proj,308.2,Memset 
+75,ALL x36 layers,45607.1,
+76,qkv_proj,236.0,Memset 
+76,o_proj,154.4,Memset 
+76,gate_up_proj,572.0,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+76,down_proj,307.8,Memset 
+76,ALL x36 layers,45726.9,
+77,qkv_proj,235.3,Memset 
+77,o_proj,153.3,Memset 
+77,gate_up_proj,571.0,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+77,down_proj,311.4,Memset 
+77,ALL x36 layers,45758.6,
+78,qkv_proj,240.3,Memset 
+78,o_proj,152.6,Memset 
+78,gate_up_proj,571.6,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+78,down_proj,311.3,Memset 
+78,ALL x36 layers,45930.2,
+79,qkv_proj,235.4,Memset 
+79,o_proj,152.7,Memset 
+79,gate_up_proj,571.7,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+79,down_proj,311.5,Memset 
+79,ALL x36 layers,45768.4,
+80,qkv_proj,238.8,Memset 
+80,o_proj,155.1,Memset 
+80,gate_up_proj,575.3,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+80,down_proj,311.5,Memset 
+80,ALL x36 layers,46104.8,
+81,qkv_proj,238.5,Memset 
+81,o_proj,154.0,Memset 
+81,gate_up_proj,573.8,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+81,down_proj,309.9,Memset 
+81,ALL x36 layers,45941.2,
+82,qkv_proj,236.9,Memset 
+82,o_proj,153.3,Memset 
+82,gate_up_proj,573.2,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+82,down_proj,311.2,Memset 
+82,ALL x36 layers,45888.8,
+83,qkv_proj,239.0,Memset 
+83,o_proj,153.3,Memset 
+83,gate_up_proj,572.7,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+83,down_proj,311.7,Memset 
+83,ALL x36 layers,45961.3,
+84,qkv_proj,239.2,Memset 
+84,o_proj,154.4,Memset 
+84,gate_up_proj,575.5,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+84,down_proj,312.1,Memset 
+84,ALL x36 layers,46124.9,
+85,qkv_proj,241.7,Memset 
+85,o_proj,155.3,Memset 
+85,gate_up_proj,575.2,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+85,down_proj,312.5,Memset 
+85,ALL x36 layers,46249.9,
+86,qkv_proj,241.7,Memset 
+86,o_proj,154.9,Memset 
+86,gate_up_proj,574.2,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+86,down_proj,311.3,Memset 
+86,ALL x36 layers,46155.5,
+87,qkv_proj,237.9,Memset 
+87,o_proj,152.8,Memset 
+87,gate_up_proj,574.1,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+87,down_proj,311.3,Memset 
+87,ALL x36 layers,45939.5,
+88,qkv_proj,242.3,Memset 
+88,o_proj,158.1,Memset 
+88,gate_up_proj,574.7,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+88,down_proj,312.3,Memset 
+88,ALL x36 layers,46344.4,
+89,qkv_proj,239.9,Memset 
+89,o_proj,158.0,Memset 
+89,gate_up_proj,575.0,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+89,down_proj,313.4,Memset 
+89,ALL x36 layers,46305.2,
+90,qkv_proj,243.1,Memset 
+90,o_proj,156.1,Memset 
+90,gate_up_proj,577.7,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+90,down_proj,314.2,Memset 
+90,ALL x36 layers,46479.7,
+91,qkv_proj,241.0,Memset 
+91,o_proj,154.5,Memset 
+91,gate_up_proj,575.4,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+91,down_proj,313.5,Memset 
+91,ALL x36 layers,46235.5,
+92,qkv_proj,245.2,Memset 
+92,o_proj,157.2,Memset 
+92,gate_up_proj,576.9,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+92,down_proj,313.4,Memset 
+92,ALL x36 layers,46541.4,
+93,qkv_proj,241.6,Memset 
+93,o_proj,156.0,Memset 
+93,gate_up_proj,577.2,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+93,down_proj,313.5,Memset 
+93,ALL x36 layers,46376.6,
+94,qkv_proj,244.0,Memset 
+94,o_proj,155.7,Memset 
+94,gate_up_proj,579.3,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+94,down_proj,315.6,Memset 
+94,ALL x36 layers,46608.2,
+95,qkv_proj,245.1,Memset 
+95,o_proj,156.1,Memset 
+95,gate_up_proj,578.1,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+95,down_proj,314.6,Memset 
+95,ALL x36 layers,46582.3,
+96,qkv_proj,240.6,Memset 
+96,o_proj,159.0,Memset 
+96,gate_up_proj,578.9,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+96,down_proj,316.8,Memset 
+96,ALL x36 layers,46631.2,
+97,qkv_proj,246.5,Memset 
+97,o_proj,157.3,Memset 
+97,gate_up_proj,579.2,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+97,down_proj,314.9,Memset 
+97,ALL x36 layers,46722.8,
+98,qkv_proj,243.5,Memset 
+98,o_proj,157.1,Memset 
+98,gate_up_proj,578.6,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+98,down_proj,316.5,Memset 
+98,ALL x36 layers,46647.4,
+99,qkv_proj,248.0,Memset 
+99,o_proj,156.8,Memset 
+99,gate_up_proj,580.7,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+99,down_proj,315.8,Memset 
+99,ALL x36 layers,46849.0,
+100,qkv_proj,244.1,Memset 
+100,o_proj,158.0,Memset 
+100,gate_up_proj,579.4,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+100,down_proj,317.1,Memset 
+100,ALL x36 layers,46747.0,
+101,qkv_proj,247.1,Memset 
+101,o_proj,157.0,Memset 
+101,gate_up_proj,578.7,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+101,down_proj,314.6,Memset 
+101,ALL x36 layers,46705.5,
+102,qkv_proj,244.4,Memset 
+102,o_proj,157.9,Memset 
+102,gate_up_proj,580.3,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+102,down_proj,317.0,Memset 
+102,ALL x36 layers,46781.6,
+103,qkv_proj,248.3,Memset 
+103,o_proj,157.2,Memset 
+103,gate_up_proj,581.7,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+103,down_proj,317.1,Memset 
+103,ALL x36 layers,46955.5,
+104,qkv_proj,247.2,Memset 
+104,o_proj,158.4,Memset 
+104,gate_up_proj,581.5,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+104,down_proj,316.6,Memset 
+104,ALL x36 layers,46934.8,
+105,qkv_proj,244.8,Memset 
+105,o_proj,156.0,Memset 
+105,gate_up_proj,579.7,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+105,down_proj,318.7,Memset 
+105,ALL x36 layers,46771.8,
+106,qkv_proj,248.3,Memset 
+106,o_proj,158.8,Memset 
+106,gate_up_proj,580.9,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+106,down_proj,317.5,Memset 
+106,ALL x36 layers,46997.6,
+107,qkv_proj,246.5,Memset 
+107,o_proj,158.1,Memset 
+107,gate_up_proj,581.3,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+107,down_proj,317.8,Memset 
+107,ALL x36 layers,46933.1,
+108,qkv_proj,248.4,Memset 
+108,o_proj,159.0,Memset 
+108,gate_up_proj,583.5,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+108,down_proj,316.4,Memset 
+108,ALL x36 layers,47062.7,
+109,qkv_proj,247.8,Memset 
+109,o_proj,157.7,Memset 
+109,gate_up_proj,581.9,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+109,down_proj,315.9,Memset 
+109,ALL x36 layers,46916.4,
+110,qkv_proj,247.8,Memset 
+110,o_proj,158.8,Memset 
+110,gate_up_proj,582.8,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+110,down_proj,320.0,Memset 
+110,ALL x36 layers,47142.7,
+111,qkv_proj,250.8,Memset 
+111,o_proj,159.2,Memset 
+111,gate_up_proj,584.1,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+111,down_proj,315.9,Memset 
+111,ALL x36 layers,47158.8,
+112,qkv_proj,245.8,Memset 
+112,o_proj,157.5,Memset 
+112,gate_up_proj,584.0,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+112,down_proj,318.7,Memset 
+112,ALL x36 layers,47013.7,
+113,qkv_proj,252.1,Memset 
+113,o_proj,157.2,Memset 
+113,gate_up_proj,584.5,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+113,down_proj,318.2,Memset 
+113,ALL x36 layers,47232.0,
+114,qkv_proj,245.7,Memset 
+114,o_proj,159.6,Memset 
+114,gate_up_proj,580.7,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+114,down_proj,318.3,Memset 
+114,ALL x36 layers,46957.2,
+115,qkv_proj,247.8,Memset 
+115,o_proj,160.2,Memset 
+115,gate_up_proj,583.2,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+115,down_proj,320.0,Memset 
+115,ALL x36 layers,47199.7,
+116,qkv_proj,250.3,Memset 
+116,o_proj,158.0,Memset 
+116,gate_up_proj,583.7,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+116,down_proj,323.0,Memset 
+116,ALL x36 layers,47339.7,
+117,qkv_proj,252.6,Memset 
+117,o_proj,159.1,Memset 
+117,gate_up_proj,587.2,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+117,down_proj,320.5,Memset 
+117,ALL x36 layers,47499.8,
+118,qkv_proj,251.6,Memset 
+118,o_proj,160.6,Memset 
+118,gate_up_proj,587.3,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+118,down_proj,321.7,Memset 
+118,ALL x36 layers,47565.5,
+119,qkv_proj,251.2,Memset 
+119,o_proj,159.6,Memset 
+119,gate_up_proj,586.6,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+119,down_proj,321.2,Memset 
+119,ALL x36 layers,47473.9,
+120,qkv_proj,248.7,Memset 
+120,o_proj,160.0,Memset 
+120,gate_up_proj,584.5,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+120,down_proj,323.2,Memset 
+120,ALL x36 layers,47389.2,
+121,qkv_proj,252.9,Memset 
+121,o_proj,161.4,Memset 
+121,gate_up_proj,586.1,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+121,down_proj,322.0,Memset 
+121,ALL x36 layers,47607.0,
+122,qkv_proj,249.8,Memset 
+122,o_proj,160.0,Memset 
+122,gate_up_proj,585.8,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+122,down_proj,323.3,Memset 
+122,ALL x36 layers,47480.3,
+123,qkv_proj,253.9,Memset 
+123,o_proj,160.3,Memset 
+123,gate_up_proj,585.9,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+123,down_proj,321.1,Memset 
+123,ALL x36 layers,47563.8,
+124,qkv_proj,250.4,Memset 
+124,o_proj,160.0,Memset 
+124,gate_up_proj,585.7,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+124,down_proj,323.6,Memset 
+124,ALL x36 layers,47505.0,
+125,qkv_proj,254.8,Memset 
+125,o_proj,160.4,Memset 
+125,gate_up_proj,586.9,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+125,down_proj,322.6,Memset 
+125,ALL x36 layers,47690.5,
+126,qkv_proj,249.2,Memset 
+126,o_proj,159.8,Memset 
+126,gate_up_proj,583.9,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+126,down_proj,321.8,Memset 
+126,ALL x36 layers,47330.5,
+127,qkv_proj,251.9,Memset 
+127,o_proj,159.3,Memset 
+127,gate_up_proj,586.0,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+127,down_proj,321.7,Memset 
+127,ALL x36 layers,47480.3,
+128,qkv_proj,254.7,Memset 
+128,o_proj,161.5,Memset 
+128,gate_up_proj,588.4,turing_fp16_s1688gemm_fp16_256x128_ldg8_f2f_tn
+128,down_proj,321.7,Memset 
+128,ALL x36 layers,47746.9,

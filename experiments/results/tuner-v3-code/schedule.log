@@ -1,0 +1,4 @@
+[tuner] tokens/step by K: {0: 1, 1: 1.605, 2: 1.943, 3: 2.101}
+[tuner] raw argmax schedule: [[1, 3, 3], [4, 5, 2], [6, 18, 3], [19, 23, 2], [24, 26, 3], [27, 43, 2], [44, 70, 1], [71, 80, 2], [81, 128, 1]]
+[tuner] schedule: [[1, 18, 3], [19, 43, 2], [44, 128, 1]]
+[tuner] wrote results/tuner-v3-code/schedule.json and results/tuner-v3-code/goodput.csv

@@ -1,0 +1,23 @@
+=== dsd-docs (21:55:38) ===
+[launch] dsd-docs: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 64 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 16, 3], [17, 32, 1], [33, 64, 0]]}
+[launch] dsd-docs ready
+[sweep] c=1 requests=16 -> results/sweeps/dsd-t4/dsd-docs/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsd-t4/dsd-docs/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsd-t4/dsd-docs/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsd-t4/dsd-docs/c8
+[sweep] c=16 requests=64 -> results/sweeps/dsd-t4/dsd-docs/c16
+[sweep] c=32 requests=128 -> results/sweeps/dsd-t4/dsd-docs/c32
+[sweep] c=64 requests=256 -> results/sweeps/dsd-t4/dsd-docs/c64
+[sweep] done: results/sweeps/dsd-t4/dsd-docs
+=== dsd-tuned (22:08:26) ===
+[launch] dsd-tuned: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 64 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 2, 3], [3, 42, 2], [43, 64, 1]]}
+[launch] dsd-tuned ready
+[sweep] c=1 requests=16 -> results/sweeps/dsd-t4/dsd-tuned/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsd-t4/dsd-tuned/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsd-t4/dsd-tuned/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsd-t4/dsd-tuned/c8
+[sweep] c=16 requests=64 -> results/sweeps/dsd-t4/dsd-tuned/c16
+[sweep] c=32 requests=128 -> results/sweeps/dsd-t4/dsd-tuned/c32
+[sweep] c=64 requests=256 -> results/sweeps/dsd-t4/dsd-tuned/c64
+[sweep] done: results/sweeps/dsd-t4/dsd-tuned
+=== all done (22:20:30) ===

@@ -1,0 +1,13 @@
+Dynamic SD controller enabled: hysteresis=4, refit=every 200 steps, allowed K=[3, 4, 5], tracking proposal rate, explore every 20 steps (max +25%), prior decay 0.5, min gain 2%, decay seen positions only
+Dynamic SD controller: {'steps': 1000, 'switches': 0, 'held': 68, 'refits': 5, 'table_changes': 0, 'explored': 0}
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 19, 5], [20, 128, 3]] (acceptance by position [0.83, 0.747, 0.694, 0.469, 0.428], proposal rate 0.543)
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 18, 5], [19, 128, 3]] (acceptance by position [0.8, 0.714, 0.663, 0.458, 0.424], proposal rate 0.525)
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 13, 5], [14, 128, 3]] (acceptance by position [0.815, 0.732, 0.682, 0.439, 0.398], proposal rate 0.539)
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 12, 5], [13, 128, 3]] (acceptance by position [0.8, 0.706, 0.651, 0.371, 0.328], proposal rate 0.520)
+Dynamic SD controller: {'steps': 2000, 'switches': 6, 'held': 173, 'refits': 10, 'table_changes': 4, 'explored': 2}
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 10, 5], [11, 11, 3], [12, 12, 5], [13, 128, 3]] (acceptance by position [0.808, 0.713, 0.653, 0.337, 0.287], proposal rate 0.535)
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 4, 3], [5, 10, 5], [11, 128, 3]] (acceptance by position [0.843, 0.765, 0.717, 0.308, 0.252], proposal rate 0.586)
+Dynamic SD controller: {'steps': 3000, 'switches': 11, 'held': 225, 'refits': 15, 'table_changes': 6, 'explored': 9}
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 12, 5], [13, 128, 3]] (acceptance by position [0.808, 0.715, 0.658, 0.466, 0.401], proposal rate 0.536)
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 10, 5], [11, 11, 3], [12, 12, 5], [13, 128, 3]] (acceptance by position [0.839, 0.764, 0.716, 0.361, 0.288], proposal rate 0.574)
+Dynamic SD controller: new table [[1, 2, 5], [3, 3, 4], [4, 12, 5], [13, 128, 3]] (acceptance by position [0.823, 0.738, 0.686, 0.453, 0.404], proposal rate 0.556)

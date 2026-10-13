@@ -1,0 +1,23 @@
+{
+  "target": "Qwen/Qwen3-4B",
+  "drafter": "AngelSlim/Qwen3-4B_eagle3",
+  "k_max": 3,
+  "calibration_prompts": 160,
+  "drafts": 13056,
+  "accepted_per_pos": [
+    7935,
+    4283,
+    1980
+  ],
+  "accept_by_pos": [
+    0.6078,
+    0.328,
+    0.1517
+  ],
+  "tokens_per_step_by_k": {
+    "0": 1,
+    "1": 1.608,
+    "2": 1.936,
+    "3": 2.087
+  }
+}

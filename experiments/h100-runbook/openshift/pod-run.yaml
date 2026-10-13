@@ -1,0 +1,41 @@
+# Template for one parallel worker pod. RUNID is replaced when you create it:
+#   for r in 1 2 3; do sed "s/RUNID/$r/g" openshift/pod-run.yaml | oc apply -f -; done
+# Each worker gets its own whole H100 and 16 CPUs; all mount the shared /work (pvc-rwx.yaml).
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dsd-h100-runRUNID
+  labels: {app: dsd-h100, role: worker}
+spec:
+  restartPolicy: Never
+  nodeSelector:
+    nvidia.com/gpu.product: NVIDIA-H100-80GB-HBM3
+  tolerations:
+    - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
+  # Optional: put each worker on a different node, so workers never share CPUs or PCIe
+  # (use this if the nodes' kubelet CPU manager is not "static"; check with your admin).
+  # affinity:
+  #   podAntiAffinity:
+  #     requiredDuringSchedulingIgnoredDuringExecution:
+  #       - labelSelector: {matchLabels: {role: worker}}
+  #         topologyKey: kubernetes.io/hostname
+  containers:
+    - name: bench
+      image: image-registry.openshift-image-registry.svc:5000/<namespace>/dsd-bench:latest
+      command: ["sleep", "infinity"]
+      env:
+        - {name: HOME, value: /work}
+        - {name: RUN_ID, value: "RUNID"}
+        - name: NODE_NAME
+          valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
+      resources:
+        requests: {cpu: "16", memory: 128Gi, nvidia.com/gpu: 1}
+        limits:   {cpu: "16", memory: 128Gi, nvidia.com/gpu: 1}
+      volumeMounts:
+        - {name: work, mountPath: /work}
+        - {name: shm, mountPath: /dev/shm}
+  volumes:
+    - name: work
+      persistentVolumeClaim: {claimName: dsd-work}
+    - name: shm
+      emptyDir: {medium: Memory, sizeLimit: 32Gi}

@@ -1,0 +1,668 @@
++ curl -LsSf https://astral.sh/uv/install.sh
++ sh
+downloading uv 0.12.19 x86_64-unknown-linux-gnu
+installing to /home/ubuntu/.local/bin
+  uv
+  uvx
+everything's installed!
+
+To add $HOME/.local/bin to your PATH, either restart your shell or run:
+
+    source $HOME/.local/bin/env (sh, bash, zsh)
+    source $HOME/.local/bin/env.fish (fish)
++ UV=/home/ubuntu/.local/bin/uv
++ git clone --filter=blob:none https://github.com/vllm-project/vllm.git /home/ubuntu/vllm
+Cloning into '/home/ubuntu/vllm'...
+Updating files:   0% (2/7406)Updating files:   1% (75/7406)Updating files:   2% (149/7406)Updating files:   3% (223/7406)Updating files:   4% (297/7406)Updating files:   5% (371/7406)Updating files:   6% (445/7406)Updating files:   7% (519/7406)Updating files:   8% (593/7406)Updating files:   9% (667/7406)Updating files:  10% (741/7406)Updating files:  11% (815/7406)Updating files:  12% (889/7406)Updating files:  13% (963/7406)Updating files:  14% (1037/7406)Updating files:  15% (1111/7406)Updating files:  16% (1185/7406)Updating files:  17% (1260/7406)Updating files:  18% (1334/7406)Updating files:  19% (1408/7406)Updating files:  20% (1482/7406)Updating files:  21% (1556/7406)Updating files:  22% (1630/7406)Updating files:  23% (1704/7406)Updating files:  24% (1778/7406)Updating files:  25% (1852/7406)Updating files:  26% (1926/7406)Updating files:  27% (2000/7406)Updating files:  28% (2074/7406)Updating files:  29% (2148/7406)Updating files:  30% (2222/7406)Updating files:  31% (2296/7406)Updating files:  32% (2370/7406)Updating files:  33% (2444/7406)Updating files:  34% (2519/7406)Updating files:  35% (2593/7406)Updating files:  36% (2667/7406)Updating files:  37% (2741/7406)Updating files:  38% (2815/7406)Updating files:  39% (2889/7406)Updating files:  40% (2963/7406)Updating files:  41% (3037/7406)Updating files:  42% (3111/7406)Updating files:  43% (3185/7406)Updating files:  44% (3259/7406)Updating files:  45% (3333/7406)Updating files:  46% (3407/7406)Updating files:  47% (3481/7406)Updating files:  48% (3555/7406)Updating files:  49% (3629/7406)Updating files:  50% (3703/7406)Updating files:  51% (3778/7406)Updating files:  52% (3852/7406)Updating files:  53% (3926/7406)Updating files:  54% (4000/7406)Updating files:  55% (4074/7406)Updating files:  56% (4148/7406)Updating files:  57% (4222/7406)Updating files:  58% (4296/7406)Updating files:  59% (4370/7406)Updating files:  60% (4444/7406)Updating files:  61% (4518/7406)Updating files:  62% (4592/7406)Updating files:  63% (4666/7406)Updating files:  64% (4740/7406)Updating files:  65% (4814/7406)Updating files:  66% (4888/7406)Updating files:  67% (4963/7406)Updating files:  68% (5037/7406)Updating files:  69% (5111/7406)Updating files:  70% (5185/7406)Updating files:  71% (5259/7406)Updating files:  72% (5333/7406)Updating files:  73% (5407/7406)Updating files:  74% (5481/7406)Updating files:  75% (5555/7406)Updating files:  76% (5629/7406)Updating files:  77% (5703/7406)Updating files:  78% (5777/7406)Updating files:  79% (5851/7406)Updating files:  80% (5925/7406)Updating files:  81% (5999/7406)Updating files:  82% (6073/7406)Updating files:  83% (6147/7406)Updating files:  84% (6222/7406)Updating files:  85% (6296/7406)Updating files:  86% (6370/7406)Updating files:  87% (6444/7406)Updating files:  88% (6518/7406)Updating files:  89% (6592/7406)Updating files:  90% (6666/7406)Updating files:  91% (6740/7406)Updating files:  92% (6814/7406)Updating files:  93% (6888/7406)Updating files:  93% (6928/7406)Updating files:  94% (6962/7406)Updating files:  95% (7036/7406)Updating files:  96% (7110/7406)Updating files:  97% (7184/7406)Updating files:  98% (7258/7406)Updating files:  99% (7332/7406)Updating files: 100% (7406/7406)Updating files: 100% (7406/7406), done.
++ cd /home/ubuntu/vllm
++ git checkout 353e491efd3a23057004a3ab68fcfbda4abbee13
+Note: switching to '353e491efd3a23057004a3ab68fcfbda4abbee13'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 353e491ef [Perf] DiffusionGemma: one-pass sampler statistics kernel (#58226)
++ /home/ubuntu/.local/bin/uv venv --python 3.12 /home/ubuntu/venv
+Using CPython 3.12.3 interpreter at: /usr/bin/python3.12
+Creating virtual environment at: /home/ubuntu/venv
+Activate with: source /home/ubuntu/venv/bin/activate
++ source /home/ubuntu/venv/bin/activate
+++ '[' -z '' ']'
+++ '[' -n x ']'
+++ SCRIPT_PATH=/home/ubuntu/venv/bin/activate
+++ '[' /home/ubuntu/venv/bin/activate = /home/ubuntu/setup_a10g.sh ']'
+++ deactivate nondestructive
+++ unset -f pydoc
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ hash -r
+++ '[' -z '' ']'
+++ unset VIRTUAL_ENV
+++ unset VIRTUAL_ENV_PROMPT
+++ '[' '!' nondestructive = nondestructive ']'
+++ VIRTUAL_ENV=/home/ubuntu/venv
+++ '[' linux-gnu = cygwin ']'
+++ '[' linux-gnu = msys ']'
+++ export VIRTUAL_ENV
+++ '[' -z '' ']'
+++ unset SCRIPT_PATH
+++ _OLD_VIRTUAL_PATH=/usr/local/cuda/bin:/usr/local/cuda/include:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ PATH=/home/ubuntu/venv/bin:/usr/local/cuda/bin:/usr/local/cuda/include:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ export PATH
+++ '[' x '!=' x ']'
++++ basename /home/ubuntu/venv
+++ VIRTUAL_ENV_PROMPT=venv
+++ export VIRTUAL_ENV_PROMPT
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ PS1='(venv) '
+++ export PS1
+++ alias pydoc
+++ true
+++ hash -r
++ VLLM_USE_PRECOMPILED=1
++ VLLM_PRECOMPILED_WHEEL_COMMIT=353e491efd3a23057004a3ab68fcfbda4abbee13
++ /home/ubuntu/.local/bin/uv pip install -e . --torch-backend=auto
+Using Python 3.12.3 environment at: /home/ubuntu/venv
+Resolved 199 packages in 46.53s
+   Building vllm @ file:///home/ubuntu/vllm
+Downloading torchcodec (9.2MiB)
+Downloading torchvision (7.5MiB)
+Downloading cuda-core (6.3MiB)
+Downloading nvidia-cuda-cccl (3.7MiB)
+Downloading numba (3.6MiB)
+Downloading tokenizers (3.2MiB)
+Downloading llguidance (2.9MiB)
+Downloading outlines-core (2.2MiB)
+Downloading nvidia-nvvm (69.2MiB)
+Downloading xgrammar (1.2MiB)
+Downloading instanttensor (5.9MiB)
+Downloading flashinfer-python (32.1MiB)
+Downloading transformers (11.7MiB)
+Downloading openai-harmony (2.8MiB)
+Downloading uvloop (4.2MiB)
+Downloading nccl-extensions (21.5MiB)
+Downloading nvidia-cuda-nvcc (45.5MiB)
+Downloading nvidia-cuda-nvdisasm (5.0MiB)
+Downloading nvidia-cudnn-frontend (8.4MiB)
+Downloading nccl4py (3.5MiB)
+Downloading nvidia-cutlass-dsl-libs-core (1.2MiB)
+Downloading apache-tvm-ffi (2.6MiB)
+Downloading pillow (6.6MiB)
+Downloading tilelang (48.2MiB)
+Downloading pynvvideocodec (41.2MiB)
+Downloading pycountry (7.7MiB)
+Downloading numpy (15.8MiB)
+Downloading tiktoken (1.1MiB)
+Downloading tokenspeed-triton (95.3MiB)
+Downloading cryptography (4.5MiB)
+Downloading fastsafetensors (2.0MiB)
+Downloading aiohttp (1.7MiB)
+Downloading mistral-common (6.3MiB)
+Downloading anthropic (1.3MiB)
+Downloading z3-solver (27.9MiB)
+Downloading llvmlite (53.7MiB)
+Downloading pygments (1.2MiB)
+Downloading opencv-python-headless (58.4MiB)
+Downloading sentencepiece (1.3MiB)
+Downloading pydantic-core (2.0MiB)
+Downloading hf-xet (4.3MiB)
+Downloading grpcio (6.8MiB)
+Downloading openai (2.0MiB)
+Downloading nvidia-cutlass-dsl-libs-base (2.7MiB)
+Downloading nvidia-cutlass-dsl-libs-cu12 (84.6MiB)
+Downloading nvidia-cutlass-dsl-libs-cu13 (84.2MiB)
+ Downloaded torchcodec
+ Downloaded torchvision
+ Downloaded pygments
+ Downloaded tiktoken
+ Downloaded nvidia-cutlass-dsl-libs-core
+ Downloaded xgrammar
+ Downloaded sentencepiece
+ Downloaded anthropic
+ Downloaded aiohttp
+ Downloaded openai
+ Downloaded fastsafetensors
+ Downloaded pydantic-core
+ Downloaded outlines-core
+ Downloaded nvidia-cutlass-dsl-libs-base
+ Downloaded apache-tvm-ffi
+ Downloaded openai-harmony
+ Downloaded llguidance
+ Downloaded tokenizers
+ Downloaded nccl4py
+ Downloaded numba
+ Downloaded nvidia-cuda-cccl
+ Downloaded uvloop
+ Downloaded hf-xet
+ Downloaded nvidia-cuda-nvdisasm
+ Downloaded cryptography
+ Downloaded mistral-common
+ Downloaded instanttensor
+ Downloaded cuda-core
+ Downloaded pillow
+ Downloaded grpcio
+ Downloaded pycountry
+ Downloaded nvidia-cudnn-frontend
+ Downloaded transformers
+ Downloaded numpy
+ Downloaded nccl-extensions
+ Downloaded z3-solver
+ Downloaded flashinfer-python
+ Downloaded pynvvideocodec
+ Downloaded nvidia-cuda-nvcc
+ Downloaded tilelang
+ Downloaded llvmlite
+ Downloaded opencv-python-headless
+ Downloaded nvidia-nvvm
+ Downloaded nvidia-cutlass-dsl-libs-cu12
+ Downloaded nvidia-cutlass-dsl-libs-cu13
+ Downloaded tokenspeed-triton
+      Built vllm @ file:///home/ubuntu/vllm
+Prepared 169 packages in 16.80s
+Installed 198 packages in 902ms
+Prepared 1 package without build isolation in 0.08ms
+Installed 1 package in 263ms
+ + agent-detector==2.0.0
+ + aiohappyeyeballs==2.7.1
+ + aiohttp==3.14.3
+ + aiosignal==1.4.0
+ + annotated-doc==0.0.5
+ + annotated-types==0.8.0
+ + anthropic==1.8.0
+ + anyio==4.15.1
+ + apache-tvm-ffi==0.1.11
+ + astor==0.8.1
+ + attrs==26.1.0
+ + blake3==1.0.9
+ + cachetools==7.2.0
+ + cbor2==6.1.4
+ + certifi==2026.7.22
+ + cffi==2.1.1
+ + charset-normalizer==3.5.1
+ + click==8.5.0
+ + cloudpickle==3.1.2
+ + compressed-tensors==0.17.0
+ + cryptography==50.0.1
+ + cuda-bindings==13.4.3
+ + cuda-core==1.2.1
+ + cuda-pathfinder==1.8.2
+ + cuda-python==13.4.1
+ + cuda-tile==1.6.0
+ + cuda-toolkit==13.2.1
+ + depyf==0.20.0
+ + detect-installer==0.2.1
+ + dill==0.4.1
+ + dnspython==2.8.0
+ + docstring-parser==0.18.0
+ + einops==0.8.2
+ + email-validator==2.3.0
+ + fastapi==0.136.3
+ + fastapi-cli==0.0.32
+ + fastapi-cloud-cli==0.26.0
+ + fastar==0.12.0
+ + fastsafetensors==0.4.0
+ + filelock==4.0.4
+ + flashinfer-python==0.7.0
+ + frozenlist==1.8.0
+ + fsspec==2026.9.0
+ + googleapis-common-protos==1.75.4
+ + grpcio==1.84.0
+ + h11==0.16.0
+ + hf-xet==1.6.0
+ + httpcore==1.0.9
+ + httpcore2==2.13.1
+ + httptools==0.8.0
+ + httpx==0.28.1
+ + httpx2==2.13.1
+ + huggingface-hub==1.33.0
+ + humming-kernels==0.1.16
+ + idna==3.20
+ + ijson==3.5.1
+ + instanttensor==0.2.0
+ + interegular==0.3.3
+ + jinja2==3.1.6
+ + jiter==0.17.0
+ + jmespath==1.1.0
+ + jsonschema==4.26.0
+ + jsonschema-specifications==2025.9.1
+ + lark==1.2.2
+ + llguidance==1.7.6
+ + llvmlite==0.47.0
+ + lm-format-enforcer==0.11.3
+ + loguru==0.7.3
+ + markdown-it-py==4.2.0
+ + markupsafe==3.0.3
+ + mcp==2.2.0
+ + mcp-types==2.2.0
+ + mdurl==0.1.2
+ + mistral-common==1.12.0
+ + ml-dtypes==0.6.0
+ + model-hosting-container-standards==0.1.16
+ + mpmath==1.3.0
+ + msgspec==0.21.1
+ + multidict==6.9.1
+ + nccl-extensions==0.1.0
+ + nccl4py==0.6.0
+ + networkx==3.7
+ + ninja==1.13.2
+ + numba==0.65.0
+ + numpy==2.3.5
+ + nvidia-cublas==13.4.0.1
+ + nvidia-cuda-cccl==13.3.4.3.1
+ + nvidia-cuda-crt==13.4.92
+ + nvidia-cuda-cupti==13.2.75
+ + nvidia-cuda-nvcc==13.4.92
+ + nvidia-cuda-nvdisasm==13.4.92
+ + nvidia-cuda-nvrtc==13.2.78
+ + nvidia-cuda-runtime==13.2.75
+ + nvidia-cudnn-cu13==9.20.0.48
+ + nvidia-cudnn-frontend==1.30.0
+ + nvidia-cufft==12.2.0.46
+ + nvidia-cufile==1.17.1.22
+ + nvidia-curand==10.4.2.55
+ + nvidia-cusolver==12.2.0.1
+ + nvidia-cusparse==12.7.10.1
+ + nvidia-cusparselt-cu13==0.8.1
+ + nvidia-cutlass-dsl==4.7.1
+ + nvidia-cutlass-dsl-libs-base==4.7.1
+ + nvidia-cutlass-dsl-libs-core==4.7.1
+ + nvidia-cutlass-dsl-libs-cu12==4.7.1
+ + nvidia-cutlass-dsl-libs-cu13==4.7.1
+ + nvidia-ml-py==13.615.71
+ + nvidia-nccl-cu13==2.29.7
+ + nvidia-nvjitlink==13.4.92
+ + nvidia-nvshmem-cu13==3.4.5
+ + nvidia-nvtx==13.2.75
+ + nvidia-nvvm==13.4.92
+ + nvtx==0.2.15
+ + openai==3.19.2
+ + openai-harmony==0.0.8
+ + opencv-python-headless==5.0.0.93
+ + opentelemetry-api==1.45.0
+ + opentelemetry-exporter-http-transport==0.66b0
+ + opentelemetry-exporter-otlp==1.45.0
+ + opentelemetry-exporter-otlp-common==0.66b0
+ + opentelemetry-exporter-otlp-proto-common==1.45.0
+ + opentelemetry-exporter-otlp-proto-grpc==1.45.0
+ + opentelemetry-exporter-otlp-proto-http==1.45.0
+ + opentelemetry-proto==1.45.0
+ + opentelemetry-sdk==1.45.0
+ + opentelemetry-semantic-conventions==0.66b0
+ + opentelemetry-semantic-conventions-ai==0.5.1
+ + outlines-core==0.2.14
+ + packaging==26.3
+ + partial-json-parser==0.2.1.1.post7
+ + pillow==12.3.0
+ + prometheus-client==0.26.0
+ + prometheus-fastapi-instrumentator==8.1.0
+ + propcache==0.5.4
+ + protobuf==7.36.2
+ + psutil==7.2.2
+ + py-cpuinfo==9.0.0
+ + pybase64==1.5.0
+ + pycountry==26.2.16
+ + pycparser==3.0
+ + pydantic==2.13.5
+ + pydantic-core==2.46.5
+ + pydantic-extra-types==2.11.1
+ + pydantic-settings==2.15.0
+ + pygments==2.21.0
+ + pyjwt==2.15.0
+ + pynvvideocodec==2.0.4
+ + python-dotenv==1.2.3
+ + python-json-logger==4.2.0
+ + python-multipart==0.0.32
+ + pyyaml==6.0.3
+ + pyzmq==27.2.0
+ + quack-kernels==0.6.5
+ + referencing==0.37.0
+ + regex==2026.9.10
+ + requests==2.34.2
+ + rich==15.0.0
+ + rich-toolkit==0.20.5
+ + rignore==0.8.1
+ + rpds-py==2026.6.3
+ + safetensors==0.8.0
+ + sentencepiece==0.2.2
+ + sentry-sdk==2.70.0
+ + setproctitle==1.3.7
+ + setuptools==80.10.2
+ + shellingham==1.5.4
+ + six==1.17.0
+ + sniffio==1.3.1
+ + sse-starlette==3.4.11
+ + starlette==1.7.0
+ + supervisor==4.3.0
+ + sympy==1.14.0
+ + tabulate==0.10.0
+ + tiktoken==0.14.0
+ + tilelang==0.1.12
+ + tokenizers==0.23.2
+ + tokenspeed-mla==0.1.8
+ + tokenspeed-triton==3.8.10.post20260920
+ + torch==2.13.0+cu132
+ + torch-c-dlpack-ext==0.1.5
+ + torchaudio==2.11.0+cpu
+ + torchcodec==0.16.0+cu132
+ + torchvision==0.28.0+cu132
+ + tqdm==4.70.1
+ + transformers==5.17.0
+ + triton==3.7.1
+ + truststore==0.10.4
+ + typer==0.27.2
+ + typing-extensions==4.16.0
+ + typing-inspection==0.4.4
+ + urllib3==2.8.0
+ + uvicorn==0.54.0
+ + uvloop==0.22.1
+ + vllm==0.30.1rc1.dev169+g353e491ef.precompiled (from file:///home/ubuntu/vllm)
+ + watchfiles==1.3.0
+ + websockets==17.1
+ + xgrammar==0.2.7
+ + yarl==1.25.1
+ + z3-solver==4.15.4.0
++ /home/ubuntu/.local/bin/uv pip install pytest pytest-asyncio tblib
+Using Python 3.12.3 environment at: /home/ubuntu/venv
+Resolved 8 packages in 72ms
+Prepared 5 packages in 12ms
+Installed 5 packages in 4ms
+ + iniconfig==2.3.0
+ + pluggy==1.6.0
+ + pytest==9.1.1
+ + pytest-asyncio==1.4.0
+ + tblib==3.2.2
++ cd /home/ubuntu/vllm-perf
++ bash vllm_integration/apply_patches.sh /home/ubuntu/vllm
+b6adf8702 Tool and docs for choosing the Dynamic SD schedule
+6eb2eede9 Dynamic SD controller: hysteresis and online re-fit
+353e491ef [Perf] DiffusionGemma: one-pass sampler statistics kernel (#58226)
++ for f in core controller
++ cmp tuner/core.py /home/ubuntu/vllm/vllm/v1/spec_decode/dynamic/core.py
++ for f in core controller
++ cmp tuner/controller.py /home/ubuntu/vllm/vllm/v1/spec_decode/dynamic/controller.py
++ /home/ubuntu/.local/bin/uv tool install aiperf==0.13.0
+Resolved 137 packages in 239ms
+Downloading sqlalchemy (4.5MiB)
+Downloading brotli (1.4MiB)
+Downloading kiwisolver (1.4MiB)
+Downloading soundfile (1.3MiB)
+Downloading pandas (11.8MiB)
+Downloading fonttools (5.1MiB)
+Downloading scipy (33.7MiB)
+Downloading zstandard (5.3MiB)
+Downloading pyarrow (47.8MiB)
+Downloading matplotlib (9.4MiB)
+Downloading numpy (15.9MiB)
+Downloading crick (1.7MiB)
+Downloading plotly (9.4MiB)
+Downloading aiperf (6.4MiB)
+Downloading kubernetes-asyncio (1.9MiB)
+Downloading dash (7.5MiB)
+ Downloaded brotli
+ Downloaded crick
+ Downloaded soundfile
+ Downloaded kiwisolver
+ Downloaded kubernetes-asyncio
+ Downloaded sqlalchemy
+ Downloaded zstandard
+ Downloaded fonttools
+ Downloaded dash
+ Downloaded aiperf
+ Downloaded matplotlib
+ Downloaded plotly
+ Downloaded numpy
+ Downloaded pandas
+ Downloaded scipy
+ Downloaded pyarrow
+Prepared 71 packages in 1.99s
+Installed 137 packages in 772ms
+ + aiofiles==24.1.0
+ + aiohappyeyeballs==2.7.1
+ + aiohttp==3.14.3
+ + aiosignal==1.4.0
+ + aiosqlite==0.22.1
+ + aiperf==0.13.0
+ + alembic==1.20.0
+ + annotated-doc==0.0.5
+ + annotated-types==0.8.0
+ + anyio==4.15.1
+ + attrs==26.1.0
+ + blinker==1.9.0
+ + brotli==1.2.0
+ + certifi==2026.7.22
+ + cffi==2.1.1
+ + charset-normalizer==3.5.1
+ + choreographer==1.4.0
+ + click==8.5.0
+ + colorlog==6.12.0
+ + contourpy==1.4.0
+ + crick==0.0.8
+ + cycler==0.12.1
+ + cyclopts==4.25.3
+ + dash==3.1.1
+ + dash-bootstrap-components==2.0.4
+ + datasets==5.0.1
+ + dill==0.4.1
+ + docstring-parser==0.18.0
+ + fastapi==0.141.1
+ + ffmpeg-python==0.2.0
+ + filelock==4.0.4
+ + flask==3.1.3
+ + fonttools==4.66.0
+ + frozenlist==1.8.0
+ + fsspec==2026.6.0
+ + future==1.0.0
+ + h11==0.16.0
+ + hf-xet==1.6.0
+ + httpcore==1.0.9
+ + httptools==0.8.0
+ + httpx==0.28.1
+ + huggingface-hub==1.33.0
+ + idna==3.20
+ + importlib-metadata==9.0.1
+ + iniconfig==2.3.0
+ + iso8601==2.1.0
+ + itsdangerous==2.2.0
+ + jinja2==3.1.6
+ + jmespath==1.0.1
+ + jsonpatch==1.33
+ + jsonpointer==3.1.1
+ + kaleido==1.2.0
+ + kiwisolver==1.5.1
+ + kopf==1.44.6
+ + kubernetes-asyncio==32.3.2
+ + linkify-it-py==2.2.0
+ + logistro==2.0.1
+ + mako==1.4.3
+ + markdown-it-py==4.2.0
+ + markupsafe==3.0.3
+ + matplotlib==3.11.2
+ + mdit-py-plugins==0.6.1
+ + mdurl==0.1.2
+ + msgspec==0.21.1
+ + multidict==6.9.1
+ + multiprocess==0.70.19
+ + narwhals==2.26.0
+ + nest-asyncio==1.6.0
+ + numpy==2.5.3
+ + nvidia-ml-py==13.615.71
+ + optuna==5.0.0
+ + orjson==3.11.9
+ + packaging==26.3
+ + pandas==2.3.3
+ + pillow==12.3.0
+ + platformdirs==4.12.0
+ + plotly==6.4.0
+ + pluggy==1.6.0
+ + prometheus-client==0.23.1
+ + propcache==0.5.4
+ + protobuf==7.36.2
+ + psutil==7.0.0
+ + pyarrow==25.0.1
+ + pycparser==3.0
+ + pydantic==2.13.5
+ + pydantic-core==2.46.5
+ + pydantic-settings==2.15.0
+ + pygments==2.21.0
+ + pyparsing==3.3.3
+ + pytest==9.1.1
+ + pytest-timeout==2.4.0
+ + python-dateutil==2.9.0.post0
+ + python-dotenv==1.2.3
+ + python-json-logger==4.2.0
+ + python-multipart==0.0.32
+ + pytz==2026.4
+ + pyyaml==6.0.3
+ + pyzmq==26.4.0
+ + regex==2026.9.10
+ + requests==2.34.2
+ + retrying==1.4.2
+ + rich==14.1.0
+ + rich-rst==2.1.0
+ + ruamel-yaml==0.18.17
+ + ruamel-yaml-clib==0.2.15
+ + safetensors==0.8.0
+ + scipy==1.18.1
+ + seaborn==0.13.2
+ + sentencepiece==0.2.2
+ + setproctitle==1.3.7
+ + setuptools==84.0.0
+ + shellingham==1.5.4
+ + simplejson==4.1.2
+ + six==1.17.0
+ + soundfile==0.13.1
+ + sqlalchemy==2.1.1
+ + starlette==1.7.0
+ + starlette-compress==1.8.0
+ + textual==5.3.0
+ + tiktoken==0.14.0
+ + tokenizers==0.23.2
+ + tqdm==4.70.1
+ + transformers==5.17.0
+ + typer==0.27.2
+ + typing-extensions==4.16.0
+ + typing-inspection==0.4.4
+ + tzdata==2026.4
+ + urllib3==2.8.0
+ + uvicorn==0.54.0
+ + uvloop==0.22.1
+ + watchfiles==1.3.0
+ + websockets==17.1
+ + werkzeug==3.1.8
+ + xxhash==4.0.1
+ + yarl==1.25.1
+ + zipp==4.1.0
+ + zstandard==0.25.0
+Installed 1 executable: aiperf
+warning: `/home/ubuntu/.local/bin` is not on your PATH. To use installed tools, run `export PATH="/home/ubuntu/.local/bin:$PATH"` or `uv tool update-shell`.
++ /home/ubuntu/.local/bin/uv venv --python 3.12 /home/ubuntu/plotenv
+Using CPython 3.12.3 interpreter at: /usr/bin/python3.12
+Creating virtual environment at: /home/ubuntu/plotenv
+Activate with: source /home/ubuntu/plotenv/bin/activate
++ /home/ubuntu/.local/bin/uv pip install --python /home/ubuntu/plotenv/bin/python matplotlib==3.11.2 mlflow-skinny==3.16.1 datasets
+Using Python 3.12.3 environment at: /home/ubuntu/plotenv
+Resolved 72 packages in 140ms
+Downloading mlflow-skinny (3.6MiB)
+Downloading databricks-sdk (1.0MiB)
+Downloading pandas (10.3MiB)
+ Downloaded databricks-sdk
+ Downloaded mlflow-skinny
+ Downloaded pandas
+Prepared 11 packages in 307ms
+Installed 72 packages in 231ms
+ + aiohappyeyeballs==2.7.1
+ + aiohttp==3.14.3
+ + aiosignal==1.4.0
+ + annotated-doc==0.0.5
+ + annotated-types==0.8.0
+ + anyio==4.15.1
+ + attrs==26.1.0
+ + cachetools==7.2.0
+ + certifi==2026.7.22
+ + cffi==2.1.1
+ + charset-normalizer==3.5.1
+ + click==8.5.0
+ + cloudpickle==3.1.2
+ + contourpy==1.4.0
+ + cryptography==50.0.1
+ + cycler==0.12.1
+ + databricks-sdk==0.143.0
+ + datasets==5.0.1
+ + dill==0.4.1
+ + fastapi==0.141.1
+ + filelock==4.0.4
+ + fonttools==4.66.0
+ + frozenlist==1.8.0
+ + fsspec==2026.6.0
+ + gitdb==4.0.12
+ + gitpython==3.1.62
+ + google-auth==2.58.1
+ + h11==0.16.0
+ + hf-xet==1.6.0
+ + httpcore==1.0.9
+ + httpx==0.28.1
+ + huggingface-hub==1.33.0
+ + idna==3.20
+ + importlib-metadata==9.0.1
+ + kiwisolver==1.5.1
+ + matplotlib==3.11.2
+ + mlflow-skinny==3.16.1
+ + multidict==6.9.1
+ + multiprocess==0.70.19
+ + numpy==2.5.3
+ + opentelemetry-api==1.45.0
+ + opentelemetry-proto==1.45.0
+ + opentelemetry-sdk==1.45.0
+ + opentelemetry-semantic-conventions==0.66b0
+ + packaging==26.3
+ + pandas==3.0.6
+ + pillow==12.3.0
+ + propcache==0.5.4
+ + protobuf==6.33.6
+ + pyarrow==25.0.1
+ + pyasn1==0.6.4
+ + pyasn1-modules==0.4.2
+ + pycparser==3.0
+ + pydantic==2.13.5
+ + pydantic-core==2.46.5
+ + pyparsing==3.3.3
+ + python-dateutil==2.9.0.post0
+ + python-dotenv==1.2.3
+ + pyyaml==6.0.3
+ + requests==2.34.2
+ + six==1.17.0
+ + smmap==5.0.3
+ + sqlparse==0.6.0
+ + starlette==1.7.0
+ + tqdm==4.70.1
+ + typing-extensions==4.16.0
+ + typing-inspection==0.4.4
+ + urllib3==2.8.0
+ + uvicorn==0.54.0
+ + xxhash==4.0.1
+ + yarl==1.25.1
+ + zipp==4.1.0
++ /home/ubuntu/.local/bin/uv pip install --python /home/ubuntu/.local/share/uv/tools/aiperf/bin/python datasets
+Checked 1 package in 49ms
++ cd /home/ubuntu/vllm-perf
++ python -c 'import vllm, torch; print('\''vllm'\'', vllm.__version__, '\''torch'\'', torch.__version__, torch.cuda.get_device_name())'
+vllm 0.30.1rc1.dev169+g353e491ef torch 2.13.0+cu132 NVIDIA A10G
++ python -m pytest -q -p no:cacheprovider tests
++ tail -1
+73 passed in 1.48s
++ echo SETUP DONE
+SETUP DONE

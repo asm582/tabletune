@@ -1,0 +1,53 @@
+=== DFlash repeat 2 (21:28:22) ===
+=== dflash-k3 (21:41:00) ===
+=== dflash-k8 (21:53:27) ===
+!!! dflash-k8 sweep failed
+=== dflash-tuned (22:05:10) ===
+=== all done (22:16:40) ===
+=== controller (a): EAGLE's v3 table, DFlash costs and prior (22:19:37) ===
+=== dflash-v3table (22:19:37) ===
+=== all done (22:27:31) ===
+=== controller (b): EAGLE's v3 table, controller off (22:30:01) ===
+=== dflash-v3table (22:30:01) ===
+=== all done (22:38:00) ===
+=== DFlash pipeline done (22:40:30) ===
+=== EAGLE-3 repeat 2 (22:40:30) ===
+=== eagle-tuned (23:30:36) ===
+=== dsd-tuned-v3 (23:42:16) ===
+=== all done (23:54:04) ===
+=== controller on: untuned docs tables, this GPU's costs, spec-bench prior (23:57:38) ===
+=== dsd-docs (23:57:38) ===
+=== dsd-rescaled (00:05:33) ===
+=== all done (00:13:20) ===
+=== controller off: untuned docs tables (00:16:12) ===
+=== dsd-docs (00:16:12) ===
+=== dsd-rescaled (00:24:06) ===
+=== all done (00:31:56) ===
+=== EAGLE-3 pipeline on a10g done (00:34:51) ===
+=== DFlash repeat 3 (00:34:51) ===
+=== dflash-k3 (00:47:26) ===
+=== dflash-k8 (00:59:34) ===
+!!! dflash-k8 sweep failed
+=== dflash-tuned (01:11:05) ===
+=== all done (01:22:34) ===
+=== controller (a): EAGLE's v3 table, DFlash costs and prior (01:26:13) ===
+=== dflash-v3table (01:26:13) ===
+=== all done (01:34:08) ===
+=== controller (b): EAGLE's v3 table, controller off (01:37:31) ===
+=== dflash-v3table (01:37:31) ===
+=== all done (01:45:29) ===
+=== DFlash pipeline done (01:48:51) ===
+=== EAGLE-3 repeat 3 (01:48:51) ===
+=== eagle-tuned (02:38:37) ===
+=== dsd-tuned-v3 (02:50:14) ===
+=== all done (03:02:02) ===
+=== controller on: untuned docs tables, this GPU's costs, spec-bench prior (03:06:04) ===
+=== dsd-docs (03:06:04) ===
+=== dsd-rescaled (03:14:07) ===
+=== all done (03:21:59) ===
+=== controller off: untuned docs tables (03:25:21) ===
+=== dsd-docs (03:25:22) ===
+=== dsd-rescaled (03:33:22) ===
+=== all done (03:41:11) ===
+=== EAGLE-3 pipeline on a10g done (03:44:40) ===
+=== A10G REPEATS DONE (03:44:40) ===

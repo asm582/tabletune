@@ -1,0 +1,19 @@
+=== smoke nospec (AWQ) (18:56:16) ===
+[smoke] nospec: 701 tokens in 5.9s (118.2 tok/s), load 169s -> results/smoke/t4-awq/nospec.json
+[smoke] spec counters: {}
+GPU KV cache size: 68,928 tokens
+Model loading took 2.5 GiB
+=== smoke eagle3 (AWQ) (18:59:26) ===
+[smoke] eagle3: 709 tokens in 7.6s (93.6 tok/s), load 178s -> results/smoke/t4-awq/eagle3.json
+[smoke] spec counters: {'vllm:spec_decode_num_drafts': 345, 'vllm:spec_decode_num_draft_tokens': 1035, 'vllm:spec_decode_num_accepted_tokens': 359, 'vllm:spec_decode_num_accepted_tokens_per_pos': [221, 106, 32]}
+GPU KV cache size: 59,088 tokens
+Model loading took 2.93 GiB
+=== smoke dsd (AWQ) (19:02:53) ===
+[smoke] dsd: 709 tokens in 9.4s (75.2 tok/s), load 162s -> results/smoke/t4-awq/dsd.json
+[smoke] spec counters: {'vllm:spec_decode_num_drafts': 378, 'vllm:spec_decode_num_draft_tokens': 804, 'vllm:spec_decode_num_accepted_tokens': 324, 'vllm:spec_decode_num_accepted_tokens_per_pos': [238, 67, 19]}
+GPU KV cache size: 59,888 tokens
+Model loading took 2.93 GiB
+dsd        greedy match vs nospec: batched 7/8, single 0/3 | 75.2 tok/s (nospec 118.2)
+eagle3     greedy match vs nospec: batched 6/8, single 0/3 | 93.6 tok/s (nospec 118.2)
+[gate] EAGLE-3 position-1 acceptance on AWQ: 0.64; greedy match: False
+!!! AWQ smoke gate failed: stopping

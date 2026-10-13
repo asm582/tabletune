@@ -1,0 +1,141 @@
+=== acceptance, draft model K=5, code prompts, T=1.0 (03:08:27) ===
+[accept] prompts file results/ngram/prompts-write.jsonl: calibration=160
+[accept] by position [0.7119, 0.5364, 0.4178, 0.3309, 0.2681] -> tokens/step {0: 1, 1: 1.712, 2: 2.248, 3: 2.666, 4: 2.997, 5: 3.265}
+[accept] proposal rate 1.0229, per decode step [0.7282, 0.5487, 0.4274, 0.3385, 0.2742] -> tokens/step {0: 1, 1: 1.728, 2: 2.277, 3: 2.704, 4: 3.043, 5: 3.317}; ISL 31.8 OSL 249.7
+[accept] wrote results/draft-tuner/acceptance.json
+=== costs K=0 (03:13:25) ===
+[costs] K=0 B=  1 step=  40.08 ms  samples=[59.83, 40.08, 40.052]
+[costs] K=0 B= 16 step=  52.81 ms  samples=[93.05, 52.809, 52.773]
+[costs] K=0 B= 64 step=  86.69 ms  samples=[86.69, 86.706, 86.681]
+[costs] K=0 B=104 step= 113.14 ms  samples=[113.286, 113.11, 113.139]
+GPU KV cache size: 11,792 tokens
+=== costs K=1 (03:23:40) ===
+[costs] K=1 B=  1 step=  43.12 ms  samples=[44.465, 43.114, 43.123]
+[costs] K=1 B= 16 step=  63.48 ms  samples=[63.524, 63.408, 63.485]
+[costs] K=1 B= 64 step= 100.94 ms  samples=[100.875, 100.955, 100.939]
+[costs] K=1 B=104 step= 151.98 ms  samples=[151.798, 151.984, 152.286]
+GPU KV cache size: 12,400 tokens
+=== costs K=2 (03:32:35) ===
+[costs] K=2 B=  1 step=  49.86 ms  samples=[56.569, 49.851, 49.861]
+[costs] K=2 B= 16 step=  75.74 ms  samples=[116.822, 75.662, 75.744]
+[costs] K=2 B= 64 step= 149.45 ms  samples=[149.553, 149.448, 149.127]
+[costs] K=2 B=104 step= 239.52 ms  samples=[239.519, 239.668, 239.51]
+GPU KV cache size: 11,552 tokens
+=== costs K=3 (03:46:17) ===
+[costs] K=3 B=  1 step=  62.65 ms  samples=[64.401, 62.65, 62.392]
+[costs] K=3 B= 16 step=  88.94 ms  samples=[116.413, 88.921, 88.943]
+[costs] K=3 B= 64 step= 188.46 ms  samples=[188.65, 188.27, 188.459]
+[costs] K=3 B=104 step= 291.03 ms  samples=[291.201, 291.026, 290.833]
+GPU KV cache size: 12,400 tokens
+=== costs K=4 (03:59:48) ===
+[costs] K=4 B=  1 step=  75.72 ms  samples=[83.322, 75.561, 75.724]
+[costs] K=4 B= 16 step= 107.82 ms  samples=[150.368, 107.822, 107.673]
+[costs] K=4 B= 64 step= 258.51 ms  samples=[258.558, 258.507, 258.014]
+[costs] K=4 B=104 step= 417.81 ms  samples=[419.667, 417.814, 417.734]
+GPU KV cache size: 11,552 tokens
+=== costs K=5 (04:18:34) ===
+[costs] K=5 B=  1 step=  94.79 ms  samples=[101.876, 93.179, 94.787]
+[costs] K=5 B= 16 step= 121.00 ms  samples=[163.533, 121.0, 120.916]
+[costs] K=5 B= 64 step= 288.05 ms  samples=[288.054, 287.529, 288.448]
+[costs] K=5 B=104 step= 453.95 ms  samples=[453.953, 453.635, 454.331]
+GPU KV cache size: 11,712 tokens
+=== schedule (04:39:44) ===
+[tuner] tokens/step by K: {0: 1, 1: 1.712, 2: 2.248, 3: 2.666, 4: 2.997, 5: 3.265}
+[tuner] raw argmax schedule: [[1, 2, 2], [3, 4, 3], [5, 5, 2], [6, 17, 3], [18, 40, 2], [41, 128, 1]]
+[tuner] schedule: [[1, 2, 2], [3, 17, 3], [18, 40, 2], [41, 128, 1]]
+[tuner] wrote results/draft-tuner/schedule.json and results/draft-tuner/goodput.csv
+[tuner] predicted loss of each fixed K vs. the best K at each batch size:
+  K=0: worst 46.3% at B=  3, average 29.4%
+  K=1: worst 13.1% at B= 11, average  1.8%
+  K=2: worst 17.5% at B=128, average  8.4%
+  K=3: worst 25.8% at B=128, average 12.9%
+  K=4: worst 50.6% at B=128, average 25.4%
+  K=5: worst 37.8% at B= 96, average 27.7%
+=== sweep (04:39:44) ===
+=== draft-k1 (04:39:44) ===
+[launch] draft-k1: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "draft_model", "model": "Qwen/Qwen3-0.6B", "num_speculative_tokens": 1}
+[launch] draft-k1 ready
+[sweep] c=1 requests=16 -> results/sweeps/draft-code-t4/draft-k1/c1
+[sweep] c=2 requests=16 -> results/sweeps/draft-code-t4/draft-k1/c2
+[sweep] c=4 requests=16 -> results/sweeps/draft-code-t4/draft-k1/c4
+[sweep] c=8 requests=32 -> results/sweeps/draft-code-t4/draft-k1/c8
+[sweep] c=16 requests=64 -> results/sweeps/draft-code-t4/draft-k1/c16
+[sweep] c=32 requests=128 -> results/sweeps/draft-code-t4/draft-k1/c32
+[sweep] c=64 requests=256 -> results/sweeps/draft-code-t4/draft-k1/c64
+[sweep] c=96 requests=384 -> results/sweeps/draft-code-t4/draft-k1/c96
+[sweep] c=128 requests=512 -> results/sweeps/draft-code-t4/draft-k1/c128
+[sweep] done: results/sweeps/draft-code-t4/draft-k1
+=== draft-k3 (05:07:29) ===
+[launch] draft-k3: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "draft_model", "model": "Qwen/Qwen3-0.6B", "num_speculative_tokens": 3}
+[launch] draft-k3 ready
+[sweep] c=1 requests=16 -> results/sweeps/draft-code-t4/draft-k3/c1
+[sweep] c=2 requests=16 -> results/sweeps/draft-code-t4/draft-k3/c2
+[sweep] c=4 requests=16 -> results/sweeps/draft-code-t4/draft-k3/c4
+[sweep] c=8 requests=32 -> results/sweeps/draft-code-t4/draft-k3/c8
+[sweep] c=16 requests=64 -> results/sweeps/draft-code-t4/draft-k3/c16
+[sweep] c=32 requests=128 -> results/sweeps/draft-code-t4/draft-k3/c32
+[sweep] c=64 requests=256 -> results/sweeps/draft-code-t4/draft-k3/c64
+[sweep] c=96 requests=384 -> results/sweeps/draft-code-t4/draft-k3/c96
+[sweep] c=128 requests=512 -> results/sweeps/draft-code-t4/draft-k3/c128
+[sweep] done: results/sweeps/draft-code-t4/draft-k3
+=== draft-k5 (05:31:10) ===
+[launch] draft-k5: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "draft_model", "model": "Qwen/Qwen3-0.6B", "num_speculative_tokens": 5}
+[launch] draft-k5 ready
+[sweep] c=1 requests=16 -> results/sweeps/draft-code-t4/draft-k5/c1
+[sweep] c=2 requests=16 -> results/sweeps/draft-code-t4/draft-k5/c2
+[sweep] c=4 requests=16 -> results/sweeps/draft-code-t4/draft-k5/c4
+[sweep] c=8 requests=32 -> results/sweeps/draft-code-t4/draft-k5/c8
+[sweep] c=16 requests=64 -> results/sweeps/draft-code-t4/draft-k5/c16
+[sweep] c=32 requests=128 -> results/sweeps/draft-code-t4/draft-k5/c32
+[sweep] c=64 requests=256 -> results/sweeps/draft-code-t4/draft-k5/c64
+[sweep] c=96 requests=384 -> results/sweeps/draft-code-t4/draft-k5/c96
+[sweep] c=128 requests=512 -> results/sweeps/draft-code-t4/draft-k5/c128
+[sweep] done: results/sweeps/draft-code-t4/draft-k5
+=== draft-tuned (06:00:42) ===
+[launch] draft-tuned: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "draft_model", "model": "Qwen/Qwen3-0.6B", "num_speculative_tokens": 5, "num_speculative_tokens_per_batch_size": [[1, 2, 2], [3, 17, 3], [18, 40, 2], [41, 128, 1]]}
+[launch] draft-tuned ready
+[sweep] c=1 requests=16 -> results/sweeps/draft-code-t4/draft-tuned/c1
+[sweep] c=2 requests=16 -> results/sweeps/draft-code-t4/draft-tuned/c2
+[sweep] c=4 requests=16 -> results/sweeps/draft-code-t4/draft-tuned/c4
+[sweep] c=8 requests=32 -> results/sweeps/draft-code-t4/draft-tuned/c8
+[sweep] c=16 requests=64 -> results/sweeps/draft-code-t4/draft-tuned/c16
+[sweep] c=32 requests=128 -> results/sweeps/draft-code-t4/draft-tuned/c32
+[sweep] c=64 requests=256 -> results/sweeps/draft-code-t4/draft-tuned/c64
+[sweep] c=96 requests=384 -> results/sweeps/draft-code-t4/draft-tuned/c96
+[sweep] c=128 requests=512 -> results/sweeps/draft-code-t4/draft-tuned/c128
+[sweep] done: results/sweeps/draft-code-t4/draft-tuned
+=== all done (06:25:36) ===
+[track] draft-code-t4: logged 36, skipped 0 (already in MLflow)
+[track] done: 36 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 331 points
+=== controller (a): EAGLE's v3 table, draft-model costs and prior (06:27:08) ===
+=== draft-v3table (06:27:08) ===
+[launch] draft-v3table: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "draft_model", "model": "Qwen/Qwen3-0.6B", "num_speculative_tokens": 5, "num_speculative_tokens_per_batch_size": [[1, 18, 3], [19, 43, 2], [44, 128, 1]]}
+[launch] draft-v3table ready
+[sweep] c=4 requests=16 -> results/sweeps/draft-ctrl-v3table/draft-v3table/c4
+[sweep] c=16 requests=64 -> results/sweeps/draft-ctrl-v3table/draft-v3table/c16
+[sweep] c=32 requests=128 -> results/sweeps/draft-ctrl-v3table/draft-v3table/c32
+[sweep] c=40 requests=160 -> results/sweeps/draft-ctrl-v3table/draft-v3table/c40
+[sweep] c=64 requests=256 -> results/sweeps/draft-ctrl-v3table/draft-v3table/c64
+[sweep] c=96 requests=384 -> results/sweeps/draft-ctrl-v3table/draft-v3table/c96
+[sweep] done: results/sweeps/draft-ctrl-v3table/draft-v3table
+=== all done (06:44:02) ===
+[track] draft-ctrl-v3table: logged 6, skipped 0 (already in MLflow)
+[track] done: 6 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 337 points
+=== controller (b): EAGLE's v3 table, controller off (06:45:14) ===
+=== draft-v3table (06:45:14) ===
+[launch] draft-v3table: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "draft_model", "model": "Qwen/Qwen3-0.6B", "num_speculative_tokens": 5, "num_speculative_tokens_per_batch_size": [[1, 18, 3], [19, 43, 2], [44, 128, 1]]}
+[launch] draft-v3table ready
+[sweep] c=4 requests=16 -> results/sweeps/draft-ctrl-off/draft-v3table/c4
+[sweep] c=16 requests=64 -> results/sweeps/draft-ctrl-off/draft-v3table/c16
+[sweep] c=32 requests=128 -> results/sweeps/draft-ctrl-off/draft-v3table/c32
+[sweep] c=40 requests=160 -> results/sweeps/draft-ctrl-off/draft-v3table/c40
+[sweep] c=64 requests=256 -> results/sweeps/draft-ctrl-off/draft-v3table/c64
+[sweep] c=96 requests=384 -> results/sweeps/draft-ctrl-off/draft-v3table/c96
+[sweep] done: results/sweeps/draft-ctrl-off/draft-v3table
+=== all done (07:00:57) ===
+[track] draft-ctrl-off: logged 6, skipped 0 (already in MLflow)
+[track] done: 6 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 343 points
+=== draft-model pipeline done (07:02:09) ===

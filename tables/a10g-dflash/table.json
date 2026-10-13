@@ -1,0 +1,18 @@
+{
+  "gpu": "A10G",
+  "gpu_match": [
+    "A10G"
+  ],
+  "default": false,
+  "target": "Qwen/Qwen3-4B",
+  "method": "dflash",
+  "drafter": "z-lab/Qwen3-4B-DFlash-b16",
+  "num_speculative_tokens": 8,
+  "dtype": "bfloat16",
+  "max_num_seqs": 128,
+  "max_model_len": 4096,
+  "workload": "code",
+  "measured": "code: +12.3% over the best fixed K at 128 requests (3 runs)",
+  "contributor": "vllm-perf",
+  "source": "experiments/results/dflash-tuner-a10g"
+}

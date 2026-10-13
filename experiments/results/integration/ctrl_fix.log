@@ -1,0 +1,54 @@
+=== A: n-gram, untuned table, EAGLE-3 prior, options on (01:17:44) ===
+=== ngram-untuned (01:17:44) ===
+[launch] ngram-untuned: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "ngram", "prompt_lookup_min": 2, "prompt_lookup_max": 4, "num_speculative_tokens": 5, "num_speculative_tokens_per_batch_size": [[1, 16, 1], [17, 64, 3], [65, 128, 5]]}
+[launch] ngram-untuned ready
+[sweep] c=4 requests=16 -> results/sweeps/ngram-ctrl-eagleprior-fix/ngram-untuned/c4
+[sweep] c=16 requests=64 -> results/sweeps/ngram-ctrl-eagleprior-fix/ngram-untuned/c16
+[sweep] c=32 requests=128 -> results/sweeps/ngram-ctrl-eagleprior-fix/ngram-untuned/c32
+[sweep] c=64 requests=256 -> results/sweeps/ngram-ctrl-eagleprior-fix/ngram-untuned/c64
+[sweep] c=96 requests=384 -> results/sweeps/ngram-ctrl-eagleprior-fix/ngram-untuned/c96
+[sweep] c=128 requests=512 -> results/sweeps/ngram-ctrl-eagleprior-fix/ngram-untuned/c128
+[sweep] done: results/sweeps/ngram-ctrl-eagleprior-fix/ngram-untuned
+=== all done (01:26:15) ===
+[track] ngram-ctrl-eagleprior-fix: logged 6, skipped 0 (already in MLflow)
+[track] done: 6 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 265 points
+=== B: n-gram, tuned v2 table, calibrated prior, options on (01:27:17) ===
+=== ngram-tuned-v2 (01:27:17) ===
+[launch] ngram-tuned-v2: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "ngram", "prompt_lookup_min": 2, "prompt_lookup_max": 4, "num_speculative_tokens": 5, "num_speculative_tokens_per_batch_size": [[1, 2, 5], [3, 3, 4], [4, 20, 5], [21, 128, 3]]}
+[launch] ngram-tuned-v2 ready
+[sweep] c=4 requests=16 -> results/sweeps/ngram-ctrl-tuned-fix/ngram-tuned-v2/c4
+[sweep] c=16 requests=64 -> results/sweeps/ngram-ctrl-tuned-fix/ngram-tuned-v2/c16
+[sweep] c=32 requests=128 -> results/sweeps/ngram-ctrl-tuned-fix/ngram-tuned-v2/c32
+[sweep] c=64 requests=256 -> results/sweeps/ngram-ctrl-tuned-fix/ngram-tuned-v2/c64
+[sweep] c=96 requests=384 -> results/sweeps/ngram-ctrl-tuned-fix/ngram-tuned-v2/c96
+[sweep] c=128 requests=512 -> results/sweeps/ngram-ctrl-tuned-fix/ngram-tuned-v2/c128
+[sweep] done: results/sweeps/ngram-ctrl-tuned-fix/ngram-tuned-v2
+=== all done (01:35:39) ===
+[track] ngram-ctrl-tuned-fix: logged 6, skipped 0 (already in MLflow)
+[track] done: 6 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 271 points
+=== C: EAGLE-3, untuned tables, spec-bench prior, options on (01:36:39) ===
+=== dsd-docs (01:36:39) ===
+[launch] dsd-docs: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 64, 3], [65, 128, 1], [129, 512, 0]]}
+[launch] dsd-docs ready
+[sweep] c=4 requests=16 -> results/sweeps/ctrlval-refit-fix/dsd-docs/c4
+[sweep] c=16 requests=64 -> results/sweeps/ctrlval-refit-fix/dsd-docs/c16
+[sweep] c=32 requests=128 -> results/sweeps/ctrlval-refit-fix/dsd-docs/c32
+[sweep] c=40 requests=160 -> results/sweeps/ctrlval-refit-fix/dsd-docs/c40
+[sweep] c=64 requests=256 -> results/sweeps/ctrlval-refit-fix/dsd-docs/c64
+[sweep] c=96 requests=384 -> results/sweeps/ctrlval-refit-fix/dsd-docs/c96
+[sweep] done: results/sweeps/ctrlval-refit-fix/dsd-docs
+=== dsd-rescaled (01:48:18) ===
+[launch] dsd-rescaled: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 16, 3], [17, 32, 1], [33, 64, 0]]}
+[launch] dsd-rescaled ready
+[sweep] c=4 requests=16 -> results/sweeps/ctrlval-refit-fix/dsd-rescaled/c4
+[sweep] c=16 requests=64 -> results/sweeps/ctrlval-refit-fix/dsd-rescaled/c16
+[sweep] c=32 requests=128 -> results/sweeps/ctrlval-refit-fix/dsd-rescaled/c32
+[sweep] c=40 requests=160 -> results/sweeps/ctrlval-refit-fix/dsd-rescaled/c40
+[sweep] c=64 requests=256 -> results/sweeps/ctrlval-refit-fix/dsd-rescaled/c64
+[sweep] c=96 requests=384 -> results/sweeps/ctrlval-refit-fix/dsd-rescaled/c96
+[sweep] done: results/sweeps/ctrlval-refit-fix/dsd-rescaled
+=== all done (02:00:09) ===
+[track] ctrlval-refit-fix: logged 12, skipped 0 (already in MLflow)
+[track] done: 12 points logged to experiment 'vllm-perf-dsd'

@@ -1,0 +1,254 @@
+### driver START runs=1 2 3 configs=guide nospec k3 docs tuned13 tuned13-ctrl docs-ctrl 2026-10-11T14:47:10Z
+### deploy guide r1 table=none 2026-10-11T14:47:10Z
+### sweep guide r1 START 2026-10-11T14:51:55Z
+[llmd] 14:52:50 c=4 done Output Token Throughput Per User │ 74.84 
+[llmd] 14:53:30 c=8 done Output Token Throughput Per User │ 73.52 
+[llmd] 14:54:12 c=16 done Output Token Throughput Per User │ 72.06 
+[llmd] 14:54:53 c=32 done Output Token Throughput Per User │ 70.69 
+[llmd] 14:55:35 c=64 done Output Token Throughput Per User │ 67.62 
+[llmd] 14:56:19 c=128 done Output Token Throughput Per User │ 62.70 
+[llmd] 14:57:10 c=256 done Output Token Throughput Per User │ 53.43 
+[llmd] 14:58:24 c=512 done Output Token Throughput Per User │ 40.69 
+[llmd] 15:00:26 c=1024 done Output Token Throughput Per User │ 40.84 
+### sweep guide r1 DONE 2026-10-11T15:00:26Z
+### deploy nospec r1 table=none 2026-10-11T15:00:26Z
+### sweep nospec r1 START 2026-10-11T15:03:52Z
+[llmd] 15:04:45 c=4 done Output Token Throughput Per User │ 74.26 
+[llmd] 15:05:25 c=8 done Output Token Throughput Per User │ 73.31 
+[llmd] 15:06:06 c=16 done Output Token Throughput Per User │ 72.52 
+[llmd] 15:06:50 c=32 done Output Token Throughput Per User │ 71.37 
+[llmd] 15:07:34 c=64 done Output Token Throughput Per User │ 67.72 
+[llmd] 15:08:19 c=128 done Output Token Throughput Per User │ 62.37 
+[llmd] 15:09:12 c=256 done Output Token Throughput Per User │ 53.04 
+[llmd] 15:10:31 c=512 done Output Token Throughput Per User │ 34.62 
+[llmd] 15:12:29 c=1024 done Output Token Throughput Per User │ 41.02 
+### sweep nospec r1 DONE 2026-10-11T15:12:29Z
+### deploy k3 r1 table=none 2026-10-11T15:12:29Z
+### sweep k3 r1 START 2026-10-11T15:15:44Z
+[llmd] 15:16:23 c=4 done Output Token Throughput Per User │ 136.09 
+[llmd] 15:16:57 c=8 done Output Token Throughput Per User │ 132.10 
+[llmd] 15:17:31 c=16 done Output Token Throughput Per User │ 126.00 
+[llmd] 15:18:06 c=32 done Output Token Throughput Per User │ 119.62 
+[llmd] 15:18:42 c=64 done Output Token Throughput Per User │ 108.08 
+[llmd] 15:19:24 c=128 done Output Token Throughput Per User │ 84.70 
+[llmd] 15:20:16 c=256 done Output Token Throughput Per User │ 52.46 
+[llmd] 15:21:30 c=512 done Output Token Throughput Per User │ 28.43 
+[llmd] 15:23:33 c=1024 done Output Token Throughput Per User │ 27.52 
+### sweep k3 r1 DONE 2026-10-11T15:23:33Z
+### deploy docs r1 table=none 2026-10-11T15:23:33Z
+### sweep docs r1 START 2026-10-11T15:27:22Z
+[llmd] 15:28:02 c=4 done Output Token Throughput Per User │ 134.51 
+[llmd] 15:28:35 c=8 done Output Token Throughput Per User │ 130.98 
+[llmd] 15:29:11 c=16 done Output Token Throughput Per User │ 126.70 
+[llmd] 15:29:47 c=32 done Output Token Throughput Per User │ 118.06 
+[llmd] 15:30:24 c=64 done Output Token Throughput Per User │ 107.78 
+[llmd] 15:31:03 c=128 done Output Token Throughput Per User │ 86.51 
+[llmd] 15:31:52 c=256 done Output Token Throughput Per User │ 63.66 
+[llmd] 15:33:02 c=512 done Output Token Throughput Per User │ 55.20 
+[llmd] 15:34:58 c=1024 done Output Token Throughput Per User │ 37.64 
+### sweep docs r1 DONE 2026-10-11T15:34:58Z
+### deploy tuned13 r1 table=[[1, 60, 3], [61, 256, 1]] 2026-10-11T15:34:58Z
+### sweep tuned13 r1 START 2026-10-11T15:38:48Z
+[llmd] 15:39:30 c=4 done Output Token Throughput Per User │ 132.16 
+[llmd] 15:40:05 c=8 done Output Token Throughput Per User │ 132.29 
+[llmd] 15:40:39 c=16 done Output Token Throughput Per User │ 127.39 
+[llmd] 15:41:16 c=32 done Output Token Throughput Per User │ 116.27 
+[llmd] 15:41:52 c=64 done Output Token Throughput Per User │ 106.68 
+[llmd] 15:42:32 c=128 done Output Token Throughput Per User │ 87.12 
+[llmd] 15:43:18 c=256 done Output Token Throughput Per User │ 65.47 
+[llmd] 15:44:22 c=512 done Output Token Throughput Per User │ 42.47 
+[llmd] 15:46:01 c=1024 done Output Token Throughput Per User │ 40.06 
+### sweep tuned13 r1 DONE 2026-10-11T15:46:02Z
+### deploy tuned13-ctrl r1 table=[[1, 60, 3], [61, 256, 1]] 2026-10-11T15:46:02Z
+### sweep tuned13-ctrl r1 START 2026-10-11T15:49:54Z
+[llmd] 15:50:34 c=4 done Output Token Throughput Per User │ 132.68 
+[llmd] 15:51:08 c=8 done Output Token Throughput Per User │ 130.73 
+[llmd] 15:51:42 c=16 done Output Token Throughput Per User │ 128.71 
+[llmd] 15:52:18 c=32 done Output Token Throughput Per User │ 118.29 
+[llmd] 15:52:54 c=64 done Output Token Throughput Per User │ 106.66 
+[llmd] 15:53:35 c=128 done Output Token Throughput Per User │ 84.65 
+[llmd] 15:54:20 c=256 done Output Token Throughput Per User │ 66.54 
+[llmd] 15:55:21 c=512 done Output Token Throughput Per User │ 42.27 
+[llmd] 15:57:01 c=1024 done Output Token Throughput Per User │ 38.48 
+### sweep tuned13-ctrl r1 DONE 2026-10-11T15:57:01Z
+### deploy docs-ctrl r1 table=none 2026-10-11T15:57:01Z
+### sweep docs-ctrl r1 START 2026-10-11T16:00:55Z
+[llmd] 16:01:35 c=4 done Output Token Throughput Per User │ 133.89 
+[llmd] 16:02:08 c=8 done Output Token Throughput Per User │ 131.92 
+[llmd] 16:02:41 c=16 done Output Token Throughput Per User │ 129.12 
+[llmd] 16:03:19 c=32 done Output Token Throughput Per User │ 117.95 
+[llmd] 16:03:56 c=64 done Output Token Throughput Per User │ 107.58 
+[llmd] 16:04:38 c=128 done Output Token Throughput Per User │ 84.93 
+[llmd] 16:05:24 c=256 done Output Token Throughput Per User │ 65.66 
+[llmd] 16:06:24 c=512 done Output Token Throughput Per User │ 42.58 
+[llmd] 16:07:58 c=1024 done Output Token Throughput Per User │ 38.72 
+### sweep docs-ctrl r1 DONE 2026-10-11T16:07:58Z
+### deploy guide r2 table=none 2026-10-11T16:07:58Z
+### sweep guide r2 START 2026-10-11T16:12:55Z
+[llmd] 16:13:49 c=4 done Output Token Throughput Per User │ 74.99 
+[llmd] 16:14:29 c=8 done Output Token Throughput Per User │ 73.64 
+[llmd] 16:15:08 c=16 done Output Token Throughput Per User │ 72.34 
+[llmd] 16:15:49 c=32 done Output Token Throughput Per User │ 70.62 
+[llmd] 16:16:34 c=64 done Output Token Throughput Per User │ 67.93 
+[llmd] 16:17:18 c=128 done Output Token Throughput Per User │ 62.66 
+[llmd] 16:18:09 c=256 done Output Token Throughput Per User │ 54.40 
+[llmd] 16:19:21 c=512 done Output Token Throughput Per User │ 48.22 
+[llmd] 16:21:21 c=1024 done Output Token Throughput Per User │ 36.15 
+### sweep guide r2 DONE 2026-10-11T16:21:21Z
+### deploy nospec r2 table=none 2026-10-11T16:21:21Z
+### sweep nospec r2 START 2026-10-11T16:24:11Z
+[llmd] 16:25:06 c=4 done Output Token Throughput Per User │ 73.70 
+[llmd] 16:25:45 c=8 done Output Token Throughput Per User │ 73.29 
+[llmd] 16:26:25 c=16 done Output Token Throughput Per User │ 72.35 
+[llmd] 16:27:08 c=32 done Output Token Throughput Per User │ 71.43 
+[llmd] 16:27:52 c=64 done Output Token Throughput Per User │ 68.56 
+[llmd] 16:28:39 c=128 done Output Token Throughput Per User │ 62.34 
+[llmd] 16:29:29 c=256 done Output Token Throughput Per User │ 54.75 
+[llmd] 16:30:44 c=512 done Output Token Throughput Per User │ 39.34 
+[llmd] 16:32:42 c=1024 done Output Token Throughput Per User │ 37.96 
+### sweep nospec r2 DONE 2026-10-11T16:32:43Z
+### deploy k3 r2 table=none 2026-10-11T16:32:43Z
+### sweep k3 r2 START 2026-10-11T16:36:07Z
+[llmd] 16:36:46 c=4 done Output Token Throughput Per User │ 134.03 
+[llmd] 16:37:20 c=8 done Output Token Throughput Per User │ 130.57 
+[llmd] 16:37:56 c=16 done Output Token Throughput Per User │ 128.08 
+[llmd] 16:38:33 c=32 done Output Token Throughput Per User │ 119.70 
+[llmd] 16:39:09 c=64 done Output Token Throughput Per User │ 107.93 
+[llmd] 16:39:49 c=128 done Output Token Throughput Per User │ 84.88 
+[llmd] 16:40:39 c=256 done Output Token Throughput Per User │ 52.75 
+[llmd] 16:41:50 c=512 done Output Token Throughput Per User │ 28.63 
+[llmd] 16:43:50 c=1024 done Output Token Throughput Per User │ 27.60 
+### sweep k3 r2 DONE 2026-10-11T16:43:50Z
+### deploy docs r2 table=none 2026-10-11T16:43:50Z
+### sweep docs r2 START 2026-10-11T16:47:39Z
+[llmd] 16:48:18 c=4 done Output Token Throughput Per User │ 134.70 
+[llmd] 16:48:53 c=8 done Output Token Throughput Per User │ 130.24 
+[llmd] 16:49:26 c=16 done Output Token Throughput Per User │ 129.72 
+[llmd] 16:50:01 c=32 done Output Token Throughput Per User │ 119.08 
+[llmd] 16:50:39 c=64 done Output Token Throughput Per User │ 107.73 
+[llmd] 16:51:19 c=128 done Output Token Throughput Per User │ 86.15 
+[llmd] 16:52:06 c=256 done Output Token Throughput Per User │ 64.90 
+[llmd] 16:53:15 c=512 done Output Token Throughput Per User │ 46.56 
+[llmd] 16:55:06 c=1024 done Output Token Throughput Per User │ 38.02 
+### sweep docs r2 DONE 2026-10-11T16:55:07Z
+### deploy tuned13 r2 table=[[1, 60, 3], [61, 256, 1]] 2026-10-11T16:55:07Z
+### sweep tuned13 r2 START 2026-10-11T16:58:57Z
+[llmd] 16:59:36 c=4 done Output Token Throughput Per User │ 132.87 
+[llmd] 17:00:11 c=8 done Output Token Throughput Per User │ 130.10 
+[llmd] 17:00:44 c=16 done Output Token Throughput Per User │ 127.79 
+[llmd] 17:01:20 c=32 done Output Token Throughput Per User │ 120.50 
+[llmd] 17:01:57 c=64 done Output Token Throughput Per User │ 107.61 
+[llmd] 17:02:39 c=128 done Output Token Throughput Per User │ 87.19 
+[llmd] 17:03:25 c=256 done Output Token Throughput Per User │ 66.60 
+[llmd] 17:04:26 c=512 done Output Token Throughput Per User │ 42.73 
+[llmd] 17:06:04 c=1024 done Output Token Throughput Per User │ 39.88 
+### sweep tuned13 r2 DONE 2026-10-11T17:06:04Z
+### deploy tuned13-ctrl r2 table=[[1, 60, 3], [61, 256, 1]] 2026-10-11T17:06:04Z
+### sweep tuned13-ctrl r2 START 2026-10-11T17:09:48Z
+[llmd] 17:10:29 c=4 done Output Token Throughput Per User │ 132.16 
+[llmd] 17:11:05 c=8 done Output Token Throughput Per User │ 129.46 
+[llmd] 17:11:41 c=16 done Output Token Throughput Per User │ 121.51 
+[llmd] 17:12:17 c=32 done Output Token Throughput Per User │ 120.08 
+[llmd] 17:12:54 c=64 done Output Token Throughput Per User │ 108.36 
+[llmd] 17:13:34 c=128 done Output Token Throughput Per User │ 85.64 
+[llmd] 17:14:20 c=256 done Output Token Throughput Per User │ 67.23 
+[llmd] 17:15:21 c=512 done Output Token Throughput Per User │ 42.71 
+[llmd] 17:16:57 c=1024 done Output Token Throughput Per User │ 40.95 
+### sweep tuned13-ctrl r2 DONE 2026-10-11T17:16:58Z
+### deploy docs-ctrl r2 table=none 2026-10-11T17:16:58Z
+### sweep docs-ctrl r2 START 2026-10-11T17:20:49Z
+[llmd] 17:21:30 c=4 done Output Token Throughput Per User │ 133.36 
+[llmd] 17:22:03 c=8 done Output Token Throughput Per User │ 132.22 
+[llmd] 17:22:39 c=16 done Output Token Throughput Per User │ 130.07 
+[llmd] 17:23:14 c=32 done Output Token Throughput Per User │ 119.37 
+[llmd] 17:23:51 c=64 done Output Token Throughput Per User │ 108.07 
+[llmd] 17:24:34 c=128 done Output Token Throughput Per User │ 85.02 
+[llmd] 17:25:19 c=256 done Output Token Throughput Per User │ 68.36 
+[llmd] 17:26:18 c=512 done Output Token Throughput Per User │ 42.99 
+[llmd] 17:27:54 c=1024 done Output Token Throughput Per User │ 40.25 
+### sweep docs-ctrl r2 DONE 2026-10-11T17:27:55Z
+### deploy guide r3 table=none 2026-10-11T17:27:55Z
+### sweep guide r3 START 2026-10-11T17:32:44Z
+[llmd] 17:33:39 c=4 done Output Token Throughput Per User │ 74.71 
+[llmd] 17:34:18 c=8 done Output Token Throughput Per User │ 73.45 
+[llmd] 17:35:01 c=16 done Output Token Throughput Per User │ 72.15 
+[llmd] 17:35:42 c=32 done Output Token Throughput Per User │ 70.39 
+[llmd] 17:36:26 c=64 done Output Token Throughput Per User │ 67.98 
+[llmd] 17:37:12 c=128 done Output Token Throughput Per User │ 62.64 
+[llmd] 17:38:01 c=256 done Output Token Throughput Per User │ 54.14 
+[llmd] 17:39:11 c=512 done Output Token Throughput Per User │ 39.80 
+[llmd] 17:41:03 c=1024 done Output Token Throughput Per User │ 38.90 
+### sweep guide r3 DONE 2026-10-11T17:41:03Z
+### deploy nospec r3 table=none 2026-10-11T17:41:03Z
+### sweep nospec r3 START 2026-10-11T17:43:53Z
+[llmd] 17:44:50 c=4 done Output Token Throughput Per User │ 74.24 
+[llmd] 17:45:30 c=8 done Output Token Throughput Per User │ 73.22 
+[llmd] 17:46:09 c=16 done Output Token Throughput Per User │ 72.28 
+[llmd] 17:46:50 c=32 done Output Token Throughput Per User │ 71.22 
+[llmd] 17:47:35 c=64 done Output Token Throughput Per User │ 67.92 
+[llmd] 17:48:23 c=128 done Output Token Throughput Per User │ 62.30 
+[llmd] 17:49:13 c=256 done Output Token Throughput Per User │ 54.11 
+[llmd] 17:50:24 c=512 done Output Token Throughput Per User │ 37.52 
+[llmd] 17:52:18 c=1024 done Output Token Throughput Per User │ 40.54 
+### sweep nospec r3 DONE 2026-10-11T17:52:18Z
+### deploy k3 r3 table=none 2026-10-11T17:52:18Z
+### sweep k3 r3 START 2026-10-11T17:55:34Z
+[llmd] 17:56:13 c=4 done Output Token Throughput Per User │ 134.38 
+[llmd] 17:56:47 c=8 done Output Token Throughput Per User │ 133.47 
+[llmd] 17:57:23 c=16 done Output Token Throughput Per User │ 126.31 
+[llmd] 17:57:58 c=32 done Output Token Throughput Per User │ 117.72 
+[llmd] 17:58:36 c=64 done Output Token Throughput Per User │ 106.80 
+[llmd] 17:59:19 c=128 done Output Token Throughput Per User │ 84.95 
+[llmd] 18:00:11 c=256 done Output Token Throughput Per User │ 52.76 
+[llmd] 18:01:22 c=512 done Output Token Throughput Per User │ 28.49 
+[llmd] 18:03:21 c=1024 done Output Token Throughput Per User │ 27.67 
+### sweep k3 r3 DONE 2026-10-11T18:03:22Z
+### deploy docs r3 table=none 2026-10-11T18:03:22Z
+### sweep docs r3 START 2026-10-11T18:07:09Z
+[llmd] 18:07:48 c=4 done Output Token Throughput Per User │ 134.19 
+[llmd] 18:08:22 c=8 done Output Token Throughput Per User │ 128.42 
+[llmd] 18:08:57 c=16 done Output Token Throughput Per User │ 126.85 
+[llmd] 18:09:35 c=32 done Output Token Throughput Per User │ 116.83 
+[llmd] 18:10:13 c=64 done Output Token Throughput Per User │ 107.01 
+[llmd] 18:10:54 c=128 done Output Token Throughput Per User │ 86.29 
+[llmd] 18:11:40 c=256 done Output Token Throughput Per User │ 65.21 
+[llmd] 18:12:51 c=512 done Output Token Throughput Per User │ 44.99 
+[llmd] 18:14:49 c=1024 done Output Token Throughput Per User │ 34.41 
+### sweep docs r3 DONE 2026-10-11T18:14:50Z
+### deploy tuned13 r3 table=[[1, 60, 3], [61, 256, 1]] 2026-10-11T18:14:50Z
+### sweep tuned13 r3 START 2026-10-11T18:18:44Z
+[llmd] 18:19:24 c=4 done Output Token Throughput Per User │ 132.76 
+[llmd] 18:19:57 c=8 done Output Token Throughput Per User │ 134.76 
+[llmd] 18:20:30 c=16 done Output Token Throughput Per User │ 126.05 
+[llmd] 18:21:09 c=32 done Output Token Throughput Per User │ 117.34 
+[llmd] 18:21:48 c=64 done Output Token Throughput Per User │ 106.16 
+[llmd] 18:22:27 c=128 done Output Token Throughput Per User │ 87.67 
+[llmd] 18:23:13 c=256 done Output Token Throughput Per User │ 67.51 
+[llmd] 18:24:13 c=512 done Output Token Throughput Per User │ 42.30 
+[llmd] 18:25:49 c=1024 done Output Token Throughput Per User │ 40.31 
+### sweep tuned13 r3 DONE 2026-10-11T18:25:50Z
+### deploy tuned13-ctrl r3 table=[[1, 60, 3], [61, 256, 1]] 2026-10-11T18:25:50Z
+### sweep tuned13-ctrl r3 START 2026-10-11T18:29:41Z
+[llmd] 18:30:22 c=4 done Output Token Throughput Per User │ 132.89 
+[llmd] 18:30:57 c=8 done Output Token Throughput Per User │ 132.19 
+[llmd] 18:31:33 c=16 done Output Token Throughput Per User │ 124.40 
+[llmd] 18:32:08 c=32 done Output Token Throughput Per User │ 116.34 
+[llmd] 18:32:45 c=64 done Output Token Throughput Per User │ 106.24 
+[llmd] 18:33:24 c=128 done Output Token Throughput Per User │ 84.57 
+[llmd] 18:34:09 c=256 done Output Token Throughput Per User │ 67.30 
+[llmd] 18:35:08 c=512 done Output Token Throughput Per User │ 43.03 
+[llmd] 18:36:48 c=1024 done Output Token Throughput Per User │ 39.64 
+### sweep tuned13-ctrl r3 DONE 2026-10-11T18:36:48Z
+### deploy docs-ctrl r3 table=none 2026-10-11T18:36:48Z
+### sweep docs-ctrl r3 START 2026-10-11T18:40:42Z
+[llmd] 18:41:23 c=4 done Output Token Throughput Per User │ 132.34 
+[llmd] 18:41:55 c=8 done Output Token Throughput Per User │ 132.93 
+[llmd] 18:42:30 c=16 done Output Token Throughput Per User │ 125.53 
+[llmd] 18:43:06 c=32 done Output Token Throughput Per User │ 118.65 
+[llmd] 18:43:43 c=64 done Output Token Throughput Per User │ 105.57 
+[llmd] 18:44:23 c=128 done Output Token Throughput Per User │ 85.12 
+[llmd] 18:45:10 c=256 done Output Token Throughput Per User │ 66.69 
+[llmd] 18:46:10 c=512 done Output Token Throughput Per User │ 42.37 
+[llmd] 18:47:48 c=1024 done Output Token Throughput Per User │ 40.01 
+### sweep docs-ctrl r3 DONE 2026-10-11T18:47:48Z
+### driver ALL DONE 2026-10-11T18:47:48Z

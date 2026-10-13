@@ -1,0 +1,2 @@
+dsd        greedy match vs nospec: batched 7/8, single 0/3 | 75.2 tok/s (nospec 118.2)
+eagle3     greedy match vs nospec: batched 6/8, single 0/3 | 93.6 tok/s (nospec 118.2)

@@ -1,0 +1,54 @@
+=== dsd-docs (14:08:07) ===
+[launch] dsd-docs: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 64, 3], [65, 128, 1], [129, 512, 0]]}
+[launch] dsd-docs ready
+[sweep] c=4 requests=16 -> results/sweeps/ctrlval-off/dsd-docs/c4
+[sweep] c=16 requests=64 -> results/sweeps/ctrlval-off/dsd-docs/c16
+[sweep] c=32 requests=128 -> results/sweeps/ctrlval-off/dsd-docs/c32
+[sweep] c=40 requests=160 -> results/sweeps/ctrlval-off/dsd-docs/c40
+[sweep] c=64 requests=256 -> results/sweeps/ctrlval-off/dsd-docs/c64
+[sweep] c=96 requests=384 -> results/sweeps/ctrlval-off/dsd-docs/c96
+[sweep] done: results/sweeps/ctrlval-off/dsd-docs
+=== dsd-rescaled (14:22:00) ===
+[launch] dsd-rescaled: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 16, 3], [17, 32, 1], [33, 64, 0]]}
+[launch] dsd-rescaled ready
+[sweep] c=4 requests=16 -> results/sweeps/ctrlval-off/dsd-rescaled/c4
+[sweep] c=16 requests=64 -> results/sweeps/ctrlval-off/dsd-rescaled/c16
+[sweep] c=32 requests=128 -> results/sweeps/ctrlval-off/dsd-rescaled/c32
+[sweep] c=40 requests=160 -> results/sweeps/ctrlval-off/dsd-rescaled/c40
+[sweep] c=64 requests=256 -> results/sweeps/ctrlval-off/dsd-rescaled/c64
+[sweep] c=96 requests=384 -> results/sweeps/ctrlval-off/dsd-rescaled/c96
+[sweep] done: results/sweeps/ctrlval-off/dsd-rescaled
+=== all done (14:35:15) ===
+=== dsd-docs (14:35:15) ===
+[launch] dsd-docs: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 64, 3], [65, 128, 1], [129, 512, 0]]}
+[launch] dsd-docs ready
+[sweep] c=4 requests=16 -> results/sweeps/ctrlval-refit/dsd-docs/c4
+[sweep] c=16 requests=64 -> results/sweeps/ctrlval-refit/dsd-docs/c16
+[sweep] c=32 requests=128 -> results/sweeps/ctrlval-refit/dsd-docs/c32
+[sweep] c=40 requests=160 -> results/sweeps/ctrlval-refit/dsd-docs/c40
+[sweep] c=64 requests=256 -> results/sweeps/ctrlval-refit/dsd-docs/c64
+[sweep] c=96 requests=384 -> results/sweeps/ctrlval-refit/dsd-docs/c96
+[sweep] done: results/sweeps/ctrlval-refit/dsd-docs
+=== dsd-rescaled (14:47:08) ===
+[launch] dsd-rescaled: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 16, 3], [17, 32, 1], [33, 64, 0]]}
+[launch] dsd-rescaled ready
+[sweep] c=4 requests=16 -> results/sweeps/ctrlval-refit/dsd-rescaled/c4
+[sweep] c=16 requests=64 -> results/sweeps/ctrlval-refit/dsd-rescaled/c16
+[sweep] c=32 requests=128 -> results/sweeps/ctrlval-refit/dsd-rescaled/c32
+[sweep] c=40 requests=160 -> results/sweeps/ctrlval-refit/dsd-rescaled/c40
+[sweep] c=64 requests=256 -> results/sweeps/ctrlval-refit/dsd-rescaled/c64
+[sweep] c=96 requests=384 -> results/sweeps/ctrlval-refit/dsd-rescaled/c96
+[sweep] done: results/sweeps/ctrlval-refit/dsd-rescaled
+=== all done (14:59:11) ===
+=== dsd-rescaled (14:59:11) ===
+[launch] dsd-rescaled: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 16, 3], [17, 32, 1], [33, 64, 0]]}
+[launch] dsd-rescaled ready
+[sweep] c=4 requests=16 -> results/sweeps/ctrlval-hyst/dsd-rescaled/c4
+[sweep] c=16 requests=64 -> results/sweeps/ctrlval-hyst/dsd-rescaled/c16
+[sweep] c=32 requests=128 -> results/sweeps/ctrlval-hyst/dsd-rescaled/c32
+[sweep] c=40 requests=160 -> results/sweeps/ctrlval-hyst/dsd-rescaled/c40
+[sweep] c=64 requests=256 -> results/sweeps/ctrlval-hyst/dsd-rescaled/c64
+[sweep] c=96 requests=384 -> results/sweeps/ctrlval-hyst/dsd-rescaled/c96
+[sweep] done: results/sweeps/ctrlval-hyst/dsd-rescaled
+=== all done (15:12:21) ===
+=== controller value runs done (15:12:21) ===

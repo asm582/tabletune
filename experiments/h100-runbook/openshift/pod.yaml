@@ -1,0 +1,35 @@
+# One whole H100 (no MIG, no time-slicing), 16 dedicated CPUs, persistent /work.
+# Before applying: set the image, and the nodeSelector value from
+#   oc get nodes -L nvidia.com/gpu.product,nvidia.com/mig.config
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dsd-h100
+  labels: {app: dsd-h100}
+spec:
+  restartPolicy: Never
+  nodeSelector:
+    nvidia.com/gpu.product: NVIDIA-H100-80GB-HBM3     # SXM; PCIe is NVIDIA-H100-PCIe, NVL is NVIDIA-H100-NVL
+  tolerations:                                        # if your GPU nodes are tainted
+    - key: nvidia.com/gpu
+      operator: Exists
+      effect: NoSchedule
+  containers:
+    - name: bench
+      image: image-registry.openshift-image-registry.svc:5000/<namespace>/dsd-bench:latest
+      command: ["sleep", "infinity"]
+      env:
+        - {name: HOME, value: /work}
+        - name: NODE_NAME
+          valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
+      resources:                                      # requests == limits -> Guaranteed QoS, no CPU throttling surprises
+        requests: {cpu: "16", memory: 128Gi, nvidia.com/gpu: 1}
+        limits:   {cpu: "16", memory: 128Gi, nvidia.com/gpu: 1}
+      volumeMounts:
+        - {name: work, mountPath: /work}
+        - {name: shm, mountPath: /dev/shm}
+  volumes:
+    - name: work
+      persistentVolumeClaim: {claimName: dsd-work}
+    - name: shm                                       # vLLM and PyTorch need more than the 64 MB default
+      emptyDir: {medium: Memory, sizeLimit: 32Gi}

@@ -1,0 +1,135 @@
+[run_gpu_eagle] GPU=a10g target=Qwen/Qwen3-4B dtype=bfloat16
+=== sweep (22:40:30) ===
+=== nospec (22:40:30) ===
+[launch] nospec: vllm serve Qwen/Qwen3-4B --port 8000 --dtype bfloat16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0
+[launch] nospec ready
+[sweep] c=1 requests=16 -> results/sweeps/code128t-a10g-r2/nospec/c1
+[sweep] c=2 requests=16 -> results/sweeps/code128t-a10g-r2/nospec/c2
+[sweep] c=4 requests=16 -> results/sweeps/code128t-a10g-r2/nospec/c4
+[sweep] c=8 requests=32 -> results/sweeps/code128t-a10g-r2/nospec/c8
+[sweep] c=16 requests=64 -> results/sweeps/code128t-a10g-r2/nospec/c16
+[sweep] c=32 requests=128 -> results/sweeps/code128t-a10g-r2/nospec/c32
+[sweep] c=64 requests=256 -> results/sweeps/code128t-a10g-r2/nospec/c64
+[sweep] c=96 requests=384 -> results/sweeps/code128t-a10g-r2/nospec/c96
+[sweep] c=128 requests=512 -> results/sweeps/code128t-a10g-r2/nospec/c128
+[sweep] done: results/sweeps/code128t-a10g-r2/nospec
+=== k1 (22:53:34) ===
+[launch] k1: vllm serve Qwen/Qwen3-4B --port 8000 --dtype bfloat16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 1}
+[launch] k1 ready
+[sweep] c=1 requests=16 -> results/sweeps/code128t-a10g-r2/k1/c1
+[sweep] c=2 requests=16 -> results/sweeps/code128t-a10g-r2/k1/c2
+[sweep] c=4 requests=16 -> results/sweeps/code128t-a10g-r2/k1/c4
+[sweep] c=8 requests=32 -> results/sweeps/code128t-a10g-r2/k1/c8
+[sweep] c=16 requests=64 -> results/sweeps/code128t-a10g-r2/k1/c16
+[sweep] c=32 requests=128 -> results/sweeps/code128t-a10g-r2/k1/c32
+[sweep] c=64 requests=256 -> results/sweeps/code128t-a10g-r2/k1/c64
+[sweep] c=96 requests=384 -> results/sweeps/code128t-a10g-r2/k1/c96
+[sweep] c=128 requests=512 -> results/sweeps/code128t-a10g-r2/k1/c128
+[sweep] done: results/sweeps/code128t-a10g-r2/k1
+=== k2 (23:05:49) ===
+[launch] k2: vllm serve Qwen/Qwen3-4B --port 8000 --dtype bfloat16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 2}
+[launch] k2 ready
+[sweep] c=1 requests=16 -> results/sweeps/code128t-a10g-r2/k2/c1
+[sweep] c=2 requests=16 -> results/sweeps/code128t-a10g-r2/k2/c2
+[sweep] c=4 requests=16 -> results/sweeps/code128t-a10g-r2/k2/c4
+[sweep] c=8 requests=32 -> results/sweeps/code128t-a10g-r2/k2/c8
+[sweep] c=16 requests=64 -> results/sweeps/code128t-a10g-r2/k2/c16
+[sweep] c=32 requests=128 -> results/sweeps/code128t-a10g-r2/k2/c32
+[sweep] c=64 requests=256 -> results/sweeps/code128t-a10g-r2/k2/c64
+[sweep] c=96 requests=384 -> results/sweeps/code128t-a10g-r2/k2/c96
+[sweep] c=128 requests=512 -> results/sweeps/code128t-a10g-r2/k2/c128
+[sweep] done: results/sweeps/code128t-a10g-r2/k2
+=== k3 (23:18:08) ===
+[launch] k3: vllm serve Qwen/Qwen3-4B --port 8000 --dtype bfloat16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3}
+[launch] k3 ready
+[sweep] c=1 requests=16 -> results/sweeps/code128t-a10g-r2/k3/c1
+[sweep] c=2 requests=16 -> results/sweeps/code128t-a10g-r2/k3/c2
+[sweep] c=4 requests=16 -> results/sweeps/code128t-a10g-r2/k3/c4
+[sweep] c=8 requests=32 -> results/sweeps/code128t-a10g-r2/k3/c8
+[sweep] c=16 requests=64 -> results/sweeps/code128t-a10g-r2/k3/c16
+[sweep] c=32 requests=128 -> results/sweeps/code128t-a10g-r2/k3/c32
+[sweep] c=64 requests=256 -> results/sweeps/code128t-a10g-r2/k3/c64
+[sweep] c=96 requests=384 -> results/sweeps/code128t-a10g-r2/k3/c96
+[sweep] c=128 requests=512 -> results/sweeps/code128t-a10g-r2/k3/c128
+[sweep] done: results/sweeps/code128t-a10g-r2/k3
+=== eagle-tuned (23:30:36) ===
+[launch] eagle-tuned: vllm serve Qwen/Qwen3-4B --port 8000 --dtype bfloat16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 16, 3], [17, 60, 2], [61, 91, 1], [92, 128, 0]]}
+[launch] eagle-tuned ready
+[sweep] c=1 requests=16 -> results/sweeps/code128t-a10g-r2/eagle-tuned/c1
+[sweep] c=2 requests=16 -> results/sweeps/code128t-a10g-r2/eagle-tuned/c2
+[sweep] c=4 requests=16 -> results/sweeps/code128t-a10g-r2/eagle-tuned/c4
+[sweep] c=8 requests=32 -> results/sweeps/code128t-a10g-r2/eagle-tuned/c8
+[sweep] c=16 requests=64 -> results/sweeps/code128t-a10g-r2/eagle-tuned/c16
+[sweep] c=32 requests=128 -> results/sweeps/code128t-a10g-r2/eagle-tuned/c32
+[sweep] c=64 requests=256 -> results/sweeps/code128t-a10g-r2/eagle-tuned/c64
+[sweep] c=96 requests=384 -> results/sweeps/code128t-a10g-r2/eagle-tuned/c96
+[sweep] c=128 requests=512 -> results/sweeps/code128t-a10g-r2/eagle-tuned/c128
+[sweep] done: results/sweeps/code128t-a10g-r2/eagle-tuned
+=== dsd-tuned-v3 (23:42:16) ===
+[launch] dsd-tuned-v3: vllm serve Qwen/Qwen3-4B --port 8000 --dtype bfloat16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 18, 3], [19, 43, 2], [44, 128, 1]]}
+[launch] dsd-tuned-v3 ready
+[sweep] c=1 requests=16 -> results/sweeps/code128t-a10g-r2/dsd-tuned-v3/c1
+[sweep] c=2 requests=16 -> results/sweeps/code128t-a10g-r2/dsd-tuned-v3/c2
+[sweep] c=4 requests=16 -> results/sweeps/code128t-a10g-r2/dsd-tuned-v3/c4
+[sweep] c=8 requests=32 -> results/sweeps/code128t-a10g-r2/dsd-tuned-v3/c8
+[sweep] c=16 requests=64 -> results/sweeps/code128t-a10g-r2/dsd-tuned-v3/c16
+[sweep] c=32 requests=128 -> results/sweeps/code128t-a10g-r2/dsd-tuned-v3/c32
+[sweep] c=64 requests=256 -> results/sweeps/code128t-a10g-r2/dsd-tuned-v3/c64
+[sweep] c=96 requests=384 -> results/sweeps/code128t-a10g-r2/dsd-tuned-v3/c96
+[sweep] c=128 requests=512 -> results/sweeps/code128t-a10g-r2/dsd-tuned-v3/c128
+[sweep] done: results/sweeps/code128t-a10g-r2/dsd-tuned-v3
+=== all done (23:54:04) ===
+[track] code128t-a10g-r2: logged 54, skipped 0 (already in MLflow)
+[track] done: 54 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 1020 points
+=== controller on: untuned docs tables, this GPU's costs, spec-bench prior (23:57:38) ===
+=== dsd-docs (23:57:38) ===
+[launch] dsd-docs: vllm serve Qwen/Qwen3-4B --port 8000 --dtype bfloat16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 64, 3], [65, 128, 1], [129, 512, 0]]}
+[launch] dsd-docs ready
+[sweep] c=4 requests=16 -> results/sweeps/ctrlval-refit-a10g-r2/dsd-docs/c4
+[sweep] c=16 requests=64 -> results/sweeps/ctrlval-refit-a10g-r2/dsd-docs/c16
+[sweep] c=32 requests=128 -> results/sweeps/ctrlval-refit-a10g-r2/dsd-docs/c32
+[sweep] c=40 requests=160 -> results/sweeps/ctrlval-refit-a10g-r2/dsd-docs/c40
+[sweep] c=64 requests=256 -> results/sweeps/ctrlval-refit-a10g-r2/dsd-docs/c64
+[sweep] c=96 requests=384 -> results/sweeps/ctrlval-refit-a10g-r2/dsd-docs/c96
+[sweep] done: results/sweeps/ctrlval-refit-a10g-r2/dsd-docs
+=== dsd-rescaled (00:05:33) ===
+[launch] dsd-rescaled: vllm serve Qwen/Qwen3-4B --port 8000 --dtype bfloat16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 16, 3], [17, 32, 1], [33, 64, 0]]}
+[launch] dsd-rescaled ready
+[sweep] c=4 requests=16 -> results/sweeps/ctrlval-refit-a10g-r2/dsd-rescaled/c4
+[sweep] c=16 requests=64 -> results/sweeps/ctrlval-refit-a10g-r2/dsd-rescaled/c16
+[sweep] c=32 requests=128 -> results/sweeps/ctrlval-refit-a10g-r2/dsd-rescaled/c32
+[sweep] c=40 requests=160 -> results/sweeps/ctrlval-refit-a10g-r2/dsd-rescaled/c40
+[sweep] c=64 requests=256 -> results/sweeps/ctrlval-refit-a10g-r2/dsd-rescaled/c64
+[sweep] c=96 requests=384 -> results/sweeps/ctrlval-refit-a10g-r2/dsd-rescaled/c96
+[sweep] done: results/sweeps/ctrlval-refit-a10g-r2/dsd-rescaled
+=== all done (00:13:20) ===
+[track] ctrlval-refit-a10g-r2: logged 12, skipped 0 (already in MLflow)
+[track] done: 12 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 1032 points
+=== controller off: untuned docs tables (00:16:12) ===
+=== dsd-docs (00:16:12) ===
+[launch] dsd-docs: vllm serve Qwen/Qwen3-4B --port 8000 --dtype bfloat16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 64, 3], [65, 128, 1], [129, 512, 0]]}
+[launch] dsd-docs ready
+[sweep] c=4 requests=16 -> results/sweeps/ctrlval-off-a10g-r2/dsd-docs/c4
+[sweep] c=16 requests=64 -> results/sweeps/ctrlval-off-a10g-r2/dsd-docs/c16
+[sweep] c=32 requests=128 -> results/sweeps/ctrlval-off-a10g-r2/dsd-docs/c32
+[sweep] c=40 requests=160 -> results/sweeps/ctrlval-off-a10g-r2/dsd-docs/c40
+[sweep] c=64 requests=256 -> results/sweeps/ctrlval-off-a10g-r2/dsd-docs/c64
+[sweep] c=96 requests=384 -> results/sweeps/ctrlval-off-a10g-r2/dsd-docs/c96
+[sweep] done: results/sweeps/ctrlval-off-a10g-r2/dsd-docs
+=== dsd-rescaled (00:24:06) ===
+[launch] dsd-rescaled: vllm serve Qwen/Qwen3-4B --port 8000 --dtype bfloat16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 16, 3], [17, 32, 1], [33, 64, 0]]}
+[launch] dsd-rescaled ready
+[sweep] c=4 requests=16 -> results/sweeps/ctrlval-off-a10g-r2/dsd-rescaled/c4
+[sweep] c=16 requests=64 -> results/sweeps/ctrlval-off-a10g-r2/dsd-rescaled/c16
+[sweep] c=32 requests=128 -> results/sweeps/ctrlval-off-a10g-r2/dsd-rescaled/c32
+[sweep] c=40 requests=160 -> results/sweeps/ctrlval-off-a10g-r2/dsd-rescaled/c40
+[sweep] c=64 requests=256 -> results/sweeps/ctrlval-off-a10g-r2/dsd-rescaled/c64
+[sweep] c=96 requests=384 -> results/sweeps/ctrlval-off-a10g-r2/dsd-rescaled/c96
+[sweep] done: results/sweeps/ctrlval-off-a10g-r2/dsd-rescaled
+=== all done (00:31:56) ===
+[track] ctrlval-off-a10g-r2: logged 12, skipped 0 (already in MLflow)
+[track] done: 12 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 1056 points
+=== EAGLE-3 pipeline on a10g done (00:34:51) ===

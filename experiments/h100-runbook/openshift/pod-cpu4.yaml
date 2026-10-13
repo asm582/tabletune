@@ -1,0 +1,34 @@
+# Same as pod.yaml but with only 4 CPUs, for the graph-mode overhead study (scripts/05_overhead.sh):
+# the paper's 4-bit-target slowdown was CPU launch-bound on 2-core hosts.
+# With the single ReadWriteOnce volume (pvc.yaml) delete pod dsd-h100 first; with the shared
+# ReadWriteMany volume (pvc-rwx.yaml) it can run next to the workers. Then: oc apply -f pod-cpu4.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dsd-h100-cpu4
+  labels: {app: dsd-h100}
+spec:
+  restartPolicy: Never
+  nodeSelector:
+    nvidia.com/gpu.product: NVIDIA-H100-80GB-HBM3
+  tolerations:
+    - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
+  containers:
+    - name: bench
+      image: image-registry.openshift-image-registry.svc:5000/<namespace>/dsd-bench:latest
+      command: ["sleep", "infinity"]
+      env:
+        - {name: HOME, value: /work}
+        - name: NODE_NAME
+          valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
+      resources:
+        requests: {cpu: "4", memory: 64Gi, nvidia.com/gpu: 1}
+        limits:   {cpu: "4", memory: 64Gi, nvidia.com/gpu: 1}
+      volumeMounts:
+        - {name: work, mountPath: /work}
+        - {name: shm, mountPath: /dev/shm}
+  volumes:
+    - name: work
+      persistentVolumeClaim: {claimName: dsd-work}
+    - name: shm
+      emptyDir: {medium: Memory, sizeLimit: 16Gi}

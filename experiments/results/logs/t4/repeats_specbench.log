@@ -1,0 +1,151 @@
+=== spec-bench repeat 2 (19:06:54) ===
+=== nospec (19:06:54) ===
+[launch] nospec: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 64 --gpu-memory-utilization 0.90 --seed 0
+[launch] nospec ready
+[sweep] c=1 requests=16 -> results/sweeps/baseline-t4-r2/nospec/c1
+[sweep] c=2 requests=16 -> results/sweeps/baseline-t4-r2/nospec/c2
+[sweep] c=4 requests=16 -> results/sweeps/baseline-t4-r2/nospec/c4
+[sweep] c=8 requests=32 -> results/sweeps/baseline-t4-r2/nospec/c8
+[sweep] c=16 requests=64 -> results/sweeps/baseline-t4-r2/nospec/c16
+[sweep] c=32 requests=128 -> results/sweeps/baseline-t4-r2/nospec/c32
+[sweep] c=64 requests=256 -> results/sweeps/baseline-t4-r2/nospec/c64
+[sweep] done: results/sweeps/baseline-t4-r2/nospec
+=== k1 (19:19:30) ===
+[launch] k1: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 64 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 1}
+[launch] k1 ready
+[sweep] c=1 requests=16 -> results/sweeps/baseline-t4-r2/k1/c1
+[sweep] c=2 requests=16 -> results/sweeps/baseline-t4-r2/k1/c2
+[sweep] c=4 requests=16 -> results/sweeps/baseline-t4-r2/k1/c4
+[sweep] c=8 requests=32 -> results/sweeps/baseline-t4-r2/k1/c8
+[sweep] c=16 requests=64 -> results/sweeps/baseline-t4-r2/k1/c16
+[sweep] c=32 requests=128 -> results/sweeps/baseline-t4-r2/k1/c32
+[sweep] c=64 requests=256 -> results/sweeps/baseline-t4-r2/k1/c64
+[sweep] done: results/sweeps/baseline-t4-r2/k1
+=== k2 (19:29:47) ===
+[launch] k2: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 64 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 2}
+[launch] k2 ready
+[sweep] c=1 requests=16 -> results/sweeps/baseline-t4-r2/k2/c1
+[sweep] c=2 requests=16 -> results/sweeps/baseline-t4-r2/k2/c2
+[sweep] c=4 requests=16 -> results/sweeps/baseline-t4-r2/k2/c4
+[sweep] c=8 requests=32 -> results/sweeps/baseline-t4-r2/k2/c8
+[sweep] c=16 requests=64 -> results/sweeps/baseline-t4-r2/k2/c16
+[sweep] c=32 requests=128 -> results/sweeps/baseline-t4-r2/k2/c32
+[sweep] c=64 requests=256 -> results/sweeps/baseline-t4-r2/k2/c64
+[sweep] done: results/sweeps/baseline-t4-r2/k2
+=== k3 (19:39:40) ===
+[launch] k3: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 64 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3}
+[launch] k3 ready
+[sweep] c=1 requests=16 -> results/sweeps/baseline-t4-r2/k3/c1
+[sweep] c=2 requests=16 -> results/sweeps/baseline-t4-r2/k3/c2
+[sweep] c=4 requests=16 -> results/sweeps/baseline-t4-r2/k3/c4
+[sweep] c=8 requests=32 -> results/sweeps/baseline-t4-r2/k3/c8
+[sweep] c=16 requests=64 -> results/sweeps/baseline-t4-r2/k3/c16
+[sweep] c=32 requests=128 -> results/sweeps/baseline-t4-r2/k3/c32
+[sweep] c=64 requests=256 -> results/sweeps/baseline-t4-r2/k3/c64
+[sweep] done: results/sweeps/baseline-t4-r2/k3
+=== all done (19:49:41) ===
+[track] baseline-t4-r2: logged 28, skipped 0 (already in MLflow)
+[track] done: 28 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 761 points
+=== dsd-docs (19:52:27) ===
+[launch] dsd-docs: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 64 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 64, 3], [65, 128, 1], [129, 512, 0]]}
+[launch] dsd-docs ready
+[sweep] c=1 requests=16 -> results/sweeps/dsd-t4-r2/dsd-docs/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsd-t4-r2/dsd-docs/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsd-t4-r2/dsd-docs/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsd-t4-r2/dsd-docs/c8
+[sweep] c=16 requests=64 -> results/sweeps/dsd-t4-r2/dsd-docs/c16
+[sweep] c=32 requests=128 -> results/sweeps/dsd-t4-r2/dsd-docs/c32
+[sweep] c=64 requests=256 -> results/sweeps/dsd-t4-r2/dsd-docs/c64
+[sweep] done: results/sweeps/dsd-t4-r2/dsd-docs
+=== dsd-tuned-v2 (20:02:21) ===
+[launch] dsd-tuned-v2: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 64 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 2, 3], [3, 5, 2], [6, 32, 3], [33, 64, 2]]}
+[launch] dsd-tuned-v2 ready
+[sweep] c=1 requests=16 -> results/sweeps/dsd-t4-r2/dsd-tuned-v2/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsd-t4-r2/dsd-tuned-v2/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsd-t4-r2/dsd-tuned-v2/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsd-t4-r2/dsd-tuned-v2/c8
+[sweep] c=16 requests=64 -> results/sweeps/dsd-t4-r2/dsd-tuned-v2/c16
+[sweep] c=32 requests=128 -> results/sweeps/dsd-t4-r2/dsd-tuned-v2/c32
+[sweep] c=64 requests=256 -> results/sweeps/dsd-t4-r2/dsd-tuned-v2/c64
+[sweep] done: results/sweeps/dsd-t4-r2/dsd-tuned-v2
+=== all done (20:12:07) ===
+[track] dsd-t4-r2: logged 14, skipped 0 (already in MLflow)
+[track] done: 14 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 775 points
+=== spec-bench repeat 3 (20:14:43) ===
+=== nospec (20:14:43) ===
+[launch] nospec: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 64 --gpu-memory-utilization 0.90 --seed 0
+[launch] nospec ready
+[sweep] c=1 requests=16 -> results/sweeps/baseline-t4-r3/nospec/c1
+[sweep] c=2 requests=16 -> results/sweeps/baseline-t4-r3/nospec/c2
+[sweep] c=4 requests=16 -> results/sweeps/baseline-t4-r3/nospec/c4
+[sweep] c=8 requests=32 -> results/sweeps/baseline-t4-r3/nospec/c8
+[sweep] c=16 requests=64 -> results/sweeps/baseline-t4-r3/nospec/c16
+[sweep] c=32 requests=128 -> results/sweeps/baseline-t4-r3/nospec/c32
+[sweep] c=64 requests=256 -> results/sweeps/baseline-t4-r3/nospec/c64
+[sweep] done: results/sweeps/baseline-t4-r3/nospec
+=== k1 (20:27:10) ===
+[launch] k1: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 64 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 1}
+[launch] k1 ready
+[sweep] c=1 requests=16 -> results/sweeps/baseline-t4-r3/k1/c1
+[sweep] c=2 requests=16 -> results/sweeps/baseline-t4-r3/k1/c2
+[sweep] c=4 requests=16 -> results/sweeps/baseline-t4-r3/k1/c4
+[sweep] c=8 requests=32 -> results/sweeps/baseline-t4-r3/k1/c8
+[sweep] c=16 requests=64 -> results/sweeps/baseline-t4-r3/k1/c16
+[sweep] c=32 requests=128 -> results/sweeps/baseline-t4-r3/k1/c32
+[sweep] c=64 requests=256 -> results/sweeps/baseline-t4-r3/k1/c64
+[sweep] done: results/sweeps/baseline-t4-r3/k1
+=== k2 (20:37:25) ===
+[launch] k2: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 64 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 2}
+[launch] k2 ready
+[sweep] c=1 requests=16 -> results/sweeps/baseline-t4-r3/k2/c1
+[sweep] c=2 requests=16 -> results/sweeps/baseline-t4-r3/k2/c2
+[sweep] c=4 requests=16 -> results/sweeps/baseline-t4-r3/k2/c4
+[sweep] c=8 requests=32 -> results/sweeps/baseline-t4-r3/k2/c8
+[sweep] c=16 requests=64 -> results/sweeps/baseline-t4-r3/k2/c16
+[sweep] c=32 requests=128 -> results/sweeps/baseline-t4-r3/k2/c32
+[sweep] c=64 requests=256 -> results/sweeps/baseline-t4-r3/k2/c64
+[sweep] done: results/sweeps/baseline-t4-r3/k2
+=== k3 (20:47:17) ===
+[launch] k3: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 64 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3}
+[launch] k3 ready
+[sweep] c=1 requests=16 -> results/sweeps/baseline-t4-r3/k3/c1
+[sweep] c=2 requests=16 -> results/sweeps/baseline-t4-r3/k3/c2
+[sweep] c=4 requests=16 -> results/sweeps/baseline-t4-r3/k3/c4
+[sweep] c=8 requests=32 -> results/sweeps/baseline-t4-r3/k3/c8
+[sweep] c=16 requests=64 -> results/sweeps/baseline-t4-r3/k3/c16
+[sweep] c=32 requests=128 -> results/sweeps/baseline-t4-r3/k3/c32
+[sweep] c=64 requests=256 -> results/sweeps/baseline-t4-r3/k3/c64
+[sweep] done: results/sweeps/baseline-t4-r3/k3
+=== all done (20:57:20) ===
+[track] baseline-t4-r3: logged 28, skipped 0 (already in MLflow)
+[track] done: 28 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 803 points
+=== dsd-docs (21:00:06) ===
+[launch] dsd-docs: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 64 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 64, 3], [65, 128, 1], [129, 512, 0]]}
+[launch] dsd-docs ready
+[sweep] c=1 requests=16 -> results/sweeps/dsd-t4-r3/dsd-docs/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsd-t4-r3/dsd-docs/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsd-t4-r3/dsd-docs/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsd-t4-r3/dsd-docs/c8
+[sweep] c=16 requests=64 -> results/sweeps/dsd-t4-r3/dsd-docs/c16
+[sweep] c=32 requests=128 -> results/sweeps/dsd-t4-r3/dsd-docs/c32
+[sweep] c=64 requests=256 -> results/sweeps/dsd-t4-r3/dsd-docs/c64
+[sweep] done: results/sweeps/dsd-t4-r3/dsd-docs
+=== dsd-tuned-v2 (21:10:03) ===
+[launch] dsd-tuned-v2: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 64 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 2, 3], [3, 5, 2], [6, 32, 3], [33, 64, 2]]}
+[launch] dsd-tuned-v2 ready
+[sweep] c=1 requests=16 -> results/sweeps/dsd-t4-r3/dsd-tuned-v2/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsd-t4-r3/dsd-tuned-v2/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsd-t4-r3/dsd-tuned-v2/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsd-t4-r3/dsd-tuned-v2/c8
+[sweep] c=16 requests=64 -> results/sweeps/dsd-t4-r3/dsd-tuned-v2/c16
+[sweep] c=32 requests=128 -> results/sweeps/dsd-t4-r3/dsd-tuned-v2/c32
+[sweep] c=64 requests=256 -> results/sweeps/dsd-t4-r3/dsd-tuned-v2/c64
+[sweep] done: results/sweeps/dsd-t4-r3/dsd-tuned-v2
+=== all done (21:19:54) ===
+[track] dsd-t4-r3: logged 14, skipped 0 (already in MLflow)
+[track] done: 14 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 859 points
+=== spec-bench repeats done (21:22:39) ===

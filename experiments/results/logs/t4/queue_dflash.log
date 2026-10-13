@@ -1,0 +1,25 @@
+=== repeat 3 started: stopping it (13:12:44) ===
+=== GPU free (13:12:54) ===
+=== DFlash smoke (13:12:54) ===
+dflash-dsd greedy match vs nospec: batched 8/8, single 3/3 | 31.5 tok/s (nospec 39.9)
+dflash-dsd_ctrl greedy match vs nospec: batched 8/8, single 3/3 | 40.8 tok/s (nospec 39.9)
+dflash     greedy match vs nospec: batched 8/8, single 3/3 | 34.0 tok/s (nospec 39.9)
+Available KV cache memory: 1.91 GiB
+Available KV cache memory: 1.98 GiB
+Available KV cache memory: 2.15 GiB
+GPU KV cache size: 12,176 tokens
+GPU KV cache size: 12,656 tokens
+GPU KV cache size: 13,744 tokens
+Model loading took 8.61 GiB
+[smoke] dflash-dsd: 710 tokens in 22.6s (31.5 tok/s), load 186s -> /home/ubuntu/vllm-perf/results/smoke/dflash-dsd.json
+[smoke] spec counters: {'vllm:spec_decode_num_drafts': 695, 'vllm:spec_decode_num_draft_tokens': 1535, 'vllm:spec_decode_num_accepted_tokens': 4, 'vllm:spec_decode_num_accepted_tokens_per_pos': [4, 0, 0]}
+[smoke] dflash-dsd: 710 tokens in 17.4s (40.8 tok/s), load 48s -> /home/ubuntu/vllm-perf/results/smoke/dflash-dsd_ctrl.json
+[smoke] spec counters: {'vllm:spec_decode_num_drafts': 695, 'vllm:spec_decode_num_draft_tokens': 1831, 'vllm:spec_decode_num_accepted_tokens': 4, 'vllm:spec_decode_num_accepted_tokens_per_pos': [4, 0, 0]}
+[smoke] dflash: 710 tokens in 20.9s (34.0 tok/s), load 230s -> /home/ubuntu/vllm-perf/results/smoke/dflash.json
+[smoke] spec counters: {'vllm:spec_decode_num_drafts': 695, 'vllm:spec_decode_num_draft_tokens': 2085, 'vllm:spec_decode_num_accepted_tokens': 4, 'vllm:spec_decode_num_accepted_tokens_per_pos': [4, 0, 0]}
+=== smoke passed: DFlash pipeline (13:22:24) ===
+Terminated
+=== acceptance, DFlash K=8, code prompts, T=1.0 (13:22:24) ===
+=== restarting repeat run 3 (13:22:45) ===
+Terminated
+=== queue done (13:23:30) ===

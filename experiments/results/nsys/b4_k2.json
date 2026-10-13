@@ -1,0 +1,19 @@
+{
+  "target": "Qwen/Qwen3-4B",
+  "drafter": "AngelSlim/Qwen3-4B_eagle3",
+  "k_max": 3,
+  "isl": 320,
+  "n_decode": 64,
+  "rows": [
+    {
+      "batch_size": 4,
+      "k": 2,
+      "step_ms": 48.526,
+      "samples_ms": [
+        48.579,
+        48.526,
+        48.523
+      ]
+    }
+  ]
+}

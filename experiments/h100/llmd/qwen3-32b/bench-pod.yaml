@@ -1,0 +1,53 @@
+# Benchmark client + experiment driver for the llm-d experiment. CPU only. Manages only the guide's model-server
+# Deployment in vllm-dsd through the llmd-driver ServiceAccount.
+apiVersion: v1
+kind: ServiceAccount
+metadata: {name: llmd-driver}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata: {name: llmd-driver}
+rules:
+  - apiGroups: ["apps"]
+    resources: [deployments, replicasets]
+    verbs: [get, list, watch, create, update, patch, delete]
+  - apiGroups: [""]
+    resources: [pods, pods/log, serviceaccounts, services]
+    verbs: [get, list, watch, create, update, patch, delete]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata: {name: llmd-driver}
+roleRef: {apiGroup: rbac.authorization.k8s.io, kind: Role, name: llmd-driver}
+subjects:
+  - {kind: ServiceAccount, name: llmd-driver}
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: llmd32-bench
+  labels: {app: llmd32-bench}
+spec:
+  serviceAccountName: llmd-driver
+  restartPolicy: Never
+  containers:
+    - name: bench
+      image: nvcr.io/nvidia/cuda:12.8.1-devel-ubuntu24.04
+      securityContext: {runAsUser: 0}
+      command: ["bash", "-c"]
+      args:
+        - |
+          apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends curl ca-certificates tmux procps jq > /dev/null \
+          && { [ -x /work/bin/kubectl ] || { mkdir -p /work/bin && curl -sL https://dl.k8s.io/release/v1.32.9/bin/linux/amd64/kubectl -o /work/bin/kubectl && chmod +x /work/bin/kubectl; }; } \
+          && touch /tmp/apt-done; sleep infinity
+      readinessProbe: {exec: {command: ["test", "-f", "/tmp/apt-done"]}, periodSeconds: 10}
+      env:
+        - {name: HOME, value: /work}
+      resources:
+        requests: {cpu: "16", memory: 32Gi}
+        limits: {cpu: "16", memory: 32Gi}
+      volumeMounts:
+        - {name: work, mountPath: /work}
+  volumes:
+    - name: work
+      persistentVolumeClaim: {claimName: dsd-work}

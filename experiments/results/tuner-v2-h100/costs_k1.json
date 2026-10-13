@@ -1,0 +1,291 @@
+{
+  "target": "Qwen/Qwen3-4B",
+  "method": "eagle3",
+  "drafter": "AngelSlim/Qwen3-4B_eagle3",
+  "k_max": 3,
+  "isl": 320,
+  "max_num_seqs": 64,
+  "n_decode": 64,
+  "rows": [
+    {
+      "batch_size": 1,
+      "k": 1,
+      "step_ms": 6.579,
+      "samples_ms": [
+        7.429,
+        6.522,
+        6.579
+      ]
+    },
+    {
+      "batch_size": 2,
+      "k": 1,
+      "step_ms": 6.803,
+      "samples_ms": [
+        7.451,
+        6.591,
+        6.803
+      ]
+    },
+    {
+      "batch_size": 3,
+      "k": 1,
+      "step_ms": 6.596,
+      "samples_ms": [
+        6.563,
+        7.659,
+        6.596
+      ]
+    },
+    {
+      "batch_size": 4,
+      "k": 1,
+      "step_ms": 6.376,
+      "samples_ms": [
+        6.346,
+        6.376,
+        6.487
+      ]
+    },
+    {
+      "batch_size": 5,
+      "k": 1,
+      "step_ms": 6.58,
+      "samples_ms": [
+        6.697,
+        6.498,
+        6.58
+      ]
+    },
+    {
+      "batch_size": 6,
+      "k": 1,
+      "step_ms": 6.444,
+      "samples_ms": [
+        6.477,
+        6.444,
+        6.309
+      ]
+    },
+    {
+      "batch_size": 7,
+      "k": 1,
+      "step_ms": 6.5,
+      "samples_ms": [
+        6.5,
+        6.34,
+        6.501
+      ]
+    },
+    {
+      "batch_size": 8,
+      "k": 1,
+      "step_ms": 6.619,
+      "samples_ms": [
+        6.619,
+        6.725,
+        6.585
+      ]
+    },
+    {
+      "batch_size": 9,
+      "k": 1,
+      "step_ms": 6.745,
+      "samples_ms": [
+        6.79,
+        6.745,
+        6.508
+      ]
+    },
+    {
+      "batch_size": 10,
+      "k": 1,
+      "step_ms": 6.562,
+      "samples_ms": [
+        6.512,
+        6.562,
+        6.615
+      ]
+    },
+    {
+      "batch_size": 11,
+      "k": 1,
+      "step_ms": 6.633,
+      "samples_ms": [
+        6.655,
+        6.438,
+        6.633
+      ]
+    },
+    {
+      "batch_size": 12,
+      "k": 1,
+      "step_ms": 6.502,
+      "samples_ms": [
+        6.496,
+        6.502,
+        6.566
+      ]
+    },
+    {
+      "batch_size": 13,
+      "k": 1,
+      "step_ms": 6.564,
+      "samples_ms": [
+        6.575,
+        6.564,
+        6.491
+      ]
+    },
+    {
+      "batch_size": 14,
+      "k": 1,
+      "step_ms": 6.798,
+      "samples_ms": [
+        6.798,
+        6.991,
+        6.766
+      ]
+    },
+    {
+      "batch_size": 15,
+      "k": 1,
+      "step_ms": 6.768,
+      "samples_ms": [
+        6.961,
+        6.768,
+        6.712
+      ]
+    },
+    {
+      "batch_size": 16,
+      "k": 1,
+      "step_ms": 6.631,
+      "samples_ms": [
+        6.692,
+        6.631,
+        6.597
+      ]
+    },
+    {
+      "batch_size": 20,
+      "k": 1,
+      "step_ms": 6.876,
+      "samples_ms": [
+        6.719,
+        6.876,
+        6.959
+      ]
+    },
+    {
+      "batch_size": 24,
+      "k": 1,
+      "step_ms": 6.859,
+      "samples_ms": [
+        7.124,
+        6.859,
+        6.787
+      ]
+    },
+    {
+      "batch_size": 28,
+      "k": 1,
+      "step_ms": 6.973,
+      "samples_ms": [
+        7.13,
+        6.973,
+        6.972
+      ]
+    },
+    {
+      "batch_size": 32,
+      "k": 1,
+      "step_ms": 6.906,
+      "samples_ms": [
+        7.001,
+        6.906,
+        6.801
+      ]
+    },
+    {
+      "batch_size": 36,
+      "k": 1,
+      "step_ms": 7.015,
+      "samples_ms": [
+        7.378,
+        6.919,
+        7.015
+      ]
+    },
+    {
+      "batch_size": 40,
+      "k": 1,
+      "step_ms": 7.047,
+      "samples_ms": [
+        7.121,
+        7.047,
+        7.035
+      ]
+    },
+    {
+      "batch_size": 44,
+      "k": 1,
+      "step_ms": 7.101,
+      "samples_ms": [
+        7.101,
+        7.081,
+        7.149
+      ]
+    },
+    {
+      "batch_size": 48,
+      "k": 1,
+      "step_ms": 7.529,
+      "samples_ms": [
+        7.457,
+        7.533,
+        7.529
+      ]
+    },
+    {
+      "batch_size": 52,
+      "k": 1,
+      "step_ms": 7.536,
+      "samples_ms": [
+        7.613,
+        7.536,
+        7.451
+      ]
+    },
+    {
+      "batch_size": 56,
+      "k": 1,
+      "step_ms": 7.769,
+      "samples_ms": [
+        7.842,
+        7.769,
+        7.536
+      ]
+    },
+    {
+      "batch_size": 60,
+      "k": 1,
+      "step_ms": 8.03,
+      "samples_ms": [
+        8.161,
+        7.963,
+        8.03
+      ]
+    },
+    {
+      "batch_size": 64,
+      "k": 1,
+      "step_ms": 7.818,
+      "samples_ms": [
+        7.906,
+        7.818,
+        7.763
+      ]
+    }
+  ]
+}

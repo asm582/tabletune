@@ -1,0 +1,4 @@
+vllm 91d4af6ef4ae8f68f8a98ab1d80241c9883303fa
+Tesla T4, 595.91.07
+dataset spec-bench | concurrencies 1 2 4 8 16 32 64
+max_num_seqs 64 | temperature 0

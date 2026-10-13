@@ -1,0 +1,4 @@
+vllm b6adf870263d02a0d53bc833b2745519c629f531
+NVIDIA A10G, 595.91.07
+dataset instruct-coder | concurrencies 1 2 4 8
+max_num_seqs 128 | temperature 1.0

@@ -1,0 +1,140 @@
+=== acceptance ngram-apply-t0 (20:51:13) ===
+[accept] prompts file results/ngram/prompts-apply.jsonl: calibration=160
+[accept] by position [0.7878, 0.7094, 0.6579, 0.6244, 0.5895] -> tokens/step {0: 1, 1: 1.788, 2: 2.497, 3: 3.155, 4: 3.78, 5: 4.369}
+[accept] proposal rate 0.4883, per decode step [0.3847, 0.3464, 0.3213, 0.3049, 0.2879] -> tokens/step {0: 1, 1: 1.385, 2: 1.731, 3: 2.052, 4: 2.357, 5: 2.645}; ISL 151.3 OSL 135.7
+[accept] wrote results/ngram/accept-ngram-apply-t0.json
+=== acceptance eagle3-apply-t0 (20:52:45) ===
+[accept] prompts file results/ngram/prompts-apply.jsonl: calibration=160
+[accept] by position [0.7825, 0.5782, 0.3314] -> tokens/step {0: 1, 1: 1.782, 2: 2.361, 3: 2.692}
+[accept] proposal rate 1.0225, per decode step [0.8001, 0.5912, 0.3388] -> tokens/step {0: 1, 1: 1.8, 2: 2.391, 3: 2.73}; ISL 151.3 OSL 135.2
+[accept] wrote results/ngram/accept-eagle3-apply-t0.json
+=== costs K=0 (ISL 151) (20:54:14) ===
+[costs] K=0 B=  1 step=  36.91 ms  samples=[36.915, 36.951, 36.827]  drafted/step=0.0
+[costs] K=0 B= 16 step=  52.33 ms  samples=[64.733, 52.034, 52.333]  drafted/step=0.0
+[costs] K=0 B= 64 step=  91.29 ms  samples=[91.487, 90.935, 91.286]  drafted/step=0.0
+[costs] K=0 B=128 step= 139.17 ms  samples=[139.78, 138.638, 139.172]  drafted/step=0.0
+=== costs K=1 (ISL 151) (21:08:59) ===
+[costs] K=1 B=  1 step=  39.52 ms  samples=[39.581, 39.515, 39.44]  drafted/step=1.0
+[costs] K=1 B= 16 step=  61.10 ms  samples=[60.857, 61.096, 61.166]  drafted/step=1.0
+[costs] K=1 B= 64 step= 102.67 ms  samples=[102.669, 102.163, 102.765]  drafted/step=1.0
+[costs] K=1 B=128 step= 173.70 ms  samples=[173.585, 173.703, 174.117]  drafted/step=1.0
+=== costs K=2 (ISL 151) (21:24:45) ===
+[costs] K=2 B=  1 step=  39.94 ms  samples=[40.069, 39.87, 39.936]  drafted/step=2.0
+[costs] K=2 B= 16 step=  62.21 ms  samples=[75.142, 62.207, 62.129]  drafted/step=2.0
+[costs] K=2 B= 64 step= 121.67 ms  samples=[121.946, 121.628, 121.671]  drafted/step=2.0
+[costs] K=2 B=128 step= 208.19 ms  samples=[208.012, 208.186, 208.617]  drafted/step=2.0
+=== costs K=3 (ISL 151) (21:43:22) ===
+[costs] K=3 B=  1 step=  40.20 ms  samples=[40.196, 40.198, 40.235]  drafted/step=3.0
+[costs] K=3 B= 16 step=  63.77 ms  samples=[63.498, 63.775, 63.766]  drafted/step=3.0
+[costs] K=3 B= 64 step= 136.81 ms  samples=[136.822, 136.453, 136.808]  drafted/step=3.0
+[costs] K=3 B=128 step= 245.35 ms  samples=[245.354, 245.129, 245.704]  drafted/step=3.0
+=== costs K=4 (ISL 151) (22:01:16) ===
+[costs] K=4 B=  1 step=  40.45 ms  samples=[40.454, 40.463, 40.395]  drafted/step=4.0
+[costs] K=4 B= 16 step=  76.08 ms  samples=[89.155, 76.079, 75.974]  drafted/step=4.0
+[costs] K=4 B= 64 step= 204.86 ms  samples=[204.986, 204.68, 204.86]  drafted/step=4.0
+[costs] K=4 B=128 step= 378.24 ms  samples=[378.235, 378.273, 377.923]  drafted/step=4.0
+=== costs K=5 (ISL 151) (22:24:28) ===
+[costs] K=5 B=  1 step=  40.88 ms  samples=[40.842, 40.927, 40.878]  drafted/step=5.0
+[costs] K=5 B= 16 step=  78.56 ms  samples=[91.334, 78.208, 78.561]  drafted/step=5.0
+[costs] K=5 B= 64 step= 205.86 ms  samples=[205.863, 205.58, 206.181]  drafted/step=5.0
+[costs] K=5 B=128 step= 406.64 ms  samples=[406.976, 406.639, 405.158]  drafted/step=5.0
+=== schedule (22:48:50) ===
+[tuner] proposal rate 0.4883: tokens per step and step cost use p*K
+[tuner] tokens/step by K: {0: 1.0, 1: 1.38468274, 2: 1.73108276, 3: 2.05233533, 4: 2.3572298500000004, 5: 2.6450826999999997}
+[tuner] raw argmax schedule: [[1, 70, 5], [71, 76, 4], [77, 128, 5]]
+[tuner] schedule: [[1, 128, 5]]
+[tuner] wrote results/ngram-tuner/schedule.json and results/ngram-tuner/goodput.csv
+[tuner] predicted loss of each fixed K vs. the best K at each batch size:
+  K=0: worst 59.7% at B=  2, average 46.6%
+  K=1: worst 45.6% at B=  2, average 31.5%
+  K=2: worst 33.8% at B=  2, average 20.0%
+  K=3: worst 21.8% at B=  2, average 12.3%
+  K=4: worst 10.6% at B=  1, average  6.1%
+  K=5: worst  0.8% at B= 72, average  0.0%
+[tuner] reversed start for the controller: [[1, 128, 5]]
+=== sweep (22:48:50) ===
+=== nospec (22:48:50) ===
+[launch] nospec: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0
+[launch] nospec ready
+[sweep] c=1 requests=16 -> results/sweeps/ngram-apply-t4/nospec/c1
+[sweep] c=2 requests=16 -> results/sweeps/ngram-apply-t4/nospec/c2
+[sweep] c=4 requests=16 -> results/sweeps/ngram-apply-t4/nospec/c4
+[sweep] c=8 requests=32 -> results/sweeps/ngram-apply-t4/nospec/c8
+[sweep] c=16 requests=64 -> results/sweeps/ngram-apply-t4/nospec/c16
+[sweep] c=32 requests=128 -> results/sweeps/ngram-apply-t4/nospec/c32
+[sweep] c=64 requests=256 -> results/sweeps/ngram-apply-t4/nospec/c64
+[sweep] c=96 requests=384 -> results/sweeps/ngram-apply-t4/nospec/c96
+[sweep] c=128 requests=512 -> results/sweeps/ngram-apply-t4/nospec/c128
+[sweep] done: results/sweeps/ngram-apply-t4/nospec
+=== ngram-k1 (23:04:09) ===
+[launch] ngram-k1: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "ngram", "prompt_lookup_min": 2, "prompt_lookup_max": 4, "num_speculative_tokens": 1}
+[launch] ngram-k1 ready
+[sweep] c=1 requests=16 -> results/sweeps/ngram-apply-t4/ngram-k1/c1
+[sweep] c=2 requests=16 -> results/sweeps/ngram-apply-t4/ngram-k1/c2
+[sweep] c=4 requests=16 -> results/sweeps/ngram-apply-t4/ngram-k1/c4
+[sweep] c=8 requests=32 -> results/sweeps/ngram-apply-t4/ngram-k1/c8
+[sweep] c=16 requests=64 -> results/sweeps/ngram-apply-t4/ngram-k1/c16
+[sweep] c=32 requests=128 -> results/sweeps/ngram-apply-t4/ngram-k1/c32
+[sweep] c=64 requests=256 -> results/sweeps/ngram-apply-t4/ngram-k1/c64
+[sweep] c=96 requests=384 -> results/sweeps/ngram-apply-t4/ngram-k1/c96
+[sweep] c=128 requests=512 -> results/sweeps/ngram-apply-t4/ngram-k1/c128
+[sweep] done: results/sweeps/ngram-apply-t4/ngram-k1
+=== ngram-k3 (23:16:43) ===
+[launch] ngram-k3: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "ngram", "prompt_lookup_min": 2, "prompt_lookup_max": 4, "num_speculative_tokens": 3}
+[launch] ngram-k3 ready
+[sweep] c=1 requests=16 -> results/sweeps/ngram-apply-t4/ngram-k3/c1
+[sweep] c=2 requests=16 -> results/sweeps/ngram-apply-t4/ngram-k3/c2
+[sweep] c=4 requests=16 -> results/sweeps/ngram-apply-t4/ngram-k3/c4
+[sweep] c=8 requests=32 -> results/sweeps/ngram-apply-t4/ngram-k3/c8
+[sweep] c=16 requests=64 -> results/sweeps/ngram-apply-t4/ngram-k3/c16
+[sweep] c=32 requests=128 -> results/sweeps/ngram-apply-t4/ngram-k3/c32
+[sweep] c=64 requests=256 -> results/sweeps/ngram-apply-t4/ngram-k3/c64
+[sweep] c=96 requests=384 -> results/sweeps/ngram-apply-t4/ngram-k3/c96
+[sweep] c=128 requests=512 -> results/sweeps/ngram-apply-t4/ngram-k3/c128
+[sweep] done: results/sweeps/ngram-apply-t4/ngram-k3
+=== ngram-k5 (23:27:34) ===
+[launch] ngram-k5: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "ngram", "prompt_lookup_min": 2, "prompt_lookup_max": 4, "num_speculative_tokens": 5}
+[launch] ngram-k5 ready
+[sweep] c=1 requests=16 -> results/sweeps/ngram-apply-t4/ngram-k5/c1
+[sweep] c=2 requests=16 -> results/sweeps/ngram-apply-t4/ngram-k5/c2
+[sweep] c=4 requests=16 -> results/sweeps/ngram-apply-t4/ngram-k5/c4
+[sweep] c=8 requests=32 -> results/sweeps/ngram-apply-t4/ngram-k5/c8
+[sweep] c=16 requests=64 -> results/sweeps/ngram-apply-t4/ngram-k5/c16
+[sweep] c=32 requests=128 -> results/sweeps/ngram-apply-t4/ngram-k5/c32
+[sweep] c=64 requests=256 -> results/sweeps/ngram-apply-t4/ngram-k5/c64
+[sweep] c=96 requests=384 -> results/sweeps/ngram-apply-t4/ngram-k5/c96
+[sweep] c=128 requests=512 -> results/sweeps/ngram-apply-t4/ngram-k5/c128
+[sweep] done: results/sweeps/ngram-apply-t4/ngram-k5
+=== ngram-tuned (23:40:11) ===
+[launch] ngram-tuned: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "ngram", "prompt_lookup_min": 2, "prompt_lookup_max": 4, "num_speculative_tokens": 5, "num_speculative_tokens_per_batch_size": [[1, 128, 5]]}
+[launch] ngram-tuned ready
+[sweep] c=1 requests=16 -> results/sweeps/ngram-apply-t4/ngram-tuned/c1
+[sweep] c=2 requests=16 -> results/sweeps/ngram-apply-t4/ngram-tuned/c2
+[sweep] c=4 requests=16 -> results/sweeps/ngram-apply-t4/ngram-tuned/c4
+[sweep] c=8 requests=32 -> results/sweeps/ngram-apply-t4/ngram-tuned/c8
+[sweep] c=16 requests=64 -> results/sweeps/ngram-apply-t4/ngram-tuned/c16
+[sweep] c=32 requests=128 -> results/sweeps/ngram-apply-t4/ngram-tuned/c32
+[sweep] c=64 requests=256 -> results/sweeps/ngram-apply-t4/ngram-tuned/c64
+[sweep] c=96 requests=384 -> results/sweeps/ngram-apply-t4/ngram-tuned/c96
+[sweep] c=128 requests=512 -> results/sweeps/ngram-apply-t4/ngram-tuned/c128
+[sweep] done: results/sweeps/ngram-apply-t4/ngram-tuned
+=== k3 (23:52:40) ===
+[launch] k3: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3}
+[launch] k3 ready
+[sweep] c=1 requests=16 -> results/sweeps/ngram-apply-t4/k3/c1
+[sweep] c=2 requests=16 -> results/sweeps/ngram-apply-t4/k3/c2
+[sweep] c=4 requests=16 -> results/sweeps/ngram-apply-t4/k3/c4
+[sweep] c=8 requests=32 -> results/sweeps/ngram-apply-t4/k3/c8
+[sweep] c=16 requests=64 -> results/sweeps/ngram-apply-t4/k3/c16
+[sweep] c=32 requests=128 -> results/sweeps/ngram-apply-t4/k3/c32
+[sweep] c=64 requests=256 -> results/sweeps/ngram-apply-t4/k3/c64
+[sweep] c=96 requests=384 -> results/sweeps/ngram-apply-t4/k3/c96
+[sweep] c=128 requests=512 -> results/sweeps/ngram-apply-t4/k3/c128
+[sweep] done: results/sweeps/ngram-apply-t4/k3
+=== all done (00:03:17) ===
+=== controller (a): reversed table, calibrated prior (00:03:17) ===
+=== ngram-reversed (00:03:17) ===
+[launch] ngram-reversed: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "ngram", "prompt_lookup_min": 2, "prompt_lookup_max": 4, "num_speculative_tokens": 5, "num_speculative_tokens_per_batch_size": [[1, 128, 5]]}
+bench/launch_server.sh: line 42: 289789 Killed                  nohup vllm "${args[@]}" >> "$LOG" 2>&1
+cat: results/sweeps/ngram-ctrl-reversed/ngram-reversed/server.pid: No such file or directory
+[launch] ngram-reversed server died, see results/sweeps/ngram-ctrl-reversed/ngram-reversed/server.log

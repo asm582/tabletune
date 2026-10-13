@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "turbospec-style"
+version = "0.1.0"
+description = "TurboSpec-style per-step draft-length control for vLLM Dynamic SD (baseline reimplementation)"
+requires-python = ">=3.10"
+dependencies = []
+
+# vLLM loads this in every process; a no-op unless VLLM_TS_CONTROLLER=1.
+[project.entry-points."vllm.general_plugins"]
+turbospec_style = "turbospec_style.vllm_plugin:register"
+
+[tool.setuptools]
+packages = ["turbospec_style"]

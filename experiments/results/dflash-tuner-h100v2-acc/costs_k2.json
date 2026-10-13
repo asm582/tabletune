@@ -1,0 +1,353 @@
+{
+  "target": "Qwen/Qwen3-4B",
+  "method": "dflash",
+  "drafter": "z-lab/Qwen3-4B-DFlash-b16",
+  "k_max": 8,
+  "isl": 32,
+  "max_num_seqs": 128,
+  "n_decode": 256,
+  "acceptance": "/work/vllm-dsd-tuning/experiments/results/dflash-tuner-h100v2/acceptance.json",
+  "rows": [
+    {
+      "batch_size": 1,
+      "k": 2,
+      "step_ms": 5.217,
+      "samples_ms": [
+        5.217,
+        5.218,
+        5.198
+      ],
+      "tokens_per_step": 2.068
+    },
+    {
+      "batch_size": 2,
+      "k": 2,
+      "step_ms": 5.457,
+      "samples_ms": [
+        5.689,
+        5.457,
+        5.428
+      ],
+      "tokens_per_step": 2.134
+    },
+    {
+      "batch_size": 3,
+      "k": 2,
+      "step_ms": 5.785,
+      "samples_ms": [
+        5.785,
+        5.453,
+        5.987
+      ],
+      "tokens_per_step": 2.115
+    },
+    {
+      "batch_size": 4,
+      "k": 2,
+      "step_ms": 5.551,
+      "samples_ms": [
+        5.718,
+        5.551,
+        5.528
+      ],
+      "tokens_per_step": 2.118
+    },
+    {
+      "batch_size": 5,
+      "k": 2,
+      "step_ms": 5.643,
+      "samples_ms": [
+        5.954,
+        5.536,
+        5.643
+      ],
+      "tokens_per_step": 2.086
+    },
+    {
+      "batch_size": 6,
+      "k": 2,
+      "step_ms": 5.786,
+      "samples_ms": [
+        5.786,
+        5.896,
+        5.522
+      ],
+      "tokens_per_step": 2.112
+    },
+    {
+      "batch_size": 7,
+      "k": 2,
+      "step_ms": 5.865,
+      "samples_ms": [
+        5.865,
+        5.875,
+        5.786
+      ],
+      "tokens_per_step": 2.097
+    },
+    {
+      "batch_size": 8,
+      "k": 2,
+      "step_ms": 5.861,
+      "samples_ms": [
+        5.861,
+        6.031,
+        5.807
+      ],
+      "tokens_per_step": 2.105
+    },
+    {
+      "batch_size": 9,
+      "k": 2,
+      "step_ms": 5.849,
+      "samples_ms": [
+        5.931,
+        5.849,
+        5.819
+      ],
+      "tokens_per_step": 2.1
+    },
+    {
+      "batch_size": 10,
+      "k": 2,
+      "step_ms": 5.949,
+      "samples_ms": [
+        5.919,
+        6.026,
+        5.949
+      ],
+      "tokens_per_step": 2.107
+    },
+    {
+      "batch_size": 11,
+      "k": 2,
+      "step_ms": 5.933,
+      "samples_ms": [
+        5.901,
+        5.974,
+        5.933
+      ],
+      "tokens_per_step": 2.104
+    },
+    {
+      "batch_size": 12,
+      "k": 2,
+      "step_ms": 6.046,
+      "samples_ms": [
+        6.046,
+        5.934,
+        6.055
+      ],
+      "tokens_per_step": 2.085
+    },
+    {
+      "batch_size": 13,
+      "k": 2,
+      "step_ms": 6.172,
+      "samples_ms": [
+        6.257,
+        5.949,
+        6.172
+      ],
+      "tokens_per_step": 2.09
+    },
+    {
+      "batch_size": 14,
+      "k": 2,
+      "step_ms": 6.22,
+      "samples_ms": [
+        6.22,
+        6.13,
+        6.275
+      ],
+      "tokens_per_step": 2.117
+    },
+    {
+      "batch_size": 15,
+      "k": 2,
+      "step_ms": 6.308,
+      "samples_ms": [
+        6.255,
+        6.308,
+        6.496
+      ],
+      "tokens_per_step": 2.125
+    },
+    {
+      "batch_size": 16,
+      "k": 2,
+      "step_ms": 6.422,
+      "samples_ms": [
+        6.422,
+        6.466,
+        6.245
+      ],
+      "tokens_per_step": 2.104
+    },
+    {
+      "batch_size": 20,
+      "k": 2,
+      "step_ms": 6.613,
+      "samples_ms": [
+        6.613,
+        6.74,
+        6.474
+      ],
+      "tokens_per_step": 2.108
+    },
+    {
+      "batch_size": 24,
+      "k": 2,
+      "step_ms": 6.801,
+      "samples_ms": [
+        6.801,
+        6.806,
+        6.727
+      ],
+      "tokens_per_step": 2.103
+    },
+    {
+      "batch_size": 32,
+      "k": 2,
+      "step_ms": 7.033,
+      "samples_ms": [
+        6.898,
+        7.055,
+        7.033
+      ],
+      "tokens_per_step": 2.104
+    },
+    {
+      "batch_size": 40,
+      "k": 2,
+      "step_ms": 7.292,
+      "samples_ms": [
+        7.292,
+        7.405,
+        7.207
+      ],
+      "tokens_per_step": 2.12
+    },
+    {
+      "batch_size": 48,
+      "k": 2,
+      "step_ms": 7.761,
+      "samples_ms": [
+        7.953,
+        7.626,
+        7.761
+      ],
+      "tokens_per_step": 2.113
+    },
+    {
+      "batch_size": 56,
+      "k": 2,
+      "step_ms": 7.989,
+      "samples_ms": [
+        7.989,
+        8.057,
+        7.986
+      ],
+      "tokens_per_step": 2.121
+    },
+    {
+      "batch_size": 64,
+      "k": 2,
+      "step_ms": 8.546,
+      "samples_ms": [
+        8.536,
+        8.803,
+        8.546
+      ],
+      "tokens_per_step": 2.107
+    },
+    {
+      "batch_size": 72,
+      "k": 2,
+      "step_ms": 9.787,
+      "samples_ms": [
+        9.818,
+        9.712,
+        9.787
+      ],
+      "tokens_per_step": 2.119
+    },
+    {
+      "batch_size": 80,
+      "k": 2,
+      "step_ms": 9.801,
+      "samples_ms": [
+        9.828,
+        9.622,
+        9.801
+      ],
+      "tokens_per_step": 2.117
+    },
+    {
+      "batch_size": 88,
+      "k": 2,
+      "step_ms": 10.277,
+      "samples_ms": [
+        10.277,
+        10.278,
+        10.142
+      ],
+      "tokens_per_step": 2.109
+    },
+    {
+      "batch_size": 96,
+      "k": 2,
+      "step_ms": 11.144,
+      "samples_ms": [
+        11.273,
+        11.144,
+        10.949
+      ],
+      "tokens_per_step": 2.11
+    },
+    {
+      "batch_size": 104,
+      "k": 2,
+      "step_ms": 11.506,
+      "samples_ms": [
+        11.506,
+        11.385,
+        11.982
+      ],
+      "tokens_per_step": 2.117
+    },
+    {
+      "batch_size": 112,
+      "k": 2,
+      "step_ms": 12.151,
+      "samples_ms": [
+        11.983,
+        12.151,
+        12.167
+      ],
+      "tokens_per_step": 2.111
+    },
+    {
+      "batch_size": 120,
+      "k": 2,
+      "step_ms": 12.604,
+      "samples_ms": [
+        12.641,
+        12.604,
+        12.444
+      ],
+      "tokens_per_step": 2.12
+    },
+    {
+      "batch_size": 128,
+      "k": 2,
+      "step_ms": 13.107,
+      "samples_ms": [
+        13.162,
+        13.107,
+        13.002
+      ],
+      "tokens_per_step": 2.113
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+=== sweep: tuned table v2 (full-cost model) (00:06:55) ===
+=== ngram-tuned-v2 (00:06:55) ===
+[launch] ngram-tuned-v2: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "ngram", "prompt_lookup_min": 2, "prompt_lookup_max": 4, "num_speculative_tokens": 5, "num_speculative_tokens_per_batch_size": [[1, 2, 5], [3, 3, 4], [4, 20, 5], [21, 128, 3]]}
+[launch] ngram-tuned-v2 ready
+[sweep] c=1 requests=16 -> results/sweeps/ngram-apply-t4-v2/ngram-tuned-v2/c1
+[sweep] c=2 requests=16 -> results/sweeps/ngram-apply-t4-v2/ngram-tuned-v2/c2
+[sweep] c=4 requests=16 -> results/sweeps/ngram-apply-t4-v2/ngram-tuned-v2/c4
+[sweep] c=8 requests=32 -> results/sweeps/ngram-apply-t4-v2/ngram-tuned-v2/c8
+[sweep] c=16 requests=64 -> results/sweeps/ngram-apply-t4-v2/ngram-tuned-v2/c16
+[sweep] c=32 requests=128 -> results/sweeps/ngram-apply-t4-v2/ngram-tuned-v2/c32
+[sweep] c=64 requests=256 -> results/sweeps/ngram-apply-t4-v2/ngram-tuned-v2/c64
+[sweep] c=96 requests=384 -> results/sweeps/ngram-apply-t4-v2/ngram-tuned-v2/c96
+[sweep] c=128 requests=512 -> results/sweeps/ngram-apply-t4-v2/ngram-tuned-v2/c128
+[sweep] done: results/sweeps/ngram-apply-t4-v2/ngram-tuned-v2
+=== all done (00:19:12) ===
+[track] ngram-apply-t4-v2: logged 9, skipped 0 (already in MLflow)
+[track] done: 9 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 235 points
+=== controller (a): untuned table, calibrated n-gram prior (00:19:59) ===
+=== ngram-untuned (00:19:59) ===
+[launch] ngram-untuned: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "ngram", "prompt_lookup_min": 2, "prompt_lookup_max": 4, "num_speculative_tokens": 5, "num_speculative_tokens_per_batch_size": [[1, 16, 1], [17, 64, 3], [65, 128, 5]]}
+[launch] ngram-untuned ready
+[sweep] c=4 requests=16 -> results/sweeps/ngram-ctrl-calib/ngram-untuned/c4
+[sweep] c=16 requests=64 -> results/sweeps/ngram-ctrl-calib/ngram-untuned/c16
+[sweep] c=32 requests=128 -> results/sweeps/ngram-ctrl-calib/ngram-untuned/c32
+[sweep] c=64 requests=256 -> results/sweeps/ngram-ctrl-calib/ngram-untuned/c64
+[sweep] c=96 requests=384 -> results/sweeps/ngram-ctrl-calib/ngram-untuned/c96
+[sweep] c=128 requests=512 -> results/sweeps/ngram-ctrl-calib/ngram-untuned/c128
+[sweep] done: results/sweeps/ngram-ctrl-calib/ngram-untuned
+=== all done (00:28:33) ===
+[track] ngram-ctrl-calib: logged 6, skipped 0 (already in MLflow)
+[track] done: 6 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 241 points
+=== controller (b): untuned table, EAGLE-3's prior (3 positions, p = 1) (00:29:23) ===
+=== ngram-untuned (00:29:23) ===
+[launch] ngram-untuned: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "ngram", "prompt_lookup_min": 2, "prompt_lookup_max": 4, "num_speculative_tokens": 5, "num_speculative_tokens_per_batch_size": [[1, 16, 1], [17, 64, 3], [65, 128, 5]]}
+[launch] ngram-untuned ready
+[sweep] c=4 requests=16 -> results/sweeps/ngram-ctrl-eagleprior/ngram-untuned/c4
+[sweep] c=16 requests=64 -> results/sweeps/ngram-ctrl-eagleprior/ngram-untuned/c16
+[sweep] c=32 requests=128 -> results/sweeps/ngram-ctrl-eagleprior/ngram-untuned/c32
+[sweep] c=64 requests=256 -> results/sweeps/ngram-ctrl-eagleprior/ngram-untuned/c64
+[sweep] c=96 requests=384 -> results/sweeps/ngram-ctrl-eagleprior/ngram-untuned/c96
+[sweep] c=128 requests=512 -> results/sweeps/ngram-ctrl-eagleprior/ngram-untuned/c128
+[sweep] done: results/sweeps/ngram-ctrl-eagleprior/ngram-untuned
+=== all done (00:37:51) ===
+[track] ngram-ctrl-eagleprior: logged 6, skipped 0 (already in MLflow)
+[track] done: 6 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 247 points
+=== controller (c): untuned table, controller off (reference) (00:38:47) ===
+=== ngram-untuned (00:38:47) ===
+[launch] ngram-untuned: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "ngram", "prompt_lookup_min": 2, "prompt_lookup_max": 4, "num_speculative_tokens": 5, "num_speculative_tokens_per_batch_size": [[1, 16, 1], [17, 64, 3], [65, 128, 5]]}
+[launch] ngram-untuned ready
+[sweep] c=4 requests=16 -> results/sweeps/ngram-ctrl-off/ngram-untuned/c4
+[sweep] c=16 requests=64 -> results/sweeps/ngram-ctrl-off/ngram-untuned/c16
+[sweep] c=32 requests=128 -> results/sweeps/ngram-ctrl-off/ngram-untuned/c32
+[sweep] c=64 requests=256 -> results/sweeps/ngram-ctrl-off/ngram-untuned/c64
+[sweep] c=96 requests=384 -> results/sweeps/ngram-ctrl-off/ngram-untuned/c96
+[sweep] c=128 requests=512 -> results/sweeps/ngram-ctrl-off/ngram-untuned/c128
+[sweep] done: results/sweeps/ngram-ctrl-off/ngram-untuned
+=== all done (00:47:53) ===
+[track] ngram-ctrl-off: logged 6, skipped 0 (already in MLflow)
+[track] done: 6 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 253 points
+=== n-gram pipeline done (00:48:44) ===

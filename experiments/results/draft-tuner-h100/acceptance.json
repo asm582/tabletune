@@ -1,0 +1,51 @@
+{
+  "target": "Qwen/Qwen3-4B",
+  "method": "draft_model",
+  "drafter": "Qwen/Qwen3-0.6B",
+  "k_max": 5,
+  "max_tokens": 256,
+  "isl_avg": 31.8,
+  "osl_avg": 246.9,
+  "decode_steps": 11579,
+  "proposal_rate": 1.0287,
+  "accept_by_pos_per_step": [
+    0.7552,
+    0.5683,
+    0.442,
+    0.3489,
+    0.283
+  ],
+  "tokens_per_step_by_k_per_step": {
+    "0": 1,
+    "1": 1.755,
+    "2": 2.324,
+    "3": 2.766,
+    "4": 3.114,
+    "5": 3.397
+  },
+  "temperature": 1.0,
+  "calibration_prompts": 160,
+  "drafts": 11911,
+  "accepted_per_pos": [
+    8745,
+    6580,
+    5118,
+    4040,
+    3277
+  ],
+  "accept_by_pos": [
+    0.7342,
+    0.5524,
+    0.4297,
+    0.3392,
+    0.2751
+  ],
+  "tokens_per_step_by_k": {
+    "0": 1,
+    "1": 1.734,
+    "2": 2.287,
+    "3": 2.716,
+    "4": 3.055,
+    "5": 3.331
+  }
+}

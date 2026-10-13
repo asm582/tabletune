@@ -1,0 +1,45 @@
+=== nospec (20:26:00) ===
+[launch] nospec: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 64 --gpu-memory-utilization 0.90 --seed 0
+[launch] nospec ready
+[sweep] c=1 requests=16 -> results/sweeps/baseline-t4/nospec/c1
+[sweep] c=2 requests=16 -> results/sweeps/baseline-t4/nospec/c2
+[sweep] c=4 requests=16 -> results/sweeps/baseline-t4/nospec/c4
+[sweep] c=8 requests=32 -> results/sweeps/baseline-t4/nospec/c8
+[sweep] c=16 requests=64 -> results/sweeps/baseline-t4/nospec/c16
+[sweep] c=32 requests=128 -> results/sweeps/baseline-t4/nospec/c32
+[sweep] c=64 requests=256 -> results/sweeps/baseline-t4/nospec/c64
+[sweep] done: results/sweeps/baseline-t4/nospec
+=== k1 (20:38:49) ===
+[launch] k1: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 64 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 1}
+[launch] k1 ready
+[sweep] c=1 requests=16 -> results/sweeps/baseline-t4/k1/c1
+[sweep] c=2 requests=16 -> results/sweeps/baseline-t4/k1/c2
+[sweep] c=4 requests=16 -> results/sweeps/baseline-t4/k1/c4
+[sweep] c=8 requests=32 -> results/sweeps/baseline-t4/k1/c8
+[sweep] c=16 requests=64 -> results/sweeps/baseline-t4/k1/c16
+[sweep] c=32 requests=128 -> results/sweeps/baseline-t4/k1/c32
+[sweep] c=64 requests=256 -> results/sweeps/baseline-t4/k1/c64
+[sweep] done: results/sweeps/baseline-t4/k1
+=== k2 (20:51:20) ===
+[launch] k2: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 64 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 2}
+[launch] k2 ready
+[sweep] c=1 requests=16 -> results/sweeps/baseline-t4/k2/c1
+[sweep] c=2 requests=16 -> results/sweeps/baseline-t4/k2/c2
+[sweep] c=4 requests=16 -> results/sweeps/baseline-t4/k2/c4
+[sweep] c=8 requests=32 -> results/sweeps/baseline-t4/k2/c8
+[sweep] c=16 requests=64 -> results/sweeps/baseline-t4/k2/c16
+[sweep] c=32 requests=128 -> results/sweeps/baseline-t4/k2/c32
+[sweep] c=64 requests=256 -> results/sweeps/baseline-t4/k2/c64
+[sweep] done: results/sweeps/baseline-t4/k2
+=== k3 (21:03:23) ===
+[launch] k3: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 64 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3}
+[launch] k3 ready
+[sweep] c=1 requests=16 -> results/sweeps/baseline-t4/k3/c1
+[sweep] c=2 requests=16 -> results/sweeps/baseline-t4/k3/c2
+[sweep] c=4 requests=16 -> results/sweeps/baseline-t4/k3/c4
+[sweep] c=8 requests=32 -> results/sweeps/baseline-t4/k3/c8
+[sweep] c=16 requests=64 -> results/sweeps/baseline-t4/k3/c16
+[sweep] c=32 requests=128 -> results/sweeps/baseline-t4/k3/c32
+[sweep] c=64 requests=256 -> results/sweeps/baseline-t4/k3/c64
+[sweep] done: results/sweeps/baseline-t4/k3
+=== all done (21:15:42) ===

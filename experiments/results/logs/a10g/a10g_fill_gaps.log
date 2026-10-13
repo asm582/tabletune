@@ -1,0 +1,28 @@
+=== refill dflash-code-a10g-r2/dflash-k8 at c= 128 (03:44:51) ===
+=== dflash-k8 (03:44:51) ===
+[launch] dflash-k8: vllm serve Qwen/Qwen3-4B --port 8000 --dtype bfloat16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "dflash", "model": "z-lab/Qwen3-4B-DFlash-b16", "num_speculative_tokens": 8}
+[launch] dflash-k8 ready
+[sweep] c=128 requests=512 -> results/sweeps/dflash-code-a10g-r2-refill/dflash-k8/c128
+[sweep] c=128 FAILED, see results/sweeps/dflash-code-a10g-r2-refill/dflash-k8/c128.log
+!!! dflash-k8 sweep failed
+=== all done (03:46:56) ===
+[track] dflash-code-a10g-r2-refill: no config folders with results (symlink-only compare dir?), skipped
+[track] done: 0 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 1269 points
+!!! refill failed again: dflash-code-a10g-r2/dflash-k8 c=128
+[track] dflash-code-a10g-r2: logged 0, skipped 35 (already in MLflow)
+[track] done: 0 points logged to experiment 'vllm-perf-dsd'
+=== refill dflash-code-a10g-r3/dflash-k8 at c= 128 (03:50:17) ===
+=== dflash-k8 (03:50:17) ===
+[launch] dflash-k8: vllm serve Qwen/Qwen3-4B --port 8000 --dtype bfloat16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "dflash", "model": "z-lab/Qwen3-4B-DFlash-b16", "num_speculative_tokens": 8}
+[launch] dflash-k8 ready
+[sweep] c=128 requests=512 -> results/sweeps/dflash-code-a10g-r3-refill/dflash-k8/c128
+[sweep] done: results/sweeps/dflash-code-a10g-r3-refill/dflash-k8
+=== all done (03:54:08) ===
+[track] dflash-code-a10g-r3-refill: logged 1, skipped 0 (already in MLflow)
+[track] done: 1 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 1270 points
+refilled dflash-code-a10g-r3/dflash-k8 c=128
+[track] dflash-code-a10g-r3: logged 1, skipped 35 (already in MLflow)
+[track] done: 1 points logged to experiment 'vllm-perf-dsd'
+=== A10G FILL GAPS DONE (03:57:32) ===

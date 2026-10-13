@@ -1,0 +1,263 @@
+### [smoke] START configs=[ts nj] runs=[1] host=bx-1 2026-10-11T02:34:35Z
+### [smoke] r1 ts start 2026-10-11T02:34:35Z
+### [smoke] r1 ts done 2026-10-11T02:39:01Z
+### [smoke] r1 nj start 2026-10-11T02:39:07Z
+### [smoke] r1 nj done 2026-10-11T02:41:57Z
+### [smoke] ALL DONE 2026-10-11T02:42:02Z
+### [eagle] START configs=[nospec k1 k2 k3 tt tt013 tt013-ctrl ts nj] runs=[1 2 3] host=bx-1 2026-10-11T02:54:27Z
+### [eagle] r1 nospec start 2026-10-11T02:54:27Z
+### [dflash] START configs=[df-k3 df-k4 df-k8 df-tt df-tt-ctrl df-ts df-nj] runs=[1 2 3] host=bx-2 2026-10-11T02:56:02Z
+### [dflash] r1 df-k3 start 2026-10-11T02:56:02Z
+### [drift-screen] START 2026-10-11T02:57:21Z
+### [open] START configs=[nospec k1 k3 tt tt013 ts nj] runs=[1 2 3] rates=[2 8 24 48 72] host=bx-4 2026-10-11T02:57:22Z
+### [open] r1 nospec start 2026-10-11T02:57:22Z
+### [drift-screen] !!! code 2026-10-11T02:58:26Z
+### [drift-screen] code:  tau= 2026-10-11T02:58:26Z
+### [drift-screen] !!! translation 2026-10-11T02:59:06Z
+### [drift-screen] translation:  tau= 2026-10-11T02:59:06Z
+### [drift-screen] !!! qa 2026-10-11T02:59:46Z
+### [drift-screen] qa:  tau= 2026-10-11T02:59:46Z
+### [drift-screen] !!! summarization 2026-10-11T03:00:26Z
+### [drift-screen] summarization:  tau= 2026-10-11T03:00:26Z
+### [drift-screen] !!! math_reasoning 2026-10-11T03:01:05Z
+### [drift-screen] math_reasoning:  tau= 2026-10-11T03:01:05Z
+### [eagle] r1 nospec done 2026-10-11T03:01:36Z
+### [eagle] r1 k1 start 2026-10-11T03:01:41Z
+### [drift-screen] !!! rag 2026-10-11T03:01:45Z
+### [drift-screen] rag:  tau= 2026-10-11T03:01:45Z
+### [drift-screen] ALL DONE 2026-10-11T03:01:45Z
+### [dflash] r1 df-k3 done 2026-10-11T03:04:30Z
+### [dflash] r1 df-k4 start 2026-10-11T03:04:35Z
+### [eagle] r1 k1 done 2026-10-11T03:08:13Z
+### [eagle] r1 k2 start 2026-10-11T03:08:18Z
+### [dflash] r1 df-k4 done 2026-10-11T03:11:35Z
+### [dflash] r1 df-k8 start 2026-10-11T03:11:40Z
+### [drift-screen] START 2026-10-11T03:14:34Z
+### [eagle] r1 k2 done 2026-10-11T03:14:58Z
+### [eagle] r1 k3 start 2026-10-11T03:15:03Z
+### [open] r1 nospec done 2026-10-11T03:16:09Z
+### [open] r1 k1 start 2026-10-11T03:16:18Z
+### [drift-screen] code: [[1, 21, 8], [22, 40, 6], [41, 79, 4], [80, 128, 2]] tau=3.33 2026-10-11T03:17:13Z
+### [drift-screen] translation: [[1, 20, 8], [21, 75, 4], [76, 128, 2]] tau=2.51 2026-10-11T03:18:44Z
+### [dflash] r1 df-k8 done 2026-10-11T03:18:54Z
+### [dflash] r1 df-tt start 2026-10-11T03:19:00Z
+### [drift-screen] qa: [[1, 20, 8], [21, 75, 4], [76, 128, 2]] tau=2.39 2026-10-11T03:20:16Z
+### [eagle] r1 k3 done 2026-10-11T03:21:32Z
+### [eagle] r1 tt start 2026-10-11T03:21:38Z
+### [drift-screen] summarization: [[1, 20, 8], [21, 75, 4], [76, 128, 2]] tau=2.43 2026-10-11T03:21:50Z
+### [drift-screen] math_reasoning: [[1, 65, 8], [66, 128, 6]] tau=5.03 2026-10-11T03:23:25Z
+### [drift-screen] rag: [[1, 20, 8], [21, 29, 6], [30, 77, 4], [78, 128, 2]] tau=2.83 2026-10-11T03:24:57Z
+### [drift-screen] ALL DONE 2026-10-11T03:24:57Z
+### [dflash] r1 df-tt done 2026-10-11T03:26:07Z
+### [dflash] r1 df-tt-ctrl start 2026-10-11T03:26:12Z
+### [eagle] r1 tt done 2026-10-11T03:28:12Z
+### [eagle] r1 tt013 start 2026-10-11T03:28:18Z
+### [dflash] r1 df-tt-ctrl done 2026-10-11T03:32:56Z
+### [dflash] r1 df-ts start 2026-10-11T03:33:02Z
+### [open] r1 k1 done 2026-10-11T03:34:29Z
+### [open] r1 k3 start 2026-10-11T03:34:36Z
+### [drift] START runs=[1 2 3] scen=[s1 s2] host=bx-3 2026-10-11T03:34:38Z
+### [drift] run s1 static_old 2026-10-11T03:34:38Z
+### [eagle] r1 tt013 done 2026-10-11T03:34:43Z
+### [eagle] r1 tt013-ctrl start 2026-10-11T03:34:48Z
+### [dflash] r1 df-ts done 2026-10-11T03:39:44Z
+### [dflash] r1 df-nj start 2026-10-11T03:39:49Z
+### [eagle] r1 tt013-ctrl done 2026-10-11T03:41:13Z
+### [eagle] r1 ts start 2026-10-11T03:41:18Z
+### [dflash] r1 df-nj done 2026-10-11T03:46:40Z
+### [dflash] r2 df-k3 start 2026-10-11T03:46:45Z
+### [eagle] r1 ts done 2026-10-11T03:47:53Z
+### [eagle] r1 nj start 2026-10-11T03:47:58Z
+### [drift] START runs=[1 2] scen=[s1 s2] host=bx-3 2026-10-11T03:50:43Z
+### [drift] run s1 static_old 2026-10-11T03:50:43Z
+### [open] r1 k3 done 2026-10-11T03:52:05Z
+### [open] r1 tt start 2026-10-11T03:52:12Z
+### [dflash] r2 df-k3 done 2026-10-11T03:53:16Z
+### [dflash] r2 df-k4 start 2026-10-11T03:53:21Z
+### [eagle] r1 nj done 2026-10-11T03:54:26Z
+### [eagle] r2 nospec start 2026-10-11T03:54:31Z
+### [dflash] r2 df-k4 done 2026-10-11T03:59:59Z
+### [dflash] r2 df-k8 start 2026-10-11T04:00:04Z
+### [eagle] r2 nospec done 2026-10-11T04:01:22Z
+### [eagle] r2 k1 start 2026-10-11T04:01:27Z
+### [drift] START runs=[3] scen=[s1 s2] host=bx-5 2026-10-11T04:03:12Z
+### [drift] run s1 static_old_r3 2026-10-11T04:03:13Z
+### [vary] START runs=[1 2 3] host=bx-6 2026-10-11T04:03:14Z
+### [vary] run nospec 2026-10-11T04:03:14Z
+### [dflash] r2 df-k8 done 2026-10-11T04:06:54Z
+### [dflash] r2 df-tt start 2026-10-11T04:07:00Z
+### [eagle] r2 k1 done 2026-10-11T04:07:51Z
+### [eagle] r2 k2 start 2026-10-11T04:07:57Z
+### [open] r1 tt done 2026-10-11T04:10:03Z
+### [open] r1 tt013 start 2026-10-11T04:10:10Z
+### [dflash] r2 df-tt done 2026-10-11T04:13:37Z
+### [dflash] r2 df-tt-ctrl start 2026-10-11T04:13:42Z
+### [eagle] r2 k2 done 2026-10-11T04:14:18Z
+### [eagle] r2 k3 start 2026-10-11T04:14:24Z
+### [dflash] r2 df-tt-ctrl done 2026-10-11T04:20:15Z
+### [dflash] r2 df-ts start 2026-10-11T04:20:20Z
+### [eagle] r2 k3 done 2026-10-11T04:20:41Z
+### [eagle] r2 tt start 2026-10-11T04:20:47Z
+### [eagle] r2 tt done 2026-10-11T04:26:55Z
+### [eagle] r2 tt013 start 2026-10-11T04:27:00Z
+### [dflash] r2 df-ts done 2026-10-11T04:27:11Z
+### [dflash] r2 df-nj start 2026-10-11T04:27:16Z
+### [open] r1 tt013 done 2026-10-11T04:27:33Z
+### [open] r1 ts start 2026-10-11T04:27:40Z
+### [drift] START runs=[1 2] scen=[s1 s2] host=bx-3 2026-10-11T04:28:31Z
+### [drift] run s1 static_new 2026-10-11T04:28:31Z
+### [drift] START runs=[3] scen=[s1 s2] host=bx-5 2026-10-11T04:28:32Z
+### [drift] run s1 static_new_r3 2026-10-11T04:28:32Z
+### [vary] START runs=[1 2 3] host=bx-6 2026-10-11T04:28:33Z
+### [vary] run k2 2026-10-11T04:28:33Z
+### [eagle] r2 tt013 done 2026-10-11T04:33:14Z
+### [eagle] r2 tt013-ctrl start 2026-10-11T04:33:19Z
+### [dflash] r2 df-nj done 2026-10-11T04:34:17Z
+### [dflash] r3 df-k3 start 2026-10-11T04:34:22Z
+### [drift] run s1 ctrl 2026-10-11T04:39:06Z
+### [eagle] r2 tt013-ctrl done 2026-10-11T04:39:28Z
+### [eagle] r2 ts start 2026-10-11T04:39:33Z
+### [drift] run s1 ctrl_r3 2026-10-11T04:39:42Z
+### [vary] run tt 2026-10-11T04:40:32Z
+### [dflash] r3 df-k3 done 2026-10-11T04:40:43Z
+### [dflash] r3 df-k4 start 2026-10-11T04:40:48Z
+### [open] r1 ts done 2026-10-11T04:45:01Z
+### [open] r1 nj start 2026-10-11T04:45:09Z
+### [eagle] r2 ts done 2026-10-11T04:45:47Z
+### [eagle] r2 nj start 2026-10-11T04:45:53Z
+### [dflash] r3 df-k4 done 2026-10-11T04:47:16Z
+### [dflash] r3 df-k8 start 2026-10-11T04:47:22Z
+### [drift] run s1 ts 2026-10-11T04:49:25Z
+### [drift] run s1 ts_r3 2026-10-11T04:50:31Z
+### [eagle] r2 nj done 2026-10-11T04:52:06Z
+### [eagle] r3 nospec start 2026-10-11T04:52:11Z
+### [vary] run tt013 2026-10-11T04:52:27Z
+### [dflash] r3 df-k8 done 2026-10-11T04:53:57Z
+### [dflash] r3 df-tt start 2026-10-11T04:54:02Z
+### [eagle] r3 nospec done 2026-10-11T04:58:38Z
+### [eagle] r3 k1 start 2026-10-11T04:58:43Z
+### [drift] run s1 nj 2026-10-11T04:59:44Z
+### [dflash] r3 df-tt done 2026-10-11T05:00:38Z
+### [dflash] r3 df-tt-ctrl start 2026-10-11T05:00:43Z
+### [drift] run s1 nj_r3 2026-10-11T05:01:21Z
+### [open] r1 nj done 2026-10-11T05:02:35Z
+### [open] r2 nospec start 2026-10-11T05:02:43Z
+### [vary] run tt013_ctrl 2026-10-11T05:04:11Z
+### [eagle] r3 k1 done 2026-10-11T05:05:08Z
+### [eagle] r3 k2 start 2026-10-11T05:05:13Z
+### [dflash] r3 df-tt-ctrl done 2026-10-11T05:07:19Z
+### [dflash] r3 df-ts start 2026-10-11T05:07:24Z
+### [drift] run s2 static_old 2026-10-11T05:10:04Z
+### [eagle] r3 k2 done 2026-10-11T05:11:27Z
+### [eagle] r3 k3 start 2026-10-11T05:11:32Z
+### [drift] run s2 static_old_r3 2026-10-11T05:11:51Z
+### [dflash] r3 df-ts done 2026-10-11T05:13:52Z
+### [dflash] r3 df-nj start 2026-10-11T05:13:57Z
+### [vary] run ts 2026-10-11T05:15:40Z
+### [eagle] r3 k3 done 2026-10-11T05:17:46Z
+### [eagle] r3 tt start 2026-10-11T05:17:52Z
+### [open] r2 nospec done 2026-10-11T05:20:28Z
+### [open] r2 k1 start 2026-10-11T05:20:37Z
+### [drift] run s2 static_new 2026-10-11T05:20:38Z
+### [dflash] r3 df-nj done 2026-10-11T05:20:42Z
+### [dflash] ALL DONE 2026-10-11T05:20:48Z
+### [drift] run s2 static_new_r3 2026-10-11T05:23:00Z
+### [eagle] r3 tt done 2026-10-11T05:24:08Z
+### [eagle] r3 tt013 start 2026-10-11T05:24:13Z
+### [vary] run nj 2026-10-11T05:27:29Z
+### [open-hi] START configs=[nospec k1 k3 tt tt013 ts nj] runs=[1 2 3] rates=[88 104] host=bx-2 2026-10-11T05:27:57Z
+### [open-hi] r1 nospec start 2026-10-11T05:27:57Z
+### [eagle] r3 tt013 done 2026-10-11T05:30:23Z
+### [eagle] r3 tt013-ctrl start 2026-10-11T05:30:29Z
+### [drift] run s2 ctrl 2026-10-11T05:30:53Z
+### [drift] run s2 ctrl_r3 2026-10-11T05:33:45Z
+### [eagle] r3 tt013-ctrl done 2026-10-11T05:36:44Z
+### [eagle] r3 ts start 2026-10-11T05:36:50Z
+### [open] r2 k1 done 2026-10-11T05:38:16Z
+### [open] r2 k3 start 2026-10-11T05:38:23Z
+### [vary] repeat 1 done 2026-10-11T05:38:59Z
+### [vary] run nospec_r2 2026-10-11T05:38:59Z
+### [drift] run s2 ts 2026-10-11T05:41:13Z
+### [open-hi] r1 nospec done 2026-10-11T05:42:46Z
+### [eagle] r3 ts done 2026-10-11T05:42:55Z
+### [open-hi] r1 k1 start 2026-10-11T05:42:57Z
+### [eagle] r3 nj start 2026-10-11T05:43:01Z
+### [drift] run s2 ts_r3 2026-10-11T05:44:09Z
+### [eagle] r3 nj done 2026-10-11T05:49:20Z
+### [eagle] ALL DONE 2026-10-11T05:49:26Z
+### [vary] run k2_r2 2026-10-11T05:50:23Z
+### [drift] run s2 nj 2026-10-11T05:51:32Z
+### [open] START configs=[nospec k1 k3 tt tt013 ts nj] runs=[2] rates=[2 8 24 48 72] host=bx-4 2026-10-11T05:52:04Z
+### [open] r2 k3 start 2026-10-11T05:52:04Z
+### [open] START configs=[nospec k1 k3 tt tt013 ts nj] runs=[3] rates=[2 8 24 48 72] host=bx-1 2026-10-11T05:52:05Z
+### [open] r3 nospec start 2026-10-11T05:52:05Z
+### [drift] run s2 nj_r3 2026-10-11T05:54:49Z
+### [open-hi] r1 k1 done 2026-10-11T05:57:01Z
+### [open-hi] r1 k3 start 2026-10-11T05:57:09Z
+### [vary] run tt_r2 2026-10-11T06:01:47Z
+### [drift] repeat 1 done 2026-10-11T06:01:52Z
+### [drift] run s1 static_old_r2 2026-10-11T06:01:52Z
+### [drift] repeat 3 done 2026-10-11T06:05:39Z
+### [drift] ALL DONE 2026-10-11T06:05:39Z
+### [open] r3 nospec done 2026-10-11T06:08:54Z
+### [open] r3 k1 start 2026-10-11T06:09:02Z
+### [vary] START runs=[1 2] host=bx-6 2026-10-11T06:09:10Z
+### [vary] repeat 1 done 2026-10-11T06:09:10Z
+### [vary] run tt_r2 2026-10-11T06:09:10Z
+### [vary] START runs=[3] host=bx-5 2026-10-11T06:09:12Z
+### [vary] run nospec_r3 2026-10-11T06:09:12Z
+### [open] r2 k3 done 2026-10-11T06:09:29Z
+### [open] r2 tt start 2026-10-11T06:09:36Z
+### [drift] run s1 static_new_r2 2026-10-11T06:12:11Z
+### [open-hi] r1 k3 done 2026-10-11T06:12:46Z
+### [open-hi] r1 tt start 2026-10-11T06:12:54Z
+### [vary] run tt013_r2 2026-10-11T06:20:35Z
+### [vary] run k2_r3 2026-10-11T06:20:52Z
+### [drift] run s1 ctrl_r2 2026-10-11T06:22:31Z
+### [open] r3 k1 done 2026-10-11T06:25:51Z
+### [open] r3 k3 start 2026-10-11T06:25:58Z
+### [open] r2 tt done 2026-10-11T06:27:20Z
+### [open] r2 tt013 start 2026-10-11T06:27:27Z
+### [open-hi] r1 tt done 2026-10-11T06:27:31Z
+### [open-hi] r1 tt013 start 2026-10-11T06:27:39Z
+### [vary] run tt013_ctrl_r2 2026-10-11T06:32:04Z
+### [drift] run s1 ts_r2 2026-10-11T06:32:55Z
+### [vary] run tt_r3 2026-10-11T06:33:16Z
+### [open-hi] r1 tt013 done 2026-10-11T06:41:01Z
+### [open-hi] r1 ts start 2026-10-11T06:41:09Z
+### [open] r3 k3 done 2026-10-11T06:42:44Z
+### [open] r3 tt start 2026-10-11T06:42:51Z
+### [drift] run s1 nj_r2 2026-10-11T06:43:20Z
+### [vary] run ts_r2 2026-10-11T06:43:33Z
+### [open] r2 tt013 done 2026-10-11T06:44:49Z
+### [open] r2 ts start 2026-10-11T06:44:56Z
+### [vary] run tt013_r3 2026-10-11T06:45:27Z
+### [drift] run s2 static_old_r2 2026-10-11T06:53:44Z
+### [vary] run nj_r2 2026-10-11T06:55:03Z
+### [open-hi] r1 ts done 2026-10-11T06:56:20Z
+### [open-hi] r1 nj start 2026-10-11T06:56:28Z
+### [vary] run tt013_ctrl_r3 2026-10-11T06:57:21Z
+### [open] r3 tt done 2026-10-11T06:59:42Z
+### [open] r3 tt013 start 2026-10-11T06:59:49Z
+### [open] r2 ts done 2026-10-11T07:02:21Z
+### [open] r2 nj start 2026-10-11T07:02:28Z
+### [drift] run s2 static_new_r2 2026-10-11T07:04:09Z
+### [vary] repeat 2 done 2026-10-11T07:06:27Z
+### [vary] ALL DONE 2026-10-11T07:06:27Z
+### [vary] run ts_r3 2026-10-11T07:09:21Z
+### [drift] run s2 ctrl_r2 2026-10-11T07:14:28Z
+### [open] r3 tt013 done 2026-10-11T07:16:35Z
+### [open] r3 ts start 2026-10-11T07:16:43Z
+### [open] r2 nj done 2026-10-11T07:20:10Z
+### [open] ALL DONE 2026-10-11T07:20:18Z
+### [vary] run nj_r3 2026-10-11T07:21:20Z
+### [drift] run s2 ts_r2 2026-10-11T07:24:48Z
+### [vary] repeat 3 done 2026-10-11T07:33:09Z
+### [vary] ALL DONE 2026-10-11T07:33:09Z
+### [open] r3 ts done 2026-10-11T07:33:26Z
+### [open] r3 nj start 2026-10-11T07:33:33Z
+### [drift] run s2 nj_r2 2026-10-11T07:35:07Z
+### [drift] repeat 2 done 2026-10-11T07:45:27Z
+### [drift] ALL DONE 2026-10-11T07:45:27Z
+### [open] r3 nj done 2026-10-11T07:50:18Z
+### [open] ALL DONE 2026-10-11T07:50:25Z

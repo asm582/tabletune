@@ -1,0 +1,16 @@
+=== b4_k2: 12 tokens/step ===
+[costs] K=2 B=  4 step=  48.53 ms  samples=[48.579, 48.526, 48.523]
+[costs] wrote results/nsys/b4_k2.json
+=== b3_k3: 12 tokens/step ===
+[costs] K=3 B=  3 step=  53.23 ms  samples=[53.246, 53.226, 53.218]
+[costs] wrote results/nsys/b3_k3.json
+=== b4_k3: 16 tokens/step ===
+[costs] K=3 B=  4 step=  55.92 ms  samples=[55.918, 55.997, 55.891]
+[costs] wrote results/nsys/b4_k3.json
+=== b5_k3: 20 tokens/step ===
+[costs] K=3 B=  5 step=  63.32 ms  samples=[63.222, 63.379, 63.319]
+[costs] wrote results/nsys/b5_k3.json
+=== b6_k3: 24 tokens/step ===
+[costs] K=3 B=  6 step=  63.11 ms  samples=[63.136, 63.078, 63.114]
+[costs] wrote results/nsys/b6_k3.json
+=== done: compare results/nsys/*_cuda_gpu_kern_sum.csv ===

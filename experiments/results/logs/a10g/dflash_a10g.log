@@ -1,0 +1,148 @@
+=== acceptance, DFlash K=8, code prompts, T=1.0 (19:09:06) ===
+[accept] prompts file results/ngram/prompts-write.jsonl: calibration=160
+[accept] by position [0.7, 0.4665, 0.3232, 0.2283, 0.1628, 0.1197, 0.0859, 0.0621] -> tokens/step {0: 1, 1: 1.7, 2: 2.167, 3: 2.49, 4: 2.718, 5: 2.881, 6: 3.001, 7: 3.086, 8: 3.148}
+[accept] proposal rate 1.0262, per decode step [0.7184, 0.4788, 0.3317, 0.2343, 0.1671, 0.1228, 0.0881, 0.0637] -> tokens/step {0: 1, 1: 1.718, 2: 2.197, 3: 2.529, 4: 2.763, 5: 2.93, 6: 3.053, 7: 3.141, 8: 3.205}; ISL 31.8 OSL 247.2
+[accept] wrote results/dflash-tuner-a10g/acceptance.json
+=== costs K=0 (19:12:48) ===
+[costs] K=0 B=  1 step=  21.60 ms  samples=[28.376, 21.603, 21.605]
+[costs] K=0 B= 16 step=  23.53 ms  samples=[24.766, 23.529, 23.53]
+[costs] K=0 B= 64 step=  26.27 ms  samples=[26.275, 26.273, 26.298]
+[costs] K=0 B=128 step=  34.30 ms  samples=[34.297, 34.024, 34.301]
+GPU KV cache size: 61,168 tokens
+=== costs K=1 (19:18:25) ===
+[costs] K=1 B=  1 step=  23.48 ms  samples=[24.699, 23.483, 23.474]
+[costs] K=1 B= 16 step=  27.49 ms  samples=[27.432, 27.49, 27.492]
+[costs] K=1 B= 64 step=  41.06 ms  samples=[41.056, 41.068, 41.058]
+[costs] K=1 B=128 step=  62.23 ms  samples=[62.234, 62.218, 62.233]
+GPU KV cache size: 62,320 tokens
+=== costs K=2 (19:23:08) ===
+[costs] K=2 B=  1 step=  23.54 ms  samples=[29.104, 23.541, 23.54]
+[costs] K=2 B= 16 step=  27.26 ms  samples=[28.402, 27.251, 27.258]
+[costs] K=2 B= 64 step=  50.53 ms  samples=[50.545, 50.525, 50.517]
+[costs] K=2 B=128 step=  93.15 ms  samples=[93.15, 93.147, 93.673]
+GPU KV cache size: 60,880 tokens
+=== costs K=3 (19:30:30) ===
+[costs] K=3 B=  1 step=  23.60 ms  samples=[24.803, 23.589, 23.595]
+[costs] K=3 B= 16 step=  28.38 ms  samples=[28.399, 28.364, 28.383]
+[costs] K=3 B= 64 step=  54.77 ms  samples=[54.8, 54.772, 54.701]
+[costs] K=3 B=128 step= 112.50 ms  samples=[112.488, 112.506, 112.499]
+GPU KV cache size: 62,320 tokens
+=== costs K=4 (19:36:36) ===
+[costs] K=4 B=  1 step=  23.58 ms  samples=[29.041, 23.563, 23.579]
+[costs] K=4 B= 16 step=  31.01 ms  samples=[32.051, 31.01, 31.005]
+[costs] K=4 B= 64 step=  84.31 ms  samples=[84.308, 84.328, 84.297]
+[costs] K=4 B=128 step= 142.84 ms  samples=[142.838, 142.837, 142.853]
+GPU KV cache size: 60,880 tokens
+=== costs K=6 (19:45:19) ===
+[costs] K=6 B=  1 step=  23.68 ms  samples=[29.235, 23.675, 23.683]
+[costs] K=6 B= 16 step=  34.77 ms  samples=[35.94, 34.755, 34.767]
+[costs] K=6 B= 64 step= 102.76 ms  samples=[102.769, 102.752, 102.756]
+[costs] K=6 B=128 step= 182.06 ms  samples=[182.309, 182.033, 182.062]
+GPU KV cache size: 60,880 tokens
+=== costs K=8 (19:55:26) ===
+[costs] K=8 B=  1 step=  23.76 ms  samples=[29.211, 23.748, 23.761]
+[costs] K=8 B= 16 step=  39.25 ms  samples=[40.2, 39.246, 39.253]
+[costs] K=8 B= 64 step= 122.84 ms  samples=[123.345, 122.843, 122.842]
+[costs] K=8 B=128 step= 237.98 ms  samples=[238.3, 237.978, 237.905]
+GPU KV cache size: 60,928 tokens
+=== schedule (20:06:50) ===
+[tuner] tokens/step by K: {0: 1, 1: 1.7, 2: 2.167, 3: 2.49, 4: 2.718, 5: 2.881, 6: 3.001, 7: 3.086, 8: 3.148}
+[tuner] raw argmax schedule: [[1, 7, 8], [8, 9, 6], [10, 12, 4], [13, 13, 6], [14, 16, 3], [17, 27, 4], [28, 46, 3], [47, 48, 4], [49, 52, 3], [53, 57, 2], [58, 65, 3], [66, 81, 2], [82, 93, 1], [94, 128, 0]]
+[tuner] schedule: [[1, 7, 8], [8, 9, 6], [10, 12, 4], [13, 17, 3], [18, 28, 4], [29, 65, 3], [66, 94, 1], [95, 128, 0]]
+[tuner] wrote results/dflash-tuner-a10g/schedule.json and results/dflash-tuner-a10g/goodput.csv
+[tuner] predicted loss of each fixed K vs. the best K at each batch size:
+  K=0: worst 65.1% at B=  1, average 21.1%
+  K=1: worst 45.4% at B=  1, average 12.4%
+  K=2: worst 30.8% at B=  6, average 11.7%
+  K=3: worst 25.9% at B= 80, average 11.8%
+  K=4: worst 34.7% at B=128, average 18.2%
+  K=6: worst 43.5% at B=128, average 28.0%
+  K=8: worst 54.6% at B=128, average 36.1%
+=== sweep (20:06:50) ===
+=== dflash-k1 (20:06:50) ===
+[launch] dflash-k1: vllm serve Qwen/Qwen3-4B --port 8000 --dtype bfloat16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "dflash", "model": "z-lab/Qwen3-4B-DFlash-b16", "num_speculative_tokens": 1}
+[launch] dflash-k1 ready
+[sweep] c=1 requests=16 -> results/sweeps/dflash-code-a10g/dflash-k1/c1
+[sweep] c=2 requests=16 -> results/sweeps/dflash-code-a10g/dflash-k1/c2
+[sweep] c=4 requests=16 -> results/sweeps/dflash-code-a10g/dflash-k1/c4
+[sweep] c=8 requests=32 -> results/sweeps/dflash-code-a10g/dflash-k1/c8
+[sweep] c=16 requests=64 -> results/sweeps/dflash-code-a10g/dflash-k1/c16
+[sweep] c=32 requests=128 -> results/sweeps/dflash-code-a10g/dflash-k1/c32
+[sweep] c=64 requests=256 -> results/sweeps/dflash-code-a10g/dflash-k1/c64
+[sweep] c=96 requests=384 -> results/sweeps/dflash-code-a10g/dflash-k1/c96
+[sweep] c=128 requests=512 -> results/sweeps/dflash-code-a10g/dflash-k1/c128
+[sweep] done: results/sweeps/dflash-code-a10g/dflash-k1
+=== dflash-k3 (20:21:11) ===
+[launch] dflash-k3: vllm serve Qwen/Qwen3-4B --port 8000 --dtype bfloat16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "dflash", "model": "z-lab/Qwen3-4B-DFlash-b16", "num_speculative_tokens": 3}
+[launch] dflash-k3 ready
+[sweep] c=1 requests=16 -> results/sweeps/dflash-code-a10g/dflash-k3/c1
+[sweep] c=2 requests=16 -> results/sweeps/dflash-code-a10g/dflash-k3/c2
+[sweep] c=4 requests=16 -> results/sweeps/dflash-code-a10g/dflash-k3/c4
+[sweep] c=8 requests=32 -> results/sweeps/dflash-code-a10g/dflash-k3/c8
+[sweep] c=16 requests=64 -> results/sweeps/dflash-code-a10g/dflash-k3/c16
+[sweep] c=32 requests=128 -> results/sweeps/dflash-code-a10g/dflash-k3/c32
+[sweep] c=64 requests=256 -> results/sweeps/dflash-code-a10g/dflash-k3/c64
+[sweep] c=96 requests=384 -> results/sweeps/dflash-code-a10g/dflash-k3/c96
+[sweep] c=128 requests=512 -> results/sweeps/dflash-code-a10g/dflash-k3/c128
+[sweep] done: results/sweeps/dflash-code-a10g/dflash-k3
+=== dflash-k8 (20:33:36) ===
+[launch] dflash-k8: vllm serve Qwen/Qwen3-4B --port 8000 --dtype bfloat16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "dflash", "model": "z-lab/Qwen3-4B-DFlash-b16", "num_speculative_tokens": 8}
+[launch] dflash-k8 ready
+[sweep] c=1 requests=16 -> results/sweeps/dflash-code-a10g/dflash-k8/c1
+[sweep] c=2 requests=16 -> results/sweeps/dflash-code-a10g/dflash-k8/c2
+[sweep] c=4 requests=16 -> results/sweeps/dflash-code-a10g/dflash-k8/c4
+[sweep] c=8 requests=32 -> results/sweeps/dflash-code-a10g/dflash-k8/c8
+[sweep] c=16 requests=64 -> results/sweeps/dflash-code-a10g/dflash-k8/c16
+[sweep] c=32 requests=128 -> results/sweeps/dflash-code-a10g/dflash-k8/c32
+[sweep] c=64 requests=256 -> results/sweeps/dflash-code-a10g/dflash-k8/c64
+[sweep] c=96 requests=384 -> results/sweeps/dflash-code-a10g/dflash-k8/c96
+[sweep] c=128 requests=512 -> results/sweeps/dflash-code-a10g/dflash-k8/c128
+[sweep] done: results/sweeps/dflash-code-a10g/dflash-k8
+=== dflash-tuned (20:49:18) ===
+[launch] dflash-tuned: vllm serve Qwen/Qwen3-4B --port 8000 --dtype bfloat16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "dflash", "model": "z-lab/Qwen3-4B-DFlash-b16", "num_speculative_tokens": 8, "num_speculative_tokens_per_batch_size": [[1, 7, 8], [8, 9, 6], [10, 12, 4], [13, 17, 3], [18, 28, 4], [29, 65, 3], [66, 94, 1], [95, 128, 0]]}
+[launch] dflash-tuned ready
+[sweep] c=1 requests=16 -> results/sweeps/dflash-code-a10g/dflash-tuned/c1
+[sweep] c=2 requests=16 -> results/sweeps/dflash-code-a10g/dflash-tuned/c2
+[sweep] c=4 requests=16 -> results/sweeps/dflash-code-a10g/dflash-tuned/c4
+[sweep] c=8 requests=32 -> results/sweeps/dflash-code-a10g/dflash-tuned/c8
+[sweep] c=16 requests=64 -> results/sweeps/dflash-code-a10g/dflash-tuned/c16
+[sweep] c=32 requests=128 -> results/sweeps/dflash-code-a10g/dflash-tuned/c32
+[sweep] c=64 requests=256 -> results/sweeps/dflash-code-a10g/dflash-tuned/c64
+[sweep] c=96 requests=384 -> results/sweeps/dflash-code-a10g/dflash-tuned/c96
+[sweep] c=128 requests=512 -> results/sweeps/dflash-code-a10g/dflash-tuned/c128
+[sweep] done: results/sweeps/dflash-code-a10g/dflash-tuned
+=== all done (21:03:05) ===
+[track] dflash-code-a10g: logged 36, skipped 0 (already in MLflow)
+[track] done: 36 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 839 points
+=== controller (a): EAGLE's v3 table, DFlash costs and prior (21:05:49) ===
+=== dflash-v3table (21:05:49) ===
+[launch] dflash-v3table: vllm serve Qwen/Qwen3-4B --port 8000 --dtype bfloat16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "dflash", "model": "z-lab/Qwen3-4B-DFlash-b16", "num_speculative_tokens": 8, "num_speculative_tokens_per_batch_size": [[1, 18, 3], [19, 43, 2], [44, 128, 1]]}
+[launch] dflash-v3table ready
+[sweep] c=4 requests=16 -> results/sweeps/dflash-ctrl-v3table-a10g/dflash-v3table/c4
+[sweep] c=16 requests=64 -> results/sweeps/dflash-ctrl-v3table-a10g/dflash-v3table/c16
+[sweep] c=32 requests=128 -> results/sweeps/dflash-ctrl-v3table-a10g/dflash-v3table/c32
+[sweep] c=40 requests=160 -> results/sweeps/dflash-ctrl-v3table-a10g/dflash-v3table/c40
+[sweep] c=64 requests=256 -> results/sweeps/dflash-ctrl-v3table-a10g/dflash-v3table/c64
+[sweep] c=96 requests=384 -> results/sweeps/dflash-ctrl-v3table-a10g/dflash-v3table/c96
+[sweep] done: results/sweeps/dflash-ctrl-v3table-a10g/dflash-v3table
+=== all done (21:15:35) ===
+[track] dflash-ctrl-v3table-a10g: logged 6, skipped 0 (already in MLflow)
+[track] done: 6 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 845 points
+=== controller (b): EAGLE's v3 table, controller off (21:17:54) ===
+=== dflash-v3table (21:17:54) ===
+[launch] dflash-v3table: vllm serve Qwen/Qwen3-4B --port 8000 --dtype bfloat16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "dflash", "model": "z-lab/Qwen3-4B-DFlash-b16", "num_speculative_tokens": 8, "num_speculative_tokens_per_batch_size": [[1, 18, 3], [19, 43, 2], [44, 128, 1]]}
+[launch] dflash-v3table ready
+[sweep] c=4 requests=16 -> results/sweeps/dflash-ctrl-off-a10g/dflash-v3table/c4
+[sweep] c=16 requests=64 -> results/sweeps/dflash-ctrl-off-a10g/dflash-v3table/c16
+[sweep] c=32 requests=128 -> results/sweeps/dflash-ctrl-off-a10g/dflash-v3table/c32
+[sweep] c=40 requests=160 -> results/sweeps/dflash-ctrl-off-a10g/dflash-v3table/c40
+[sweep] c=64 requests=256 -> results/sweeps/dflash-ctrl-off-a10g/dflash-v3table/c64
+[sweep] c=96 requests=384 -> results/sweeps/dflash-ctrl-off-a10g/dflash-v3table/c96
+[sweep] done: results/sweeps/dflash-ctrl-off-a10g/dflash-v3table
+=== all done (21:25:57) ===
+[track] dflash-ctrl-off-a10g: logged 6, skipped 0 (already in MLflow)
+[track] done: 6 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 865 points
+=== DFlash pipeline done (21:28:21) ===

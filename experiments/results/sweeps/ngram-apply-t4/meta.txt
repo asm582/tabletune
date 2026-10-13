@@ -1,0 +1,4 @@
+vllm cf586cf87fb1d5d5d9170a1c5f9b69f6f8d9ec12
+Tesla T4, 595.91.07
+dataset file:results/ngram/bench-apply.jsonl | concurrencies 1 2 4 8 16 32 64 96 128
+max_num_seqs 128 | temperature 0

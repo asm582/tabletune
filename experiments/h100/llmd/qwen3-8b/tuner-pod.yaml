@@ -1,0 +1,46 @@
+# TableTune tuner for the llm-d optimized-baseline variant (Qwen3-8B + EAGLE-3, TP=1), run on the same
+# vLLM image the guide deployment uses. The package is installed from the shared volume, unmodified.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: llmd-tuner
+  labels: {app: llmd-tuner}
+spec:
+  restartPolicy: Never
+  nodeSelector:
+    nvidia.com/gpu.product: NVIDIA-H100-80GB-HBM3
+  tolerations:
+    - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
+  containers:
+    - name: tuner
+      image: docker.io/vllm/vllm-openai:nightly-43b4aaea3e40e20ef53ce2bfecfa1b72060bf2b5
+      securityContext: {runAsUser: 0}
+      command: ["bash", "-c"]
+      args:
+        - |
+          set -x
+          export HF_HOME=/work/hf HF_HUB_OFFLINE=1 VLLM_USE_V2_MODEL_RUNNER=1
+          OUT=/work/tabletune/experiments/results/tune-h100-8b-llmd-nightly
+          mkdir -p $OUT /work/out
+          python3 -c "import vllm; print('vllm', vllm.__version__)"
+          pip install --no-deps --target /work/dsd-pkg /work/tabletune > /work/out/llmd-pkg-install.log 2>&1 || exit 1
+          export PYTHONPATH=/work/dsd-pkg
+          python3 -m dsd_tuning --version
+          python3 -m dsd_tuning run --target Qwen/Qwen3-8B --drafter AngelSlim/Qwen3-8B_eagle3 \
+            --prompts-file /work/tabletune/docs/examples/code-prompts.jsonl --isl 32 --temperature 1.0 \
+            --max-num-seqs 256 --batch-sizes "$(seq -s, 1 16),$(seq -s, 24 8 256)" --dtype bfloat16 --out $OUT
+          echo "TUNE EXIT $?"
+          sleep infinity
+      env:
+        - {name: NODE_NAME, valueFrom: {fieldRef: {fieldPath: spec.nodeName}}}
+      resources:
+        requests: {cpu: "16", memory: 64Gi, nvidia.com/gpu: 1}
+        limits:   {cpu: "16", memory: 64Gi, nvidia.com/gpu: 1}
+      volumeMounts:
+        - {name: work, mountPath: /work}
+        - {name: shm, mountPath: /dev/shm}
+  volumes:
+    - name: work
+      persistentVolumeClaim: {claimName: dsd-work}
+    - name: shm
+      emptyDir: {medium: Memory, sizeLimit: 16Gi}

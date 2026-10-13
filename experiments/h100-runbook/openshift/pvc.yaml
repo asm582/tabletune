@@ -1,0 +1,12 @@
+# Persistent volume for /work: models (~60 GB), Python env (~15 GB), results.
+# Set storageClassName to a block/file class your cluster offers (oc get storageclass).
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dsd-work
+spec:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 200Gi
+  # storageClassName: <your-class>

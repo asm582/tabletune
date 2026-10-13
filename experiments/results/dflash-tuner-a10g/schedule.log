@@ -1,0 +1,13 @@
+[tuner] tokens/step by K: {0: 1, 1: 1.7, 2: 2.167, 3: 2.49, 4: 2.718, 5: 2.881, 6: 3.001, 7: 3.086, 8: 3.148}
+[tuner] raw argmax schedule: [[1, 7, 8], [8, 9, 6], [10, 12, 4], [13, 13, 6], [14, 16, 3], [17, 27, 4], [28, 46, 3], [47, 48, 4], [49, 52, 3], [53, 57, 2], [58, 65, 3], [66, 81, 2], [82, 93, 1], [94, 128, 0]]
+[tuner] schedule: [[1, 7, 8], [8, 9, 6], [10, 12, 4], [13, 17, 3], [18, 28, 4], [29, 65, 3], [66, 94, 1], [95, 128, 0]]
+[tuner] wrote results/dflash-tuner-a10g/schedule.json and results/dflash-tuner-a10g/goodput.csv
+
+[tuner] predicted loss of each fixed K vs. the best K at each batch size:
+  K=0: worst 65.1% at B=  1, average 21.1%
+  K=1: worst 45.4% at B=  1, average 12.4%
+  K=2: worst 30.8% at B=  6, average 11.7%
+  K=3: worst 25.9% at B= 80, average 11.8%
+  K=4: worst 34.7% at B=128, average 18.2%
+  K=6: worst 43.5% at B=128, average 28.0%
+  K=8: worst 54.6% at B=128, average 36.1%

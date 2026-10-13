@@ -1,0 +1,51 @@
+{
+  "target": "Qwen/Qwen3-4B",
+  "method": "ngram",
+  "drafter": "ngram 2-4",
+  "k_max": 5,
+  "max_tokens": 512,
+  "isl_avg": 151.3,
+  "osl_avg": 135.7,
+  "decode_steps": 8146,
+  "proposal_rate": 0.4883,
+  "accept_by_pos_per_step": [
+    0.3847,
+    0.3464,
+    0.3213,
+    0.3049,
+    0.2879
+  ],
+  "tokens_per_step_by_k_per_step": {
+    "0": 1,
+    "1": 1.385,
+    "2": 1.731,
+    "3": 2.052,
+    "4": 2.357,
+    "5": 2.645
+  },
+  "temperature": 0.0,
+  "calibration_prompts": 160,
+  "drafts": 3978,
+  "accepted_per_pos": [
+    3134,
+    2822,
+    2617,
+    2484,
+    2345
+  ],
+  "accept_by_pos": [
+    0.7878,
+    0.7094,
+    0.6579,
+    0.6244,
+    0.5895
+  ],
+  "tokens_per_step_by_k": {
+    "0": 1,
+    "1": 1.788,
+    "2": 2.497,
+    "3": 3.155,
+    "4": 3.78,
+    "5": 4.369
+  }
+}

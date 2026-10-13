@@ -1,0 +1,27 @@
+\begin{tikzpicture}[
+  font=\footnotesize, >={Stealth[length=1.7mm]},
+  box/.style={draw=black!55, rounded corners=1.5pt, fill=#1, align=center, inner sep=2.5pt, text width=29mm, minimum height=9mm},
+  box/.default=white,
+  lab/.style={font=\scriptsize\itshape, text=black!60},
+  small/.style={font=\scriptsize},
+  flow/.style={->, draw=black!70, thick},
+  live/.style={->, draw=blue!60!black, thick}]
+% tuner: two profilers, then the builder
+\node[box=black!4] (cost) at (0,0) {step-cost profiler\\{\scriptsize serving path, forced rejection,}\\[-0.4ex]{\scriptsize grid of $B \times k$}};
+\node[box=black!4] (acc) at (3.6,0) {acceptance profiler\\{\scriptsize 160 sample prompts,}\\[-0.4ex]{\scriptsize serving temperature}};
+\node[box=black!4, text width=40mm] (build) at (1.8,-1.75) {table builder: $\arg\max_k\; B\,\tau(k)/T(B,k)$\\[-0.2ex]{\scriptsize per batch size, then tie and width rules}};
+\draw[flow] (cost.south) -- node[left, lab]{$T(B,k)$} (cost.south |- build.north);
+\draw[flow] (acc.south) -- node[right, lab]{$a_i$} (acc.south |- build.north);
+\node[fit=(cost)(acc)(build), draw=black!35, dashed, rounded corners, inner sep=2.2mm] (tuner) {};
+\node[lab, anchor=south west] at (tuner.north west) {tuner: offline, once per GPU, engine, model, drafter};
+% vLLM: scheduler, step, controller
+\node[box] (sched) at (0,-4.35) {scheduler\\{\scriptsize live batch $B \rightarrow$ draft length $k$}};
+\node[box] (exec) at (3.6,-4.35) {decode step\\{\scriptsize draft $k$ tokens, verify}};
+\node[box=blue!6, text width=65mm, minimum height=10mm] (ctrl) at (1.8,-6.0) {controller plugin: re-estimate $\hat a_i$ from live counts and the prior\\[-0.2ex]{\scriptsize rebuild every $N$ steps with $T(B,k)$; hold near edges ($h$); exploration, prior decay}};
+\draw[flow] (sched) -- node[above, lab]{$k$} (exec);
+\draw[live] (exec.south) -- node[right, lab, text=blue!50!black]{accepted, drafted} (exec.south |- ctrl.north);
+\draw[live] (sched.south |- ctrl.north) -- node[left, lab, text=blue!50!black]{new table} (sched.south);
+\node[fit=(sched)(exec)(ctrl), draw=black!35, dashed, rounded corners, inner sep=2.2mm] (vllm) {};
+\node[lab, anchor=north west] at (vllm.south west) {vLLM serving (no engine changes)};
+\draw[flow] (build.south) -- ++(0,-0.75) node[pos=0.55, right, lab]{table, vLLM format} -| (sched.north);
+\end{tikzpicture}

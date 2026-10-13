@@ -1,0 +1,4 @@
+vllm 353e491efd3a23057004a3ab68fcfbda4abbee13
+NVIDIA H100 80GB HBM3, 580.105.08
+dataset instruct-coder | concurrencies 1 2 4 8 16 32 64
+max_num_seqs 256 | temperature 1.0

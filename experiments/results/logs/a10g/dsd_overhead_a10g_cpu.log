@@ -1,0 +1,10 @@
+=== cpu: AWQ k3 at c=1 (06:33:40) ===
+[launch] k3: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3}
+[launch] k3 ready
+[cpu] k3 EngineCore CPU% over 25 s: median 1.0 max 102.0
+=== cpu: AWQ dsd-const3 at c=1 (06:35:29) ===
+[launch] dsd-const3: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 128, 3]]}
+[launch] dsd-const3 ready
+[cpu] dsd-const3 EngineCore CPU% over 25 s: median 2.0 max 103.0
+=== issue #12 runs done (06:37:24) ===
+=== A10G CPU FIX DONE (06:37:24) ===

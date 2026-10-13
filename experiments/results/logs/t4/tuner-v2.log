@@ -1,0 +1,152 @@
+=== costs K=0 (23:15:50) ===
+[costs] K=0 B=  1 step=  36.91 ms  samples=[37.903, 36.899, 36.911]
+[costs] K=0 B=  2 step=  39.73 ms  samples=[40.782, 39.664, 39.735]
+[costs] K=0 B=  3 step=  41.96 ms  samples=[41.965, 41.991, 41.961]
+[costs] K=0 B=  4 step=  42.85 ms  samples=[43.029, 42.853, 42.827]
+[costs] K=0 B=  5 step=  45.33 ms  samples=[45.395, 45.332, 45.287]
+[costs] K=0 B=  6 step=  46.59 ms  samples=[46.592, 46.591, 46.024]
+[costs] K=0 B=  7 step=  48.02 ms  samples=[47.809, 48.05, 48.016]
+[costs] K=0 B=  8 step=  49.18 ms  samples=[49.184, 49.124, 49.335]
+[costs] K=0 B=  9 step=  52.86 ms  samples=[52.814, 52.859, 52.917]
+[costs] K=0 B= 10 step=  53.02 ms  samples=[53.015, 53.197, 52.964]
+[costs] K=0 B= 11 step=  54.79 ms  samples=[54.82, 54.7, 54.792]
+[costs] K=0 B= 12 step=  55.78 ms  samples=[55.674, 55.784, 55.806]
+[costs] K=0 B= 13 step=  57.07 ms  samples=[57.075, 57.005, 57.181]
+[costs] K=0 B= 14 step=  58.40 ms  samples=[58.246, 58.402, 58.564]
+[costs] K=0 B= 15 step=  60.13 ms  samples=[59.955, 60.134, 60.273]
+[costs] K=0 B= 16 step=  61.07 ms  samples=[61.456, 61.074, 61.035]
+[costs] K=0 B= 20 step=  70.56 ms  samples=[70.557, 70.537, 70.946]
+[costs] K=0 B= 24 step=  76.36 ms  samples=[76.358, 76.522, 76.302]
+[costs] K=0 B= 28 step=  82.86 ms  samples=[82.519, 82.856, 82.873]
+[costs] K=0 B= 32 step=  87.58 ms  samples=[87.583, 87.761, 87.542]
+[costs] K=0 B= 36 step=  92.89 ms  samples=[92.648, 93.098, 92.886]
+[costs] K=0 B= 40 step=  94.93 ms  samples=[95.164, 94.931, 94.848]
+[costs] K=0 B= 44 step= 101.15 ms  samples=[100.933, 101.147, 101.428]
+[costs] K=0 B= 48 step= 106.16 ms  samples=[106.157, 105.708, 106.351]
+[costs] K=0 B= 52 step= 112.14 ms  samples=[112.483, 112.123, 112.142]
+[costs] K=0 B= 56 step= 116.80 ms  samples=[116.419, 116.797, 117.483]
+[costs] K=0 B= 60 step= 120.00 ms  samples=[119.625, 120.293, 120.005]
+[costs] K=0 B= 64 step= 125.02 ms  samples=[125.355, 125.024, 124.145]
+[costs] wrote results/tuner-v2/costs_k0.json
+=== costs K=1 (23:32:12) ===
+[costs] K=1 B=  1 step=  41.13 ms  samples=[41.903, 41.12, 41.129]
+[costs] K=1 B=  2 step=  44.16 ms  samples=[44.988, 44.156, 44.008]
+[costs] K=1 B=  3 step=  45.19 ms  samples=[45.185, 45.122, 45.215]
+[costs] K=1 B=  4 step=  45.65 ms  samples=[45.713, 45.651, 45.623]
+[costs] K=1 B=  5 step=  49.63 ms  samples=[49.633, 49.577, 49.631]
+[costs] K=1 B=  6 step=  49.77 ms  samples=[49.782, 49.734, 49.766]
+[costs] K=1 B=  7 step=  52.19 ms  samples=[52.119, 52.188, 52.195]
+[costs] K=1 B=  8 step=  52.25 ms  samples=[52.297, 52.255, 52.202]
+[costs] K=1 B=  9 step=  60.81 ms  samples=[60.812, 60.783, 60.849]
+[costs] K=1 B= 10 step=  59.85 ms  samples=[59.956, 59.848, 59.846]
+[costs] K=1 B= 11 step=  64.82 ms  samples=[64.743, 64.824, 64.829]
+[costs] K=1 B= 12 step=  65.69 ms  samples=[65.559, 65.693, 65.738]
+[costs] K=1 B= 13 step=  66.80 ms  samples=[67.09, 66.8, 66.799]
+[costs] K=1 B= 14 step=  67.02 ms  samples=[66.957, 67.017, 67.389]
+[costs] K=1 B= 15 step=  67.63 ms  samples=[67.627, 67.732, 67.592]
+[costs] K=1 B= 16 step=  71.07 ms  samples=[71.071, 71.154, 70.905]
+[costs] K=1 B= 20 step=  73.92 ms  samples=[73.93, 73.882, 73.918]
+[costs] K=1 B= 24 step=  79.76 ms  samples=[79.704, 79.808, 79.757]
+[costs] K=1 B= 28 step=  86.40 ms  samples=[86.337, 86.418, 86.403]
+[costs] K=1 B= 32 step=  91.94 ms  samples=[91.377, 91.943, 92.037]
+[costs] K=1 B= 36 step=  99.95 ms  samples=[99.802, 99.952, 100.729]
+[costs] K=1 B= 40 step= 103.20 ms  samples=[102.967, 103.197, 103.418]
+[costs] K=1 B= 44 step= 109.85 ms  samples=[109.85, 109.974, 109.817]
+[costs] K=1 B= 48 step= 115.45 ms  samples=[115.394, 115.517, 115.451]
+[costs] K=1 B= 52 step= 122.42 ms  samples=[122.414, 122.419, 122.583]
+[costs] K=1 B= 56 step= 127.69 ms  samples=[128.395, 127.67, 127.691]
+[costs] K=1 B= 60 step= 131.74 ms  samples=[131.648, 131.745, 132.203]
+[costs] K=1 B= 64 step= 137.56 ms  samples=[137.777, 137.454, 137.563]
+[costs] wrote results/tuner-v2/costs_k1.json
+=== costs K=2 (23:49:08) ===
+[costs] K=2 B=  1 step=  43.37 ms  samples=[44.107, 43.335, 43.373]
+[costs] K=2 B=  2 step=  46.31 ms  samples=[47.244, 46.313, 46.221]
+[costs] K=2 B=  3 step=  47.67 ms  samples=[47.608, 47.681, 47.67]
+[costs] K=2 B=  4 step=  48.33 ms  samples=[48.352, 48.325, 48.326]
+[costs] K=2 B=  5 step=  54.05 ms  samples=[54.05, 53.959, 54.103]
+[costs] K=2 B=  6 step=  61.17 ms  samples=[61.274, 61.144, 61.166]
+[costs] K=2 B=  7 step=  61.84 ms  samples=[61.756, 61.841, 61.893]
+[costs] K=2 B=  8 step=  61.96 ms  samples=[61.969, 61.961, 61.904]
+[costs] K=2 B=  9 step=  64.33 ms  samples=[64.227, 64.33, 64.373]
+[costs] K=2 B= 10 step=  63.26 ms  samples=[63.286, 63.264, 63.169]
+[costs] K=2 B= 11 step=  69.03 ms  samples=[69.028, 68.872, 69.082]
+[costs] K=2 B= 12 step=  69.64 ms  samples=[69.632, 69.754, 69.638]
+[costs] K=2 B= 13 step=  70.12 ms  samples=[70.12, 69.861, 70.219]
+[costs] K=2 B= 14 step=  70.32 ms  samples=[70.323, 70.251, 70.367]
+[costs] K=2 B= 15 step=  71.14 ms  samples=[71.179, 70.962, 71.142]
+[costs] K=2 B= 16 step=  74.86 ms  samples=[98.971, 74.733, 74.863]
+[costs] K=2 B= 20 step=  78.69 ms  samples=[78.691, 78.858, 78.647]
+[costs] K=2 B= 24 step=  87.59 ms  samples=[87.406, 87.59, 87.768]
+[costs] K=2 B= 28 step=  95.84 ms  samples=[95.734, 95.934, 95.836]
+[costs] K=2 B= 32 step= 101.77 ms  samples=[101.769, 101.283, 102.03]
+[costs] K=2 B= 36 step= 109.42 ms  samples=[109.464, 109.42, 109.239]
+[costs] K=2 B= 40 step= 110.97 ms  samples=[110.759, 110.969, 111.13]
+[costs] K=2 B= 44 step= 131.00 ms  samples=[130.989, 131.26, 130.998]
+[costs] K=2 B= 48 step= 136.82 ms  samples=[137.008, 136.607, 136.821]
+[costs] K=2 B= 52 step= 145.24 ms  samples=[145.226, 145.236, 145.787]
+[costs] K=2 B= 56 step= 150.65 ms  samples=[150.378, 150.796, 150.648]
+[costs] K=2 B= 60 step= 155.84 ms  samples=[155.836, 155.884, 155.094]
+[costs] K=2 B= 64 step= 160.85 ms  samples=[160.85, 160.898, 160.597]
+[costs] wrote results/tuner-v2/costs_k2.json
+=== costs K=3 (00:07:02) ===
+[costs] K=3 B=  1 step=  45.35 ms  samples=[45.98, 45.332, 45.354]
+[costs] K=3 B=  2 step=  48.48 ms  samples=[49.342, 48.481, 48.454]
+[costs] K=3 B=  3 step=  53.35 ms  samples=[53.338, 53.346, 53.383]
+[costs] K=3 B=  4 step=  55.47 ms  samples=[55.465, 55.475, 55.628]
+[costs] K=3 B=  5 step=  63.62 ms  samples=[63.667, 63.624, 63.607]
+[costs] K=3 B=  6 step=  62.94 ms  samples=[62.695, 62.936, 62.957]
+[costs] K=3 B=  7 step=  64.67 ms  samples=[64.846, 64.673, 64.653]
+[costs] K=3 B=  8 step=  65.19 ms  samples=[64.949, 65.188, 65.293]
+[costs] K=3 B=  9 step=  67.22 ms  samples=[67.334, 67.152, 67.223]
+[costs] K=3 B= 10 step=  66.25 ms  samples=[66.246, 66.226, 66.372]
+[costs] K=3 B= 11 step=  71.73 ms  samples=[71.735, 71.729, 71.599]
+[costs] K=3 B= 12 step=  72.61 ms  samples=[72.606, 72.544, 72.649]
+[costs] K=3 B= 13 step=  73.61 ms  samples=[73.828, 73.397, 73.606]
+[costs] K=3 B= 14 step=  73.73 ms  samples=[73.85, 73.669, 73.729]
+[costs] K=3 B= 15 step=  74.95 ms  samples=[74.722, 75.242, 74.946]
+[costs] K=3 B= 16 step=  79.17 ms  samples=[79.168, 79.081, 79.218]
+[costs] K=3 B= 20 step=  85.13 ms  samples=[85.144, 85.134, 84.942]
+[costs] K=3 B= 24 step=  93.29 ms  samples=[93.658, 93.098, 93.286]
+[costs] K=3 B= 28 step= 101.62 ms  samples=[101.62, 101.78, 101.288]
+[costs] K=3 B= 32 step= 108.48 ms  samples=[108.418, 108.574, 108.477]
+[costs] K=3 B= 36 step= 128.28 ms  samples=[128.283, 128.268, 128.362]
+[costs] K=3 B= 40 step= 131.46 ms  samples=[131.26, 131.458, 131.457]
+[costs] K=3 B= 44 step= 140.63 ms  samples=[140.685, 140.629, 140.468]
+[costs] K=3 B= 48 step= 146.70 ms  samples=[146.7, 146.735, 146.495]
+[costs] K=3 B= 52 step= 160.16 ms  samples=[160.178, 160.158, 160.141]
+[costs] K=3 B= 56 step= 166.20 ms  samples=[166.526, 165.961, 166.2]
+[costs] K=3 B= 60 step= 173.23 ms  samples=[173.229, 172.884, 173.768]
+[costs] K=3 B= 64 step= 180.25 ms  samples=[180.268, 180.249, 180.117]
+[costs] wrote results/tuner-v2/costs_k3.json
+=== acceptance (00:25:30) ===
+[accept] dataset=480 used_by_sweeps=320 calibration=160
+[accept] by position [0.6078, 0.328, 0.1517] -> tokens/step {0: 1, 1: 1.608, 2: 1.936, 3: 2.087}
+[accept] wrote results/tuner-v2/acceptance.json
+=== schedule ===
+[tuner] tokens/step by K: {0: 1, 1: 1.608, 2: 1.936, 3: 2.087}
+[tuner] raw argmax schedule: [[1, 2, 3], [3, 5, 2], [6, 19, 3], [20, 20, 2], [21, 32, 3], [33, 43, 2], [44, 48, 3], [49, 64, 2]]
+[tuner] schedule: [[1, 2, 3], [3, 5, 2], [6, 32, 3], [33, 64, 2]]
+[tuner] wrote results/tuner-v2/schedule.json and results/tuner-v2/goodput.csv
+
+[tuner] predicted vs measured (fixed-K sweep):
+   c  predicted K  oracle K  tok/s at predicted  tok/s at oracle   loss
+   1            3         3                39.8             39.8   0.0%
+   2            3         2                68.2             70.4   3.1%
+   4            2         2               124.0            124.0   0.0%
+   8            3         3               163.2            163.2   0.0%
+  16            3         3               260.0            260.0   0.0%
+  32            3         3               326.2            326.2   0.0%
+  64            2         2               350.3            350.3   0.0%
+=== tuner done (00:27:26) ===
+=== dsd-tuned-v2 (00:27:26) ===
+[launch] dsd-tuned-v2: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 64 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 2, 3], [3, 5, 2], [6, 32, 3], [33, 64, 2]]}
+[launch] dsd-tuned-v2 ready
+[sweep] c=1 requests=16 -> results/sweeps/dsd-t4/dsd-tuned-v2/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsd-t4/dsd-tuned-v2/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsd-t4/dsd-tuned-v2/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsd-t4/dsd-tuned-v2/c8
+[sweep] c=16 requests=64 -> results/sweeps/dsd-t4/dsd-tuned-v2/c16
+[sweep] c=32 requests=128 -> results/sweeps/dsd-t4/dsd-tuned-v2/c32
+[sweep] c=64 requests=256 -> results/sweeps/dsd-t4/dsd-tuned-v2/c64
+[sweep] done: results/sweeps/dsd-t4/dsd-tuned-v2
+=== all done (00:39:23) ===

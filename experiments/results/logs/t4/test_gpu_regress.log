@@ -1,0 +1,41 @@
+=== 0. vLLM copies match the repo; repo tests (20:21:41) ===
+core.py identical
+controller.py identical
+55 passed in 0.40s
+=== 1. unit tests in vLLM (20:21:42) ===
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+63 passed, 1 skipped, 170 deselected, 14 warnings in 24.16s
+=== 2. correctness: controller on, greedy vs no-spec (20:22:18) ===
+[smoke] torch=2.13.0+cu132 gpu=Tesla T4 cc=(7, 5)
+[smoke] dsd: 710 tokens in 8.2s (86.7 tok/s), load 45s -> /home/ubuntu/vllm-perf/results/smoke/dsd_ctrl.json
+      1 Dynamic SD controller enabled: hysteresis=2, refit=every 20 steps, allowed K=[0, 1, 3]
+      1 Dynamic SD controller: new table [[1, 34, 3], [35, 64, 1]] (acceptance by position [0.603, 0.339, 0.158])
+      1 Dynamic SD controller: {'steps': 100, 'switches': 2, 'held': 0, 'refits': 5, 'table_changes': 1}
+      1 Dynamic SD controller: {'steps': 150, 'switches': 2, 'held': 0, 'refits': 7, 'table_changes': 1}
+      1 Dynamic SD controller: {'steps': 50, 'switches': 2, 'held': 0, 'refits': 2, 'table_changes': 1}
+greedy match vs no-spec: batched 8/8, single 3/3
+EAGLE: proposal rate not tracked (as intended)
+=== 3. serving: v3 table + controller, code T=1.0 (20:23:26) ===
+=== dsd-tuned-v3 (20:23:26) ===
+[launch] dsd-tuned-v3: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 18, 3], [19, 43, 2], [44, 128, 1]]}
+[launch] dsd-tuned-v3 ready
+[sweep] c=4 requests=16 -> results/sweeps/ctrl-t4-regress/dsd-tuned-v3/c4
+[sweep] c=32 requests=128 -> results/sweeps/ctrl-t4-regress/dsd-tuned-v3/c32
+[sweep] c=64 requests=256 -> results/sweeps/ctrl-t4-regress/dsd-tuned-v3/c64
+[sweep] c=96 requests=384 -> results/sweeps/ctrl-t4-regress/dsd-tuned-v3/c96
+[sweep] done: results/sweeps/ctrl-t4-regress/dsd-tuned-v3
+=== all done (20:32:00) ===
+c=  4: v3 table   148.3  | v3 + controller   145.4  (-1.9%)
+c= 32: v3 table   692.8  | v3 + controller   683.7  (-1.3%)
+c= 64: v3 table   925.7  | v3 + controller   932.6  (+0.7%)
+c= 96: v3 table  1022.4  | v3 + controller  1011.1  (-1.1%)
+Dynamic SD controller enabled: hysteresis=4, refit=every 500 steps, allowed K=[1, 2, 3]
+Dynamic SD controller: new table [[1, 3, 3], [4, 5, 2], [6, 18, 3], [19, 43, 2], [44, 128, 1]] (acceptance by position [0.605, 0.327, 0.15])
+Dynamic SD controller: new table [[1, 18, 3], [19, 43, 2], [44, 128, 1]] (acceptance by position [0.625, 0.349, 0.16])
+Dynamic SD controller: {'steps': 2000, 'switches': 9, 'held': 71, 'refits': 4, 'table_changes': 2}
+=== 4. n-gram + controller: greedy vs no-spec, proposal rate (20:32:01) ===
+Dynamic SD controller enabled: hysteresis=2, refit=every 20 steps, allowed K=[0, 1, 3], tracking proposal rate
+Dynamic SD controller: new table [[1, 64, 3]] (acceptance by position [0.553, 0.397, 0.312], proposal rate 0.210)
+n-gram greedy match vs no-spec: batched 8/8, single 3/3
+=== done (20:33:24), failures: 0 ===

@@ -1,0 +1,109 @@
+{
+  "target": "Qwen/Qwen3-4B",
+  "drafter": "AngelSlim/Qwen3-4B_eagle3",
+  "k_max": 3,
+  "isl": 256,
+  "n_decode": 64,
+  "rows": [
+    {
+      "batch_size": 1,
+      "k": 0,
+      "step_ms": 36.638,
+      "samples_ms": [
+        37.56,
+        36.636,
+        36.638
+      ]
+    },
+    {
+      "batch_size": 2,
+      "k": 0,
+      "step_ms": 39.676,
+      "samples_ms": [
+        41.256,
+        39.676,
+        39.675
+      ]
+    },
+    {
+      "batch_size": 4,
+      "k": 0,
+      "step_ms": 42.639,
+      "samples_ms": [
+        42.674,
+        42.639,
+        42.604
+      ]
+    },
+    {
+      "batch_size": 8,
+      "k": 0,
+      "step_ms": 47.443,
+      "samples_ms": [
+        47.401,
+        47.45,
+        47.443
+      ]
+    },
+    {
+      "batch_size": 12,
+      "k": 0,
+      "step_ms": 53.06,
+      "samples_ms": [
+        52.962,
+        53.066,
+        53.06
+      ]
+    },
+    {
+      "batch_size": 16,
+      "k": 0,
+      "step_ms": 57.345,
+      "samples_ms": [
+        81.437,
+        57.345,
+        57.094
+      ]
+    },
+    {
+      "batch_size": 24,
+      "k": 0,
+      "step_ms": 71.873,
+      "samples_ms": [
+        71.965,
+        71.873,
+        71.657
+      ]
+    },
+    {
+      "batch_size": 32,
+      "k": 0,
+      "step_ms": 81.949,
+      "samples_ms": [
+        81.949,
+        82.037,
+        81.831
+      ]
+    },
+    {
+      "batch_size": 48,
+      "k": 0,
+      "step_ms": 97.237,
+      "samples_ms": [
+        97.075,
+        97.237,
+        97.314
+      ]
+    },
+    {
+      "batch_size": 64,
+      "k": 0,
+      "step_ms": 112.534,
+      "samples_ms": [
+        112.712,
+        112.197,
+        112.534
+      ]
+    }
+  ]
+}

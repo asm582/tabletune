@@ -1,0 +1,4 @@
+vllm 353e491efd3a23057004a3ab68fcfbda4abbee13
+NVIDIA H100 80GB HBM3, 580.105.08
+dataset file:experiments/results/ngram/bench-apply.jsonl | concurrencies 4 16 32 64 96 128
+max_num_seqs 128 | temperature 0

@@ -1,0 +1,220 @@
+=== run 1: AWQ, default graphs (fixed k3 FULL_AND_PIECEWISE, dsd-const3 PIECEWISE) (01:01:58) ===
+=== nospec (01:01:58) ===
+[launch] nospec: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0
+[launch] nospec ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-awq-r1/nospec/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-awq-r1/nospec/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-awq-r1/nospec/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-awq-r1/nospec/c8
+[sweep] done: results/sweeps/dsdov-awq-r1/nospec
+=== k3 (01:08:01) ===
+[launch] k3: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3}
+[launch] k3 ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-awq-r1/k3/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-awq-r1/k3/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-awq-r1/k3/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-awq-r1/k3/c8
+[sweep] done: results/sweeps/dsdov-awq-r1/k3
+=== dsd-const3 (01:13:45) ===
+[launch] dsd-const3: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 128, 3]]}
+[launch] dsd-const3 ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-awq-r1/dsd-const3/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-awq-r1/dsd-const3/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-awq-r1/dsd-const3/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-awq-r1/dsd-const3/c8
+[sweep] done: results/sweeps/dsdov-awq-r1/dsd-const3
+=== all done (01:19:27) ===
+[track] dsdov-awq-r1: logged 12, skipped 0 (already in MLflow)
+[track] done: 12 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 1080 points
+=== run 1: AWQ, forced PIECEWISE (01:22:53) ===
+=== nospec (01:22:53) ===
+[launch] nospec: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --compilation-config {"cudagraph_mode": "PIECEWISE"}
+[launch] nospec ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-awq-pw-r1/nospec/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-awq-pw-r1/nospec/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-awq-pw-r1/nospec/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-awq-pw-r1/nospec/c8
+[sweep] done: results/sweeps/dsdov-awq-pw-r1/nospec
+=== k3 (01:31:38) ===
+[launch] k3: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3} --compilation-config {"cudagraph_mode": "PIECEWISE"}
+[launch] k3 ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-awq-pw-r1/k3/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-awq-pw-r1/k3/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-awq-pw-r1/k3/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-awq-pw-r1/k3/c8
+[sweep] done: results/sweeps/dsdov-awq-pw-r1/k3
+=== all done (01:37:23) ===
+!!! MLflow logging failed (is the tunnel up?)
+[derive] comparison metrics logged for 1121 points
+=== run 1: FP16 control, forced PIECEWISE (01:40:53) ===
+=== nospec (01:40:53) ===
+[launch] nospec: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --compilation-config {"cudagraph_mode": "PIECEWISE"}
+[launch] nospec ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-fp16-pw-r1/nospec/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-fp16-pw-r1/nospec/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-fp16-pw-r1/nospec/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-fp16-pw-r1/nospec/c8
+[sweep] done: results/sweeps/dsdov-fp16-pw-r1/nospec
+=== k3 (01:53:04) ===
+[launch] k3: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3} --compilation-config {"cudagraph_mode": "PIECEWISE"}
+[launch] k3 ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-fp16-pw-r1/k3/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-fp16-pw-r1/k3/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-fp16-pw-r1/k3/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-fp16-pw-r1/k3/c8
+[sweep] done: results/sweeps/dsdov-fp16-pw-r1/k3
+=== all done (02:01:17) ===
+!!! MLflow logging failed (is the tunnel up?)
+[derive] comparison metrics logged for 1127 points
+=== run 2: AWQ, default graphs (fixed k3 FULL_AND_PIECEWISE, dsd-const3 PIECEWISE) (02:05:03) ===
+=== nospec (02:05:03) ===
+[launch] nospec: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0
+[launch] nospec ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-awq-r2/nospec/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-awq-r2/nospec/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-awq-r2/nospec/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-awq-r2/nospec/c8
+[sweep] done: results/sweeps/dsdov-awq-r2/nospec
+=== k3 (02:11:33) ===
+[launch] k3: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3}
+[launch] k3 ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-awq-r2/k3/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-awq-r2/k3/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-awq-r2/k3/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-awq-r2/k3/c8
+[sweep] done: results/sweeps/dsdov-awq-r2/k3
+=== dsd-const3 (02:17:19) ===
+[launch] dsd-const3: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 128, 3]]}
+[launch] dsd-const3 ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-awq-r2/dsd-const3/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-awq-r2/dsd-const3/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-awq-r2/dsd-const3/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-awq-r2/dsd-const3/c8
+[sweep] done: results/sweeps/dsdov-awq-r2/dsd-const3
+=== all done (02:23:06) ===
+[track] dsdov-awq-r2: logged 12, skipped 0 (already in MLflow)
+[track] done: 12 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 1155 points
+=== run 2: AWQ, forced PIECEWISE (02:27:07) ===
+=== nospec (02:27:08) ===
+[launch] nospec: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --compilation-config {"cudagraph_mode": "PIECEWISE"}
+[launch] nospec ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-awq-pw-r2/nospec/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-awq-pw-r2/nospec/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-awq-pw-r2/nospec/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-awq-pw-r2/nospec/c8
+[sweep] done: results/sweeps/dsdov-awq-pw-r2/nospec
+=== k3 (02:33:47) ===
+[launch] k3: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3} --compilation-config {"cudagraph_mode": "PIECEWISE"}
+[launch] k3 ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-awq-pw-r2/k3/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-awq-pw-r2/k3/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-awq-pw-r2/k3/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-awq-pw-r2/k3/c8
+[sweep] done: results/sweeps/dsdov-awq-pw-r2/k3
+=== all done (02:39:31) ===
+[track] dsdov-awq-pw-r2: logged 8, skipped 0 (already in MLflow)
+[track] done: 8 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 1163 points
+=== run 2: FP16 control, forced PIECEWISE (02:43:07) ===
+=== nospec (02:43:08) ===
+[launch] nospec: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --compilation-config {"cudagraph_mode": "PIECEWISE"}
+[launch] nospec ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-fp16-pw-r2/nospec/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-fp16-pw-r2/nospec/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-fp16-pw-r2/nospec/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-fp16-pw-r2/nospec/c8
+[sweep] done: results/sweeps/dsdov-fp16-pw-r2/nospec
+=== k3 (02:53:07) ===
+[launch] k3: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3} --compilation-config {"cudagraph_mode": "PIECEWISE"}
+[launch] k3 ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-fp16-pw-r2/k3/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-fp16-pw-r2/k3/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-fp16-pw-r2/k3/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-fp16-pw-r2/k3/c8
+[sweep] done: results/sweeps/dsdov-fp16-pw-r2/k3
+=== all done (03:00:59) ===
+[track] dsdov-fp16-pw-r2: logged 8, skipped 0 (already in MLflow)
+[track] done: 8 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 1171 points
+=== run 3: AWQ, default graphs (fixed k3 FULL_AND_PIECEWISE, dsd-const3 PIECEWISE) (03:04:39) ===
+=== nospec (03:04:39) ===
+[launch] nospec: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0
+[launch] nospec ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-awq-r3/nospec/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-awq-r3/nospec/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-awq-r3/nospec/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-awq-r3/nospec/c8
+[sweep] done: results/sweeps/dsdov-awq-r3/nospec
+=== k3 (03:10:47) ===
+[launch] k3: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3}
+[launch] k3 ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-awq-r3/k3/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-awq-r3/k3/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-awq-r3/k3/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-awq-r3/k3/c8
+[sweep] done: results/sweeps/dsdov-awq-r3/k3
+=== dsd-const3 (03:16:23) ===
+[launch] dsd-const3: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 128, 3]]}
+[launch] dsd-const3 ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-awq-r3/dsd-const3/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-awq-r3/dsd-const3/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-awq-r3/dsd-const3/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-awq-r3/dsd-const3/c8
+[sweep] done: results/sweeps/dsdov-awq-r3/dsd-const3
+=== all done (03:21:50) ===
+[track] dsdov-awq-r3: logged 12, skipped 0 (already in MLflow)
+[track] done: 12 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 1241 points
+=== run 3: AWQ, forced PIECEWISE (03:25:33) ===
+=== nospec (03:25:33) ===
+[launch] nospec: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --compilation-config {"cudagraph_mode": "PIECEWISE"}
+[launch] nospec ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-awq-pw-r3/nospec/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-awq-pw-r3/nospec/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-awq-pw-r3/nospec/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-awq-pw-r3/nospec/c8
+[sweep] done: results/sweeps/dsdov-awq-pw-r3/nospec
+=== k3 (03:31:58) ===
+[launch] k3: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3} --compilation-config {"cudagraph_mode": "PIECEWISE"}
+[launch] k3 ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-awq-pw-r3/k3/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-awq-pw-r3/k3/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-awq-pw-r3/k3/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-awq-pw-r3/k3/c8
+[sweep] done: results/sweeps/dsdov-awq-pw-r3/k3
+=== all done (03:37:27) ===
+[track] dsdov-awq-pw-r3: logged 8, skipped 0 (already in MLflow)
+[track] done: 8 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 1257 points
+=== run 3: FP16 control, forced PIECEWISE (03:41:03) ===
+=== nospec (03:41:03) ===
+[launch] nospec: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --compilation-config {"cudagraph_mode": "PIECEWISE"}
+[launch] nospec ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-fp16-pw-r3/nospec/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-fp16-pw-r3/nospec/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-fp16-pw-r3/nospec/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-fp16-pw-r3/nospec/c8
+[sweep] done: results/sweeps/dsdov-fp16-pw-r3/nospec
+=== k3 (03:50:56) ===
+[launch] k3: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3} --compilation-config {"cudagraph_mode": "PIECEWISE"}
+[launch] k3 ready
+[sweep] c=1 requests=16 -> results/sweeps/dsdov-fp16-pw-r3/k3/c1
+[sweep] c=2 requests=16 -> results/sweeps/dsdov-fp16-pw-r3/k3/c2
+[sweep] c=4 requests=16 -> results/sweeps/dsdov-fp16-pw-r3/k3/c4
+[sweep] c=8 requests=32 -> results/sweeps/dsdov-fp16-pw-r3/k3/c8
+[sweep] done: results/sweeps/dsdov-fp16-pw-r3/k3
+=== all done (03:58:31) ===
+[track] dsdov-fp16-pw-r3: logged 8, skipped 0 (already in MLflow)
+[track] done: 8 points logged to experiment 'vllm-perf-dsd'
+[derive] comparison metrics logged for 1279 points
+=== cpu: AWQ k3 at c=1 (04:02:16) ===
+[launch] k3: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3}
+[launch] k3 ready
+[cpu] k3 EngineCore CPU% over 30 s: median 1.0 max 2.0
+=== cpu: AWQ dsd-const3 at c=1 (04:05:03) ===
+[launch] dsd-const3: vllm serve Qwen/Qwen3-4B-AWQ --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "eagle3", "model": "AngelSlim/Qwen3-4B_eagle3", "num_speculative_tokens": 3, "num_speculative_tokens_per_batch_size": [[1, 128, 3]]}
+[launch] dsd-const3 ready
+[cpu] dsd-const3 EngineCore CPU% over 30 s: median 1.0 max 2.0
+=== issue #12 runs done (04:07:29) ===

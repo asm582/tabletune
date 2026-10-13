@@ -1,0 +1,12 @@
+[tuner] tokens/step by K: {0: 1, 1: 1.712, 2: 2.248, 3: 2.666, 4: 2.997, 5: 3.265}
+[tuner] raw argmax schedule: [[1, 2, 2], [3, 4, 3], [5, 5, 2], [6, 17, 3], [18, 40, 2], [41, 128, 1]]
+[tuner] schedule: [[1, 2, 2], [3, 17, 3], [18, 40, 2], [41, 128, 1]]
+[tuner] wrote results/draft-tuner/schedule.json and results/draft-tuner/goodput.csv
+
+[tuner] predicted loss of each fixed K vs. the best K at each batch size:
+  K=0: worst 46.3% at B=  3, average 29.4%
+  K=1: worst 13.1% at B= 11, average  1.8%
+  K=2: worst 17.5% at B=128, average  8.4%
+  K=3: worst 25.8% at B=128, average 12.9%
+  K=4: worst 50.6% at B=128, average 25.4%
+  K=5: worst 37.8% at B= 96, average 27.7%

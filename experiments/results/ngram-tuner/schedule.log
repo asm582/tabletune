@@ -1,0 +1,25 @@
+[tuner] proposal rate 0.4883: tokens per step and step cost use p*K
+[tuner] tokens/step by K: {0: 1.0, 1: 1.38468274, 2: 1.73108276, 3: 2.05233533, 4: 2.3572298500000004, 5: 2.6450826999999997}
+[tuner] raw argmax schedule: [[1, 2, 5], [3, 3, 4], [4, 20, 5], [21, 39, 3], [40, 40, 2], [41, 66, 3], [67, 81, 2], [82, 128, 3]]
+[tuner] schedule: [[1, 2, 5], [3, 3, 4], [4, 20, 5], [21, 128, 3]]
+[tuner] wrote results/ngram-tuner/schedule.json and results/ngram-tuner/goodput.csv
+
+[tuner] predicted loss of each fixed K vs. the best K at each batch size:
+  K=0: worst 58.4% at B=  2, average 28.6%
+  K=1: worst 45.8% at B=  1, average 14.8%
+  K=2: worst 33.0% at B=  1, average  8.5%
+  K=3: worst 21.1% at B=  1, average  2.2%
+  K=4: worst 25.8% at B= 56, average 17.3%
+  K=5: worst 25.2% at B= 96, average 14.4%
+
+[tuner] predicted vs measured (fixed-K sweep):
+   c  predicted K  oracle K  tok/s at predicted  tok/s at oracle   loss
+   1            5         5                63.1             63.1   0.0%
+   2            5         5               112.0            112.0   0.0%
+   4            5         5               157.6            157.6   0.0%
+   8            5         5               297.0            297.0   0.0%
+  16            5         5               303.9            303.9   0.0%
+  32            3         3               502.8            502.8   0.0%
+  64            3         3               690.8            690.8   0.0%
+  96            3         3               718.8            718.8   0.0%
+ 128            3         3               748.3            748.3   0.0%

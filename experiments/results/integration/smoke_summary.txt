@@ -1,0 +1,19 @@
+/home/ubuntu/vllm-perf/results/integration/smoke.log:[smoke] torch=2.13.0+cu132 gpu=Tesla T4 cc=(7, 5)
+/home/ubuntu/vllm-perf/results/integration/smoke.log:(EngineCore pid=259718) INFO 09-26 13:43:48 [controller.py:176] Dynamic SD controller enabled: hysteresis=2, refit=every 20 steps, allowed K=[0, 1,
+/home/ubuntu/vllm-perf/results/integration/smoke.log:Processed prompts:  12%|█▎        | 1/8 [00:00<00:06,  1.08it/s, est. speed input: 25.81 toks/s, output: 3.23 toks/s]Processed prompts:  25%|
+/home/ubuntu/vllm-perf/results/integration/smoke.log:Processed prompts:  38%|███▊      | 3/8 [00:01<00:02,  2.12it/s, est. speed input: 40.17 toks/s, output: 30.57 toks/s]Processed prompts: 
+/home/ubuntu/vllm-perf/results/integration/smoke.log:Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s](EngineCore pid=259718) INFO 09-26 13:
+/home/ubuntu/vllm-perf/results/integration/smoke.log:Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s](EngineCore pid=259718) INFO 09-26 13:
+/home/ubuntu/vllm-perf/results/integration/smoke.log:[smoke] dsd: 710 tokens in 8.3s (85.4 tok/s), load 78s -> /home/ubuntu/vllm-perf/results/smoke/dsd_ctrl.json
+/home/ubuntu/vllm-perf/results/integration/smoke.log:[smoke] spec counters: {'vllm:spec_decode_num_drafts': 364, 'vllm:spec_decode_num_draft_tokens': 842, 'vllm:spec_decode_num_accepted_tokens': 347, 
+/home/ubuntu/integ.log:=== 2. correctness: controller on, greedy vs no-spec (13:42:21) ===
+/home/ubuntu/integ.log:[smoke] torch=2.13.0+cu132 gpu=Tesla T4 cc=(7, 5)
+/home/ubuntu/integ.log:[smoke] dsd: 710 tokens in 8.3s (85.4 tok/s), load 78s -> /home/ubuntu/vllm-perf/results/smoke/dsd_ctrl.json
+/home/ubuntu/integ.log:      1 Dynamic SD controller enabled: hysteresis=2, refit=every 20 steps, allowed K=[0, 1, 3]
+/home/ubuntu/integ.log:      1 Dynamic SD controller: new table [[1, 34, 3], [35, 64, 1]] (acceptance by position [0.603, 0.339, 0.158])
+/home/ubuntu/integ.log:      1 Dynamic SD controller: {'steps': 100, 'switches': 2, 'held': 0, 'refits': 5, 'table_changes': 1}
+/home/ubuntu/integ.log:      1 Dynamic SD controller: {'steps': 150, 'switches': 2, 'held': 0, 'refits': 7, 'table_changes': 1}
+/home/ubuntu/integ.log:      1 Dynamic SD controller: {'steps': 50, 'switches': 2, 'held': 0, 'refits': 2, 'table_changes': 1}
+/home/ubuntu/integ.log:greedy match vs no-spec: batched 8/8, single 3/3
+/home/ubuntu/integ.log:Dynamic SD controller enabled: hysteresis=4, refit=every 500 steps, allowed K=[1, 2, 3]
+/home/ubuntu/integ.log:Dynamic SD controller: {'steps': 2000, 'switches': 8, 'held': 25, 'refits': 4, 'table_changes': 0}

@@ -1,0 +1,14 @@
+=== S: stability options on run B's setup (02:43:39) ===
+=== ngram-tuned-v2 (02:43:39) ===
+[launch] ngram-tuned-v2: vllm serve Qwen/Qwen3-4B --port 8000 --dtype float16 --max-model-len 4096 --max-num-seqs 128 --gpu-memory-utilization 0.90 --seed 0 --speculative-config {"method": "ngram", "prompt_lookup_min": 2, "prompt_lookup_max": 4, "num_speculative_tokens": 5, "num_speculative_tokens_per_batch_size": [[1, 2, 5], [3, 3, 4], [4, 20, 5], [21, 128, 3]]}
+[launch] ngram-tuned-v2 ready
+[sweep] c=4 requests=16 -> results/sweeps/ngram-ctrl-stable/ngram-tuned-v2/c4
+[sweep] c=16 requests=64 -> results/sweeps/ngram-ctrl-stable/ngram-tuned-v2/c16
+[sweep] c=32 requests=128 -> results/sweeps/ngram-ctrl-stable/ngram-tuned-v2/c32
+[sweep] c=64 requests=256 -> results/sweeps/ngram-ctrl-stable/ngram-tuned-v2/c64
+[sweep] c=96 requests=384 -> results/sweeps/ngram-ctrl-stable/ngram-tuned-v2/c96
+[sweep] c=128 requests=512 -> results/sweeps/ngram-ctrl-stable/ngram-tuned-v2/c128
+[sweep] done: results/sweeps/ngram-ctrl-stable/ngram-tuned-v2
+=== all done (02:52:16) ===
+[track] ngram-ctrl-stable: logged 6, skipped 0 (already in MLflow)
+[track] done: 6 points logged to experiment 'vllm-perf-dsd'

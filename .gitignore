@@ -1,0 +1,24 @@
+# Never commit private keys
+*.pem
+
+# Local artifacts
+experiments/results/raw/
+__pycache__/
+.venv/
+experiments/results/nsys/*.nsys-rep
+experiments/results/nsys/*.sqlite
+
+# Packaging and environments (pip install -e ., uv run)
+*.egg-info/
+build/
+dist/
+uv.lock
+experiments/results/dsd-overhead*/**/*.nsys-rep
+experiments/results/dsd-overhead*/**/*.sqlite
+
+# git bundles made for copying the repo to test machines
+*.bundle
+
+# paper: the figures in docs/paper/build and docs/paper/paper.pdf are committed (build/ above would hide the figures); PNG previews are not
+!docs/paper/build/
+docs/paper/build/*.png

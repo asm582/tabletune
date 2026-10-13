@@ -1,0 +1,352 @@
+{
+  "target": "Qwen/Qwen3-4B",
+  "method": "ngram",
+  "drafter": "ngram 2-4",
+  "k_max": 5,
+  "isl": 151,
+  "max_num_seqs": 128,
+  "n_decode": 64,
+  "rows": [
+    {
+      "batch_size": 1,
+      "k": 5,
+      "step_ms": 40.878,
+      "samples_ms": [
+        40.842,
+        40.927,
+        40.878
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 2,
+      "k": 5,
+      "step_ms": 43.26,
+      "samples_ms": [
+        43.182,
+        43.357,
+        43.26
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 3,
+      "k": 5,
+      "step_ms": 52.586,
+      "samples_ms": [
+        52.482,
+        52.586,
+        52.669
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 4,
+      "k": 5,
+      "step_ms": 54.247,
+      "samples_ms": [
+        54.239,
+        54.247,
+        54.302
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 5,
+      "k": 5,
+      "step_ms": 55.567,
+      "samples_ms": [
+        55.567,
+        55.595,
+        55.512
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 6,
+      "k": 5,
+      "step_ms": 59.018,
+      "samples_ms": [
+        59.184,
+        59.018,
+        58.877
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 7,
+      "k": 5,
+      "step_ms": 59.443,
+      "samples_ms": [
+        59.428,
+        59.443,
+        59.555
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 8,
+      "k": 5,
+      "step_ms": 62.028,
+      "samples_ms": [
+        62.086,
+        61.982,
+        62.028
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 9,
+      "k": 5,
+      "step_ms": 63.384,
+      "samples_ms": [
+        63.291,
+        63.49,
+        63.384
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 10,
+      "k": 5,
+      "step_ms": 64.12,
+      "samples_ms": [
+        64.12,
+        64.036,
+        64.122
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 11,
+      "k": 5,
+      "step_ms": 69.419,
+      "samples_ms": [
+        69.366,
+        69.456,
+        69.419
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 12,
+      "k": 5,
+      "step_ms": 70.269,
+      "samples_ms": [
+        70.269,
+        70.186,
+        70.338
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 13,
+      "k": 5,
+      "step_ms": 72.853,
+      "samples_ms": [
+        72.853,
+        72.898,
+        72.657
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 14,
+      "k": 5,
+      "step_ms": 74.338,
+      "samples_ms": [
+        74.643,
+        74.337,
+        74.338
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 15,
+      "k": 5,
+      "step_ms": 75.416,
+      "samples_ms": [
+        75.396,
+        75.467,
+        75.416
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 16,
+      "k": 5,
+      "step_ms": 78.561,
+      "samples_ms": [
+        91.334,
+        78.208,
+        78.561
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 20,
+      "k": 5,
+      "step_ms": 84.261,
+      "samples_ms": [
+        84.261,
+        84.137,
+        84.321
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 24,
+      "k": 5,
+      "step_ms": 104.778,
+      "samples_ms": [
+        104.653,
+        104.809,
+        104.778
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 32,
+      "k": 5,
+      "step_ms": 119.467,
+      "samples_ms": [
+        118.854,
+        119.477,
+        119.467
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 40,
+      "k": 5,
+      "step_ms": 139.549,
+      "samples_ms": [
+        139.577,
+        139.549,
+        139.485
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 48,
+      "k": 5,
+      "step_ms": 185.982,
+      "samples_ms": [
+        186.287,
+        185.982,
+        185.752
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 56,
+      "k": 5,
+      "step_ms": 192.255,
+      "samples_ms": [
+        192.255,
+        192.075,
+        192.739
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 64,
+      "k": 5,
+      "step_ms": 205.863,
+      "samples_ms": [
+        205.863,
+        205.58,
+        206.181
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 72,
+      "k": 5,
+      "step_ms": 239.39,
+      "samples_ms": [
+        239.8,
+        239.29,
+        239.39
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 80,
+      "k": 5,
+      "step_ms": 252.895,
+      "samples_ms": [
+        252.807,
+        252.895,
+        253.074
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 88,
+      "k": 5,
+      "step_ms": 314.652,
+      "samples_ms": [
+        314.146,
+        314.652,
+        314.732
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 96,
+      "k": 5,
+      "step_ms": 330.749,
+      "samples_ms": [
+        330.669,
+        330.791,
+        330.749
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 104,
+      "k": 5,
+      "step_ms": 345.559,
+      "samples_ms": [
+        345.391,
+        345.669,
+        345.559
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 112,
+      "k": 5,
+      "step_ms": 381.82,
+      "samples_ms": [
+        382.256,
+        381.82,
+        381.736
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 120,
+      "k": 5,
+      "step_ms": 395.86,
+      "samples_ms": [
+        395.86,
+        394.815,
+        396.299
+      ],
+      "drafted_per_step": 5.0
+    },
+    {
+      "batch_size": 128,
+      "k": 5,
+      "step_ms": 406.639,
+      "samples_ms": [
+        406.976,
+        406.639,
+        405.158
+      ],
+      "drafted_per_step": 5.0
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+=== costs K=0 (21:30:07) ===
+[costs] K=0 B=  1 step=  36.64 ms  samples=[37.56, 36.636, 36.638]
+[costs] K=0 B=  2 step=  39.68 ms  samples=[41.256, 39.676, 39.675]
+[costs] K=0 B=  4 step=  42.64 ms  samples=[42.674, 42.639, 42.604]
+[costs] K=0 B=  8 step=  47.44 ms  samples=[47.401, 47.45, 47.443]
+[costs] K=0 B= 12 step=  53.06 ms  samples=[52.962, 53.066, 53.06]
+[costs] K=0 B= 16 step=  57.35 ms  samples=[81.437, 57.345, 57.094]
+[costs] K=0 B= 24 step=  71.87 ms  samples=[71.965, 71.873, 71.657]
+[costs] K=0 B= 32 step=  81.95 ms  samples=[81.949, 82.037, 81.831]
+[costs] K=0 B= 48 step=  97.24 ms  samples=[97.075, 97.237, 97.314]
+[costs] K=0 B= 64 step= 112.53 ms  samples=[112.712, 112.197, 112.534]
+[costs] wrote results/tuner/costs_k0.json
+=== costs K=1 (21:35:21) ===
+[costs] K=1 B=  1 step=  40.61 ms  samples=[41.31, 40.614, 40.531]
+[costs] K=1 B=  2 step=  43.77 ms  samples=[44.599, 43.771, 43.601]
+[costs] K=1 B=  4 step=  45.04 ms  samples=[45.124, 45.001, 45.041]
+[costs] K=1 B=  8 step=  50.25 ms  samples=[50.014, 50.251, 50.245]
+[costs] K=1 B= 12 step=  62.73 ms  samples=[62.586, 62.931, 62.732]
+[costs] K=1 B= 16 step=  68.01 ms  samples=[68.008, 67.846, 68.142]
+[costs] K=1 B= 24 step=  75.34 ms  samples=[75.537, 75.34, 74.459]
+[costs] K=1 B= 32 step=  85.93 ms  samples=[85.954, 85.863, 85.926]
+[costs] K=1 B= 48 step= 106.78 ms  samples=[106.778, 107.0, 106.7]
+[costs] K=1 B= 64 step= 124.93 ms  samples=[124.929, 124.65, 125.098]
+[costs] wrote results/tuner/costs_k1.json
+=== costs K=2 (21:40:42) ===
+[rank0]:W0925 21:41:10.683000 58814 torch/_inductor/triton_bundler.py:242] Traceback (most recent call last):
+[rank0]:W0925 21:41:10.683000 58814 torch/_inductor/triton_bundler.py:242]     raise RuntimeError(
+[rank0]:W0925 21:41:10.683000 58814 torch/_inductor/triton_bundler.py:242] RuntimeError: ('Cubin file saved by TritonBundler not found at %s', '/home/ubuntu/.cache/vllm/torch_compile_cache/torch_aot_compile/4ff89eaa8d226e2794227aee44ae41db58a89695ab1f823bb5053d0addf3dc7e/inductor_cache/triton/0/AFSBPXNMCNLEJWZ22YIGGKQZ62BAC3INWPBEMOUHPWTBP7IMG6PA/triton_red_fused_fused_add_rms_norm_0.cubin')
+[rank0]:W0925 21:41:10.686000 58814 torch/_inductor/triton_bundler.py:242] Traceback (most recent call last):
+[rank0]:W0925 21:41:10.686000 58814 torch/_inductor/triton_bundler.py:242]     raise RuntimeError(
+[rank0]:W0925 21:41:10.686000 58814 torch/_inductor/triton_bundler.py:242] RuntimeError: ('Cubin file saved by TritonBundler not found at %s', '/home/ubuntu/.cache/vllm/torch_compile_cache/torch_aot_compile/4ff89eaa8d226e2794227aee44ae41db58a89695ab1f823bb5053d0addf3dc7e/inductor_cache/triton/0/BHT2T2QOTSDUQZMN522NJWIFCP7VYVWDMU6XV36ZWYVOE2P73CZA/triton_poi_fused_mul_silu_slice_1.cubin')
+[rank0]:W0925 21:41:10.686000 58814 torch/_inductor/triton_bundler.py:242] Traceback (most recent call last):
+[rank0]:W0925 21:41:10.686000 58814 torch/_inductor/triton_bundler.py:242]     raise RuntimeError(
+[rank0]:W0925 21:41:10.686000 58814 torch/_inductor/triton_bundler.py:242] RuntimeError: ('Cubin file saved by TritonBundler not found at %s', '/home/ubuntu/.cache/vllm/torch_compile_cache/torch_aot_compile/4ff89eaa8d226e2794227aee44ae41db58a89695ab1f823bb5053d0addf3dc7e/inductor_cache/triton/0/VI4WIHSGJUSXTMJF2AJ4KBMRTONXOH2XU4NJ52KQXCEZYIP4IYKA/triton_red_fused_fused_add_rms_norm_2.cubin')
+[rank0]:W0925 21:41:10.690000 58814 torch/_inductor/triton_bundler.py:242] Traceback (most recent call last):
+[rank0]:W0925 21:41:10.690000 58814 torch/_inductor/triton_bundler.py:242]     raise RuntimeError(
+[rank0]:W0925 21:41:10.690000 58814 torch/_inductor/triton_bundler.py:242] RuntimeError: ('Cubin file saved by TritonBundler not found at %s', '/home/ubuntu/.cache/vllm/torch_compile_cache/torch_aot_compile/4ff89eaa8d226e2794227aee44ae41db58a89695ab1f823bb5053d0addf3dc7e/inductor_cache/triton/0/ZZVFJIXRS6YAQ52QFOEEUW5R3KAOUAPS3S4RSIAYMAEMIITW5E6A/triton_red_fused__to_copy_embedding_rms_norm_0.cubin')
+[rank0]:W0925 21:41:10.691000 58814 torch/_inductor/triton_bundler.py:242] Traceback (most recent call last):
+[rank0]:W0925 21:41:10.691000 58814 torch/_inductor/triton_bundler.py:242]     raise RuntimeError(
+[rank0]:W0925 21:41:10.691000 58814 torch/_inductor/triton_bundler.py:242] RuntimeError: ('Cubin file saved by TritonBundler not found at %s', '/home/ubuntu/.cache/vllm/torch_compile_cache/torch_aot_compile/4ff89eaa8d226e2794227aee44ae41db58a89695ab1f823bb5053d0addf3dc7e/inductor_cache/triton/0/4Y6FXNCG54OP7Q72AXNQDIT7UI7FNL54RE6YDFTUPCGSSSDSPQXQ/triton_red_fused_rms_norm_1.cubin')
+[rank0]:W0925 21:41:10.691000 58814 torch/_inductor/triton_bundler.py:242] Traceback (most recent call last):
+[rank0]:W0925 21:41:10.691000 58814 torch/_inductor/triton_bundler.py:242]     raise RuntimeError(
+[rank0]:W0925 21:41:10.691000 58814 torch/_inductor/triton_bundler.py:242] RuntimeError: ('Cubin file saved by TritonBundler not found at %s', '/home/ubuntu/.cache/vllm/torch_compile_cache/torch_aot_compile/4ff89eaa8d226e2794227aee44ae41db58a89695ab1f823bb5053d0addf3dc7e/inductor_cache/triton/0/JSZHQFWSRJM4ICKF4SN4Z6UWUNBMFSYKZC7ENJO42HTGN66VWFQA/triton_poi_fused_2.cubin')
+[costs] K=2 B=  1 step=  42.74 ms  samples=[44.212, 42.699, 42.742]
+[costs] K=2 B=  2 step=  45.86 ms  samples=[54.18, 45.86, 45.72]
+[costs] K=2 B=  4 step=  47.55 ms  samples=[47.55, 47.539, 47.561]
+[costs] K=2 B=  8 step=  59.71 ms  samples=[59.706, 59.749, 59.533]
+[costs] K=2 B= 12 step=  66.56 ms  samples=[66.56, 66.424, 66.762]
+[costs] K=2 B= 16 step=  71.50 ms  samples=[97.527, 71.497, 71.32]
+[costs] K=2 B= 24 step=  82.73 ms  samples=[82.726, 82.539, 83.023]
+[costs] K=2 B= 32 step=  95.07 ms  samples=[95.197, 95.069, 94.966]
+[costs] K=2 B= 48 step= 128.01 ms  samples=[127.782, 128.311, 128.007]
+[costs] K=2 B= 64 step= 148.77 ms  samples=[148.196, 148.79, 148.774]
+[costs] wrote results/tuner/costs_k2.json
+=== costs K=3 (21:47:32) ===
+[costs] K=3 B=  1 step=  44.69 ms  samples=[45.401, 44.686, 44.667]
+[costs] K=3 B=  2 step=  48.13 ms  samples=[48.87, 48.126, 47.978]
+[costs] K=3 B=  4 step=  54.19 ms  samples=[54.192, 54.128, 54.278]
+[costs] K=3 B=  8 step=  63.17 ms  samples=[62.703, 63.168, 63.176]
+[costs] K=3 B= 12 step=  69.51 ms  samples=[69.56, 69.407, 69.508]
+[costs] K=3 B= 16 step=  75.63 ms  samples=[75.631, 75.247, 75.696]
+[costs] K=3 B= 24 step=  88.31 ms  samples=[88.313, 88.413, 88.177]
+[costs] K=3 B= 32 step= 101.77 ms  samples=[101.808, 101.722, 101.768]
+[costs] K=3 B= 48 step= 139.51 ms  samples=[139.508, 139.666, 138.791]
+[costs] K=3 B= 64 step= 168.31 ms  samples=[168.306, 168.261, 168.509]
+[costs] wrote results/tuner/costs_k3.json
+=== acceptance (21:53:21) ===
+[accept] dataset=480 used_by_sweeps=320 calibration=64
+[accept] by position [0.5999, 0.3151, 0.1432] -> tokens/step {0: 1, 1: 1.6, 2: 1.915, 3: 2.058}
+[accept] wrote results/tuner/acceptance.json
+=== schedule ===
+[tuner] tokens/step by K: {0: 1, 1: 1.6, 2: 1.915, 3: 2.058}
+[tuner] schedule: [[1, 2, 3], [3, 9, 2], [10, 14, 3], [15, 42, 2], [43, 64, 1]]
+[tuner] wrote results/tuner/schedule.json and results/tuner/goodput.csv
+
+[tuner] predicted vs measured (fixed-K sweep):
+   c  predicted K  oracle K  tok/s at predicted  tok/s at oracle   loss
+   1            3         3                39.8             39.8   0.0%
+   2            3         2                68.2             70.4   3.1%
+   4            2         2               124.0            124.0   0.0%
+   8            2         3               159.4            163.2   2.3%
+  16            2         3               256.8            260.0   1.2%
+  32            2         3               325.0            326.2   0.4%
+  64            1         2               346.5            350.3   1.1%
+=== tuner done (21:54:46) ===

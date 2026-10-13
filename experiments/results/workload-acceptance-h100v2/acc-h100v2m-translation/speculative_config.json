@@ -1,0 +1,27 @@
+{
+  "method": "eagle3",
+  "model": "AngelSlim/Qwen3-4B_eagle3",
+  "num_speculative_tokens": 3,
+  "num_speculative_tokens_per_batch_size": [
+    [
+      1,
+      12,
+      2
+    ],
+    [
+      13,
+      20,
+      3
+    ],
+    [
+      21,
+      86,
+      2
+    ],
+    [
+      87,
+      128,
+      1
+    ]
+  ]
+}

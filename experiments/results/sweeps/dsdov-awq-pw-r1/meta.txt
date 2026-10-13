@@ -1,0 +1,4 @@
+vllm 91d4af6ef4ae8f68f8a98ab1d80241c9883303fa
+Tesla T4, 595.91.07
+dataset instruct-coder | concurrencies 1 2 4 8
+max_num_seqs 128 | temperature 1.0

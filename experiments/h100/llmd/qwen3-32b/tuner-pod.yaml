@@ -1,0 +1,48 @@
+# TableTune tuner for the llm-d optimized-baseline guide as shipped (Qwen3-32B, TP=2) + EAGLE-3, on the vLLM
+# nightly image the deployment uses. DSD_TP=2 makes the profilers run the model at TP=2, as it is served.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: llmd32-tuner
+  labels: {app: llmd32-tuner}
+spec:
+  restartPolicy: Never
+  nodeSelector:
+    nvidia.com/gpu.product: NVIDIA-H100-80GB-HBM3
+  tolerations:
+    - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
+  containers:
+    - name: tuner
+      image: docker.io/vllm/vllm-openai:nightly-43b4aaea3e40e20ef53ce2bfecfa1b72060bf2b5
+      securityContext: {runAsUser: 0}
+      command: ["bash", "-c"]
+      args:
+        - |
+          set -x
+          export HF_HOME=/work/hf HF_HUB_OFFLINE=1 VLLM_USE_V2_MODEL_RUNNER=1 DSD_TP=2
+          OUT=/work/tabletune/experiments/results/tune-h100-32b-tp2-llmd-nightly
+          mkdir -p $OUT /work/out
+          pip install --no-deps --target /work/dsd-pkg --upgrade /work/tabletune > /work/out/llmd32-pkg-install.log 2>&1 || exit 1
+          export PYTHONPATH=/work/dsd-pkg
+          python3 -m dsd_tuning run --target Qwen/Qwen3-32B --drafter AngelSlim/Qwen3-32B_eagle3 \
+            --prompts-file /work/tabletune/docs/examples/code-prompts.jsonl --isl 32 --temperature 1.0 \
+            --max-num-seqs 256 --batch-sizes "$(seq -s, 1 16),$(seq -s, 24 8 256)" --dtype bfloat16 --out $OUT
+          echo "TUNE EXIT $?"
+          mkdir -p ${OUT}-k013
+          python3 -m dsd_tuning schedule --costs "$OUT/costs_k[013].json" --acceptance $OUT/acceptance.json \
+            --max-num-seqs 256 --out ${OUT}-k013
+          echo "K013 EXIT $?"
+          sleep infinity
+      env:
+        - {name: NODE_NAME, valueFrom: {fieldRef: {fieldPath: spec.nodeName}}}
+      resources:
+        requests: {cpu: "16", memory: 128Gi, nvidia.com/gpu: 2}
+        limits:   {cpu: "16", memory: 128Gi, nvidia.com/gpu: 2}
+      volumeMounts:
+        - {name: work, mountPath: /work}
+        - {name: shm, mountPath: /dev/shm}
+  volumes:
+    - name: work
+      persistentVolumeClaim: {claimName: dsd-work}
+    - name: shm
+      emptyDir: {medium: Memory, sizeLimit: 32Gi}

@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dsd-tuning"
+version = "0.0.1"
+description = "Tuner and in-engine controller for vLLM's Dynamic Speculative Decoding table"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+# The formula, the table rules, the controller and the CLI use only the
+# standard library. vLLM itself is not listed: measuring and serving need vLLM
+# at the pinned commit, which install.sh installs; this package plugs the
+# controller into it.
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest", "build"]
+prompts = ["datasets"]                                           # dsd_tuning/tuner/sample_prompts.py
+tracking = ["mlflow-skinny>=3.0", "matplotlib>=3.8"]            # experiments/tracking/, experiments/bench/plot_pareto.py
+
+[project.scripts]
+dsd-tuner = "dsd_tuning.__main__:main"
+
+# vLLM loads this in every process; it attaches the Dynamic SD controller to the
+# scheduler only when VLLM_DSD_CONTROLLER is set (dsd_tuning/controller/vllm_plugin.py).
+[project.entry-points."vllm.general_plugins"]
+dsd_controller = "dsd_tuning.controller.vllm_plugin:register"
+
+[project.urls]
+Repository = "https://github.com/asm582/tabletune"
+
+[tool.setuptools]
+packages = ["dsd_tuning", "dsd_tuning.tuner", "dsd_tuning.controller"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
