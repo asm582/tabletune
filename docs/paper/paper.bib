@@ -98,7 +98,7 @@
 
 @inproceedings{pope2023efficiently,
   title     = {Efficiently Scaling Transformer Inference},
-  author    = {Pope, Reiner and Douglas, Sholto and Chowdhery, Aakanksha and Devlin, Jacob and Bradbury, James and Heek, Jonathan and Xiao, Kefan and Agrawal, Shivani and Dean, Jeff},
+  author    = {Pope, Reiner and Douglas, Sholto and Chowdhery, Aakanksha and Devlin, Jacob and Bradbury, James and Levskaya, Anselm and Heek, Jonathan and Xiao, Kefan and Agrawal, Shivani and Dean, Jeff},
   booktitle = {Proceedings of Machine Learning and Systems (MLSys)},
   year      = {2023}
 }
@@ -186,7 +186,7 @@
 
 @inproceedings{li2024instructcoder,
   title     = {{InstructCoder}: Instruction Tuning Large Language Models for Code Editing},
-  author    = {Li, Kaixin and Hu, Qisheng and Zhao, Xu and Chen, Hui and Xie, Yuxi and Liu, Tiedong and Xie, Qizhe and He, Junxian},
+  author    = {Li, Kaixin and Hu, Qisheng and Zhao, James Xu and Chen, Hui and Xie, Yuxi and Liu, Tiedong and Shieh, Michael and He, Junxian},
   booktitle = {Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Student Research Workshop)},
   year      = {2024}
 }
@@ -206,22 +206,22 @@
 }
 
 @misc{vllm2026dynamicsd,
-  title        = {[{V1}][Spec Decode] Add Dynamic {SD}},
+  title        = {{[{V1}][Spec Decode] Add Dynamic {SD}}},
   author       = {Ranjan, Ekagra},
   year         = {2026},
   howpublished = {vLLM pull request \#32374, \url{https://github.com/vllm-project/vllm/pull/32374}}
 }
 
 @misc{vllm2026issue49548,
-  title        = {Dynamic speculative decoding causes aggregate-throughput collapse under concurrency at the batch-size threshold},
-  author       = {{vLLM contributors}},
+  title        = {{[Performance]: Dynamic speculative decoding (num\_speculative\_tokens\_per\_batch\_size) causes catastrophic aggregate-throughput collapse under concurrency at the batch-size threshold ({MTP}, {V1/PIECEWISE})}},
+  author       = {{tobby168}},
   year         = {2026},
   howpublished = {vLLM issue \#49548, \url{https://github.com/vllm-project/vllm/issues/49548}}
 }
 
 @misc{vllm2026issue49986,
-  title        = {{DSD} arms pay a large baseline tax vs no-spec under production defaults},
-  author       = {{vLLM contributors}},
+  title        = {{[Perf] {DSD} arms pay a large baseline tax vs no-spec under production defaults; {PIECEWISE} override identified as one factor}},
+  author       = {{seongyun1104}},
   year         = {2026},
   howpublished = {vLLM issue \#49986, \url{https://github.com/vllm-project/vllm/issues/49986}}
 }
@@ -322,15 +322,15 @@
 }
 
 @misc{vllm2026issue51510,
-  title        = {[Bug][Spec Decode] {MRV2} {AutoRegressiveSpeculator} ignores dynamic {K} from scheduler --- {DSD} non-functional on {MRV2}},
-  author       = {{vLLM contributors}},
+  title        = {{[Bug][Spec Decode] {MRV2} {AutoRegressiveSpeculator} ignores dynamic {K} from scheduler --- {DSD} non-functional on {MRV2}}},
+  author       = {{Suppressor72}},
   year         = {2026},
   howpublished = {vLLM issue \#51510, \url{https://github.com/vllm-project/vllm/issues/51510}}
 }
 
 @misc{vllm2026pr57053,
-  title        = {[Bugfix][{MRV2}][Spec Decode] Honor dynamic {K} in autoregressive speculators},
-  author       = {{vLLM contributors}},
+  title        = {{[Bugfix][{MRV2}][Spec Decode] Honor dynamic {K} in autoregressive speculators, 1.2--1.3x kernel perf improvement}},
+  author       = {{yewentao256}},
   year         = {2026},
   howpublished = {vLLM pull request \#57053, \url{https://github.com/vllm-project/vllm/pull/57053}}
 }
