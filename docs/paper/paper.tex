@@ -25,7 +25,7 @@
 \begin{document}
 
 \twocolumn[
-\mlsystitle{\sys{}: Measured, Self-Correcting Draft-Length Tables\\for Dynamic Speculative Decoding}
+\mlsystitle{\sys{}: Measured, Self-Correcting Draft-Length Tables\texorpdfstring{\\}{ }for Dynamic Speculative Decoding}
 
 \begin{mlsysauthorlist}
 \mlsysauthor{Anonymous Authors}{anon}
@@ -137,7 +137,7 @@ The controller is a vLLM general plugin that answers the scheduler's draft-lengt
 \section{Implementation}
 \label{sec:impl}
 
-\sys{} is about 1{,}880 lines of Python with 104 test functions. The tuner is one command (\texttt{dsd-tuner run}). Because the table is a vLLM argument and the controller an installed plugin enabled by environment variables, \sys{} needs no engine changes and deploys into serving stacks such as llm-d by configuration alone. The tuner runs unchanged on vLLM's V1 and V2 runners. Code, per-GPU tables, benchmark scripts, raw results and analysis scripts are available as an anonymized artifact.\footnote{Anonymized link provided to reviewers on OpenReview.}
+\sys{} is about 1{,}880 lines of Python with 104 test functions. The tuner is one command (\texttt{dsd-tuner run}). Because the table is a vLLM argument and the controller an installed plugin enabled by environment variables, \sys{} needs no engine changes and deploys into serving stacks such as llm-d by configuration alone. The tuner runs unchanged on vLLM's V1 and V2 runners. Code, per-GPU tables, benchmark scripts, raw results and analysis scripts are available as an anonymized artifact.\footnote{\url{https://anonymous.4open.science/r/tabletune-7364}}
 
 %-------------------------------------------------------------------------------
 \section{Evaluation}
@@ -320,5 +320,11 @@ Tables do not transfer: on a mixture-of-experts model a table written for a dens
 
 \bibliography{paper}
 \bibliographystyle{mlsys2025}
+
+%-------------------------------------------------------------------------------
+% Required by the MLSys 2027 call for papers; placed after the references and not counted toward the page limit.
+\section*{AI Usage Disclosure}
+
+During the preparation of this work, Anthropic's Claude Sonnet was used to assist the authors in summarizing preliminary literature during the background phase and structuring the initial outline of the related work section. The tool was also used to generate boilerplate Python scripts for rendering the graphs. Anthropic's Claude Code was used for submission formatting checks and to write a script that checks every reference against public bibliographic indices; the authors confirmed each flagged entry by hand. The authors manually scrutinized all generated scripts, conducted the actual evaluations, and independently drafted the final text. The authors take full responsibility for the manuscript's accuracy and integrity.
 
 \end{document}
