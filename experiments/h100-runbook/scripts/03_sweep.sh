@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# The paper's main comparison on the H100, three runs:
+# The main comparison on the H100, three runs:
 # no speculation, fixed lengths 1/2/3, the H100-tuned table, vLLM's docs table, and the A10G's table
 # (to test portability), at 1-256 open requests, code prompts at T=1.0.
 #   MODEL=4b bash 03_sweep.sh               (needs 02_tune.sh first; runs repeats 1 2 3)

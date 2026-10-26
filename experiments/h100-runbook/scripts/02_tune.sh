@@ -12,7 +12,7 @@ mkdir -p $TUNE /work/out
 dsd-tuner run --target "$TARGET_MODEL" --drafter "$DRAFTER_MODEL" \
   --prompts-file docs/examples/code-prompts.jsonl --isl 32 --temperature 1.0 \
   --max-num-seqs $MAX_SEQS --batch-sizes "$BATCH_SIZES" --dtype $DTYPE --out $TUNE 2>&1 | tee /work/out/tune-$TAG.log
-# The profiler's wall time goes in the paper (the A10G took 22 min up to 128)
+# The profiler's wall time is the tuner's cost (the A10G took 22 min up to 128)
 grep -h "took\|elapsed" $TUNE/costs_k*.log 2>/dev/null | tail -4
 
 # 2. Acceptance and table for the seven workloads, greedy (the A10G shift study used these)

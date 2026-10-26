@@ -19,6 +19,6 @@ experiments/results/dsd-overhead*/**/*.sqlite
 # git bundles made for copying the repo to test machines
 *.bundle
 
-# paper: the figures in docs/paper/build and docs/paper/paper.pdf are committed (build/ above would hide the figures); PNG previews are not
-!docs/paper/build/
-docs/paper/build/*.png
+
+# figures written by experiments/h100/analysis (FIG_OUT defaults here)
+experiments/results/figures/

@@ -12,7 +12,7 @@ D=overlays/$CFG; mkdir -p $D
 # LLMD_GUIDES: the guides/ folder of an llm-d clone (main at 4dc1573); kustomize needs it relative to the overlay
 LLMD_GUIDES=${LLMD_GUIDES:?set LLMD_GUIDES to <llm-d clone>/guides}
 GUIDE=$(python3 -c "import os,sys; print(os.path.relpath(sys.argv[1], sys.argv[2]))" "$LLMD_GUIDES" "$D")
-# NODE: pin all replicas to one node (as in the paper); unset, any H100 node
+# NODE: pin all replicas to one node (as in the committed results); unset, any H100 node
 if [[ -n "${NODE:-}" ]]; then NODESEL="{kubernetes.io/hostname: $NODE}"; else NODESEL="{nvidia.com/gpu.product: NVIDIA-H100-80GB-HBM3}"; fi
 IMG_TAG=$NIGHTLY; V2=1; SPEC=""; CTRL=""
 eagle() { echo "{\"method\":\"eagle3\",\"model\":\"AngelSlim/Qwen3-8B_eagle3\",\"num_speculative_tokens\":$1$2}"; }

@@ -1,4 +1,4 @@
-"""Experiments 1-3 in the paper's terms, from experiments/results/h100-studies/baselines.
+"""Experiments 1-3 (adaptive baselines, jumping load, open loop) and the DFlash workload switch, from experiments/results/h100-studies/baselines.
 
 Usage: python baselines.py [closed|vary|open|drift ...]
 

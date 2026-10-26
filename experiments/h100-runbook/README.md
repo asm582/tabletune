@@ -1,6 +1,6 @@
-# H100 runbook: what to run for the paper, on OpenShift
+# H100 runbook: running the experiments on OpenShift
 
-Reviewers' main objection: everything was measured on two older, small GPUs with 2-core hosts. This runbook repeats the paper's experiments on **one H100 80 GB** with a normal host, adds an **8B** target, and tests whether the graph-mode overhead depends on host CPUs. Every step is a script in `scripts/`; run them in order inside one pod.
+The first results were measured on two older, small GPUs with 2-core hosts. This runbook repeats those experiments on **one H100 80 GB** with a normal host, adds an **8B** target, and tests whether the graph-mode overhead depends on host CPUs. Every step is a script in `scripts/`; run them in order inside one pod.
 
 **Total time on one GPU:** about 30–35 hours for everything, about 15 hours for the recommended plan, about 9 hours for the minimum. **With three H100s in parallel** (section 4b): about 12, 6–8 and 4 hours. Each script can run on its own, in `tmux` or with `nohup`, and writes to the persistent volume, so a pod restart loses at most the step in progress.
 
@@ -10,17 +10,17 @@ Reviewers' main objection: everything was measured on two older, small GPUs with
 | **Recommended** | P0 + shift/jumping load with `QUICK=1` + 8B with 1 run (`RUNS=1`) | **~15 h** | **~6–8 h** |
 | Minimum | tune 4B, main sweep 3 runs, overhead at 16 CPUs | ~9 h | ~4 h |
 
-## What the paper needs, in priority order
+## What to run, in priority order
 
 | Priority | Experiment | Script | Time | What it answers |
 |---|---|---|---|---|
 | **P0** | Setup, environment record, smoke test | `00`, `01` | 0.5 h + downloads | |
 | **P0** | Tune Qwen3-4B on the H100 (step costs to batch 256, 7 acceptance profiles) | `02` (MODEL=4b) | 1–1.5 h | the H100's table, and whether the best length still depends on load |
-| **P0** | Main sweep, 4B: no spec, lengths 1/2/3, tuned table, docs table, 1–256 requests, **3 runs**; plus the A10G's table once | `03` (MODEL=4b) | 7–8 h | the paper's Table 1 on a modern GPU; table portability A10G → H100 |
+| **P0** | Main sweep, 4B: no spec, lengths 1/2/3, tuned table, docs table, 1–256 requests, **3 runs**; plus the A10G's table once | `03` (MODEL=4b) | 7–8 h | the worst-loss comparison on a modern GPU; table portability A10G → H100 |
 | **P0** | Graph-mode overhead, 16 CPUs | `05` (MODEL=4b) | 1.5 h | is the 12–25% piecewise-graph cost a small-host artefact? |
 | P1 | Traffic shift + jumping load, 4B, 3 runs | `pick_conc.py`, then `04` | 9–10 h | the controller result, on a modern GPU |
 | P1 | Graph-mode overhead, 4 CPUs (second pod) | `05` in `pod-cpu4.yaml` | 1.5 h | where the overhead appears as the host shrinks |
-| P2 | Tune + main sweep, **Qwen3-8B** + `AngelSlim/Qwen3-8B_eagle3` | `02`, `03` (MODEL=8b) | 8–9 h | a larger target (reviewers asked for 8B+) |
+| P2 | Tune + main sweep, **Qwen3-8B** + `AngelSlim/Qwen3-8B_eagle3` | `02`, `03` (MODEL=8b) | 8–9 h | a larger target (8B) |
 
 If you only have one day of GPU time: run all of P0 (about 11 hours), then P1's shift experiment if there's time left.
 
@@ -114,7 +114,7 @@ MODEL=4b bash 05_overhead.sh 2>&1 | tee /work/out/05-cpu16.log
   - fixed length 3 forced to piecewise graphs;
   - no speculation in both graph modes.
 
-  The paper found 12–25% lost at 1 request on 2-core hosts.
+  On 2-core hosts we measured 12–25% lost at 1 request.
 
 **Step 5: traffic shift and jumping load** (P1, 9–10 h). First pick the load where the translation and math tables disagree on this GPU:
 ```bash
@@ -230,7 +230,7 @@ for r in 1 2 3; do echo "== run$r"; oc exec dsd-h100-run$r -- bash -c 'tail -1 /
 
 ## 5. What to send back
 
-`h100-results.tgz` contains everything I need to update the paper:
+`h100-results.tgz` contains everything needed to analyze the results:
 - the `env-*.txt` records;
 - the tuner folders;
 - the sweeps and their 3-run means;

@@ -10,7 +10,7 @@ spec:
   restartPolicy: Never
   nodeSelector:
     nvidia.com/gpu.product: NVIDIA-H100-80GB-HBM3
-    # kubernetes.io/hostname: <node>     # optional: pin a node (the paper used one idle node per study)
+    # kubernetes.io/hostname: <node>     # optional: pin a node (the committed results used one idle node per study)
   tolerations:
     - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
   containers:

@@ -1,51 +1,38 @@
-# Reproducing the paper
+# Reproducing the results
 
-The paper (`docs/paper/paper.tex`, *TableTune: measured, self-correcting draft-length tables for vLLM Dynamic Speculative
-Decoding*) is built from this repository alone. There are three levels of reproduction:
+Every result in this repository can be reproduced from the repository alone, at two levels:
 
-1. **Build the PDF** from the committed figures (no GPU, a minute).
-2. **Re-derive every number and figure** from the committed results (no GPU, a minute).
-3. **Re-run the experiments** on H100s (an OpenShift cluster with a shared volume; scripts below).
+1. **Re-derive every number and figure** from the committed results (no GPU, a minute).
+2. **Re-run the experiments** on H100s (an OpenShift cluster with a shared volume; scripts below).
 
-CI does levels 1 and 2 on every pull request (`.github/workflows/paper.yml`, the PDF is uploaded as the `paper`
-artifact) and checks that the committed tables rebuild from the committed profiles (`.github/workflows/ci.yml`).
+CI checks that the committed tables rebuild from the committed profiles (`.github/workflows/ci.yml`).
 
-## 1. Build the PDF
-
-The built PDF is committed as `docs/paper/paper.pdf`. To rebuild it:
+## 1. Re-derive the numbers and figures (no GPU)
 
 ```bash
-bash docs/paper/build.sh        # Tectonic 0.17.0; writes docs/paper/paper.pdf
+python -m pip install -e . matplotlib==3.10.8    # the figures were drawn with 3.10.8; other versions render slightly differently
+python experiments/h100/analysis/figs_main.py       # load sweep and controller figures -> experiments/results/figures/ (FIG_OUT=<dir> to write elsewhere)
+python experiments/h100/analysis/figs_baselines.py   # TurboSpec- and Nightjar-style comparison
+python experiments/h100/analysis/figs_llmd.py        # llm-d
 ```
 
-The figures the paper includes are committed in `docs/paper/build/` (`fig_design.tex` is TikZ).
+Each analysis script prints the numbers for one result:
 
-## 2. Re-derive the numbers and figures (no GPU)
-
-```bash
-python -m pip install -e . matplotlib==3.10.8    # the paper's figures were drawn with 3.10.8; other versions render slightly differently
-python experiments/h100/analysis/figs_paper.py       # Figures 1 and 4 -> docs/paper/build/ (FIG_OUT=<dir> to write elsewhere)
-python experiments/h100/analysis/figs_baselines.py   # Figure 3
-python experiments/h100/analysis/figs_llmd.py        # Figure 5
-```
-
-Each analysis script prints the paper's numbers for one result:
-
-| Paper | Command (`experiments/h100/analysis/…`) | Data (`experiments/results/…`) |
+| Result | Command (`experiments/h100/analysis/…`) | Data (`experiments/results/…`) |
 |---|---|---|
-| Figure 1 (no fixed length is best) | `figs_paper.py` | `sweeps/code128t-h100v2{,-r2,-r3}` |
-| Table 1 (worst loss, every GPU and drafter) | `compare_gpus.py` → `h100-studies/comparison/COMPARISON.md` | `sweeps/*-h100v2*` (H100 V2), `sweeps/*-h100*` (H100 V1), `sweeps/*-t4*`, `*-a10g*` (older GPUs) |
-| Q1 mixture of experts | `moe.py` | `h100-studies/moe/results.csv`, tuner `tuner-moe-h100v2` |
-| Q1 long prompts (1,024 and 3,072 tokens) | `credib.py` (`long1024`, `long3072`) | `h100-studies/credib/results.csv`, tuners `tuner-eagle-h100v2-long{1024,3072}` |
-| Q1 jumping load | `shift.py res-h100v2m` (e2) and `baselines.py vary` | `h100-studies/shift/res-h100v2m`, `h100-studies/baselines/vary` |
-| Q1 open-loop arrivals | `baselines.py open` | `h100-studies/baselines/results.csv` (`open`) |
-| Q2, Figure 3 (TurboSpec- and Nightjar-style) | `baselines.py closed`, `figs_baselines.py` | `h100-studies/baselines/results.csv` (`closed-eagle`, `closed-dflash`) |
-| Q3, Table 2 top (controller on mistuned tables), Figure 4a | `compare_gpus.py` (controller section), `figs_paper.py` | `sweeps/ctrlval-*`, `ngram-ctrl-*`, `draft-ctrl-*`, `dflash-ctrl-*` |
-| Q3, Table 2 bottom (workload switch) | `shift.py res-h100v2m013` (V2), `shift.py res-h100m` (V1); DFlash: `baselines.py drift` | `h100-studies/shift/`, `h100-studies/baselines/drift` |
-| Q3 Figure 4b (DFlash workload switch) | `figs_paper.py` | `h100-studies/baselines/drift/res-s1` |
-| Q4, Figure 5 (llm-d) | `llmd.py qwen3-32b`, `llmd.py qwen3-8b`, `figs_llmd.py` | `h100-studies/llmd/qwen3-{32b,8b}.csv`, tuners `tune-h100-32b-tp2-llmd-nightly{,-k013}` (TP=2), `tune-h100-8b-llmd-nightly{,-k013}` |
-| Q6 DFlash profile miss | `credib.py` (`dflash-acc`) | `h100-studies/credib/results.csv`, tuner `dflash-tuner-h100v2-acc` |
-| Q6 merge tolerance | `credib.py` (`mt-*`); tables: `experiments/h100/tables/build_mergetol.py` | `h100-studies/credib/results.csv`, `experiments/h100/tables/mergetol_tables.json` |
+| No fixed length is best at every load (H100 V2 vs V1) | `figs_main.py` | `sweeps/code128t-h100v2{,-r2,-r3}` |
+| Worst loss against the best fixed length, every GPU and drafter | `compare_gpus.py` → `h100-studies/comparison/COMPARISON.md` | `sweeps/*-h100v2*` (H100 V2), `sweeps/*-h100*` (H100 V1), `sweeps/*-t4*`, `*-a10g*` (older GPUs) |
+| Mixture-of-experts target | `moe.py` | `h100-studies/moe/results.csv`, tuner `tuner-moe-h100v2` |
+| Long prompts (1,024 and 3,072 tokens) | `credib.py` (`long1024`, `long3072`) | `h100-studies/credib/results.csv`, tuners `tuner-eagle-h100v2-long{1024,3072}` |
+| Jumping load | `shift.py res-h100v2m` (e2) and `baselines.py vary` | `h100-studies/shift/res-h100v2m`, `h100-studies/baselines/vary` |
+| Open-loop arrivals | `baselines.py open` | `h100-studies/baselines/results.csv` (`open`) |
+| TurboSpec- and Nightjar-style control | `baselines.py closed`, `figs_baselines.py` | `h100-studies/baselines/results.csv` (`closed-eagle`, `closed-dflash`) |
+| Controller on mistuned tables | `compare_gpus.py` (controller section), `figs_main.py` | `sweeps/ctrlval-*`, `ngram-ctrl-*`, `draft-ctrl-*`, `dflash-ctrl-*` |
+| Controller after a workload switch | `shift.py res-h100v2m013` (V2), `shift.py res-h100m` (V1); DFlash: `baselines.py drift` | `h100-studies/shift/`, `h100-studies/baselines/drift` |
+| DFlash workload switch over time | `figs_main.py` | `h100-studies/baselines/drift/res-s1` |
+| llm-d end to end | `llmd.py qwen3-32b`, `llmd.py qwen3-8b`, `figs_llmd.py` | `h100-studies/llmd/qwen3-{32b,8b}.csv`, tuners `tune-h100-32b-tp2-llmd-nightly{,-k013}` (TP=2), `tune-h100-8b-llmd-nightly{,-k013}` |
+| DFlash profile miss | `credib.py` (`dflash-acc`) | `h100-studies/credib/results.csv`, tuner `dflash-tuner-h100v2-acc` |
+| Merge tolerance | `credib.py` (`mt-*`); tables: `experiments/h100/tables/build_mergetol.py` | `h100-studies/credib/results.csv`, `experiments/h100/tables/mergetol_tables.json` |
 | Tuned tables (every setting) | `dsd-tuner schedule --costs '<dir>/costs_k*.json' --acceptance <dir>/acceptance.json --out <tmp>` | the `*-h100`, `*-h100v2` tuner folders |
 
 The jumping-load and workload-switch results are the per-window `segments` of the `gen.py` result files
@@ -55,8 +42,8 @@ and vLLM metric dumps (`llmd_csv.py`). The per-request AIPerf records stay on th
 ## 3. Re-run the experiments
 
 **Hardware.** H100 80 GB SXM GPUs on OpenShift, whole GPUs (no MIG), 16 CPUs and 128 GiB per single-GPU pod; one
-read-write-many volume (`dsd-work`, mounted at `/work`, 600 GiB) shared by all pods. Results in the paper ran each
-study in its own pod; the H100 V1 matrix ran one pod per otherwise idle node (piecewise CUDA graphs are sensitive to
+read-write-many volume (`dsd-work`, mounted at `/work`, 600 GiB) shared by all pods. Each study ran
+in its own pod; the H100 V1 matrix ran one pod per otherwise idle node (piecewise CUDA graphs are sensitive to
 host contention, see `experiments/h100-runbook/README.md`).
 
 **Software.** Two environments on the volume:
@@ -82,24 +69,24 @@ resumes.
 
 ### What to run for each result
 
-| Paper | Script | Notes |
+| Result | Script | Notes |
 |---|---|---|
-| Table 1, H100 V1 | `experiments/h100-runbook/scripts/matrix.sh <study>`, study = `eagle awq ngram draft dflash specbench` | V1 environment, 3 runs, one idle node per study (`matrix_node.sh`) |
-| Table 1, H100 V2; Figure 1 | `MATRIX_V2=1 bash matrix.sh <study>`; AWQ repeat 3 and the 0/1/3 table: `v2_finish_awq.sh` | |
-| Table 1, older GPUs | the T4/A10G study in `experiments/` (`experiments/README.md`) | |
-| Table 2 top, Figure 4a | included in `matrix.sh` (controller stages) | |
-| Table 2 bottom (switch), Q1 jumping load | `matrix_shift.sh` (V1), `MATRIX_V2=1 bash matrix_shift.sh` (V2) | two `gen.py` clients per server |
-| Q1 Qwen3-8B | `experiments/h100-runbook/scripts/run_8b.sh` | V1 |
-| Q1 mixture of experts | `experiments/h100/studies/moe.sh` | `STAGES="tune sweep controller" RUNS="1 2 3"` |
-| Q1 long prompts | prompts (below), then `ISL=1024 LOADS="1 2 4 8 16 32 64 96 128" MAXB=128 bash long.sh` and `ISL=3072 LOADS="1 2 4 8 16 32 48 64" MAXB=64 bash long.sh` | 3,072 tokens stops at 64 (KV cache) |
-| Q1 open loop | `STUDY=open RUNS="1 2 3" bash open.sh "nospec k1 k3 tt tt013 ts nj"` | |
-| Q1 jumping load vs baselines | `RUNS="1 2 3" bash vary.sh` | |
-| Q2, Figure 3 | `STUDY=eagle RUNS="1 2 3" bash closed.sh "nospec k1 k2 k3 tt tt013 tt013-ctrl ts nj"` and `STUDY=dflash … "df-k3 df-k4 df-k8 df-tt df-tt-ctrl df-ts df-nj"` | baseline models: `experiments/h100/tables/ts_*.json` (`python -m turbospec_style.fit`) |
-| Q3 DFlash workload switch, Figure 4b | `drift_screen.sh`, then `RUNS="1 2 3" SCEN="s1 s2" bash drift.sh` | |
-| Q4, Figure 5 | `experiments/h100/llmd/qwen3-32b/` (the guide as shipped) and `qwen3-8b/`; see below | |
-| Q6 DFlash profile miss | `dflash_acc.sh` | uses `DSD_SYNTH_ACCEPT` (below) |
-| Q6 merge tolerance | `SETTING=eagle\|ngram\|specbench\|dflash bash mergetol.sh` | one pod per setting |
-| Q5/Q6 graph-mode overhead, profiling cost | `experiments/h100-runbook/scripts/05_overhead.sh`, `08_bf16_graphs.sh`; profiling time from the tuner logs | |
+| Worst-loss matrix, H100 V1 | `experiments/h100-runbook/scripts/matrix.sh <study>`, study = `eagle awq ngram draft dflash specbench` | V1 environment, 3 runs, one idle node per study (`matrix_node.sh`) |
+| Worst-loss matrix, H100 V2; load sweep figure | `MATRIX_V2=1 bash matrix.sh <study>`; AWQ repeat 3 and the 0/1/3 table: `v2_finish_awq.sh` | |
+| Worst-loss matrix, older GPUs | the T4/A10G study in `experiments/` (`experiments/README.md`) | |
+| Controller on mistuned tables | included in `matrix.sh` (controller stages) | |
+| Workload switch, jumping load | `matrix_shift.sh` (V1), `MATRIX_V2=1 bash matrix_shift.sh` (V2) | two `gen.py` clients per server |
+| Qwen3-8B | `experiments/h100-runbook/scripts/run_8b.sh` | V1 |
+| Mixture-of-experts target | `experiments/h100/studies/moe.sh` | `STAGES="tune sweep controller" RUNS="1 2 3"` |
+| Long prompts | prompts (below), then `ISL=1024 LOADS="1 2 4 8 16 32 64 96 128" MAXB=128 bash long.sh` and `ISL=3072 LOADS="1 2 4 8 16 32 48 64" MAXB=64 bash long.sh` | 3,072 tokens stops at 64 (KV cache) |
+| Open loop | `STUDY=open RUNS="1 2 3" bash open.sh "nospec k1 k3 tt tt013 ts nj"` | |
+| Jumping load vs baselines | `RUNS="1 2 3" bash vary.sh` | |
+| TurboSpec- and Nightjar-style control | `STUDY=eagle RUNS="1 2 3" bash closed.sh "nospec k1 k2 k3 tt tt013 tt013-ctrl ts nj"` and `STUDY=dflash … "df-k3 df-k4 df-k8 df-tt df-tt-ctrl df-ts df-nj"` | baseline models: `experiments/h100/tables/ts_*.json` (`python -m turbospec_style.fit`) |
+| DFlash workload switch | `drift_screen.sh`, then `RUNS="1 2 3" SCEN="s1 s2" bash drift.sh` | |
+| llm-d end to end | `experiments/h100/llmd/qwen3-32b/` (the guide as shipped) and `qwen3-8b/`; see below | |
+| DFlash profile miss | `dflash_acc.sh` | uses `DSD_SYNTH_ACCEPT` (below) |
+| Merge tolerance | `SETTING=eagle\|ngram\|specbench\|dflash bash mergetol.sh` | one pod per setting |
+| Graph-mode overhead, profiling cost | `experiments/h100-runbook/scripts/05_overhead.sh`, `08_bf16_graphs.sh`; profiling time from the tuner logs | |
 
 Long-prompt inputs (GovReport test split, cut to 1,024 and 3,072 tokens with the target's tokenizer):
 
@@ -137,9 +124,9 @@ sweep through the router; results go to `$WORK/llmd-32b/results`, then `analysis
 All are opt-in; the defaults reproduce the earlier T4/A10G results unchanged (the 158 unit tests pass).
 - `DSD_TP=<n>`: tensor-parallel size for the tuner's profilers (Qwen3-32B at TP=2 in llm-d).
 - `DSD_SYNTH_ACCEPT=<acceptance.json>`: profile step time with vLLM's synthetic rejection sampler at the measured
-  acceptance instead of rejecting every guess (Q6, DFlash).
+  acceptance instead of rejecting every guess (DFlash).
 - `make_schedule.py --merge-tol 0.02` / `build_schedule(..., merge_tol=)`: merge a narrow range only if that loses
-  less than 2% of its predicted goodput (Q6).
+  less than 2% of its predicted goodput.
 - `DSD_V2_MODEL_RUNNER=1` in `experiments/bench/launch_server.sh`: serve with vLLM's V2 model runner.
 
 ## Known gaps
@@ -147,5 +134,5 @@ All are opt-in; the defaults reproduce the earlier T4/A10G results unchanged (th
 - **Per-request records** (AIPerf `profile_export.jsonl`, `gen.py` request lists) and server logs are not committed
   (several GB); the committed summaries are what every table and figure uses.
 - **vLLM nightly `43b4aaea`** stalls when a table steps from length 2 to 1 under the V2 runner; such settings are
-  reported with the tuner's 0/1/3 table, as the paper says (Q5).
-- Results the paper marks as single runs are single runs here too.
+  reported with the tuner's 0/1/3 table.
+- Some results are single runs; their result folders say so.

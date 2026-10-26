@@ -1,4 +1,4 @@
-"""H100 workload switch (e1) and jumping-load (e2) metrics, 3 runs, in the paper's terms (Table 2, Q1).
+"""H100 workload switch (e1) and jumping-load (e2) metrics, 3 runs.
 Usage: python shift.py [res-h100v2m | res-h100v2m013 | res-h100m]   (V2 all-length table, V2 0/1/3 table, V1)"""
 import json, os, statistics as st, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
