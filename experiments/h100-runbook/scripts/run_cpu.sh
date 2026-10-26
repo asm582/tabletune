@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Pod dsd-h100-cpu4 (CFS quota 4 CPUs): graph-mode overhead at 4 CPUs, then pinned to 2 cores
-# (taskset) to match the paper's 2-core T4/A10G hosts. CPU manager is not static here, so the
+# (taskset) to match the 2-core T4/A10G hosts. CPU manager is not static here, so the
 # quota alone would let threads spread over all 224 host cores; taskset pins them.
 cd /work/runbook/scripts
 L=/work/out/pcpu-progress.log

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Tables built with the 2% merge tolerance (a narrow range merges only if that loses < 2% of its predicted goodput,
-# the paper's tie threshold) against the original tables and the fixed lengths, same session, matrix protocol, 3 runs.
+# the tie threshold used when comparing results) against the original tables and the fixed lengths, same session, matrix protocol, 3 runs.
 #   SETTING=eagle|ngram|specbench|dflash bash mergetol.sh
 set -uo pipefail
 STUDY=mt-$SETTING; source "$(dirname "$0")/common.sh"

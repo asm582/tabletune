@@ -1,5 +1,5 @@
 """T4 / A10G / H100 side by side: the same studies, metrics computed the same way.
-Paper Table 1 and the controller rows of Table 2.
+The worst-loss matrix and the controller results.
 Writes experiments/results/h100-studies/comparison/COMPARISON.md and comparison_long.csv (every config x load x GPU, mean/min/max over runs)."""
 import csv, glob, os, statistics as st, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

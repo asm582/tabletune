@@ -1,6 +1,6 @@
 # Run it on a GPU
 
-Install, serve and tune TableTune. To tune for another GPU or model in detail: [TUNING.md](TUNING.md). To reproduce the paper's experiments: [REPRODUCE.md](REPRODUCE.md).
+Install, serve and tune TableTune. To tune for another GPU or model in detail: [TUNING.md](TUNING.md). To reproduce the experiments: [REPRODUCE.md](REPRODUCE.md).
 
 ## Tesla T4 or A10G
 

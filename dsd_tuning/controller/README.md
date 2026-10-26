@@ -128,4 +128,4 @@ Built-in constraints: only K values present in the starting table are used (the 
 
 **The tuner measures what the hardware fixes; the controller tracks what the traffic changes.** Without the tuner's step costs the controller can only hold K; with wrong costs (profiled at the wrong prompt length) it would rebuild a misaligned table.
 
-Results: [the paper](../../docs/paper/paper.pdf) and [experiments/results/integration](../../experiments/results/integration/README.md). GPU test: [experiments/vllm_integration](../../experiments/vllm_integration/README.md).
+Results: [experiments/README.md](../../experiments/README.md) and [experiments/results/integration](../../experiments/results/integration/README.md). GPU test: [experiments/vllm_integration](../../experiments/vllm_integration/README.md).

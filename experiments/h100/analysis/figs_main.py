@@ -1,6 +1,6 @@
-"""Paper figures from the matrix data: fig_h100.pdf (H100 V2 vs V1, relative to the best fixed length) and
+"""Figures from the matrix data: fig_h100.pdf (H100 V2 vs V1, relative to the best fixed length) and
 fig_ctrl_gpus.pdf ((a) the controller repairing the same mistuned table on T4, A10G, H100 V1, H100 V2; (b) a
-workload switch with DFlash). Figures 1 and 4."""
+workload switch with DFlash)."""
 import csv, glob, os, statistics as st, sys
 import matplotlib; matplotlib.use("pdf")
 import matplotlib.pyplot as plt

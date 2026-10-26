@@ -1,5 +1,5 @@
 # Same as pod.yaml but with only 4 CPUs, for the graph-mode overhead study (scripts/05_overhead.sh):
-# the paper's 4-bit-target slowdown was CPU launch-bound on 2-core hosts.
+# the 4-bit-target slowdown on 2-core hosts was CPU launch-bound.
 # With the single ReadWriteOnce volume (pvc.yaml) delete pod dsd-h100 first; with the shared
 # ReadWriteMany volume (pvc-rwx.yaml) it can run next to the workers. Then: oc apply -f pod-cpu4.yaml
 apiVersion: v1

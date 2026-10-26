@@ -40,7 +40,7 @@ jobs:
             --acceptance experiments/results/tuner-v3-code/acceptance.json --max-num-seqs 128 --out /tmp/v3
           cmp <(python -c "import json; print(json.load(open('/tmp/v3/schedule.json')))") \
               <(python -c "import json; print(json.load(open('experiments/results/tuner-v3-code/schedule.json')))")
-      - name: dsd-tuner command rebuilds the H100 tables in the paper (V2 EAGLE-3, its 0/1/3 table, MoE, n-gram)
+      - name: dsd-tuner command rebuilds the committed H100 tables (V2 EAGLE-3, its 0/1/3 table, MoE, n-gram)
         run: |
           for t in tuner-eagle-h100v2 tuner-moe-h100v2 ngram-tuner-h100v2; do
             d=experiments/results/$t

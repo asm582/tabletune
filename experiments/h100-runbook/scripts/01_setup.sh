@@ -13,7 +13,7 @@ dsd-tuner --version
 python -c "import importlib.metadata as m; assert 'dsd_controller' in [e.name for e in m.entry_points(group='vllm.general_plugins')]; print('plugin registered')"
 python -m pytest -q -p no:cacheprovider tests | tail -1
 
-# 2. The benchmark client used for every sweep in the paper
+# 2. The benchmark client used for every sweep
 uv tool install aiperf==0.13.0
 ~/.local/bin/aiperf --version || true
 

@@ -1,4 +1,4 @@
-"""Build the 2%-merge-tolerance tables (paper Q6) from the committed H100 V2 profiles.
+"""Build the 2%-merge-tolerance tables from the committed H100 V2 profiles.
 EAGLE-3 keeps the original table's lengths 2/3, so no step from length 2 to 1 (which stalls this vLLM nightly).
 Usage: python build_mergetol.py [out.json]   (default: print; CI compares against mergetol_tables.json)"""
 import json

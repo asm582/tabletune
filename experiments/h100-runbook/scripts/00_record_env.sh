@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Record the hardware and software this run used. The paper needs every line of it.
+# Record the hardware and software this run used. Keep every line of it with the results.
 source "$(dirname "$0")/env.sh"
 mkdir -p /work/out
 {

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# The graph-mode cost (paper Section 6.8) on the H100: does a Dynamic SD table (piecewise CUDA
+# The graph-mode cost on the H100: does a Dynamic SD table (piecewise CUDA
 # graphs) cost throughput at low load, and does it depend on how many CPU cores the host gives?
 # Run it in the normal pod (16 CPUs) and again in the CPU-limited pod (openshift/pod-cpu4.yaml):
 #   MODEL=4b bash 05_overhead.sh            -> sweeps dsdov-h100-4b-cpu<N>-*
